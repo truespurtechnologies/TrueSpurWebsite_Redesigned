@@ -515,24 +515,6 @@ export default function HomePage() {
                 With deep expertise in healthcare, education, and digital transformation, we understand the unique
                 challenges these industries face and provide tailored solutions using cutting-edge technologies.
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
-                  <div className="text-gray-600">Projects Completed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
-                  <div className="text-gray-600">Happy Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
-                  <div className="text-gray-600">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
-                  <div className="text-gray-600">Support</div>
-                </div>
-              </div>
             </div>
             <div className="relative">
               <img
@@ -712,7 +694,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <p className="text-gray-600">info@truespur.com</p>
+                    <p className="text-gray-600">info@truespur.ai</p>
                   </div>
                 </div>
 
