@@ -1,0 +1,9 @@
+# Email Configuration Example
+# Copy this file to .env.local and fill in your actual values
+
+# Resend API Key - Get from https://resend.com/api-keys
+RESEND_API_KEY=your_resend_api_key_here
+
+# Email Configuration
+FROM_EMAIL=noreply@truespur.ai
+TO_EMAIL=info@truespur.ai

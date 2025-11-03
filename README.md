@@ -217,10 +217,28 @@ interface ContactFormData {
 - Email format validation using regex
 - Server-side validation mirroring client-side checks
 
-#### Current Implementation Notes
-- **Logging Only**: Currently logs submissions to console
-- **TODO**: Integrate with email service (SendGrid, Resend, etc.)
-- **Security**: No rate limiting or spam protection implemented yet
+#### Email Service Setup
+The contact form uses **Resend** for email delivery. To enable email functionality:
+
+1. **Get a Resend API Key:**
+   - Sign up at [resend.com](https://resend.com)
+   - Navigate to API Keys section
+   - Create a new API key
+
+2. **Configure Environment Variables:**
+   - Copy `env-example.txt` to `.env.local`
+   - Fill in your actual values:
+   ```env
+   RESEND_API_KEY=your_actual_resend_api_key
+   FROM_EMAIL=noreply@truespur.ai
+   TO_EMAIL=info@truespur.ai
+   ```
+
+3. **Domain Verification:**
+   - In your Resend dashboard, verify the `truespur.ai` domain
+   - This ensures emails are delivered properly
+
+**Note:** Without proper configuration, the form will log submissions but won't send emails.
 
 ---
 

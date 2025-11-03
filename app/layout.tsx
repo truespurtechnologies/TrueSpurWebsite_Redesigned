@@ -7,9 +7,12 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'TrueSpur Technology Solutions',
+  description: 'Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.',
+  generator: 'Next.js',
+  icons: {
+    icon: '/logo/truespur-main-logo.png',
+  },
 }
 
 export default function RootLayout({
