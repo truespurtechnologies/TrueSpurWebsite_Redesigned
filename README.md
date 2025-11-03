@@ -373,20 +373,153 @@ The contact form uses **Resend** for email delivery. To enable email functionali
 
 ---
 
-## Conclusion
+## Deployment Guide
 
-The TrueSpur Technology Solutions website is a well-structured Next.js application that effectively showcases the company's technical expertise and professional services. The codebase demonstrates modern React development practices with a focus on performance, accessibility, and user experience.
+### 🚀 **Recommended Deployment Platform: Vercel**
 
-**Strengths:**
-- Clean, maintainable code structure
-- Responsive and accessible design
-- Professional UI with consistent branding
-- Modern technology stack with latest versions
+**Why Vercel?**
+- Optimized for Next.js applications
+- Automatic deployments from Git
+- Global CDN for fast loading
+- Built-in analytics integration
+- Free tier available
 
-**Areas for Enhancement:**
-- Email service integration for contact forms
-- Asset management and content population
-- Security and performance monitoring
-- Comprehensive testing suite
+### 📋 **Pre-Deployment Checklist**
 
-The application successfully serves its purpose as a professional landing page and is well-positioned for future expansion and feature additions.
+#### 1. **Environment Variables Setup**
+```bash
+# Copy environment template
+cp env-example.txt .env.local
+
+# Edit with your actual values:
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx  # From Resend dashboard
+FROM_EMAIL=noreply@truespur.ai
+TO_EMAIL=info@truespur.ai
+```
+
+#### 2. **Domain Configuration**
+- Ensure `truespur.ai` domain is registered and accessible
+- Domain should point to your deployment platform
+
+#### 3. **Build Verification**
+```bash
+# Test production build
+pnpm build
+
+# Test production server locally
+pnpm start
+```
+
+### 🛠️ **Deployment Steps**
+
+#### **Step 1: Connect Repository**
+1. Push code to GitHub/GitLab/Bitbucket
+2. Connect repository to Vercel
+
+#### **Step 2: Configure Vercel Project**
+1. **Framework Preset**: Next.js
+2. **Root Directory**: `./` (leave default)
+3. **Build Command**: `pnpm build` (or your package manager)
+4. **Output Directory**: `.next` (automatic)
+
+#### **Step 3: Environment Variables**
+Add these in Vercel dashboard under Project Settings > Environment Variables:
+
+```
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx
+FROM_EMAIL=noreply@truespur.ai
+TO_EMAIL=info@truespur.ai
+```
+
+#### **Step 4: Domain Configuration**
+1. Go to Project Settings > Domains
+2. Add `www.truespur.ai` and `truespur.ai`
+3. Configure DNS records as instructed by Vercel
+4. Set up redirects: `truespur.ai` → `www.truespur.ai`
+
+#### **Step 5: SSL Certificate**
+- Vercel provides automatic SSL certificates
+- HTTPS will be enabled automatically
+
+### 🔧 **Alternative Deployment Options**
+
+#### **Option 2: Netlify**
+```bash
+# Build command: pnpm build
+# Publish directory: .next
+# Environment variables: Same as above
+```
+
+#### **Option 3: Railway/Fly.io**
+```bash
+# Docker-based deployment
+# Add environment variables in platform dashboard
+```
+
+#### **Option 4: Self-hosted**
+```bash
+# Build and export
+pnpm build
+pnpm export
+
+# Deploy static files to any hosting provider
+```
+
+### 🌐 **Domain Setup Instructions**
+
+#### **DNS Configuration for www.truespur.ai**
+```
+Type: CNAME
+Name: www
+Value: your-vercel-app.vercel.app
+```
+
+```
+Type: A
+Name: @
+Value: [Vercel provided IPs]
+```
+
+### ✅ **Post-Deployment Verification**
+
+1. **Domain Access**: Visit `https://www.truespur.ai`
+2. **HTTPS**: Ensure SSL certificate is active
+3. **Contact Form**: Test email functionality
+4. **Mobile Responsiveness**: Check on mobile devices
+5. **Performance**: Run Lighthouse audit
+
+### 🔒 **Security Considerations**
+
+- **API Keys**: Never commit to repository
+- **Environment Variables**: Always use platform's secure variable storage
+- **Rate Limiting**: Consider implementing for contact form
+- **Monitoring**: Set up error tracking and analytics
+
+### 📊 **Performance Optimization**
+
+- **Image Optimization**: Next.js handles automatically
+- **CDN**: Vercel provides global CDN
+- **Caching**: Configure appropriate cache headers
+- **Bundle Analysis**: Monitor bundle sizes
+
+### 🆘 **Troubleshooting**
+
+**Common Issues:**
+- **Build Failures**: Check TypeScript errors
+- **Email Not Working**: Verify Resend API key
+- **Domain Not Loading**: Check DNS propagation (can take 24-48 hours)
+- **SSL Issues**: Wait for certificate generation
+
+**Debug Commands:**
+```bash
+# Check build locally
+pnpm build
+
+# Check environment variables
+printenv | grep RESEND
+
+# Test API endpoint
+curl -X POST https://your-domain.com/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"firstName":"Test","lastName":"User","email":"test@example.com","projectType":"Website","message":"Test"}'
+```

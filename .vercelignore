@@ -1,0 +1,43 @@
+# Dependencies
+node_modules
+.pnpm-debug.log*
+
+# Testing
+coverage
+
+# Next.js
+.next/
+out/
+
+# Production builds
+build
+dist
+
+# Environment variables
+.env*
+
+# Debug files
+*.log
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation (keep README.md)
+docs/
+*.md
+!README.md
