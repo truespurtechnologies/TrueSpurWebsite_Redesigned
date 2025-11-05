@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { Resend } from "resend"
+import nodemailer from "nodemailer"
 
 interface ContactFormData {
   firstName: string
@@ -24,18 +24,33 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 })
     }
 
-    // Get environment variables
-    const resendApiKey = process.env.RESEND_API_KEY
+    // Get Spaceship email configuration
+    const smtpHost = process.env.SMTP_HOST
+    const smtpPort = parseInt(process.env.SMTP_PORT || "587")
+    const smtpUser = process.env.SMTP_USER
+    const smtpPass = process.env.SMTP_PASS
     const fromEmail = process.env.FROM_EMAIL || "noreply@truespur.ai"
     const toEmail = process.env.TO_EMAIL || "info@truespur.ai"
 
-    if (!resendApiKey) {
-      console.error("RESEND_API_KEY environment variable is not set")
+    if (!smtpHost || !smtpUser || !smtpPass) {
+      console.error("Spaceship email configuration is incomplete")
       return NextResponse.json({ error: "Email service is not configured" }, { status: 500 })
     }
 
-    // Initialize Resend
-    const resend = new Resend(resendApiKey)
+    // Create nodemailer transporter for Spaceship SMTP
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpPort === 465, // true for 465, false for other ports
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
+      // Additional security options
+      tls: {
+        rejectUnauthorized: false, // May be needed for some email providers
+      },
+    })
 
     // Format the email content for the recipient
     const recipientEmailContent = `
@@ -72,19 +87,22 @@ TrueSpur Technology Solutions Team
 
     try {
       // Send email to the company
-      await resend.emails.send({
-        from: fromEmail,
+      await transporter.sendMail({
+        from: `"TrueSpur Website" <${fromEmail}>`,
         to: toEmail,
         subject: `New Contact Form Submission: ${body.projectType} - ${body.firstName} ${body.lastName}`,
         text: recipientEmailContent,
+        // Optional: Add HTML version
+        html: recipientEmailContent.replace(/\n/g, '<br>'),
       })
 
       // Send confirmation email to the sender
-      await resend.emails.send({
-        from: fromEmail,
+      await transporter.sendMail({
+        from: `"TrueSpur Technology Solutions" <${fromEmail}>`,
         to: body.email,
         subject: "Thank you for contacting TrueSpur Technology Solutions",
         text: senderEmailContent,
+        html: senderEmailContent.replace(/\n/g, '<br>'),
       })
 
       // Log successful submission

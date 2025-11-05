@@ -218,27 +218,31 @@ interface ContactFormData {
 - Server-side validation mirroring client-side checks
 
 #### Email Service Setup
-The contact form uses **Resend** for email delivery. To enable email functionality:
+The contact form uses **Spaceship domain email** via SMTP. To enable email functionality:
 
-1. **Get a Resend API Key:**
-   - Sign up at [resend.com](https://resend.com)
-   - Navigate to API Keys section
-   - Create a new API key
+1. **Access Your Spaceship Email Settings:**
+   - Log in to your Spaceship account
+   - Go to Email section for `truespur.ai`
+   - Note your SMTP settings and credentials
 
 2. **Configure Environment Variables:**
    - Copy `env-example.txt` to `.env.local`
-   - Fill in your actual values:
+   - Fill in your actual Spaceship email values:
    ```env
-   RESEND_API_KEY=your_actual_resend_api_key
+   SMTP_HOST=smtp.spaceship.com
+   SMTP_PORT=587
+   SMTP_USER=your-email@truespur.ai
+   SMTP_PASS=your-spaceship-email-password
    FROM_EMAIL=noreply@truespur.ai
    TO_EMAIL=info@truespur.ai
    ```
 
-3. **Domain Verification:**
-   - In your Resend dashboard, verify the `truespur.ai` domain
-   - This ensures emails are delivered properly
+3. **Verify Email Account:**
+   - Ensure your Spaceship email account is active
+   - Test sending/receiving emails from the account
+   - Check that SMTP settings are correct in Spaceship dashboard
 
-**Note:** Without proper configuration, the form will log submissions but won't send emails.
+**Note:** Contact Spaceship support if you need the exact SMTP server details for your account.
 
 ---
 
@@ -391,8 +395,11 @@ The contact form uses **Resend** for email delivery. To enable email functionali
 # Copy environment template
 cp env-example.txt .env.local
 
-# Edit with your actual values:
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx  # From Resend dashboard
+# Edit with your actual Spaceship email values:
+SMTP_HOST=smtp.spaceship.com
+SMTP_PORT=587
+SMTP_USER=your-email@truespur.ai
+SMTP_PASS=your-spaceship-email-password
 FROM_EMAIL=noreply@truespur.ai
 TO_EMAIL=info@truespur.ai
 ```
@@ -426,7 +433,10 @@ pnpm start
 Add these in Vercel dashboard under Project Settings > Environment Variables:
 
 ```
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx
+SMTP_HOST=smtp.spaceship.com
+SMTP_PORT=587
+SMTP_USER=your-email@truespur.ai
+SMTP_PASS=your-spaceship-email-password
 FROM_EMAIL=noreply@truespur.ai
 TO_EMAIL=info@truespur.ai
 ```
@@ -506,7 +516,7 @@ Value: [Vercel provided IPs]
 
 **Common Issues:**
 - **Build Failures**: Check TypeScript errors
-- **Email Not Working**: Verify Resend API key
+- **Email Not Working**: Verify Spaceship SMTP settings and credentials
 - **Domain Not Loading**: Check DNS propagation (can take 24-48 hours)
 - **SSL Issues**: Wait for certificate generation
 
@@ -515,8 +525,8 @@ Value: [Vercel provided IPs]
 # Check build locally
 pnpm build
 
-# Check environment variables
-printenv | grep RESEND
+# Test SMTP connection (replace with your actual credentials)
+telnet smtp.spaceship.com 587
 
 # Test API endpoint
 curl -X POST https://your-domain.com/api/contact \

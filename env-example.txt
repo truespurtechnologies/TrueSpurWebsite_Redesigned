@@ -1,9 +1,17 @@
 # Email Configuration Example
 # Copy this file to .env.local and fill in your actual values
 
-# Resend API Key - Get from https://resend.com/api-keys
-RESEND_API_KEY=your_resend_api_key_here
+# Spaceship Email SMTP Configuration
+# Get these from your Spaceship email settings
+SMTP_HOST=smtp.spaceship.com
+SMTP_PORT=587
+SMTP_USER=your-email@truespur.ai
+SMTP_PASS=your-spaceship-email-password
 
 # Email Configuration
 FROM_EMAIL=noreply@truespur.ai
 TO_EMAIL=info@truespur.ai
+
+# Alternative: If Spaceship provides API credentials
+# SPACESHIP_API_KEY=your_api_key_here
+# SPACESHIP_EMAIL_DOMAIN=truespur.ai
