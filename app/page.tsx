@@ -5,6 +5,16 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
 import { useState, useEffect } from "react"
 import {
   ArrowRight,
@@ -27,6 +37,7 @@ import {
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isProductMobileOpen, setIsProductMobileOpen] = useState(false)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -86,6 +97,44 @@ export default function HomePage() {
     { id: "expertise", label: "Expertise" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
+  ]
+
+  const productSuite = [
+    {
+      category: "Healthcare",
+      items: [
+        {
+          label: "Clinexa",
+          href: "/products/healthcare/clinexa",
+          description: "Connected care platform for modern healthcare delivery.",
+        },
+        {
+          label: "HaloMe",
+          href: "/products/healthcare/halome",
+          description: "Patient engagement and outreach for hospitals and clinics.",
+        },
+      ],
+    },
+    {
+      category: "Digital Transformation",
+      items: [
+        {
+          label: "TrueSpur Billing",
+          href: "/products/digital-transformation/truespur-billing",
+          description: "Billing and invoicing built for growth-ready businesses.",
+        },
+      ],
+    },
+    {
+      category: "Artificial Intelligence",
+      items: [
+        {
+          label: "TafsirAI",
+          href: "/products/artificial-intelligence/tafsir-ai",
+          description: "AI-powered insights and understanding of Islamic Quran through advanced natural language processing.",
+        },
+      ],
+    },
   ]
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -183,19 +232,86 @@ export default function HomePage() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 ${
-                  activeSection === item.id ? "text-orange-600 border-b-2 border-orange-600" : "text-gray-600"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-6">
+            <NavigationMenu viewport={true}>
+              <NavigationMenuList>
+                {/* Home first */}
+                {navItems
+                  .filter((item) => item.id === "home")
+                  .map((item) => (
+                    <NavigationMenuItem key={item.id}>
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className={`text-sm font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-1.5 ${
+                          activeSection === item.id
+                            ? "text-orange-600 border-b-2 border-orange-600"
+                            : "text-gray-600"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    </NavigationMenuItem>
+                  ))}
+
+                {/* Product Suite immediately after Home */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-orange-600">
+                    Product Suite
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="md:min-w-[700px]">
+                    <div className="grid gap-6 p-4 md:grid-cols-3 bg-white rounded-xl border shadow-xl">
+                      {productSuite.map((group) => (
+                        <div key={group.category} className="space-y-3">
+                          <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                            {group.category}
+                          </p>
+                          <div className="space-y-2">
+                            {group.items.map((product) => (
+                              <NavigationMenuLink
+                                key={product.label}
+                                href={product.href}
+                                className="block rounded-lg border border-transparent px-3 py-2 text-left hover:border-orange-200 hover:bg-orange-50/80 transition-all duration-200"
+                              >
+                                <div className="text-sm font-semibold text-gray-900">
+                                  {product.label}
+                                </div>
+                                {product.description && (
+                                  <p className="mt-1 text-xs text-gray-600 leading-snug">
+                                    {product.description}
+                                  </p>
+                                )}
+                              </NavigationMenuLink>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* Remaining sections */}
+                {navItems
+                  .filter((item) => item.id !== "home")
+                  .map((item) => (
+                    <NavigationMenuItem key={item.id}>
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className={`text-sm font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-1.5 ${
+                          activeSection === item.id
+                            ? "text-orange-600 border-b-2 border-orange-600"
+                            : "text-gray-600"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    </NavigationMenuItem>
+                  ))}
+
+                <NavigationMenuIndicator />
+              </NavigationMenuList>
+              <NavigationMenuViewport />
+            </NavigationMenu>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -221,17 +337,72 @@ export default function HomePage() {
         {isMenuOpen && (
           <div className="md:hidden border-t bg-white/95 backdrop-blur">
             <nav className="container mx-auto px-4 py-4 space-y-2">
-              {navItems.map((item) => (
+              {/* Home first */}
+              {navItems
+                .filter((item) => item.id === "home")
+                .map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                      activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+
+              {/* Mobile Product Suite */}
+              <div className="mt-2 border-t border-gray-100 pt-3">
                 <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                    activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
-                  }`}
+                  onClick={() => setIsProductMobileOpen((open) => !open)}
+                  className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 >
-                  {item.label}
+                  <span>Product Suite</span>
+                  <span className={`transition-transform ${isProductMobileOpen ? "rotate-180" : "rotate-0"}`}>
+                    ▾
+                  </span>
                 </button>
-              ))}
+
+                {isProductMobileOpen && (
+                  <div className="mt-2 space-y-3 px-2">
+                    {productSuite.map((group) => (
+                      <div key={group.category} className="space-y-1">
+                        <p className="px-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                          {group.category}
+                        </p>
+                        <div className="space-y-1">
+                          {group.items.map((product) => (
+                            <a
+                              key={product.label}
+                              href={product.href}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="block w-full rounded-lg px-3 py-2 text-left text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                            >
+                              {product.label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Remaining sections */}
+              {navItems
+                .filter((item) => item.id !== "home")
+                .map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                      activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
               <div className="pt-4">
                 <Button
                   onClick={() => scrollToSection("contact")}
