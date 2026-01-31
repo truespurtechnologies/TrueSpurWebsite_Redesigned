@@ -519,7 +519,7 @@ export default function HomePage() {
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-yellow-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Users className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">Product Consulting</CardTitle>
+                <CardTitle className="text-xl">Product Research</CardTitle>
                 <CardDescription>
                   Strategic guidance and technical expertise to help you make informed decisions about your technology
                   investments.
@@ -675,33 +675,31 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Products &amp; Solutions</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Featured Solutions</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">World-Class Products, Proven Results</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Highlighting a few of our key products and solutions. Replace this placeholder content with your
-              actual product stories.
+               Discover our leading suite of products, proudly adopted by more than 100 users.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Clinexa</Badge>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
                 <CardTitle className="text-xl">Clinexa</CardTitle>
                 <CardDescription>
-                  Short placeholder description for a flagship healthcare solution. Replace with the real Clinexa
-                  story later.
+                  Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform. Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and clinical-grade workflows
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Healthcare
+                    Virtual Clinic
                   </Badge>
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Web
+                    Telemedicine
                   </Badge>
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Mobile
+                    SaaS
                   </Badge>
                 </div>
                 <Button
@@ -716,16 +714,16 @@ export default function HomePage() {
 
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">HaloMe</Badge>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
                 <CardTitle className="text-xl">HaloMe</CardTitle>
                 <CardDescription>
-                  Placeholder description for HaloMe. Update with the real narrative and value proposition later.
+                  HaloMe helps health systems reach, educate, and support patients beyond the hospital walls—through thoughtful, timely, and contextual communication.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Healthcare
+                    Patient App
                   </Badge>
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
                     SaaS
@@ -743,17 +741,18 @@ export default function HomePage() {
 
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">TrueBill</Badge>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
                 <CardTitle className="text-xl">TrueBill</CardTitle>
                 <CardDescription>
-                  Placeholder description for your billing and invoicing product. Replace with the detailed TrueBill
-                  story.
+                  TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single, coherent view of how revenue flows through your business.
+                  <br />
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
+                  <br />
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Digital Transformation
+                    iOS & Android
                   </Badge>
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
                     Cloud
@@ -771,17 +770,17 @@ export default function HomePage() {
 
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Tafsir Divine Guidance</Badge>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">AI Solutions</Badge>
                 <CardTitle className="text-xl">Tafsir Divine Guidance</CardTitle>
                 <CardDescription>
-                  Placeholder description for Tafsir Divine Guidance. Update with the final product positioning and
-                  messaging.
+                  TafsirAI helps learners, scholars, and institutions explore Quranic text with augmentative AI—respectfully and responsibly. It is designed to support understanding, not replace scholarship.
+
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Artificial Intelligence
+                    Web &  Mobile
                   </Badge>
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
                     Quranic Insights
@@ -804,39 +803,39 @@ export default function HomePage() {
       <section id="stats" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">By the Numbers</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Impact Snapshot</h2>
+            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Value Realized</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Empowering Innovation Worldwide</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              These are placeholder metrics. Update them with your real project counts, customers, and usage data.
+              Unlock the full potential of your vision through our expertise and strategic consulting—delivering measurable outcomes that matter.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card className="border-0 shadow-lg text-center">
               <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">00+</p>
+                <p className="text-4xl font-bold text-gray-900 mb-2">10+</p>
                 <p className="text-gray-600">Projects Delivered</p>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg text-center">
               <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">00+</p>
+                <p className="text-4xl font-bold text-gray-900 mb-2">30+</p>
                 <p className="text-gray-600">Customers Served</p>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg text-center">
               <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">00+</p>
+                <p className="text-4xl font-bold text-gray-900 mb-2">4+</p>
                 <p className="text-gray-600">Industries Touched</p>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg text-center">
               <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">00M+</p>
-                <p className="text-gray-600">Annual Transactions (placeholder)</p>
+                <p className="text-4xl font-bold text-gray-900 mb-2">100K+</p>
+                <p className="text-gray-600">Annual Transactions</p>
               </CardContent>
             </Card>
           </div>
@@ -847,11 +846,10 @@ export default function HomePage() {
       <section id="awards" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Awards &amp; Recognitions</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Recognized for Innovation</h2>
+            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Recognized for Innovation</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Developed a winning design securing Worldbank projects for Tamil Nadu State Government</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              This section is a placeholder for your real awards and recognitions. Replace these cards with your
-              official award details.
+        Designed impactful solutions supporting initiatives for the Welfare of Differently Abled Persons
             </p>
           </div>
 
@@ -861,9 +859,9 @@ export default function HomePage() {
                 <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4">
                   <Zap className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl">Placeholder Award</CardTitle>
+                <CardTitle className="text-xl">Government of Tamil Nadu Award</CardTitle>
                 <CardDescription>
-                  Replace this with the name and brief description of your primary award or recognition.
+                  Won Award for Design of Mobile outreach and Theraphy Unit for Differently Abled Persons backed by WorldBank for State government of TamilNadu
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -875,7 +873,11 @@ export default function HomePage() {
                 </div>
                 <CardTitle className="text-xl">Innovation Recognition</CardTitle>
                 <CardDescription>
-                  Optional placeholder for a secondary recognition, accelerator, or partner program.
+                  We developed a groundbreaking mobile outreach solution that makes healthcare accessible, providing:
+<br />🔹 Occupational therapy for children with special needs 
+<br />🔹 Comprehensive ophthalmology testing and treatment
+<br />🔹 Audiometry and hearing care services
+<br />🔹 Physiotherapy suport for the differently-abled
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -887,7 +889,7 @@ export default function HomePage() {
                 </div>
                 <CardTitle className="text-xl">Community Impact</CardTitle>
                 <CardDescription>
-                  Use this card for community, social impact, or government collaboration recognition.
+                  World class impact on community health and welfare through our mobile outreach and therapy units
                 </CardDescription>
               </CardHeader>
             </Card>
