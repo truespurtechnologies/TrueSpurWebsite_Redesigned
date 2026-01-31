@@ -46,7 +46,7 @@ export default function TafsirAIPage() {
           name: waitlistName,
           email: waitlistEmail,
           organization: waitlistOrg,
-          product: "TafsirAI",
+          product: "TafsirAIIII",
         }),
       })
 
