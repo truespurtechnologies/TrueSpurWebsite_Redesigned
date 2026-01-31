@@ -670,6 +670,231 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Products / Featured Solutions Section (placeholder content, update with real products later) */}
+      <section id="products" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Products &amp; Solutions</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Featured Solutions</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Highlighting a few of our key products and solutions. Replace this placeholder content with your
+              actual product stories.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+              <CardHeader>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Clinexa</Badge>
+                <CardTitle className="text-xl">Clinexa</CardTitle>
+                <CardDescription>
+                  Short placeholder description for a flagship healthcare solution. Replace with the real Clinexa
+                  story later.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Healthcare
+                  </Badge>
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Web
+                  </Badge>
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Mobile
+                  </Badge>
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
+                  asChild
+                >
+                  <a href="/products/healthcare/clinexa">View product</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+              <CardHeader>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">HaloMe</Badge>
+                <CardTitle className="text-xl">HaloMe</CardTitle>
+                <CardDescription>
+                  Placeholder description for HaloMe. Update with the real narrative and value proposition later.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Healthcare
+                  </Badge>
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    SaaS
+                  </Badge>
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
+                  asChild
+                >
+                  <a href="/products/healthcare/halome">View product</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+              <CardHeader>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">TrueBill</Badge>
+                <CardTitle className="text-xl">TrueBill</CardTitle>
+                <CardDescription>
+                  Placeholder description for your billing and invoicing product. Replace with the detailed TrueBill
+                  story.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Digital Transformation
+                  </Badge>
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Cloud
+                  </Badge>
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
+                  asChild
+                >
+                  <a href="/products/digital-transformation/truespur-billing">View product</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+              <CardHeader>
+                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Tafsir Divine Guidance</Badge>
+                <CardTitle className="text-xl">Tafsir Divine Guidance</CardTitle>
+                <CardDescription>
+                  Placeholder description for Tafsir Divine Guidance. Update with the final product positioning and
+                  messaging.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Artificial Intelligence
+                  </Badge>
+                  <Badge variant="outline" className="border-orange-200 text-orange-700">
+                    Quranic Insights
+                  </Badge>
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
+                  asChild
+                >
+                  <a href="/products/artificial-intelligence/tafsir-ai">View product</a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats / Metrics Section (placeholder metrics, replace with real numbers later) */}
+      <section id="stats" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">By the Numbers</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Impact Snapshot</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              These are placeholder metrics. Update them with your real project counts, customers, and usage data.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <Card className="border-0 shadow-lg text-center">
+              <CardContent className="py-8">
+                <p className="text-4xl font-bold text-gray-900 mb-2">00+</p>
+                <p className="text-gray-600">Projects Delivered</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg text-center">
+              <CardContent className="py-8">
+                <p className="text-4xl font-bold text-gray-900 mb-2">00+</p>
+                <p className="text-gray-600">Customers Served</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg text-center">
+              <CardContent className="py-8">
+                <p className="text-4xl font-bold text-gray-900 mb-2">00+</p>
+                <p className="text-gray-600">Industries Touched</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg text-center">
+              <CardContent className="py-8">
+                <p className="text-4xl font-bold text-gray-900 mb-2">00M+</p>
+                <p className="text-gray-600">Annual Transactions (placeholder)</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Recognitions Section (placeholder, replace with real award details later) */}
+      <section id="awards" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Awards &amp; Recognitions</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Recognized for Innovation</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              This section is a placeholder for your real awards and recognitions. Replace these cards with your
+              official award details.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="text-xl">Placeholder Award</CardTitle>
+                <CardDescription>
+                  Replace this with the name and brief description of your primary award or recognition.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mb-4">
+                  <Brain className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="text-xl">Innovation Recognition</CardTitle>
+                <CardDescription>
+                  Optional placeholder for a secondary recognition, accelerator, or partner program.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="text-xl">Community Impact</CardTitle>
+                <CardDescription>
+                  Use this card for community, social impact, or government collaboration recognition.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
