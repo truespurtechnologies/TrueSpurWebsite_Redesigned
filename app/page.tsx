@@ -2,6 +2,10 @@
 
 import type React from "react"
 
+import Image from "next/image"
+import { motion } from "framer-motion"
+import useEmblaCarousel from "embla-carousel-react"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -48,6 +52,9 @@ export default function HomePage() {
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [formMessage, setFormMessage] = useState("")
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
+  const [spotlightIndex, setSpotlightIndex] = useState(0)
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "services", "expertise", "about", "contact"]
@@ -74,6 +81,27 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setSpotlightIndex(emblaApi.selectedScrollSnap())
+    }
+
+    emblaApi.on("select", onSelect)
+    onSelect()
+
+    const autoplay = setInterval(() => {
+      if (!emblaApi) return
+      emblaApi.scrollNext()
+    }, 7000)
+
+    return () => {
+      emblaApi.off("select", onSelect)
+      clearInterval(autoplay)
+    }
+  }, [emblaApi])
 
   const scrollToSection = (sectionId: string) => {
     setIsMenuOpen(false)
@@ -677,7 +705,7 @@ export default function HomePage() {
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Products &amp; Solutions</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">World-Class Products, Proven Results</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-               Discover our leading suite of products, proudly adopted by more than 100 users.
+               Discover our leading suite of products, proudly adopted by more than 100+ teams and orgnzations.
             </p>
           </div>
 
@@ -687,7 +715,7 @@ export default function HomePage() {
                 <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
                 <CardTitle className="text-xl">Clinexa</CardTitle>
                 <CardDescription>
-                  Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform. Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and clinical-grade workflows
+                  Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform. Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and clinical-grade workflows.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -717,7 +745,7 @@ export default function HomePage() {
                 <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
                 <CardTitle className="text-xl">HaloMe</CardTitle>
                 <CardDescription>
-                  HaloMe helps health systems reach, educate, and support patients beyond the hospital walls—through thoughtful, timely, and contextual communication.
+                  HaloMe helps health systems reach, educate, and support patients beyond the hospital walls. It does thisthrough thoughtful, timely, and contextual communication.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -745,12 +773,10 @@ export default function HomePage() {
                 <CardTitle className="text-xl">TrueBill</CardTitle>
                 <CardDescription>
                   TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single, coherent view of how revenue flows through your business.
-                  <br />
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <br />
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
                     iOS & Android
                   </Badge>
@@ -774,13 +800,12 @@ export default function HomePage() {
                 <CardTitle className="text-xl">Tafsir Divine Guidance</CardTitle>
                 <CardDescription>
                   TafsirAI helps learners, scholars, and institutions explore Quranic text with augmentative AI—respectfully and responsibly. It is designed to support understanding, not replace scholarship.
-
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Web &  Mobile
+                    Web & Mobile
                   </Badge>
                   <Badge variant="outline" className="border-orange-200 text-orange-700">
                     Quranic Insights
@@ -806,7 +831,7 @@ export default function HomePage() {
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Value Realized</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Empowering Innovation Worldwide</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Unlock the full potential of your vision through our expertise and strategic consulting—delivering measurable outcomes that matter.
+              The early outcomes speak for themselves—demonstrating how we empower customers to achieve measurable progress in healthcare, education, and digital transformation.
             </p>
           </div>
 
@@ -820,7 +845,7 @@ export default function HomePage() {
 
             <Card className="border-0 shadow-lg text-center">
               <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">30+</p>
+                <p className="text-4xl font-bold text-gray-900 mb-2">10+</p>
                 <p className="text-gray-600">Customers Served</p>
               </CardContent>
             </Card>
@@ -842,60 +867,170 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Awards & Recognitions Section (placeholder, replace with real award details later) */}
-      <section id="awards" className="py-20 bg-white">
+      {/* Awards & Recognitions Section */}
+      <motion.section
+        id="awards"
+        className="py-20 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Recognized for Innovation</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Developed a winning design securing Worldbank projects for Tamil Nadu State Government</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Developed a winning design that secured World Bank–backed projects for the Tamil Nadu State Government
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        Designed impactful solutions supporting initiatives for the Welfare of Differently Abled Persons
+              Designed impactful solutions supporting initiatives for the Welfare of Differently Abled Persons
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Government of Tamil Nadu Award</CardTitle>
-                <CardDescription>
-                  Won Award for Design of Mobile outreach and Theraphy Unit for Differently Abled Persons backed by WorldBank for State government of TamilNadu
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          <div className="grid gap-12 lg:grid-cols-2 items-start">
+            {/* Left column: text cards */}
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <motion.div
+                className="border-0 shadow-lg rounded-2xl bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.4 }}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Government of Tamil Nadu Award</CardTitle>
+                  <CardDescription>
+                    Awarded for the design of a mobile outreach and therapy unit for differently-abled persons, backed by the
+                    World Bank for the Government of Tamil Nadu.
+                  </CardDescription>
+                </CardHeader>
+              </motion.div>
 
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Innovation Recognition</CardTitle>
-                <CardDescription>
-                  We developed a groundbreaking mobile outreach solution that makes healthcare accessible, providing:
-<br />🔹 Occupational therapy for children with special needs 
-<br />🔹 Comprehensive ophthalmology testing and treatment
-<br />🔹 Audiometry and hearing care services
-<br />🔹 Physiotherapy suport for the differently-abled
-                </CardDescription>
-              </CardHeader>
-            </Card>
+              <motion.div
+                className="border-0 shadow-lg rounded-2xl bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.4 }}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mb-4">
+                    <Brain className="h-6 w-6 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Innovation Recognition</CardTitle>
+                  <CardDescription>
+                    We developed a groundbreaking mobile outreach solution that makes healthcare accessible, providing:
+                    <br />
+                    🔹 Occupational therapy for children with special needs
+                    <br />
+                    🔹 Comprehensive ophthalmology testing and treatment
+                    <br />
+                    🔹 Audiometry and hearing care services
+                    <br />
+                    🔹 Physiotherapy support for the differently-abled
+                  </CardDescription>
+                </CardHeader>
+              </motion.div>
 
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Community Impact</CardTitle>
-                <CardDescription>
-                  World class impact on community health and welfare through our mobile outreach and therapy units
-                </CardDescription>
-              </CardHeader>
-            </Card>
+              <motion.div
+                className="border-0 shadow-lg rounded-2xl bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.25, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.4 }}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Community Impact</CardTitle>
+                  <CardDescription>
+                    World-class impact on community health and welfare through our mobile outreach and therapy units.
+                  </CardDescription>
+                </CardHeader>
+              </motion.div>
+            </motion.div>
+
+            {/* Right column: recognition spotlight with images */}
+            <motion.div
+              className="group relative"
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="absolute -inset-6 bg-gradient-to-br from-yellow-400/20 via-orange-500/15 to-pink-400/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 ease-out -z-10 animate-pulse" />
+              <Card className="border-0 shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50">
+                <CardHeader className="pb-0">
+                  <CardTitle className="text-xl mb-2">Recognition Spotlight</CardTitle>
+                  <CardDescription>
+                    Real-world validation of our design excellence and impact in public sector healthcare innovation.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-4">
+                  <div ref={emblaRef} className="relative rounded-2xl overflow-hidden bg-white shadow-xl">
+                    <div className="flex">
+                      <div className="relative min-w-full h-72 w-full lg:h-80">
+                        <Image
+                          src="/images/recognition/certificate-placeholder.jpeg"
+                          alt="Certificate of recognition for first place in the Mobile Outreach and Therapy Unit design hackathon"
+                          fill
+                          sizes="(min-width: 1024px) 50vw, 100vw"
+                          priority
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                        />
+                      </div>
+
+                      <div className="relative min-w-full h-72 w-full lg:h-80">
+                        <Image
+                          src="/images/recognition/ceremony-placeholder.jpg"
+                          alt="Award ceremony photo presenting the certificate of recognition"
+                          fill
+                          sizes="(min-width: 1024px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {[0, 1].map((index) => (
+                        <button
+                          key={index}
+                          type="button"
+                          className={`h-2.5 w-2.5 rounded-full border border-orange-500 transition-all duration-300 ${
+                            spotlightIndex === index ? "bg-orange-500 scale-110" : "bg-white/60 hover:bg-orange-100"
+                          }`}
+                          onClick={() => emblaApi && emblaApi.scrollTo(index)}
+                          aria-label={index === 0 ? "View certificate" : "View award ceremony photo"}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 space-y-1 text-sm text-gray-700">
+                    <p className="font-semibold text-gray-900">
+                      First place – Design of Mobile Outreach and Therapy Unit
+                    </p>
+                    <p>
+                      Directorate for Welfare of the Differently Abled &amp; StartupTN, World Bank–backed initiative
+                      (2023).
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
