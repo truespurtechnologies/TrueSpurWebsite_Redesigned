@@ -870,114 +870,149 @@ export default function HomePage() {
       {/* Awards & Recognitions Section */}
       <motion.section
         id="awards"
-        className="py-20 bg-white"
+        className="relative overflow-hidden py-20 bg-gradient-to-b from-[#FFF7ED] via-white to-[#E5F0FF]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Recognized for Innovation</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
+          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-14 max-w-4xl mx-auto">
+            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Recognized for Innovation</Badge>
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-snug">
               Developed a winning design that secured World Bank–backed projects for the Tamil Nadu State Government
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Designed impactful solutions supporting initiatives for the Welfare of Differently Abled Persons
+            <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Designing impactful solutions for the Welfare of Differently Abled Persons in partnership with the Tamil Nadu State Government.
             </p>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-2 items-start">
+          <div className="grid gap-10 xl:gap-16 lg:grid-cols-2 items-stretch">
             {/* Left column: text cards */}
             <motion.div
-              className="space-y-8"
+              className="space-y-10"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
               <motion.div
-                className="border-0 shadow-lg rounded-2xl bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
+                className="relative group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.4 }}
               >
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4">
-                    <Zap className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl">Government of Tamil Nadu Award</CardTitle>
-                  <CardDescription>
-                    Awarded for the design of a mobile outreach and therapy unit for differently-abled persons, backed by the
-                    World Bank for the Government of Tamil Nadu.
-                  </CardDescription>
-                </CardHeader>
+                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500 opacity-80 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm px-1 py-1 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
+                  <CardHeader className="pt-5 pb-5 px-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-11 h-11 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
+                        <Zap className="h-5 w-5 text-white" />
+                      </div>
+                      <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900">
+                        <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+                          Government of Tamil Nadu Award
+                        </span>
+                      </CardTitle>
+                    </div>
+                    <CardDescription className="mt-1 text-sm md:text-base text-gray-700 leading-relaxed">
+                      Award-winning mobile outreach and therapy unit design for differently-abled persons, supported by the
+                      World Bank and the Government of Tamil Nadu.
+                    </CardDescription>
+                  </CardHeader>
+                </div>
               </motion.div>
 
               <motion.div
-                className="border-0 shadow-lg rounded-2xl bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
+                className="relative group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.4 }}
               >
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mb-4">
-                    <Brain className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl">Innovation Recognition</CardTitle>
-                  <CardDescription>
-                    We developed a groundbreaking mobile outreach solution that makes healthcare accessible, providing:
-                    <br />
-                    🔹 Occupational therapy for children with special needs
-                    <br />
-                    🔹 Comprehensive ophthalmology testing and treatment
-                    <br />
-                    🔹 Audiometry and hearing care services
-                    <br />
-                    🔹 Physiotherapy support for the differently-abled
-                  </CardDescription>
-                </CardHeader>
+                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 opacity-80 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm px-1 py-1 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
+                  <CardHeader className="pt-5 pb-5 px-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-11 h-11 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
+                        <Brain className="h-5 w-5 text-white" />
+                      </div>
+                      <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900">
+                        <span className="bg-gradient-to-r from-orange-600 to-pink-500 bg-clip-text text-transparent">
+                          Innovation Recognition
+                        </span>
+                      </CardTitle>
+                    </div>
+                    <CardDescription className="mt-1 text-sm md:text-base text-gray-700 leading-relaxed">
+                      Groundbreaking mobile outreach solution that brings therapy, eye care, hearing care, and physiotherapy services closer to underserved communities.
+                    </CardDescription>
+                  </CardHeader>
+                </div>
               </motion.div>
 
               <motion.div
-                className="border-0 shadow-lg rounded-2xl bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
+                className="relative group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.25, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.4 }}
               >
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-lg flex items-center justify-center mb-4">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl">Community Impact</CardTitle>
-                  <CardDescription>
-                    World-class impact on community health and welfare through our mobile outreach and therapy units.
-                  </CardDescription>
-                </CardHeader>
+                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 opacity-80 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm px-1 py-1 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
+                  <CardHeader className="pt-5 pb-5 px-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-11 h-11 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
+                        <Users className="h-5 w-5 text-white" />
+                      </div>
+                      <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900">
+                        <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
+                          Community Impact
+                        </span>
+                      </CardTitle>
+                    </div>
+                    <CardDescription className="mt-1 text-sm md:text-base text-gray-700 leading-relaxed">
+                      Delivering sustained community health and welfare impact through accessible, mobile outreach and therapy units.
+                    </CardDescription>
+                  </CardHeader>
+                </div>
               </motion.div>
             </motion.div>
 
             {/* Right column: recognition spotlight with images */}
             <motion.div
-              className="group relative"
+              className="relative group h-full"
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="absolute -inset-6 bg-gradient-to-br from-yellow-400/20 via-orange-500/15 to-pink-400/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 ease-out -z-10 animate-pulse" />
-              <Card className="border-0 shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50">
-                <CardHeader className="pb-0">
-                  <CardTitle className="text-xl mb-2">Recognition Spotlight</CardTitle>
-                  <CardDescription>
-                    Real-world validation of our design excellence and impact in public sector healthcare innovation.
+              <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-yellow-400 via-orange-500 to-amber-500 opacity-80 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
+              <Card className="relative h-full border border-white/60 shadow-2xl rounded-3xl overflow-hidden bg-white/95 backdrop-blur-sm">
+                <CardHeader className="pb-2 pt-6 px-6">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 mb-3 border border-orange-100">
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+                    <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">
+                      Recognition Spotlight
+                    </span>
+                  </div>
+                  <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900 mb-1">
+                    <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+                      Award-winning public sector innovation
+                    </span>
+                  </CardTitle>
+                  <CardDescription className="text-sm md:text-base text-gray-700 max-w-md leading-relaxed">
+                    Real-world validation of our design excellence and impact in public sector healthcare.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-4">
-                  <div ref={emblaRef} className="relative rounded-2xl overflow-hidden bg-white shadow-xl">
+                <CardContent className="pt-3 pb-3 px-6 flex flex-col gap-3">
+                  <div ref={emblaRef} className="relative rounded-2xl overflow-hidden bg-gray-100 shadow-md">
                     <div className="flex">
                       <div className="relative min-w-full h-72 w-full lg:h-80">
                         <Image
@@ -1007,7 +1042,7 @@ export default function HomePage() {
                           key={index}
                           type="button"
                           className={`h-2.5 w-2.5 rounded-full border border-orange-500 transition-all duration-300 ${
-                            spotlightIndex === index ? "bg-orange-500 scale-110" : "bg-white/60 hover:bg-orange-100"
+                            spotlightIndex === index ? "bg-orange-500 scale-110" : "bg-white/70 hover:bg-orange-100"
                           }`}
                           onClick={() => emblaApi && emblaApi.scrollTo(index)}
                           aria-label={index === 0 ? "View certificate" : "View award ceremony photo"}
@@ -1016,13 +1051,14 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="mt-8 space-y-1 text-sm text-gray-700">
+                  <div className="space-y-1 text-xs md:text-sm text-gray-700">
                     <p className="font-semibold text-gray-900">
-                      First place – Design of Mobile Outreach and Therapy Unit
+                      <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+                        First place – Design of Mobile Outreach and Therapy Unit
+                      </span>
                     </p>
-                    <p>
-                      Directorate for Welfare of the Differently Abled &amp; StartupTN, World Bank–backed initiative
-                      (2023).
+                    <p className="text-gray-800">
+                      Directorate for Welfare of the Differently Abled &amp; StartupTN, World Bank–backed initiative (2023).
                     </p>
                   </div>
                 </CardContent>
