@@ -518,10 +518,28 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto px-4">
+      <motion.section
+        id="home"
+        className="relative overflow-hidden py-20 bg-gradient-to-br from-gray-50 via-white to-[#FFF7ED]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
+          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              className="relative z-10"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">
                 Cutting-Edge Technology Solutions
               </Badge>
@@ -540,7 +558,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   onClick={() => scrollToSection("contact")}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
+                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-md shadow-orange-200"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -549,115 +567,232 @@ export default function HomePage() {
                   size="lg"
                   variant="outline"
                   onClick={() => scrollToSection("services")}
-                  className="border-orange-300 text-orange-600 hover:bg-orange-50 bg-transparent"
+                  className="border-orange-300 text-orange-600 hover:bg-orange-50 bg-white/80 backdrop-blur"
                 >
                   View Our Work
                 </Button>
               </div>
-            </div>
-            <div className="relative">
-              <img
-                src="/images/hero-landing.jpg"
-                alt="Team collaborating on modern technology solutions at TrueSpur"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-              />
-            </div>
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="relative rounded-[32px] bg-white/95 shadow-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-400 opacity-95" />
+                <div className="relative h-[420px] w-full overflow-hidden">
+                  <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-400" />
+                  <div className="absolute inset-0">
+                    <svg
+                      viewBox="0 0 400 260"
+                      className="h-full w-full text-orange-400/70"
+                      preserveAspectRatio="xMidYMid slice"
+                    >
+                      <defs>
+                        <linearGradient id="hero-diagonal-mask" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
+                          <stop offset="40%" stopColor="currentColor" stopOpacity="0.5" />
+                          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M0,0 L260,0 C320,86 360,130 400,180 L400,260 L0,260 Z"
+                        fill="url(#hero-diagonal-mask)"
+                      />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-y-6 right-6 left-[32%] rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                      src="/images/hero-landing.jpg"
+                      alt="Team collaborating on modern technology solutions at TrueSpur"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-[1.03]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <motion.section
+        id="services"
+        className="relative overflow-hidden py-20 bg-gradient-to-b from-white via-[#FFF7ED] to-[#FEFCE8]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-orange-200/40 blur-3xl" />
+          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Our Services</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Comprehensive Technology Solutions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From concept to deployment, we deliver end-to-end solutions that drive growth and innovation
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+              Comprehensive Technology Solutions
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              From concept to deployment, we deliver end-to-end solutions that drive growth and innovation.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:border-orange-200">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Code className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Website Development</CardTitle>
-                <CardDescription>
-                  Modern, responsive websites built with the latest technologies for optimal performance and user
-                  experience.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500" />
+                <CardHeader>
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 p-[2px]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
+                      <Code className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg lg:text-xl">Website Development</CardTitle>
+                  <CardDescription>
+                    Modern, responsive websites built with the latest technologies for optimal performance and user
+                    experience.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:border-orange-200">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Smartphone className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Mobile App Development</CardTitle>
-                <CardDescription>
-                  Native and cross-platform mobile applications that deliver seamless experiences across all devices.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400" />
+                <CardHeader>
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-yellow-500 p-[2px]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
+                      <Smartphone className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg lg:text-xl">Mobile App Development</CardTitle>
+                  <CardDescription>
+                    Native and cross-platform mobile applications that deliver seamless experiences across all devices.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:border-orange-200">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Custom Software Development</CardTitle>
-                <CardDescription>
-                  Tailored software solutions designed to meet your specific business requirements and workflows.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-600 via-orange-500 to-amber-400" />
+                <CardHeader>
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-600 to-orange-500 p-[2px]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
+                      <Zap className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg lg:text-xl">Custom Software Development</CardTitle>
+                  <CardDescription>
+                    Tailored software solutions designed to meet your specific business requirements and workflows.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:border-orange-200">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-yellow-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">Product Research</CardTitle>
-                <CardDescription>
-                  Strategic guidance and technical expertise to help you make informed decisions about your technology
-                  investments.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500" />
+                <CardHeader>
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-600 to-yellow-500 p-[2px]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
+                      <Users className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg lg:text-xl">Product Research</CardTitle>
+                  <CardDescription>
+                    Strategic guidance and technical expertise to help you make informed decisions about your technology
+                    investments.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:border-orange-200">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Brain className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl">AI Solutions</CardTitle>
-                <CardDescription>
-                  Cutting-edge artificial intelligence and machine learning solutions to automate and optimize your
-                  business processes.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.4, delay: 0.25, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500" />
+                <CardHeader>
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 p-[2px]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
+                      <Brain className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg lg:text-xl">AI Solutions</CardTitle>
+                  <CardDescription>
+                    Cutting-edge artificial intelligence and machine learning solutions to automate and optimize your
+                    business processes.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-gradient-to-br from-yellow-50 to-orange-50">
-              <CardHeader>
-                <CardTitle className="text-xl text-center">Ready to Get Started?</CardTitle>
-                <CardDescription className="text-center">
-                  {"Let's discuss your project and find the perfect solution for your needs."}
-                </CardDescription>
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
-                >
-                  Contact Us Today
-                </Button>
-              </CardHeader>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-lg lg:text-xl mb-1">Ready to Get Started?</CardTitle>
+                  <CardDescription>
+                    {"Let's discuss your project and find the perfect solution for your needs."}
+                  </CardDescription>
+                  <Button
+                    onClick={() => scrollToSection("contact")}
+                    className="mt-4 w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-md shadow-orange-200"
+                  >
+                    Contact Us Today
+                  </Button>
+                </CardHeader>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Expertise Section */}
       <motion.section
@@ -992,130 +1127,218 @@ export default function HomePage() {
       </motion.section>
 
       {/* Products / Featured Solutions Section (placeholder content, update with real products later) */}
-      <section id="products" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Products &amp; Solutions</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">World-Class Products, Proven Results</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-               Discover our leading suite of products, proudly adopted by more than 100+ teams and orgnzations.
+      <motion.section
+        id="products"
+        className="relative overflow-hidden py-20 bg-gradient-to-b from-[#FFF7ED] via-white to-[#FEFCE8]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
+          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+          <div className="absolute top-1/2 left-1/3 h-56 w-56 -translate-y-1/2 rounded-full bg-yellow-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Products &amp; Solutions</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              World-Class Products, Proven Results
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600">
+              Discover our leading suite of products, already trusted by teams and organizations across healthcare,
+              education, and digital transformation.
             </p>
           </div>
 
+          <div className="mb-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/70 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 animate-pulse" />
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-700">
+                Product Suite Spotlight
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
-                <CardTitle className="text-xl">Clinexa</CardTitle>
-                <CardDescription>
-                  Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform. Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and clinical-grade workflows.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Virtual Clinic
-                  </Badge>
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Telemedicine
-                  </Badge>
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    SaaS
-                  </Badge>
-                </div>
-                <Button
-                  variant="outline"
-                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
-                  asChild
-                >
-                  <a href="/products/healthcare/clinexa">View product</a>
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/70 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
+              <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500" />
+                <CardHeader>
+                  <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
+                  <CardTitle className="text-xl">Clinexa</CardTitle>
+                  <CardDescription>
+                    Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform.
+                    Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and
+                    clinical-grade workflows.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      Virtual Clinic
+                    </Badge>
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      Telemedicine
+                    </Badge>
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      SaaS
+                    </Badge>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="group/button w-full border-orange-300 text-orange-600 bg-white hover:bg-orange-50 hover:border-orange-400"
+                    asChild
+                  >
+                    <a href="/products/healthcare/clinexa" className="flex items-center justify-center gap-1">
+                      <span>View product</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/button:translate-x-1" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
-                <CardTitle className="text-xl">HaloMe</CardTitle>
-                <CardDescription>
-                  HaloMe helps health systems reach, educate, and support patients beyond the hospital walls. It does thisthrough thoughtful, timely, and contextual communication.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Patient App
-                  </Badge>
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    SaaS
-                  </Badge>
-                </div>
-                <Button
-                  variant="outline"
-                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
-                  asChild
-                >
-                  <a href="/products/healthcare/halome">View product</a>
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/65 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
+              <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-400 via-amber-500 to-yellow-400" />
+                <CardHeader>
+                  <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
+                  <CardTitle className="text-xl">HaloMe</CardTitle>
+                  <CardDescription>
+                    HaloMe helps health systems reach, educate, and support patients beyond the hospital walls through
+                    thoughtful, timely, and contextual communication.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      Patient App
+                    </Badge>
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      SaaS
+                    </Badge>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="group/button w-full border-orange-300 text-orange-600 bg-white hover:bg-orange-50 hover:border-orange-400"
+                    asChild
+                  >
+                    <a href="/products/healthcare/halome" className="flex items-center justify-center gap-1">
+                      <span>View product</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/button:translate-x-1" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
-                <CardTitle className="text-xl">TrueBill</CardTitle>
-                <CardDescription>
-                  TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single, coherent view of how revenue flows through your business.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    iOS & Android
-                  </Badge>
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Cloud
-                  </Badge>
-                </div>
-                <Button
-                  variant="outline"
-                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
-                  asChild
-                >
-                  <a href="/products/digital-transformation/truespur-billing">View product</a>
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/70 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
+              <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400" />
+                <CardHeader>
+                  <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
+                  <CardTitle className="text-xl">TrueBill</CardTitle>
+                  <CardDescription>
+                    TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single,
+                    coherent view of how revenue flows through your business.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      iOS &amp; Android
+                    </Badge>
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      Cloud
+                    </Badge>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="group/button w-full border-orange-300 text-orange-600 bg-white hover:bg-orange-50 hover:border-orange-400"
+                    asChild
+                  >
+                    <a
+                      href="/products/digital-transformation/truespur-billing"
+                      className="flex items-center justify-center gap-1"
+                    >
+                      <span>View product</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/button:translate-x-1" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader>
-                <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">AI Solutions</Badge>
-                <CardTitle className="text-xl">Tafsir Divine Guidance</CardTitle>
-                <CardDescription>
-                  TafsirAI helps learners, scholars, and institutions explore Quranic text with augmentative AI—respectfully and responsibly. It is designed to support understanding, not replace scholarship.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Web & Mobile
-                  </Badge>
-                  <Badge variant="outline" className="border-orange-200 text-orange-700">
-                    Quranic Insights
-                  </Badge>
-                </div>
-                <Button
-                  variant="outline"
-                  className="w-full border-orange-300 text-orange-600 hover:bg-orange-50"
-                  asChild
-                >
-                  <a href="/products/artificial-intelligence/tafsir-ai">View product</a>
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-500/80 via-orange-500/80 to-yellow-400/75 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
+              <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400" />
+                <CardHeader>
+                  <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">AI Solutions</Badge>
+                  <CardTitle className="text-xl">Tafsir Divine Guidance</CardTitle>
+                  <CardDescription>
+                    TafsirAI helps learners, scholars, and institutions explore Quranic text with augmentative AIrespectfully and responsibly. It is designed to support understanding, not replace scholarship.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      Web &amp; Mobile
+                    </Badge>
+                    <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      Quranic Insights
+                    </Badge>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="group/button w-full border-orange-300 text-orange-600 bg-white hover:bg-orange-50 hover:border-orange-400"
+                    asChild
+                  >
+                    <a href="/products/artificial-intelligence/tafsir-ai" className="flex items-center justify-center gap-1">
+                      <span>View product</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/button:translate-x-1" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Stats / Metrics Section (placeholder metrics, replace with real numbers later) */}
       <motion.section
@@ -1401,10 +1624,28 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
       </motion.section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <motion.section
+        id="about"
+        className="relative overflow-hidden py-20 bg-gradient-to-b from-white via-[#F9FAFB] to-[#FFF7ED]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-orange-200/35 blur-3xl" />
+          <div className="absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              className="relative z-10"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">About TrueSpur</Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Innovation Meets Excellence</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -1416,20 +1657,38 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 With deep expertise in healthcare, education, and digital transformation, we understand the unique
                 challenges these industries face and provide tailored solutions using cutting-edge technologies.
               </p>
-            </div>
-            <div className="relative">
-              <img
-                src="/images/about-team.jpg"
-                alt="TrueSpur team collaborating on innovative technology solutions"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-              />
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                Award Winning Team
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="relative rounded-3xl bg-white/95 shadow-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 via-amber-500 to-yellow-400 opacity-95" />
+                <div className="relative p-3">
+                  <div className="relative rounded-2xl bg-black/5 overflow-hidden">
+                    {/* Keep image size exactly as before */}
+                    <img
+                      src="/images/about-team.jpg"
+                      alt="TrueSpur team collaborating on innovative technology solutions"
+                      className="w-full h-[500px] object-cover rounded-2xl"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
+              <div className="absolute -top-3 right-6">
+                <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-4 py-2 text-xs font-semibold text-white shadow-md shadow-orange-200">
+                  <span className="h-2 w-2 rounded-full bg-white/95" />
+                  <span className="uppercase tracking-[0.18em]">Award Winning Team</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Customer Showcase Section */}
       <section className="py-20 bg-black">
