@@ -995,22 +995,36 @@ export default function HomePage() {
             >
               <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-yellow-400 via-orange-500 to-amber-500 opacity-80 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
               <Card className="relative h-full border border-white/60 shadow-2xl rounded-3xl overflow-hidden bg-white/95 backdrop-blur-sm">
-                <CardHeader className="pb-2 pt-6 px-6">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 mb-3 border border-orange-100">
-                    <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
-                    <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">
-                      Recognition Spotlight
-                    </span>
+                {/* Celebration ribbon at the very top inside the card */}
+                <div className="pt-4 pb-1">
+                  <div className="relative w-full">
+                    <div className="relative mx-6 flex items-center justify-between rounded-full bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 px-6 py-3 shadow-md shadow-orange-200">
+                      <div className="flex items-center gap-3">
+                        <span className="h-3 w-3 rounded-full bg-white/95" />
+                        <span className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.24em] text-white/95">
+                          Recognition Spotlight
+                        </span>
+                      </div>
+                      <span className="hidden md:inline-flex text-[11px] font-medium tracking-wide text-white/90">
+                        Achievement Highlight
+                      </span>
+                    </div>
+                    <div className="absolute bottom-0 left-12 h-3 w-10 bg-orange-300/80 rounded-full blur-md" />
                   </div>
-                  <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900 mb-1">
-                    <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+                </div>
+
+                <CardHeader className="pb-2 pt-4 px-6">
+                  <CardTitle className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-2">
+                    <span className="bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
                       Award-winning public sector innovation
                     </span>
                   </CardTitle>
-                  <CardDescription className="text-sm md:text-base text-gray-700 max-w-md leading-relaxed">
-                    Real-world validation of our design excellence and impact in public sector healthcare.
+                  <CardDescription className="text-base md:text-lg text-gray-800 leading-relaxed font-medium">
+                         First place – Design of Mobile Outreach and Therapy Unit
+Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backed initiative (2023).
                   </CardDescription>
                 </CardHeader>
+
                 <CardContent className="pt-3 pb-3 px-6 flex flex-col gap-3">
                   <div ref={emblaRef} className="relative rounded-2xl overflow-hidden bg-gray-100 shadow-md">
                     <div className="flex">
@@ -1049,17 +1063,6 @@ export default function HomePage() {
                         />
                       ))}
                     </div>
-                  </div>
-
-                  <div className="space-y-1 text-xs md:text-sm text-gray-700">
-                    <p className="font-semibold text-gray-900">
-                      <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-                        First place – Design of Mobile Outreach and Therapy Unit
-                      </span>
-                    </p>
-                    <p className="text-gray-800">
-                      Directorate for Welfare of the Differently Abled &amp; StartupTN, World Bank–backed initiative (2023).
-                    </p>
                   </div>
                 </CardContent>
               </Card>
