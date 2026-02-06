@@ -3,7 +3,7 @@
 import type React from "react"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { animate, motion, useMotionValue, useTransform } from "framer-motion"
 import useEmblaCarousel from "embla-carousel-react"
 
 import { Button } from "@/components/ui/button"
@@ -19,7 +19,7 @@ import {
   NavigationMenuIndicator,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
   Code,
@@ -37,6 +37,79 @@ import {
   X,
   Loader2,
 } from "lucide-react"
+
+const statsData = [
+  { label: "Projects Delivered", value: 10, suffix: "+" },
+  { label: "Customers Served", value: 10, suffix: "+" },
+  { label: "Industries Touched", value: 4, suffix: "+" },
+  { label: "Annual Transactions", value: 100, suffix: "K+" },
+]
+
+function AnimatedStatCard({
+  label,
+  value,
+  suffix,
+  index,
+}: {
+  label: string
+  value: number
+  suffix: string
+  index: number
+}) {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const count = useMotionValue(0)
+  const rounded = useTransform(count, (latest) => Math.floor(latest))
+
+  useEffect(() => {
+    if (!ref.current) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(count, value, {
+              duration: 1.8,
+              ease: "easeOut",
+            })
+          }
+        })
+      },
+      { threshold: 0.6 },
+    )
+
+    observer.observe(ref.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [count, value])
+
+  return (
+    <motion.div
+      ref={ref}
+      className="relative group"
+      initial={{ opacity: 0, y: 20, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.5, delay: 0.1 * index, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.6 }}
+    >
+      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-yellow-400/70 via-orange-500/70 to-amber-500/70 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+      <Card className="relative border-0 bg-white/95 shadow-lg rounded-2xl overflow-hidden backdrop-blur-sm group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+        <CardContent className="py-8 px-6 flex flex-col items-center justify-center">
+          <div className="mb-3 inline-flex items-baseline gap-1">
+            <motion.span className="text-4xl font-extrabold tracking-tight text-gray-900">
+              {rounded}
+            </motion.span>
+            <span className="text-2xl font-bold text-orange-500">{suffix}</span>
+          </div>
+          <p className="text-sm font-medium uppercase tracking-[0.16em] text-gray-500 mb-1 text-center">
+            {label}
+          </p>
+        </CardContent>
+      </Card>
+    </motion.div>
+  )
+}
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home")
@@ -587,9 +660,80 @@ export default function HomePage() {
       </section>
 
       {/* Expertise Section */}
-      <section id="expertise" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+      <motion.section
+        id="expertise"
+        className="relative overflow-hidden py-20 bg-gradient-to-b from-[#F9FAFB] via-white to-[#FFF7ED]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-32 left-[-6rem] h-72 w-72 rounded-full bg-orange-200/35 blur-3xl" />
+          <div className="absolute -bottom-32 right-[-4rem] h-72 w-72 rounded-full bg-amber-200/35 blur-3xl" />
+          <div className="absolute top-1/2 left-1/4 h-56 w-56 -translate-y-1/2 rounded-full bg-yellow-200/30 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="pointer-events-none absolute inset-x-4 top-10 bottom-10 flex items-center justify-center">
+            <svg
+              viewBox="0 0 480 260"
+              className="w-full max-w-4xl text-orange-100/60"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient id="expertise-grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
+                  <stop offset="40%" stopColor="currentColor" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+
+              <rect
+                x="24"
+                y="24"
+                width="432"
+                height="212"
+                rx="32"
+                fill="none"
+                stroke="url(#expertise-grid)"
+                strokeWidth="1.2"
+              />
+
+              {Array.from({ length: 6 }).map((_, i) => (
+                <line
+                  key={`v-${i}`}
+                  x1={64 + i * 56}
+                  y1={40}
+                  x2={64 + i * 56}
+                  y2={220}
+                  stroke="currentColor"
+                  strokeOpacity={0.16}
+                  strokeWidth="0.6"
+                />
+              ))}
+              {Array.from({ length: 4 }).map((_, i) => (
+                <line
+                  key={`h-${i}`}
+                  x1={48}
+                  y1={70 + i * 42}
+                  x2={432}
+                  y2={70 + i * 42}
+                  stroke="currentColor"
+                  strokeOpacity={0.16}
+                  strokeWidth="0.6"
+                />
+              ))}
+
+              <circle cx="132" cy="96" r="5" fill="currentColor" fillOpacity="0.85" />
+              <circle cx="240" cy="160" r="4" fill="currentColor" fillOpacity="0.7" />
+              <circle cx="348" cy="120" r="5" fill="currentColor" fillOpacity="0.8" />
+              <circle cx="188" cy="204" r="3" fill="currentColor" fillOpacity="0.65" />
+              <circle cx="300" cy="72" r="3" fill="currentColor" fillOpacity="0.6" />
+            </svg>
+          </div>
+
+          <div className="relative text-center mb-16 max-w-3xl mx-auto">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Industry Expertise</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Deep Domain Knowledge</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -597,106 +741,255 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl">Healthcare</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6">
-                  HIPAA-compliant solutions, patient management systems, telemedicine platforms, and healthcare
-                  analytics.
-                </p>
-                <ul className="text-left space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Electronic Health Records (EHR)
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Telemedicine Platforms
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Medical Device Integration
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Healthcare Analytics
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          <div className="relative grid lg:grid-cols-3 gap-8">
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/60 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+              <Card className="relative text-center border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="pb-4">
+                  <motion.div
+                    className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-500 to-amber-400 opacity-90" />
+                    <div className="absolute inset-2 rounded-full bg-white/20" />
+                    <Heart className="relative h-8 w-8 text-white" />
+                  </motion.div>
+                  <CardTitle className="text-2xl">Healthcare</CardTitle>
+                </CardHeader>
+                <CardContent className="relative overflow-hidden">
+                  <div className="pointer-events-none absolute inset-0 opacity-70">
+                    <svg
+                      viewBox="0 0 260 160"
+                      className="absolute -right-10 -bottom-6 h-40 w-40 text-orange-100/70"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M10 86h38l12-28 18 66 16-90 16 72 14-40 10 20h40"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeOpacity="0.9"
+                      />
+                      <circle cx="40" cy="86" r="3" fill="currentColor" fillOpacity="0.85" />
+                      <circle cx="92" cy="102" r="3" fill="currentColor" fillOpacity="0.8" />
+                      <circle cx="146" cy="64" r="3" fill="currentColor" fillOpacity="0.75" />
+                      <circle cx="206" cy="86" r="3" fill="currentColor" fillOpacity="0.8" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    HIPAA-compliant solutions, patient management systems, telemedicine platforms, and healthcare
+                    analytics.
+                  </p>
+                  <ul className="text-left space-y-2 text-sm text-gray-600">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Electronic Health Records (EHR)
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Telemedicine Platforms
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Medical Device Integration
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Healthcare Analytics
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <GraduationCap className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl">Education</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6">
-                  Learning management systems, educational apps, virtual classrooms, and student information systems.
-                </p>
-                <ul className="text-left space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Learning Management Systems
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Virtual Classrooms
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Student Information Systems
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Educational Mobile Apps
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/60 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+              <Card className="relative text-center border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="pb-4">
+                  <motion.div
+                    className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-400 to-orange-400 opacity-90" />
+                    <div className="absolute inset-2 rounded-full bg-white/20" />
+                    <GraduationCap className="relative h-8 w-8 text-white" />
+                  </motion.div>
+                  <CardTitle className="text-2xl">Education</CardTitle>
+                </CardHeader>
+                <CardContent className="relative overflow-hidden">
+                  <div className="pointer-events-none absolute inset-0 opacity-70">
+                    <svg
+                      viewBox="0 0 260 160"
+                      className="absolute -right-8 -bottom-6 h-40 w-40 text-orange-100/70"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="40"
+                        y="40"
+                        width="120"
+                        height="72"
+                        rx="8"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeOpacity="0.85"
+                      />
+                      <rect
+                        x="60"
+                        y="56"
+                        width="80"
+                        height="44"
+                        rx="6"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeOpacity="0.7"
+                      />
+                      <path
+                        d="M56 128h88"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeOpacity="0.8"
+                        strokeLinecap="round"
+                      />
+                      <circle cx="74" cy="72" r="3" fill="currentColor" fillOpacity="0.85" />
+                      <circle cx="104" cy="88" r="3" fill="currentColor" fillOpacity="0.8" />
+                      <circle cx="134" cy="72" r="3" fill="currentColor" fillOpacity="0.75" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Learning management systems, educational apps, virtual classrooms, and student information systems.
+                  </p>
+                  <ul className="text-left space-y-2 text-sm text-gray-600">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Learning Management Systems
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Virtual Classrooms
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Student Information Systems
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Educational Mobile Apps
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl">Digital Transformation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6">
-                  Cloud migration, process automation, digital workflows, and modernization of legacy systems.
-                </p>
-                <ul className="text-left space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Cloud Migration & Architecture
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Process Automation
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Legacy System Modernization
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
-                    Digital Workflow Solutions
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/65 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+              <Card className="relative text-center border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="pb-4">
+                  <motion.div
+                    className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-500 to-yellow-500 opacity-90" />
+                    <div className="absolute inset-2 rounded-full bg-white/20" />
+                    <Zap className="relative h-8 w-8 text-white" />
+                  </motion.div>
+                  <CardTitle className="text-2xl">Digital Transformation</CardTitle>
+                </CardHeader>
+                <CardContent className="relative overflow-hidden">
+                  <div className="pointer-events-none absolute inset-0 opacity-70">
+                    <svg
+                      viewBox="0 0 260 160"
+                      className="absolute -right-10 -bottom-8 h-44 w-44 text-orange-100/75"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="36"
+                        y="48"
+                        width="140"
+                        height="72"
+                        rx="12"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeOpacity="0.85"
+                      />
+                      <path
+                        d="M56 72h22l8-10 10 18 10-26 12 28 8-14h24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeOpacity="0.9"
+                      />
+                      <path
+                        d="M76 112h16M112 112h40"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeOpacity="0.8"
+                        strokeLinecap="round"
+                      />
+                      <circle cx="72" cy="72" r="3" fill="currentColor" fillOpacity="0.9" />
+                      <circle cx="110" cy="82" r="3" fill="currentColor" fillOpacity="0.8" />
+                      <circle cx="146" cy="68" r="3" fill="currentColor" fillOpacity="0.8" />
+                      <circle cx="170" cy="82" r="3" fill="currentColor" fillOpacity="0.8" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Cloud migration, process automation, digital workflows, and modernization of legacy systems.
+                  </p>
+                  <ul className="text-left space-y-2 text-sm text-gray-600">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Cloud Migration & Architecture
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Process Automation
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Legacy System Modernization
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
+                      Digital Workflow Solutions
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Products / Featured Solutions Section (placeholder content, update with real products later) */}
       <section id="products" className="py-20 bg-white">
@@ -825,47 +1118,83 @@ export default function HomePage() {
       </section>
 
       {/* Stats / Metrics Section (placeholder metrics, replace with real numbers later) */}
-      <section id="stats" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+      <motion.section
+        id="stats"
+        className="relative overflow-hidden py-20 bg-gradient-to-b from-gray-50 via-white to-[#FFF7ED]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
+          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="pointer-events-none absolute inset-x-6 -top-4 bottom-8 flex items-center justify-center">
+            <svg
+              viewBox="0 0 400 260"
+              className="w-full max-w-3xl text-orange-200/40 drop-shadow-sm"
+              aria-hidden="true"
+            >
+              <defs>
+                <radialGradient id="stats-orbit" cx="50%" cy="50%" r="65%">
+                  <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+                  <stop offset="45%" stopColor="currentColor" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="200" cy="130" r="120" fill="url(#stats-orbit)" />
+              <ellipse cx="200" cy="130" rx="160" ry="70" fill="none" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" />
+              <ellipse cx="200" cy="130" rx="110" ry="50" fill="none" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1" />
+              <ellipse cx="200" cy="130" rx="70" ry="30" fill="none" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1" />
+              <path
+                d="M80 120c30-40 60-60 120-60s90 20 120 60"
+                fill="none"
+                stroke="currentColor"
+                strokeOpacity="0.35"
+                strokeWidth="1"
+              />
+              <path
+                d="M80 150c30 40 60 60 120 60s90-20 120-60"
+                fill="none"
+                stroke="currentColor"
+                strokeOpacity="0.25"
+                strokeWidth="1"
+              />
+              <circle cx="100" cy="118" r="4" fill="currentColor" fillOpacity="0.9" />
+              <circle cx="300" cy="118" r="4" fill="currentColor" fillOpacity="0.85" />
+              <circle cx="150" cy="85" r="3" fill="currentColor" fillOpacity="0.75" />
+              <circle cx="250" cy="85" r="3" fill="currentColor" fillOpacity="0.65" />
+              <circle cx="200" cy="190" r="3" fill="currentColor" fillOpacity="0.7" />
+            </svg>
+          </div>
+          <div className="relative text-center mb-14 max-w-3xl mx-auto">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Value Realized</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Empowering Innovation Worldwide</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The early outcomes speak for themselves—demonstrating how we empower customers to achieve measurable progress in healthcare, education, and digital transformation.
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+              Empowering Innovation Worldwide
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
+              The early outcomes speak for themselves—demonstrating how we empower customers to achieve measurable
+              progress in healthcare, education, and digital transformation.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">10+</p>
-                <p className="text-gray-600">Projects Delivered</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">10+</p>
-                <p className="text-gray-600">Customers Served</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">4+</p>
-                <p className="text-gray-600">Industries Touched</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="py-8">
-                <p className="text-4xl font-bold text-gray-900 mb-2">100K+</p>
-                <p className="text-gray-600">Annual Transactions</p>
-              </CardContent>
-            </Card>
+            {statsData.map((stat, index) => (
+              <AnimatedStatCard
+                key={stat.label}
+                label={stat.label}
+                value={stat.value}
+                suffix={stat.suffix}
+                index={index}
+              />
+            ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Awards & Recognitions Section */}
       <motion.section
