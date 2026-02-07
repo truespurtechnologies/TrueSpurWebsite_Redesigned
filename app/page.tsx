@@ -582,36 +582,12 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="relative rounded-[32px] bg-white/95 shadow-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-400 opacity-95" />
-                <div className="relative h-[420px] w-full overflow-hidden">
-                  <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-400" />
-                  <div className="absolute inset-0">
-                    <svg
-                      viewBox="0 0 400 260"
-                      className="h-full w-full text-orange-400/70"
-                      preserveAspectRatio="xMidYMid slice"
-                    >
-                      <defs>
-                        <linearGradient id="hero-diagonal-mask" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
-                          <stop offset="40%" stopColor="currentColor" stopOpacity="0.5" />
-                          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M0,0 L260,0 C320,86 360,130 400,180 L400,260 L0,260 Z"
-                        fill="url(#hero-diagonal-mask)"
-                      />
-                    </svg>
-                  </div>
-                  <div className="absolute inset-y-6 right-6 left-[32%] rounded-3xl overflow-hidden shadow-xl">
-                    <img
-                      src="/images/hero-landing.jpg"
-                      alt="Team collaborating on modern technology solutions at TrueSpur"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-[1.03]"
-                    />
-                  </div>
-                </div>
+                {/* Retain the original hero image as a clean card without overlay */}
+                <img
+                  src="/images/hero-landing.jpg"
+                  alt="Team collaborating on modern technology solutions at TrueSpur"
+                  className="w-full h-[500px] object-cover"
+                />
               </div>
             </motion.div>
           </div>
