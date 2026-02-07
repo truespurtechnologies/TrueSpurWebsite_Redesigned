@@ -1961,11 +1961,11 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
           <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-4">
             <div className="group relative overflow-hidden rounded-2xl bg-white/95 px-6 py-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-100 via-orange-100 to-amber-100" />
-              <div className="relative flex h-20 w-full items-center justify-center">
+              <div className="relative flex h-24 w-full items-center justify-center">
                 <img
-                  src="/customers/medispur-logo.jpg"
+                  src="/customers/Medispur logo.png"
                   alt="Medispur"
-                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                  className="max-h-68 md:max-h-70 lg:max-h-74 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
@@ -1973,9 +1973,9 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
               <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-100 via-orange-100 to-amber-100" />
               <div className="relative flex h-20 w-full items-center justify-center">
                 <img
-                  src="/customers/jy-shipping-logo.jpg"
+                  src="/customers/jy-shipping-logo.png"
                   alt="Joy Shipping Services Private Limited"
-                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                  className="max-h-68 md:max-h-70 lg:max-h-74 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
@@ -1985,7 +1985,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 <img
                   src="/customers/steel-world-logo.png"
                   alt="Steel World"
-                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                  className="max-h-48 md:max-h-70 lg:max-h-44 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
@@ -1995,7 +1995,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 <img
                   src="/customers/popular-steels-logo.png"
                   alt="Popular Steels"
-                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                  className="max-h-68 md:max-h-70 lg:max-h-74 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
