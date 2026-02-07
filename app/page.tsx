@@ -200,6 +200,16 @@ export default function HomePage() {
     { id: "contact", label: "Contact" },
   ]
 
+  const [activeTestimonial, setActiveTestimonial] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % 3)
+    }, 9000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   const productSuite = [
     {
       category: "Healthcare",
@@ -1138,6 +1148,18 @@ export default function HomePage() {
             </div>
           </div>
 
+          <div className="mb-10 flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-gray-300">
+            <span className="inline-flex items-center rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1">
+              Healthcare &amp; Digital Health
+            </span>
+            <span className="inline-flex items-center rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1">
+              Government &amp; Public Sector
+            </span>
+            <span className="inline-flex items-center rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1">
+              Logistics &amp; Manufacturing
+            </span>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div
               className="relative group"
@@ -1667,145 +1689,265 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
       </motion.section>
 
       {/* Customer Showcase Section */}
-      <section className="py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+      <motion.section
+        className="relative overflow-hidden py-20 bg-black"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-32 left-1/4 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-500/20 blur-3xl" />
+          <div className="absolute -bottom-40 right-0 h-72 w-72 rounded-full bg-amber-400/25 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-10">
             <Badge className="mb-4 bg-orange-900 text-orange-300 hover:bg-orange-900">
               Trusted By Industry Leaders
             </Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Our Valued Customers</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We're proud to partner with innovative companies across healthcare, education, and enterprise sectors
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">Our Valued Customers</h2>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+              We&apos;re proud to partner with innovative companies across healthcare, education, and enterprise sectors.
+            </p>
+            <p className="mt-3 text-sm uppercase tracking-[0.22em] text-orange-300/80">
+              10+ customers • 4 industries • 100K+ annual transactions
             </p>
           </div>
 
-          {/* Customer Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-12">
-            <div className="bg-white rounded-lg p-6 w-full h-24 flex items-center justify-center hover:bg-orange-50 transition-colors group">
-              <img
-                src="/customers/medispur-logo.jpg"
-                alt="MediSpur"
-                className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-              />
+          {/* Customer Logos */}
+          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-4">
+            <div className="group relative overflow-hidden rounded-2xl bg-white/95 px-6 py-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-100 via-orange-100 to-amber-100" />
+              <div className="relative flex h-20 w-full items-center justify-center">
+                <img
+                  src="/customers/medispur-logo.jpg"
+                  alt="Medispur"
+                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 w-full h-24 flex items-center justify-center hover:bg-orange-50 transition-colors group">
-              <img
-                src="/customers/jy-shipping-logo.jpg"
-                alt="Joy Shipping Services Private Limited"
-                className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-              />
+            <div className="group relative overflow-hidden rounded-2xl bg-white/95 px-6 py-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-100 via-orange-100 to-amber-100" />
+              <div className="relative flex h-20 w-full items-center justify-center">
+                <img
+                  src="/customers/jy-shipping-logo.jpg"
+                  alt="Joy Shipping Services Private Limited"
+                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 w-full h-24 flex items-center justify-center hover:bg-orange-50 transition-colors group">
-              <img
-                src="/customers/steel-world-logo.png"
-                alt="Steel World"
-                className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-              />
+            <div className="group relative overflow-hidden rounded-2xl bg-white/95 px-6 py-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-100 via-orange-100 to-amber-100" />
+              <div className="relative flex h-20 w-full items-center justify-center">
+                <img
+                  src="/customers/steel-world-logo.png"
+                  alt="Steel World"
+                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 w-full h-24 flex items-center justify-center hover:bg-orange-50 transition-colors group">
-              <img
-                src="/customers/popular-steels-logo.png"
-                alt="Popular Steels"
-                className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-              />
+            <div className="group relative overflow-hidden rounded-2xl bg-white/95 px-6 py-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-100 via-orange-100 to-amber-100" />
+              <div className="relative flex h-20 w-full items-center justify-center">
+                <img
+                  src="/customers/popular-steels-logo.png"
+                  alt="Popular Steels"
+                  className="max-h-12 md:max-h-14 lg:max-h-16 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Customer Testimonials */}
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900 border-gray-800 text-white">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-4 italic">
-                  "TrueSpur delivered an exceptional billing platform that streamlined our sales process. Their
-                  expertise in critical thinking was invaluable."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-semibold text-sm">SM</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Munirul Gutha</p>
-                    <p className="text-gray-400 text-sm">Founder, Popular Steels</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          {/* Customer Testimonials Hub */}
+          <div className="space-y-6">
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-orange-300">
+                Customer Stories
+              </p>
+              <p className="text-xs text-gray-400">
+                {activeTestimonial + 1} / 3
+              </p>
+            </div>
 
-            <Card className="bg-gray-900 border-gray-800 text-white">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-4 italic">
-                  "Truespur’s award-winning Mobile Outreach Vehicle is transforming disability services in rural Tamil
-                  Nadu. Built in collaboration with the Government Disability Welfare Department, it brings essential
-                  care and smart diagnostics directly to remote communities. Mohideen’s vision turned innovation into
-                  impact—now, this vehicle is changing lives where it’s needed most."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-semibold text-sm">SO</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Senior Official</p>
-                    <p className="text-gray-400 text-sm">TN Government Disability Welfare Department</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="grid gap-6 md:grid-cols-3">
+              <motion.div
+                className="cursor-pointer"
+                onClick={() => setActiveTestimonial(0)}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
+                viewport={{ once: true, amount: 0.3 }}
+                animate={
+                  activeTestimonial === 0
+                    ? { scale: 1, y: -4 }
+                    : { scale: 0.96, y: 0, opacity: 0.85 }
+                }
+              >
+                <Card className={`h-full border ${
+                  activeTestimonial === 0
+                    ? "bg-slate-900 border-orange-500/60 shadow-2xl"
+                    : "bg-slate-900/95 border-gray-800 shadow-lg"
+                } text-white transition-all duration-300`}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-2 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-200 mb-4 italic">
+                      "TrueSpur delivered an exceptional billing platform that streamlined our sales process. Their
+                      expertise in critical thinking was invaluable."
+                    </p>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-white font-semibold text-sm">SM</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Munirul Gutha</p>
+                        <p className="text-gray-400 text-sm">Founder, Popular Steels</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-            <Card className="bg-gray-900 border-gray-800 text-white">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-4 italic">
-                  "Their AI-powered automation solution reduced our processing time by 60%. The ROI was evident within
-                  the first quarter of implementation."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-semibold text-sm">MS</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Wasim Feroz</p>
-                    <p className="text-gray-400 text-sm">Managing Director, Joy Shipping</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              <motion.div
+                className="cursor-pointer"
+                onClick={() => setActiveTestimonial(1)}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                animate={
+                  activeTestimonial === 1
+                    ? { scale: 1, y: -4 }
+                    : { scale: 0.96, y: 0, opacity: 0.85 }
+                }
+              >
+                <Card className={`h-full border ${
+                  activeTestimonial === 1
+                    ? "bg-slate-900 border-orange-500/60 shadow-2xl"
+                    : "bg-slate-900/95 border-gray-800 shadow-lg"
+                } text-white transition-all duration-300`}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-2 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-200 mb-4 italic">
+                      "Truespur’s award-winning Mobile Outreach Vehicle is transforming disability services in rural
+                      Tamil Nadu. Built in collaboration with the Government Disability Welfare Department, it brings
+                      essential care and smart diagnostics directly to remote communities. Mohideen’s vision turned
+                      innovation into impact—now, this vehicle is changing lives where it’s needed most."
+                    </p>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-white font-semibold text-sm">SO</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Senior Official</p>
+                        <p className="text-gray-400 text-sm">TN Government Disability Welfare Department</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                className="cursor-pointer"
+                onClick={() => setActiveTestimonial(2)}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
+                viewport={{ once: true, amount: 0.3 }}
+                animate={
+                  activeTestimonial === 2
+                    ? { scale: 1, y: -4 }
+                    : { scale: 0.96, y: 0, opacity: 0.85 }
+                }
+              >
+                <Card className={`h-full border ${
+                  activeTestimonial === 2
+                    ? "bg-slate-900 border-orange-500/60 shadow-2xl"
+                    : "bg-slate-900/95 border-gray-800 shadow-lg"
+                } text-white transition-all duration-300`}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-2 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-200 mb-4 italic">
+                      "Their AI-powered automation solution reduced our processing time by 60%. The ROI was evident
+                      within the first quarter of implementation."
+                    </p>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-white font-semibold text-sm">MS</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Wasim Feroz</p>
+                        <p className="text-gray-400 text-sm">Managing Director, Joy Shipping</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+
+            <div className="mt-4 flex items-center justify-center gap-3">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    activeTestimonial === index
+                      ? "w-6 bg-orange-500"
+                      : "w-2.5 bg-gray-600 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Show testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-12">
-            <p className="text-gray-300 mb-6">
-              Join these industry leaders in transforming their business with technology
-            </p>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
-            >
-              Become Our Next Success Story
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+          {/* Call to Action Band */}
+          <div className="mt-14">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500 px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
+                  Join these industry leaders in transforming their business with technology.
+                </h3>
+                <p className="text-sm md:text-base text-white/90 max-w-xl">
+                  Share your goals with us and we&apos;ll help craft the next success story—tailored to your industry,
+                  scale, and ambitions.
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <Button
+                  onClick={() => scrollToSection("contact")}
+                  className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-6 md:px-8"
+                >
+                  Become Our Next Success Story
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
