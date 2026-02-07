@@ -36,6 +36,7 @@ import {
   Menu,
   X,
   Loader2,
+  Lock,
 } from "lucide-react"
 
 const statsData = [
@@ -983,8 +984,8 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/60 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/60 opacity-70 md:opacity-0 md:group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
@@ -995,7 +996,7 @@ export default function HomePage() {
                     <div className="absolute inset-2 rounded-full bg-white/20" />
                     <Heart className="relative h-8 w-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-2xl">Healthcare</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl text-white">Healthcare</CardTitle>
                 </CardHeader>
                 <CardContent className="relative overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
@@ -1053,8 +1054,8 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/60 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/60 opacity-70 md:opacity-0 md:group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
@@ -1065,7 +1066,7 @@ export default function HomePage() {
                     <div className="absolute inset-2 rounded-full bg-white/20" />
                     <GraduationCap className="relative h-8 w-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-2xl">Education</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl text-white">Education</CardTitle>
                 </CardHeader>
                 <CardContent className="relative overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
@@ -1141,8 +1142,8 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/65 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/65 opacity-70 md:opacity-0 md:group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
@@ -1153,7 +1154,7 @@ export default function HomePage() {
                     <div className="absolute inset-2 rounded-full bg-white/20" />
                     <Zap className="relative h-8 w-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-2xl">Digital Transformation</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl text-white">Digital Transformation</CardTitle>
                 </CardHeader>
                 <CardContent className="relative overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
@@ -1547,7 +1548,7 @@ export default function HomePage() {
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-14 max-w-4xl mx-auto">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Recognized for Innovation</Badge>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-snug">
+            <h2 className="text-3xl lg:text-[2.4rem] font-bold text-gray-900 mb-4 leading-snug">
               Developed a winning design that secured World Bank–backed projects for the Tamil Nadu State Government
             </h2>
             <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -1802,7 +1803,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
 
       {/* Customer Showcase Section */}
       <motion.section
-        className="relative overflow-hidden py-20 bg-black"
+        className="relative overflow-hidden py-20 bg-gradient-to-br from-slate-950 via-slate-950 to-black"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1819,7 +1820,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
               Trusted By Industry Leaders
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">Our Valued Customers</h2>
-            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg lg:text-xl text-slate-200/90 max-w-3xl mx-auto">
               We&apos;re proud to partner with innovative companies across healthcare, education, and enterprise sectors.
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.22em] text-orange-300/80">
@@ -2062,64 +2063,138 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
       </motion.section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="relative overflow-hidden py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/35 blur-3xl" />
+          <div className="absolute -bottom-28 right-0 h-80 w-80 rounded-full bg-amber-200/40 blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Get In Touch</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               {"Let's Build Something Amazing Together"}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Ready to transform your business with cutting-edge technology? Contact us today for a free consultation.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <p className="text-gray-600">info@truespur.ai</p>
-                  </div>
+              <div className="relative h-full rounded-2xl bg-gradient-to-br from-white via-orange-50/40 to-amber-50/70 border border-orange-100 shadow-xl shadow-orange-100/60 px-6 py-7 md:px-7 md:py-8 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <motion.div
+                  className="pointer-events-none absolute -top-6 right-4 h-24 w-32 text-orange-200/70"
+                  animate={{ opacity: [0.4, 0.9, 0.4], scale: [1, 1.03, 1] }}
+                  transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <svg viewBox="0 0 160 90" className="w-full h-full" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="contact-tech" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+                        <stop offset="50%" stopColor="currentColor" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+
+                    <path
+                      d="M10 40h20l8-10 10 22 10-30 12 28 8-14h26"
+                      fill="none"
+                      stroke="url(#contact-tech)"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M24 62h26M70 62h34M120 62h16"
+                      fill="none"
+                      stroke="url(#contact-tech)"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="24" cy="40" r="3" fill="currentColor" fillOpacity="0.95" />
+                    <circle cx="54" cy="46" r="2.5" fill="currentColor" fillOpacity="0.9" />
+                    <circle cx="86" cy="38" r="2.5" fill="currentColor" fillOpacity="0.9" />
+                    <circle cx="118" cy="46" r="2.5" fill="currentColor" fillOpacity="0.9" />
+                  </svg>
+                </motion.div>
+
+                <div className="absolute top-3 left-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-orange-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/95" />
+                  <span>Contact Hub</span>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                    <p className="text-gray-600">+91-9884664913</p>
-                  </div>
-                </div>
+                <div className="mt-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Mail className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
+                        <p className="text-gray-800">info@truespur.ai</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
-                    <p className="text-gray-600">N.G.O Colony, 1st Main Road</p>
-                    <p className="text-gray-600">Adambakkam, Chennai</p>
-                    <p className="text-gray-600">TamilNadu, 600088</p>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Phone className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
+                        <p className="text-gray-800">+91-9884664913</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPin className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
+                        <p className="text-gray-800">N.G.O Colony, 1st Main Road</p>
+                        <p className="text-gray-800">Adambakkam, Chennai</p>
+                        <p className="text-gray-800">TamilNadu, 600088</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <Card className="border-0 shadow-xl">
-              <CardHeader>
-                <CardTitle className="text-2xl">Send us a message</CardTitle>
-                <CardDescription>{"We'll get back to you within 24 hours"}</CardDescription>
+            <Card className="relative rounded-2xl border border-orange-100 bg-white/95 shadow-xl shadow-orange-100/60 overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500" />
+              <CardHeader className="pt-6 pb-4 px-6">
+                <CardTitle className="text-2xl">
+                  {formStatus === "success" ? "Message sent" : "Send us a message"}
+                </CardTitle>
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-gray-600">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 font-medium text-emerald-700 border border-emerald-100">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    {formStatus === "success" ? "We've received your message" : "Typically replies within 24 hours"}
+                  </span>
+                  <span className="hidden md:inline text-[11px] text-gray-500">
+                    {formStatus === "success"
+                      ? "Watch for an email from info@truespur.ai with next steps."
+                      : "Share a few details and we'll follow up with next steps."}
+                  </span>
+                  {formStatus !== "success" && (
+                    <span className="inline-flex items-center gap-1 text-[11px] text-gray-400">
+                      <span className="flex h-1.5 w-6 items-center justify-between">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-300 animate-pulse" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-300 animate-[pulse_1.4s_ease-in-out_infinite_200ms]" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-300 animate-[pulse_1.6s_ease-in-out_infinite_400ms]" />
+                      </span>
+                      <span>We're listening</span>
+                    </span>
+                  )}
+                </div>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 px-6 pb-6">
                 {formStatus === "success" && (
                   <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p className="text-green-900 text-sm font-semibold mb-1">Thank you for reaching out.</p>
                     <p className="text-green-800 text-sm font-medium">{formMessage}</p>
                   </div>
                 )}
@@ -2139,7 +2214,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                         value={formData.firstName}
                         onChange={handleInputChange}
                         disabled={formStatus === "loading"}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-400 bg-white/95 focus:bg-orange-50/40 disabled:bg-gray-50 disabled:cursor-not-allowed"
                         placeholder="John"
                         required
                       />
@@ -2173,12 +2248,35 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                   </div>
                   <div>
                     <label className="text-sm font-medium text-gray-700 mb-2 block">Project Type</label>
+                    <div className="mb-2 flex flex-wrap gap-2">
+                      {["Website Development", "Mobile App Development", "AI Solutions", "Not sure yet"].map((type) => (
+                        <button
+                          key={type}
+                          type="button"
+                          disabled={formStatus === "loading"}
+                          onClick={() =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              projectType: type === "Not sure yet" ? "Product Consulting" : type,
+                            }))
+                          }
+                          className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed ${
+                            (type === "Not sure yet" && formData.projectType === "Product Consulting") ||
+                            formData.projectType === type
+                              ? "border-orange-400 bg-orange-50 text-orange-700"
+                              : "border-gray-200 bg-white text-gray-600 hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700"
+                          }`}
+                        >
+                          {type}
+                        </button>
+                      ))}
+                    </div>
                     <select
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleInputChange}
                       disabled={formStatus === "loading"}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-400 bg-white/95 focus:bg-orange-50/40 disabled:bg-gray-50 disabled:cursor-not-allowed"
                     >
                       <option>Website Development</option>
                       <option>Mobile App Development</option>
@@ -2195,10 +2293,21 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                       onChange={handleInputChange}
                       disabled={formStatus === "loading"}
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-400 bg-white/95 focus:bg-orange-50/40 disabled:bg-gray-50 disabled:cursor-not-allowed"
                       placeholder="Tell us about your project..."
                       required
                     />
+                    <div className="mt-1 flex items-center justify-between text-[11px] text-gray-500">
+                      <span className="hidden sm:inline">Share your goals, timeline, and any links you think are helpful.</span>
+                      <span>{formData.message.length} / 500</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <div className="inline-flex items-center gap-1">
+                      <Lock className="h-3.5 w-3.5 text-gray-400" />
+                      <span>Your details are kept private and used only to contact you.</span>
+                    </div>
+                    <span className="hidden sm:inline">We usually respond within one business day.</span>
                   </div>
                   <Button
                     type="submit"
@@ -2369,7 +2478,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 TrueSpur Technology Solutions. All rights reserved.</p>
+            <p>&copy; 2026 TrueSpur Technology Solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>
