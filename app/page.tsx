@@ -530,19 +530,113 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative overflow-hidden py-20 bg-gradient-to-br from-gray-50 via-white to-[#FFF7ED]"
+        className="relative overflow-hidden py-20 bg-slate-950 hero-gradient-animated"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
-          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+          <motion.div
+            className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-orange-500/25 blur-3xl"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute -bottom-40 right-[-4rem] h-96 w-96 rounded-full bg-amber-400/20 blur-3xl"
+            animate={{ y: [0, 14, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute top-1/3 right-1/3 h-64 w-64 rounded-full bg-yellow-400/10 blur-3xl"
+            animate={{ x: [0, 10, -6, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
 
         <div className="relative container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="pointer-events-none absolute inset-x-4 top-10 bottom-10 hidden md:flex items-center justify-center"
+            animate={{ opacity: [0.4, 0.85, 0.4] }}
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg
+              viewBox="0 0 520 260"
+              className="w-full max-w-4xl text-orange-100/40"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient id="hero-tech-grid" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+                  <stop offset="45%" stopColor="currentColor" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+
+              <rect
+                x="32"
+                y="28"
+                width="456"
+                height="204"
+                rx="28"
+                fill="none"
+                stroke="url(#hero-tech-grid)"
+                strokeWidth="1.4"
+              />
+
+              {Array.from({ length: 7 }).map((_, i) => (
+                <line
+                  key={`hv-${i}`}
+                  x1={60 + i * 52}
+                  y1={44}
+                  x2={60 + i * 52}
+                  y2={216}
+                  stroke="currentColor"
+                  strokeOpacity={0.18}
+                  strokeWidth="0.7"
+                />
+              ))}
+              {Array.from({ length: 5 }).map((_, i) => (
+                <line
+                  key={`hh-${i}`}
+                  x1={52}
+                  y1={64 + i * 36}
+                  x2={460}
+                  y2={64 + i * 36}
+                  stroke="currentColor"
+                  strokeOpacity={0.14}
+                  strokeWidth="0.7"
+                />
+              ))}
+
+              <path
+                d="M84 90h26l10-14 14 26 10-34 14 38 10-18h28"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeOpacity="0.9"
+              />
+              <path
+                d="M124 152h30M190 152h64M292 152h42"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeOpacity="0.8"
+                strokeLinecap="round"
+              />
+
+              <circle cx="112" cy="90" r="4" fill="currentColor" fillOpacity="0.9" />
+              <circle cx="172" cy="104" r="3.5" fill="currentColor" fillOpacity="0.85" />
+              <circle cx="220" cy="86" r="3.5" fill="currentColor" fillOpacity="0.85" />
+              <circle cx="260" cy="104" r="3.5" fill="currentColor" fillOpacity="0.85" />
+              <circle cx="332" cy="80" r="3" fill="currentColor" fillOpacity="0.8" />
+              <circle cx="372" cy="110" r="3" fill="currentColor" fillOpacity="0.8" />
+            </svg>
+          </motion.div>
+
+          <div className="relative grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               className="relative z-10"
               initial={{ opacity: 0, x: -40 }}
@@ -550,20 +644,20 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">
+              <Badge className="mb-4 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 border border-orange-400/40">
                 Cutting-Edge Technology Solutions
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Transform Your Business with{" "}
                 <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
                   Innovation
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+              <p className="text-xl text-slate-200/80 mb-6 leading-relaxed">
                 We specialize in website development, mobile apps, custom software, AI solutions, and product
                 consulting. Empowering healthcare, education, and digital transformation with cutting-edge technology.
               </p>
-              <p className="text-lg text-orange-600 font-medium mb-8 italic">"We Craft. You Lead."</p>
+              <p className="text-lg text-orange-300 font-medium mb-8 italic">"We Craft. You Lead."</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
@@ -783,20 +877,36 @@ export default function HomePage() {
       {/* Expertise Section */}
       <motion.section
         id="expertise"
-        className="relative overflow-hidden py-20 bg-gradient-to-b from-[#F9FAFB] via-white to-[#FFF7ED]"
+        className="relative overflow-hidden py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 left-[-6rem] h-72 w-72 rounded-full bg-orange-200/35 blur-3xl" />
-          <div className="absolute -bottom-32 right-[-4rem] h-72 w-72 rounded-full bg-amber-200/35 blur-3xl" />
-          <div className="absolute top-1/2 left-1/4 h-56 w-56 -translate-y-1/2 rounded-full bg-yellow-200/30 blur-3xl" />
+          <motion.div
+            className="absolute -top-32 left-[-6rem] h-72 w-72 rounded-full bg-orange-500/25 blur-3xl"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute -bottom-36 right-[-4rem] h-80 w-80 rounded-full bg-amber-400/20 blur-3xl"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/4 h-56 w-56 -translate-y-1/2 rounded-full bg-yellow-400/12 blur-3xl"
+            animate={{ x: [0, 8, -4, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
 
         <div className="relative container mx-auto px-4">
-          <div className="pointer-events-none absolute inset-x-4 top-10 bottom-10 flex items-center justify-center">
+          <motion.div
+            className="pointer-events-none absolute inset-x-4 top-10 bottom-10 flex items-center justify-center"
+            animate={{ opacity: [0.6, 0.9, 0.6] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          >
             <svg
               viewBox="0 0 480 260"
               className="w-full max-w-4xl text-orange-100/60"
@@ -852,12 +962,14 @@ export default function HomePage() {
               <circle cx="188" cy="204" r="3" fill="currentColor" fillOpacity="0.65" />
               <circle cx="300" cy="72" r="3" fill="currentColor" fillOpacity="0.6" />
             </svg>
-          </div>
+          </motion.div>
 
           <div className="relative text-center mb-16 max-w-3xl mx-auto">
-            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Industry Expertise</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Deep Domain Knowledge</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <Badge className="mb-4 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 border border-orange-400/40">
+              Industry Expertise
+            </Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Deep Domain Knowledge</h2>
+            <p className="text-xl text-slate-200/80 max-w-3xl mx-auto">
               We bring specialized expertise in key industries, understanding unique challenges and requirements
             </p>
           </div>
@@ -872,7 +984,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/60 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
@@ -907,11 +1019,11 @@ export default function HomePage() {
                       <circle cx="206" cy="86" r="3" fill="currentColor" fillOpacity="0.8" />
                     </svg>
                   </div>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-slate-100/80 mb-6">
                     HIPAA-compliant solutions, patient management systems, telemedicine platforms, and healthcare
                     analytics.
                   </p>
-                  <ul className="text-left space-y-2 text-sm text-gray-600">
+                  <ul className="text-left space-y-2 text-sm text-slate-100/80">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
                       Electronic Health Records (EHR)
@@ -942,7 +1054,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/60 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
@@ -996,10 +1108,10 @@ export default function HomePage() {
                       <circle cx="134" cy="72" r="3" fill="currentColor" fillOpacity="0.75" />
                     </svg>
                   </div>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-slate-100/80 mb-6">
                     Learning management systems, educational apps, virtual classrooms, and student information systems.
                   </p>
-                  <ul className="text-left space-y-2 text-sm text-gray-600">
+                  <ul className="text-left space-y-2 text-sm text-slate-100/80">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
                       Learning Management Systems
@@ -1030,7 +1142,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/65 opacity-0 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
@@ -1084,10 +1196,10 @@ export default function HomePage() {
                       <circle cx="170" cy="82" r="3" fill="currentColor" fillOpacity="0.8" />
                     </svg>
                   </div>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-slate-100/80 mb-6">
                     Cloud migration, process automation, digital workflows, and modernization of legacy systems.
                   </p>
-                  <ul className="text-left space-y-2 text-sm text-gray-600">
+                  <ul className="text-left space-y-2 text-sm text-slate-100/80">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
                       Cloud Migration & Architecture
