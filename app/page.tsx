@@ -1242,35 +1242,45 @@ export default function HomePage() {
 
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-14 max-w-3xl mx-auto">
-            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Products &amp; Solutions</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100/90">
+              Products &amp; Solutions
+            </Badge>
+            <h2 className="text-3xl lg:text-[2.5rem] font-bold text-gray-900 mb-3 leading-snug">
               World-Class Products, Proven Results
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
               Discover our leading suite of products, already trusted by teams and organizations across healthcare,
               education, and digital transformation.
             </p>
           </div>
 
           <div className="mb-8 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/70 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-white/90 px-5 py-2.5 shadow-md shadow-orange-100/60 backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 animate-pulse" />
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-700">
+              <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.26em] text-orange-800">
                 Product Suite Spotlight
               </p>
             </div>
           </div>
 
-          <div className="mb-10 flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-gray-300">
-            <span className="inline-flex items-center rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1">
-              Healthcare &amp; Digital Health
-            </span>
-            <span className="inline-flex items-center rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1">
-              Government &amp; Public Sector
-            </span>
-            <span className="inline-flex items-center rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1">
-              Logistics &amp; Manufacturing
-            </span>
+          <div className="mb-10 space-y-3">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.24em] text-orange-700/80">
+              Built for teams across key industries
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] md:text-xs font-medium">
+              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/90 px-3.5 py-1.5 text-orange-800 shadow-sm shadow-orange-50">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
+                Healthcare &amp; Digital Health
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/90 px-3.5 py-1.5 text-orange-800 shadow-sm shadow-orange-50">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
+                Government &amp; Public Sector
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/90 px-3.5 py-1.5 text-orange-800 shadow-sm shadow-orange-50">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
+                Logistics &amp; Manufacturing
+              </span>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
