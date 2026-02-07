@@ -1546,12 +1546,12 @@ export default function HomePage() {
         </div>
 
         <div className="relative container mx-auto px-4">
-          <div className="text-center mb-14 max-w-4xl mx-auto">
+          <div className="text-center mb-14 max-w-5xl mx-auto">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Recognized for Innovation</Badge>
             <h2 className="text-3xl lg:text-[2.4rem] font-bold text-gray-900 mb-4 leading-snug">
               Developed a winning design that secured World Bank–backed projects for the Tamil Nadu State Government
             </h2>
-            <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Designing impactful solutions for the Welfare of Differently Abled Persons in partnership with the Tamil Nadu State Government.
             </p>
           </div>
@@ -1559,7 +1559,7 @@ export default function HomePage() {
           <div className="grid gap-10 xl:gap-16 lg:grid-cols-2 items-stretch">
             {/* Left column: text cards */}
             <motion.div
-              className="space-y-10"
+              className="space-y-17"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1676,7 +1676,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <CardHeader className="pb-2 pt-4 px-6">
+                <CardHeader className="pb-2 pt-2 px-6 relative z-30 overflow-hidden">
                   <CardTitle className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-2">
                     <span className="bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
                       Award-winning public sector innovation
@@ -1728,6 +1728,125 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                     </div>
                   </div>
                 </CardContent>
+
+                {/* Confetti overlay above all content – continuous rain */}
+                <motion.div className="pointer-events-none absolute inset-0 overflow-hidden z-40" initial={false}>
+                  {Array.from({ length: 26 }).map((_, index) => {
+                    const baseLeft = 4 + (index % 13) * 7
+                    const rowOffset = index < 13 ? 0 : 8
+                    const colors = [
+                      "bg-pink-400",
+                      "bg-fuchsia-400",
+                      "bg-amber-300",
+                      "bg-sky-400",
+                      "bg-emerald-400",
+                      "bg-purple-400",
+                    ]
+                    const colorClass = colors[index % colors.length]
+
+                    const shapeTypes = ["bar", "square", "circle", "diamond", "triangle"] as const
+                    const shape = shapeTypes[index % shapeTypes.length]
+
+                    let width = 6
+                    let height = 12
+                    let borderRadius = 2
+                    let initialRotate = -20
+                    let clipPath: string | undefined = undefined
+
+                    if (shape === "square") {
+                      width = 8
+                      height = 8
+                      borderRadius = 2
+                      initialRotate = 10
+                    } else if (shape === "circle") {
+                      width = 7
+                      height = 7
+                      borderRadius = 9999
+                      initialRotate = 0
+                    } else if (shape === "diamond") {
+                      width = 8
+                      height = 8
+                      borderRadius = 2
+                      initialRotate = 45
+                    } else if (shape === "triangle") {
+                      width = 10
+                      height = 10
+                      borderRadius = 0
+                      initialRotate = 0
+                      clipPath = "polygon(50% 0%, 0% 100%, 100% 100%)"
+                    }
+
+                    return (
+                      <motion.span
+                        key={index}
+                        className={`absolute opacity-80 shadow-sm ${colorClass}`}
+                        style={{
+                          left: `${baseLeft}%`,
+                          top: -40 - rowOffset * 4,
+                          width,
+                          height,
+                          borderRadius,
+                          transformOrigin: "center",
+                          clipPath,
+                        }}
+                        animate={{
+                          y: [0, 520],
+                          x: [0, index % 2 === 0 ? 12 : -12, 0],
+                          rotate: [initialRotate, initialRotate + 30, initialRotate - 24, initialRotate],
+                        }}
+                        transition={{
+                          duration: 2.8 + (index % 7) * 0.3,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.14,
+                        }}
+                      />
+                    )
+                  })}
+                </motion.div>
+
+                {/* Burst-style confetti layer for occasional party pops */}
+                <motion.div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 overflow-visible z-50" initial={false}>
+                  {Array.from({ length: 12 }).map((_, index) => {
+                    const colors = [
+                      "bg-pink-400",
+                      "bg-amber-300",
+                      "bg-sky-400",
+                      "bg-emerald-400",
+                      "bg-purple-400",
+                    ]
+                    const colorClass = colors[index % colors.length]
+                    const isWide = index % 3 === 0
+
+                    return (
+                      <motion.span
+                        key={index}
+                        className={`absolute opacity-90 shadow-sm ${colorClass}`}
+                        style={{
+                          top: 24,
+                          left: `${10 + (index % 6) * 14}%`,
+                          width: isWide ? 14 : 8,
+                          height: isWide ? 4 : 8,
+                          borderRadius: 3,
+                          transformOrigin: "center",
+                        }}
+                        animate={{
+                          y: [0, 180],
+                          scale: [0.6, 1, 1],
+                          rotate: [-30, 25, -10],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 1.6,
+                          repeat: Infinity,
+                          ease: "easeOut",
+                          delay: 1.2 + index * 0.2,
+                          repeatDelay: 3.2,
+                        }}
+                      />
+                    )
+                  })}
+                </motion.div>
               </Card>
             </motion.div>
           </div>
