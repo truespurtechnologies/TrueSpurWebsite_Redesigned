@@ -671,7 +671,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection("products")}
                   className="border-orange-300 text-orange-600 hover:bg-orange-50 bg-white/80 backdrop-blur"
                 >
                   View Our Work
