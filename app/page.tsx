@@ -344,7 +344,7 @@ export default function HomePage() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             <NavigationMenu viewport={true}>
               <NavigationMenuList>
                 {/* Home first */}
@@ -354,9 +354,9 @@ export default function HomePage() {
                     <NavigationMenuItem key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`text-sm font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-1.5 ${
+                        className={`text-[0.95rem] tracking-wide font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 ${
                           activeSection === item.id
-                            ? "text-orange-600 border-b-2 border-orange-600"
+                            ? "text-orange-600 border-b-[3px] border-orange-600"
                             : "text-gray-600"
                         }`}
                       >
@@ -439,7 +439,7 @@ export default function HomePage() {
           {/* Desktop CTA Button */}
           <Button
             onClick={() => scrollToSection("contact")}
-            className="hidden md:block bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
+            className="hidden md:inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-transform transition-shadow duration-200"
           >
             Get Started
           </Button>
@@ -658,7 +658,7 @@ export default function HomePage() {
                 We specialize in website development, mobile apps, custom software, AI solutions, and product
                 consulting. Empowering healthcare, education, and digital transformation with cutting-edge technology.
               </p>
-              <p className="text-lg text-orange-300 font-medium mb-8 italic">"We Craft. You Lead."</p>
+              <p className="text-base text-slate-200/90 font-medium mb-8 italic tracking-wide">"We Craft. You Lead."</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
@@ -864,7 +864,7 @@ export default function HomePage() {
                   </CardDescription>
                   <Button
                     onClick={() => scrollToSection("contact")}
-                    className="mt-4 w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-md shadow-orange-200"
+                    className="mt-4 w-full border border-orange-300 text-orange-700 bg-white/90 hover:bg-orange-50 hover:text-orange-800 shadow-sm"
                   >
                     Contact Us Today
                   </Button>
@@ -2579,7 +2579,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 </button>
               </div>
               <p className="text-gray-400 mb-4">Transforming businesses with cutting-edge technology solutions.</p>
-              <p className="text-orange-400 text-sm italic">"We Craft. You Lead."</p>
+              <p className="text-amber-300 text-sm italic tracking-wide">"We Craft. You Lead."</p>
             </div>
 
             <div>
