@@ -1693,7 +1693,7 @@ export default function HomePage() {
                     </span>
                   </CardTitle>
                   <CardDescription className="text-base md:text-lg text-gray-800 leading-relaxed font-medium">
-                         First place – Design of Mobile Outreach and Therapy Unit
+                         First place – Design of Mobile Outreach and Therapy Unit.
 Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backed initiative (2023).
                   </CardDescription>
                 </CardHeader>
@@ -1897,6 +1897,36 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 With deep expertise in healthcare, education, and digital transformation, we understand the unique
                 challenges these industries face and provide tailored solutions using cutting-edge technologies.
               </p>
+              <div className="mb-4 max-w-2xl">
+                <motion.div
+                  className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-yellow-50 via-orange-50 to-amber-100 border border-orange-200/80 shadow-xl shadow-orange-100/90 px-5 py-4 md:px-7 md:py-5"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  whileHover={{ y: -4 }}
+                >
+                  <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-r from-yellow-300/20 via-orange-400/15 to-amber-300/25 opacity-60 blur-xl" />
+                  <div className="relative flex items-start gap-3 md:gap-4">
+                    <div className="mt-0.5 hidden sm:flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg shadow-orange-300/80">
+                      <Smartphone className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-800 mb-2">
+                        <span>For startup founders & product leaders</span>
+                        <span className="hidden md:inline-flex h-4 w-[1px] bg-orange-300/70" />
+                        <span className="hidden md:inline text-[10px] font-medium tracking-[0.18em] text-orange-600/90">
+                          Product strategy · UX · Engineering
+                        </span>
+                      </p>
+                      <p className="text-sm md:text-base text-gray-800 leading-relaxed">
+                        <span className="font-semibold text-gray-900">From idea to launch</span>
+                        {", we help you architect and build software that's ready for real users and real growth."}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -1916,6 +1946,17 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                       alt="TrueSpur team collaborating on innovative technology solutions"
                       className="w-full h-[500px] object-cover rounded-2xl"
                     />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+                <div className="inline-flex items-start gap-3 rounded-2xl bg-white/95 px-4 py-3 md:px-5 md:py-3 shadow-lg border border-orange-100">
+                  <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 shadow-md shadow-orange-200">
+                    <Smartphone className="h-4 w-4 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-gray-900">From idea to real users</p>
+                    <p className="text-xs text-gray-600">We build apps ready for growth.</p>
                   </div>
                 </div>
               </div>
@@ -2202,10 +2243,10 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Get In Touch</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              {"Let's Build Something Amazing Together"}
+              {"Build Software That Moves Your Business Forward"}
             </h2>
             <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to transform your business with cutting-edge technology? Contact us today for a free consultation.
+              Have a product idea or operational challenge? Let’s design and build the right solution — built to scale from day one.
             </p>
           </div>
 
