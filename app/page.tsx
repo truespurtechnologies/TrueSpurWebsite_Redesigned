@@ -1899,7 +1899,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
               </p>
               <div className="mb-4 max-w-2xl">
                 <motion.div
-                  className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-yellow-50 via-orange-50 to-amber-100 border border-orange-200/80 shadow-xl shadow-orange-100/90 px-5 py-4 md:px-7 md:py-5"
+                  className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-yellow-50 via-orange-50 to-amber-100 border border-orange-200/80 shadow-[0_22px_40px_rgba(248,180,75,0.45)] px-5 py-4 md:px-7 md:py-5"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -1907,20 +1907,26 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                   whileHover={{ y: -4 }}
                 >
                   <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-r from-yellow-300/20 via-orange-400/15 to-amber-300/25 opacity-60 blur-xl" />
+                  <div className="pointer-events-none absolute inset-y-2 -left-6 w-16 rounded-full bg-gradient-to-b from-yellow-300/45 via-transparent to-amber-300/35 blur-2" />
+                  <div className="pointer-events-none absolute inset-y-2 -right-6 w-16 rounded-full bg-gradient-to-b from-amber-300/45 via-transparent to-yellow-300/35 blur-2" />
                   <div className="relative flex items-start gap-3 md:gap-4">
                     <div className="mt-0.5 hidden sm:flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg shadow-orange-300/80">
                       <Smartphone className="h-5 w-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-800 mb-2">
+                      <p className="inline-flex flex-wrap items-center gap-2 text-[11px] md:text-[11px] font-semibold uppercase tracking-[0.26em] text-orange-900/95 mb-1">
                         <span>For startup founders & product leaders</span>
                         <span className="hidden md:inline-flex h-4 w-[1px] bg-orange-300/70" />
-                        <span className="hidden md:inline text-[10px] font-medium tracking-[0.18em] text-orange-600/90">
+                        <span className="hidden md:inline text-[10px] font-medium tracking-[0.2em] text-orange-700/95">
                           Product strategy · UX · Engineering
                         </span>
                       </p>
-                      <p className="text-sm md:text-base text-gray-800 leading-relaxed">
-                        <span className="font-semibold text-gray-900">From idea to launch</span>
+                      <p className="text-sm md:text-[15px] text-gray-800 leading-relaxed">
+                        <span className="font-semibold text-gray-900">
+                          <span className="bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
+                            From idea to launch
+                          </span>
+                        </span>
                         {", we help you architect and build software that's ready for real users and real growth."}
                       </p>
                     </div>
@@ -1950,15 +1956,28 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
-                <div className="inline-flex items-start gap-3 rounded-2xl bg-white/95 px-4 py-3 md:px-5 md:py-3 shadow-lg border border-orange-100">
-                  <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 shadow-md shadow-orange-200">
+                <motion.div
+                  className="relative inline-flex items-start gap-3 rounded-2xl bg-white/95 px-4 py-3 md:px-5 md:py-3 border border-orange-100 shadow-[0_18px_30px_rgba(248,180,75,0.45)]"
+                  whileHover={{ y: -3, scale: 1.01 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                  <div className="pointer-events-none absolute inset-y-1 -left-5 w-10 rounded-full bg-gradient-to-b from-yellow-300/45 via-transparent to-amber-300/35 blur-[3px]" />
+                  <div className="pointer-events-none absolute inset-y-1 -right-5 w-10 rounded-full bg-gradient-to-b from-amber-300/45 via-transparent to-yellow-300/35 blur-[3px]" />
+                  <div className="relative mt-0.5 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 shadow-md shadow-orange-200">
                     <Smartphone className="h-4 w-4 text-white" />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-900">From idea to real users</p>
-                    <p className="text-xs text-gray-600">We build apps ready for growth.</p>
+                  <div className="relative">
+                    <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] text-gray-900">
+                      From idea to real users
+                    </p>
+                    <p className="text-xs md:text-[13px] font-semibold text-gray-900 leading-snug">
+                      <span className="text-orange-700">We build apps</span>
+                      {" ready for "}
+                      <span className="text-orange-700">growth</span>
+                      {"."}
+                    </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
               <div className="absolute -top-3 right-6">
                 <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-4 py-2 text-xs font-semibold text-white shadow-md shadow-orange-200">
