@@ -20,6 +20,7 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import { useState, useEffect, useRef } from "react"
+import { LeadFormDialog } from "@/components/lead-form-dialog"
 import {
   ArrowRight,
   Code,
@@ -116,6 +117,10 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isProductMobileOpen, setIsProductMobileOpen] = useState(false)
+  const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
+  const [leadFormSource, setLeadFormSource] = useState<
+    "get-started" | "start-project" | "get-proposal" | "success-story" | null
+  >(null)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -128,6 +133,13 @@ export default function HomePage() {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
   const [spotlightIndex, setSpotlightIndex] = useState(0)
+
+  const openLeadForm = (
+    source: "get-started" | "start-project" | "get-proposal" | "success-story",
+  ) => {
+    setLeadFormSource(source)
+    setIsLeadFormOpen(true)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -327,6 +339,11 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <LeadFormDialog
+        open={isLeadFormOpen}
+        onOpenChange={setIsLeadFormOpen}
+        source={leadFormSource}
+      />
       {/* Header */}
       <header className="border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
@@ -438,7 +455,7 @@ export default function HomePage() {
 
           {/* Desktop CTA Button */}
           <Button
-            onClick={() => scrollToSection("contact")}
+            onClick={() => openLeadForm("get-started")}
             className="hidden md:inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-transform transition-shadow duration-200"
           >
             Get Started
@@ -517,7 +534,7 @@ export default function HomePage() {
                 ))}
               <div className="pt-4">
                 <Button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => openLeadForm("get-started")}
                   className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
                 >
                   Get Started
@@ -662,7 +679,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => openLeadForm("start-project")}
                   className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-md shadow-orange-200"
                 >
                   Start Your Project
@@ -1486,7 +1503,7 @@ export default function HomePage() {
 
                 <div className="flex md:flex-shrink-0 md:justify-end">
                   <Button
-                    onClick={() => scrollToSection("contact")}
+                    onClick={() => openLeadForm("get-proposal")}
                     className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-8 py-3 text-base md:text-lg font-semibold text-slate-950 shadow-lg shadow-orange-500/40 transition hover:from-yellow-400 hover:to-orange-400 hover:shadow-orange-400/50"
                   >
                     Get Proposal
@@ -2278,7 +2295,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
               </div>
               <div className="flex-shrink-0">
                 <Button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => openLeadForm("success-story")}
                   className="bg-white text-orange-600 hover:bg-orange-50 font-semibold px-6 md:px-8"
                 >
                   Become Our Next Success Story
