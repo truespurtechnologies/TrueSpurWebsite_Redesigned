@@ -717,10 +717,10 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Our Services</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-              Comprehensive Technology Solutions
+              Turn Your Vision Into a Scalable Product
             </h2>
             <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              From concept to deployment, we deliver end-to-end solutions that drive growth and innovation.
+              From MVP to full-scale platforms, we build reliable, high-performance web and mobile applications that help startups and businesses grow with confidence.
             </p>
           </div>
 
@@ -1458,6 +1458,45 @@ export default function HomePage() {
               </Card>
             </motion.div>
           </div>
+
+          <div className="relative mt-12">
+            <div className="group relative overflow-hidden rounded-2xl border border-orange-400/30 bg-gradient-to-br from-slate-900/80 via-slate-900/90 to-slate-950/95 px-6 py-7 md:px-10 md:py-9 shadow-[0_18px_50px_rgba(15,23,42,0.9)]">
+              <div className="pointer-events-none absolute inset-0 opacity-60">
+                <div className="absolute -top-16 -left-10 h-40 w-40 rounded-full bg-orange-500/20 blur-3xl" />
+                <div className="absolute -bottom-20 right-0 h-44 w-44 rounded-full bg-amber-400/20 blur-3xl" />
+              </div>
+
+              <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                <div className="flex-1">
+                  <p className="mb-2 text-[0.65rem] uppercase tracking-[0.25em] text-orange-300/80 md:text-xs">
+                    For Founders
+                  </p>
+                  <p className="text-base md:text-xl lg:text-2xl italic text-slate-100/95 leading-relaxed lg:leading-snug font-semibold tracking-tight">
+                    We partner with{" "}
+                    <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-amber-300 bg-clip-text text-transparent">
+                      growth-driven founders
+                    </span>{" "}
+                    to design and build scalable digital products — powered by strong{" "}
+                    <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                      product strategy and AI-enabled systems
+                    </span>
+                    .
+                  </p>
+                </div>
+
+                <div className="flex md:flex-shrink-0 md:justify-end">
+                  <Button
+                    onClick={() => scrollToSection("contact")}
+                    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-8 py-3 text-base md:text-lg font-semibold text-slate-950 shadow-lg shadow-orange-500/40 transition hover:from-yellow-400 hover:to-orange-400 hover:shadow-orange-400/50"
+                  >
+                    Get Proposal
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </motion.section>
 
