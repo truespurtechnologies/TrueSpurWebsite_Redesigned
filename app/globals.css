@@ -75,44 +75,78 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  /* Premium Design System Fonts */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  
+  /* Premium Color Palette - Navy */
+  --color-navy-950: #0A0F1E;
+  --color-navy-900: #0F172A;
+  --color-navy-800: #1E293B;
+  --color-navy-700: #334155;
+  
+  /* Premium Color Palette - Gold */
+  --color-gold-600: #D4AF37;
+  --color-gold-500: #E5C158;
+  --color-gold-400: #F0D97A;
+  
+  /* Premium Color Palette - Copper */
+  --color-copper-600: #B87333;
+  --color-copper-500: #C98850;
+  --color-copper-400: #DA9D6D;
+  
+  /* Warm Grays */
+  --color-warm-50: #FAFAF9;
+  --color-warm-100: #F5F5F4;
+  --color-warm-200: #E7E5E4;
+  --color-warm-300: #D6D3D1;
+  --color-warm-600: #78716C;
+  --color-warm-700: #57534E;
+  --color-warm-900: #1C1917;
+  
+  /* Semantic Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  
+  /* Shadcn/UI compatibility - mapped to premium colors */
+  --color-background: var(--color-warm-50);
+  --color-foreground: var(--color-navy-950);
+  --color-card: var(--color-warm-100);
+  --color-card-foreground: var(--color-navy-900);
+  --color-popover: var(--color-warm-50);
+  --color-popover-foreground: var(--color-navy-900);
+  --color-primary: var(--color-navy-900);
+  --color-primary-foreground: var(--color-warm-50);
+  --color-secondary: var(--color-warm-200);
+  --color-secondary-foreground: var(--color-navy-900);
+  --color-muted: var(--color-warm-200);
+  --color-muted-foreground: var(--color-warm-600);
+  --color-accent: var(--color-gold-600);
+  --color-accent-foreground: var(--color-navy-950);
+  --color-destructive: var(--color-error);
+  --color-destructive-foreground: var(--color-warm-50);
+  --color-border: var(--color-warm-200);
+  --color-input: var(--color-warm-200);
+  --color-ring: var(--color-gold-600);
+  --color-chart-1: var(--color-gold-600);
+  --color-chart-2: var(--color-copper-600);
+  --color-chart-3: var(--color-navy-700);
+  --color-chart-4: var(--color-gold-500);
+  --color-chart-5: var(--color-copper-500);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar: var(--color-warm-50);
+  --color-sidebar-foreground: var(--color-navy-900);
+  --color-sidebar-primary: var(--color-navy-900);
+  --color-sidebar-primary-foreground: var(--color-warm-50);
+  --color-sidebar-accent: var(--color-warm-200);
+  --color-sidebar-accent-foreground: var(--color-navy-900);
+  --color-sidebar-border: var(--color-warm-200);
+  --color-sidebar-ring: var(--color-gold-600);
 }
 
 @layer base {
