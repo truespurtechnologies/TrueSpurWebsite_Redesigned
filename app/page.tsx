@@ -97,7 +97,7 @@ function AnimatedStatCard({
     >
       <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-yellow-400/70 via-orange-500/70 to-amber-500/70 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
       <Card className="relative border-0 bg-white/95 shadow-lg rounded-2xl overflow-hidden backdrop-blur-sm group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
-        <CardContent className="py-8 px-6 flex flex-col items-center justify-center">
+        <CardContent className="p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center">
           <div className="mb-3 inline-flex items-baseline gap-1">
             <motion.span className="text-4xl font-extrabold tracking-tight text-gray-900">
               {rounded}
@@ -548,7 +548,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative overflow-hidden py-20 bg-slate-950 hero-gradient-animated"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-slate-950 hero-gradient-animated"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -719,7 +719,7 @@ export default function HomePage() {
       {/* Services Section */}
       <motion.section
         id="services"
-        className="relative overflow-hidden py-20 bg-gradient-to-b from-white via-[#FFF7ED] to-[#FEFCE8]"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-b from-white via-[#FFF7ED] to-[#FEFCE8]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -874,7 +874,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.5 }}
             >
               <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <CardHeader className="text-center">
+                <CardHeader className="text-center p-8 md:p-10">
                   <CardTitle className="font-heading text-2xl lg:text-3xl mb-2">Ready to Get Started?</CardTitle>
                   <CardDescription>
                     {"Let's discuss your project and find the perfect solution for your needs."}
@@ -895,7 +895,7 @@ export default function HomePage() {
       {/* Expertise Section */}
       <motion.section
         id="expertise"
-        className="relative overflow-hidden py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -997,13 +997,12 @@ export default function HomePage() {
               className="relative group"
               initial={{ opacity: 0, y: 30, scale: 0.96 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
               transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/60 opacity-70 md:opacity-0 md:group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl transition-all duration-300">
-                <CardHeader className="pb-4">
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-2 group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="p-6 md:p-8 pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
                     animate={{ y: [0, -3, 0] }}
@@ -1015,7 +1014,7 @@ export default function HomePage() {
                   </motion.div>
                   <CardTitle className="font-heading text-2xl sm:text-3xl font-semibold text-white">Healthcare</CardTitle>
                 </CardHeader>
-                <CardContent className="relative overflow-hidden">
+                <CardContent className="relative overflow-hidden p-6 md:p-8">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
                     <svg
                       viewBox="0 0 260 160"
@@ -1041,7 +1040,7 @@ export default function HomePage() {
                     HIPAA-compliant solutions, patient management systems, telemedicine platforms, and healthcare
                     analytics.
                   </p>
-                  <ul className="text-left space-y-2 text-sm text-slate-100/80">
+                  <ul className="text-left space-y-3 text-sm text-slate-100/80">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
                       Electronic Health Records (EHR)
@@ -1067,13 +1066,12 @@ export default function HomePage() {
               className="relative group"
               initial={{ opacity: 0, y: 30, scale: 0.96 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
               transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/60 opacity-70 md:opacity-0 md:group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl transition-all duration-300">
-                <CardHeader className="pb-4">
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-2 group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="p-6 md:p-8 pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
                     animate={{ y: [0, -3, 0] }}
@@ -1085,7 +1083,7 @@ export default function HomePage() {
                   </motion.div>
                   <CardTitle className="font-heading text-2xl sm:text-3xl font-semibold text-white">Education</CardTitle>
                 </CardHeader>
-                <CardContent className="relative overflow-hidden">
+                <CardContent className="relative overflow-hidden p-6 md:p-8">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
                     <svg
                       viewBox="0 0 260 160"
@@ -1129,7 +1127,7 @@ export default function HomePage() {
                   <p className="text-slate-100/80 mb-6">
                     Learning management systems, educational apps, virtual classrooms, and student information systems.
                   </p>
-                  <ul className="text-left space-y-2 text-sm text-slate-100/80">
+                  <ul className="text-left space-y-3 text-sm text-slate-100/80">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-orange-500 mr-2 flex-shrink-0" />
                       Learning Management Systems
@@ -1155,13 +1153,12 @@ export default function HomePage() {
               className="relative group"
               initial={{ opacity: 0, y: 30, scale: 0.96 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
               transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/65 opacity-70 md:opacity-0 md:group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl transition-all duration-300">
-                <CardHeader className="pb-4">
+              <Card className="relative text-center border border-white/10 shadow-xl bg-white/5 backdrop-blur-md rounded-2xl group-hover:-translate-y-2 group-hover:shadow-2xl transition-all duration-300">
+                <CardHeader className="p-6 md:p-8 pb-4">
                   <motion.div
                     className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center"
                     animate={{ y: [0, -3, 0] }}
@@ -1173,7 +1170,7 @@ export default function HomePage() {
                   </motion.div>
                   <CardTitle className="font-heading text-2xl sm:text-3xl font-semibold text-white">Digital Transformation</CardTitle>
                 </CardHeader>
-                <CardContent className="relative overflow-hidden">
+                <CardContent className="relative overflow-hidden p-6 md:p-8">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
                     <svg
                       viewBox="0 0 260 160"
@@ -1245,7 +1242,7 @@ export default function HomePage() {
       {/* Products / Featured Solutions Section (placeholder content, update with real products later) */}
       <motion.section
         id="products"
-        className="relative overflow-hidden py-20 bg-gradient-to-b from-[#FFF7ED] via-white to-[#FEFCE8]"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-b from-[#FFF7ED] via-white to-[#FEFCE8]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1312,17 +1309,17 @@ export default function HomePage() {
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-400/75 via-amber-400/70 to-yellow-400/70 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
               <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500" />
-                <CardHeader>
+                <CardHeader className="p-6 md:p-8">
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">Clinexa</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl mb-3">Clinexa</CardTitle>
+                  <CardDescription className="mb-6">
                     Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform.
                     Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and
                     clinical-grade workflows.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="p-6 md:p-8 pt-0">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     <Badge variant="outline" className="border-orange-200 text-orange-700">
                       Virtual Clinic
                     </Badge>
@@ -1358,16 +1355,16 @@ export default function HomePage() {
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-400/75 via-orange-400/70 to-yellow-400/65 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
               <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-400 via-amber-500 to-yellow-400" />
-                <CardHeader>
+                <CardHeader className="p-6 md:p-8">
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">HaloMe</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl mb-3">HaloMe</CardTitle>
+                  <CardDescription className="mb-6">
                     HaloMe helps health systems reach, educate, and support patients beyond the hospital walls through
                     thoughtful, timely, and contextual communication.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="p-6 md:p-8 pt-0">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     <Badge variant="outline" className="border-orange-200 text-orange-700">
                       Patient App
                     </Badge>
@@ -1400,16 +1397,16 @@ export default function HomePage() {
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-orange-500/80 via-amber-400/75 to-yellow-400/70 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
               <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400" />
-                <CardHeader>
+                <CardHeader className="p-6 md:p-8">
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">TrueBill</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl mb-3">TrueBill</CardTitle>
+                  <CardDescription className="mb-6">
                     TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single,
                     coherent view of how revenue flows through your business.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="p-6 md:p-8 pt-0">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     <Badge variant="outline" className="border-orange-200 text-orange-700">
                       iOS &amp; Android
                     </Badge>
@@ -1445,15 +1442,15 @@ export default function HomePage() {
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-500/80 via-orange-500/80 to-yellow-400/75 opacity-0 group-hover:opacity-100 blur-[1.5px] transition-opacity duration-300" />
               <Card className="relative h-full border-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400" />
-                <CardHeader>
+                <CardHeader className="p-6 md:p-8">
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">AI Solutions</Badge>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">Tafsir Divine Guidance</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl mb-3">Tafsir Divine Guidance</CardTitle>
                   <CardDescription>
                     TafsirAI helps learners, scholars, and institutions explore Quranic text with augmentative AIrespectfully and responsibly. It is designed to support understanding, not replace scholarship.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="p-6 md:p-8 pt-0">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     <Badge variant="outline" className="border-orange-200 text-orange-700">
                       Web &amp; Mobile
                     </Badge>
@@ -1520,7 +1517,7 @@ export default function HomePage() {
       {/* Stats / Metrics Section (placeholder metrics, replace with real numbers later) */}
       <motion.section
         id="stats"
-        className="relative overflow-hidden py-20 bg-gradient-to-b from-gray-50 via-white to-[#FFF7ED]"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-b from-gray-50 via-white to-[#FFF7ED]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1599,7 +1596,7 @@ export default function HomePage() {
       {/* Awards & Recognitions Section */}
       <motion.section
         id="awards"
-        className="relative overflow-hidden py-20 bg-gradient-to-b from-[#FFF7ED] via-white to-[#E5F0FF]"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-b from-[#FFF7ED] via-white to-[#E5F0FF]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1639,8 +1636,8 @@ export default function HomePage() {
                 viewport={{ once: true, amount: 0.4 }}
               >
                 <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500 opacity-80 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm px-1 py-1 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
-                  <CardHeader className="pt-5 pb-5 px-4">
+                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
+                  <CardHeader className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-11 h-11 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
                         <Zap className="h-5 w-5 text-white" />
@@ -1667,8 +1664,8 @@ export default function HomePage() {
                 viewport={{ once: true, amount: 0.4 }}
               >
                 <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 opacity-80 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm px-1 py-1 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
-                  <CardHeader className="pt-5 pb-5 px-4">
+                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
+                  <CardHeader className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-11 h-11 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
                         <Brain className="h-5 w-5 text-white" />
@@ -1694,8 +1691,8 @@ export default function HomePage() {
                 viewport={{ once: true, amount: 0.4 }}
               >
                 <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 opacity-80 group-hover:opacity-100 blur-[1px] transition-opacity duration-300" />
-                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm px-1 py-1 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
-                  <CardHeader className="pt-5 pb-5 px-4">
+                <div className="relative rounded-2xl bg-white/95 shadow-lg border border-white/60 backdrop-blur-sm hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-out">
+                  <CardHeader className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-11 h-11 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
                         <Users className="h-5 w-5 text-white" />
@@ -1922,7 +1919,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
       {/* About Section */}
       <motion.section
         id="about"
-        className="relative overflow-hidden py-20 bg-gradient-to-b from-white via-[#F9FAFB] to-[#FFF7ED]"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-b from-white via-[#F9FAFB] to-[#FFF7ED]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -2048,7 +2045,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
 
       {/* Customer Showcase Section */}
       <motion.section
-        className="relative overflow-hidden py-20 bg-gradient-to-br from-slate-950 via-slate-950 to-black"
+        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-br from-slate-950 via-slate-950 to-black"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -2118,7 +2115,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
           </div>
 
           {/* Customer Testimonials Hub */}
-          <div className="space-y-6">
+          <div className="space-y-6 mt-10 md:mt-12">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-orange-300">
                 Customer Stories
@@ -2148,7 +2145,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                     : "bg-slate-900/95 border-gray-800 shadow-lg"
                 } text-white transition-all duration-300`}
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-8 md:p-10">
                     <div className="flex items-center space-x-2 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
@@ -2192,7 +2189,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                     : "bg-slate-900/95 border-gray-800 shadow-lg"
                 } text-white transition-all duration-300`}
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-8 md:p-10">
                     <div className="flex items-center space-x-2 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
@@ -2238,7 +2235,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                     : "bg-slate-900/95 border-gray-800 shadow-lg"
                 } text-white transition-all duration-300`}
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-8 md:p-10">
                     <div className="flex items-center space-x-2 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 text-orange-500 fill-current" viewBox="0 0 20 20">
@@ -2308,7 +2305,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
       </motion.section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative overflow-hidden py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section id="contact" className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/35 blur-3xl" />
           <div className="absolute -bottom-28 right-0 h-80 w-80 rounded-full bg-amber-200/40 blur-3xl" />
@@ -2327,7 +2324,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <div className="relative h-full rounded-2xl bg-gradient-to-br from-white via-orange-50/40 to-amber-50/70 border border-orange-100 shadow-xl shadow-orange-100/60 px-6 py-7 md:px-7 md:py-8 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="relative h-full rounded-2xl bg-gradient-to-br from-white via-orange-50/40 to-amber-50/70 border border-orange-100 shadow-xl shadow-orange-100/60 px-6 py-7 md:px-8 md:py-10 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
                 <motion.div
                   className="pointer-events-none absolute -top-6 right-4 h-24 w-32 text-orange-200/70"
                   animate={{ opacity: [0.4, 0.9, 0.4], scale: [1, 1.03, 1] }}
@@ -2372,7 +2369,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 <div className="mt-8">
                   <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Contact Information</h3>
                   <div className="space-y-6">
-                    <div className="flex items-start space-x-4">
+                    <div className="flex items-start space-x-4 md:space-x-5">
                       <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Mail className="h-6 w-6 text-white" />
                       </div>
@@ -2382,7 +2379,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-4">
+                    <div className="flex items-start space-x-4 md:space-x-5">
                       <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Phone className="h-6 w-6 text-white" />
                       </div>
@@ -2392,7 +2389,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-4">
+                    <div className="flex items-start space-x-4 md:space-x-5">
                       <div className="w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
                         <MapPin className="h-6 w-6 text-white" />
                       </div>
@@ -2410,7 +2407,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
 
             <Card className="relative rounded-2xl border border-orange-100 bg-white/95 shadow-xl shadow-orange-100/60 overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500" />
-              <CardHeader className="pt-6 pb-4 px-6">
+              <CardHeader className="pt-6 pb-4 px-6 md:px-8">
                 <CardTitle className="font-heading text-2xl lg:text-3xl">
                   {formStatus === "success" ? "Message sent" : "Send us a message"}
                 </CardTitle>

@@ -68,7 +68,7 @@ export default function ClinexaPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 lg:py-24">
+    <div className="container mx-auto px-4 py-10 md:py-14 lg:py-24">
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare Product Suite</Badge>
@@ -146,7 +146,7 @@ export default function ClinexaPage() {
         </div>
       </section>
 
-      <section className="mt-16 lg:mt-24">
+      <section className="mt-10 md:mt-12 lg:mt-20">
         <div className="grid gap-8 md:grid-cols-3">
           <Card className="border-0 shadow-md">
             <CardHeader>
@@ -175,7 +175,7 @@ export default function ClinexaPage() {
         </div>
       </section>
 
-      <section id="clinexa-waitlist" className="mt-20 lg:mt-24 max-w-2xl">
+      <section id="clinexa-waitlist" className="mt-14 md:mt-20 lg:mt-28 max-w-2xl">
         <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the Clinexa waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as we open up early access and pilots.

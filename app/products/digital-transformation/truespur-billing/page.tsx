@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle, ReceiptIndianRupee } from "lucide-react"
 
 export default function TrueSpurBillingPage() {
   return (
-    <div className="container mx-auto px-4 py-16 lg:py-24">
+    <div className="container mx-auto px-4 py-10 md:py-14 lg:py-24">
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
@@ -81,7 +81,7 @@ export default function TrueSpurBillingPage() {
         </div>
       </section>
 
-      <section className="mt-16 lg:mt-24">
+      <section className="mt-10 md:mt-12 lg:mt-20">
         <div className="grid gap-8 md:grid-cols-3">
           <Card className="border-0 shadow-md">
             <CardHeader>

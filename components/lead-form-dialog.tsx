@@ -235,7 +235,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg p-6 md:p-8">
         {step !== "success" && (
           <DialogHeader>
             <DialogTitle className="font-heading text-2xl lg:text-3xl">Let&apos;s understand your project</DialogTitle>
@@ -246,7 +246,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "welcome" && (
-          <div className="space-y-4 mt-2">
+          <div className="space-y-4 mt-4">
             <p className="text-sm text-gray-700">
               We&apos;ll ask you a few focused questions to understand your goals, timelines, and the modules you need. This
               helps us prepare a relevant proposal for your enquiry.
@@ -259,7 +259,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "fullName" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">What is your full Name?</p>
             <input
               type="text"
@@ -272,7 +272,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "email" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">
               Great, {form.fullName.trim() || "there"}, what is your email address?
             </p>
@@ -287,7 +287,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "phone" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">
               Super, {fullName}, what is your contact number (preferably WhatsApp)?
             </p>
@@ -315,7 +315,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "company" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">
               Which company are you representing, {fullName}?
             </p>
@@ -330,7 +330,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "role" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">What is your role in the company, {fullName}?</p>
             <input
               type="text"
@@ -343,7 +343,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "modules" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">
               What modules do you need for your project / startup? (Select all that apply)
             </p>
@@ -379,7 +379,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "requirements" && (
-          <div className="space-y-3 mt-2">
+          <div className="space-y-3 mt-4">
             <p className="text-sm font-medium text-gray-800">
               {fullName}, please describe your project requirements so TrueSpur can tailor a proposal for your enquiry.
             </p>
@@ -395,7 +395,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         )}
 
         {step === "success" && (
-          <div className="space-y-4 mt-2">
+          <div className="space-y-4 mt-4">
             <DialogHeader>
               <DialogTitle className="font-heading text-2xl lg:text-3xl">Thank you, {fullName}!</DialogTitle>
               <DialogDescription>
