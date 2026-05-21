@@ -75,75 +75,90 @@
 }
 
 @theme inline {
-  /* Premium Design System Fonts */
+  /* Premium Typography System */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
-  /* Premium Brand Colors - Royal Purple (Primary) */
-  --color-purple-950: #2E1065;
-  --color-purple-900: #4C1D95;
-  --color-purple-800: #5B21B6;
-  --color-purple-700: #6D28D9;
-  --color-purple-600: #7C3AED;
+  /* Premium Brand Colors - Orange (Primary) */
+  --color-orange-50: #FFF7ED;
+  --color-orange-100: #FFEDD5;
+  --color-orange-200: #FED7AA;
+  --color-orange-300: #FDBA74;
+  --color-orange-400: #FB923C;
+  --color-orange-500: #F97316;
+  --color-orange-600: #EA580C;
+  --color-orange-700: #C2410C;
+  --color-orange-800: #9A3412;
+  --color-orange-900: #7C2D12;
   
-  /* Premium Brand Colors - Bright Gold (Accent) */
-  --color-gold-700: #F59E0B;
-  --color-gold-600: #FBBF24;
-  --color-gold-500: #FCD34D;
-  --color-gold-400: #FDE68A;
+  /* Accent Colors - Yellow & Amber */
+  --color-yellow-400: #FACC15;
+  --color-yellow-500: #EAB308;
+  --color-yellow-600: #CA8A04;
+  --color-amber-400: #FBBF24;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #D97706;
   
-  /* Warm Grays */
+  /* Neutrals - Warm Grays */
   --color-warm-50: #FAFAF9;
   --color-warm-100: #F5F5F4;
   --color-warm-200: #E7E5E4;
   --color-warm-300: #D6D3D1;
-  --color-warm-600: #78716C;
-  --color-warm-700: #57534E;
+  --color-warm-400: #A8A29E;
+  --color-warm-500: #78716C;
+  --color-warm-600: #57534E;
+  --color-warm-700: #44403C;
+  --color-warm-800: #292524;
   --color-warm-900: #1C1917;
+  
+  /* Dark Slate for Hero */
+  --color-slate-950: #020617;
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
   
   /* Semantic Colors */
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-error: #EF4444;
   
-  /* Shadcn/UI compatibility - mapped to new purple + gold brand */
-  --color-background: var(--color-warm-50);
-  --color-foreground: var(--color-purple-950);
-  --color-card: var(--color-warm-100);
-  --color-card-foreground: var(--color-purple-900);
-  --color-popover: var(--color-warm-50);
-  --color-popover-foreground: var(--color-purple-900);
-  --color-primary: var(--color-purple-900);
-  --color-primary-foreground: var(--color-warm-50);
-  --color-secondary: var(--color-warm-200);
-  --color-secondary-foreground: var(--color-purple-900);
-  --color-muted: var(--color-warm-200);
+  /* Shadcn/UI compatibility - mapped to orange brand */
+  --color-background: #FFFFFF;
+  --color-foreground: var(--color-warm-900);
+  --color-card: #FFFFFF;
+  --color-card-foreground: var(--color-warm-900);
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: var(--color-warm-900);
+  --color-primary: var(--color-orange-500);
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: var(--color-warm-100);
+  --color-secondary-foreground: var(--color-warm-900);
+  --color-muted: var(--color-warm-100);
   --color-muted-foreground: var(--color-warm-600);
-  --color-accent: var(--color-gold-600);
-  --color-accent-foreground: var(--color-purple-950);
+  --color-accent: var(--color-orange-500);
+  --color-accent-foreground: #FFFFFF;
   --color-destructive: var(--color-error);
-  --color-destructive-foreground: var(--color-warm-50);
+  --color-destructive-foreground: #FFFFFF;
   --color-border: var(--color-warm-200);
   --color-input: var(--color-warm-200);
-  --color-ring: var(--color-gold-600);
-  --color-chart-1: var(--color-gold-600);
-  --color-chart-2: var(--color-purple-700);
-  --color-chart-3: var(--color-purple-900);
-  --color-chart-4: var(--color-gold-500);
-  --color-chart-5: var(--color-purple-600);
+  --color-ring: var(--color-orange-500);
+  --color-chart-1: var(--color-orange-500);
+  --color-chart-2: var(--color-amber-500);
+  --color-chart-3: var(--color-yellow-500);
+  --color-chart-4: var(--color-orange-600);
+  --color-chart-5: var(--color-amber-600);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--color-warm-50);
-  --color-sidebar-foreground: var(--color-purple-900);
-  --color-sidebar-primary: var(--color-purple-900);
-  --color-sidebar-primary-foreground: var(--color-warm-50);
-  --color-sidebar-accent: var(--color-warm-200);
-  --color-sidebar-accent-foreground: var(--color-purple-900);
+  --color-sidebar-foreground: var(--color-warm-900);
+  --color-sidebar-primary: var(--color-orange-500);
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: var(--color-warm-100);
+  --color-sidebar-accent-foreground: var(--color-warm-900);
   --color-sidebar-border: var(--color-warm-200);
-  --color-sidebar-ring: var(--color-gold-600);
+  --color-sidebar-ring: var(--color-orange-500);
 }
 
 @layer base {

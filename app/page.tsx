@@ -665,17 +665,17 @@ export default function HomePage() {
               <Badge className="mb-4 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 border border-orange-400/40">
                 Cutting-Edge Technology Solutions
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-[1.05]">
                 Transform Your Business with{" "}
                 <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
                   Innovation
                 </span>
               </h1>
-              <p className="text-xl text-slate-200/80 mb-6 leading-relaxed">
+              <p className="text-lg lg:text-xl text-slate-200/90 mb-8 leading-relaxed max-w-2xl">
                 We specialize in website development, mobile apps, custom software, AI solutions, and product
                 consulting. Empowering healthcare, education, and digital transformation with cutting-edge technology.
               </p>
-              <p className="text-base text-slate-200/90 font-medium mb-8 italic tracking-wide">"We Craft. You Lead."</p>
+              <p className="font-heading text-lg lg:text-xl text-slate-200/95 font-semibold mb-10 italic tracking-wide">"We Craft. You Lead."</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
@@ -733,10 +733,10 @@ export default function HomePage() {
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Our Services</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+            <h2 className="font-heading text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-[1.1]">
               Turn Your Vision Into a Scalable Product
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               From MVP to full-scale platforms, we build reliable, high-performance web and mobile applications that help startups and businesses grow with confidence.
             </p>
           </div>
@@ -758,7 +758,7 @@ export default function HomePage() {
                       <Code className="h-5 w-5 text-white" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg lg:text-xl">Website Development</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">Website Development</CardTitle>
                   <CardDescription>
                     Modern, responsive websites built with the latest technologies for optimal performance and user
                     experience.
@@ -783,7 +783,7 @@ export default function HomePage() {
                       <Smartphone className="h-5 w-5 text-white" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg lg:text-xl">Mobile App Development</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">Mobile App Development</CardTitle>
                   <CardDescription>
                     Native and cross-platform mobile applications that deliver seamless experiences across all devices.
                   </CardDescription>
@@ -807,7 +807,7 @@ export default function HomePage() {
                       <Zap className="h-5 w-5 text-white" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg lg:text-xl">Custom Software Development</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">Custom Software Development</CardTitle>
                   <CardDescription>
                     Tailored software solutions designed to meet your specific business requirements and workflows.
                   </CardDescription>
@@ -831,7 +831,7 @@ export default function HomePage() {
                       <Users className="h-5 w-5 text-white" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg lg:text-xl">Product Research</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">Product Research</CardTitle>
                   <CardDescription>
                     Strategic guidance and technical expertise to help you make informed decisions about your technology
                     investments.
@@ -856,7 +856,7 @@ export default function HomePage() {
                       <Brain className="h-5 w-5 text-white" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg lg:text-xl">AI Solutions</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">AI Solutions</CardTitle>
                   <CardDescription>
                     Cutting-edge artificial intelligence and machine learning solutions to automate and optimize your
                     business processes.
@@ -875,7 +875,7 @@ export default function HomePage() {
             >
               <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-lg lg:text-xl mb-1">Ready to Get Started?</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl mb-2">Ready to Get Started?</CardTitle>
                   <CardDescription>
                     {"Let's discuss your project and find the perfect solution for your needs."}
                   </CardDescription>
@@ -986,8 +986,8 @@ export default function HomePage() {
             <Badge className="mb-4 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 border border-orange-400/40">
               Industry Expertise
             </Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Deep Domain Knowledge</h2>
-            <p className="text-xl text-slate-200/80 max-w-3xl mx-auto">
+            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white mb-4 leading-[1.1]">Deep Domain Knowledge</h2>
+            <p className="text-lg lg:text-xl text-slate-200/90 max-w-3xl mx-auto leading-relaxed">
               We bring specialized expertise in key industries, understanding unique challenges and requirements
             </p>
           </div>
@@ -1013,7 +1013,7 @@ export default function HomePage() {
                     <div className="absolute inset-2 rounded-full bg-white/20" />
                     <Heart className="relative h-8 w-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-xl sm:text-2xl text-white">Healthcare</CardTitle>
+                  <CardTitle className="font-heading text-2xl sm:text-3xl font-semibold text-white">Healthcare</CardTitle>
                 </CardHeader>
                 <CardContent className="relative overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
@@ -1083,7 +1083,7 @@ export default function HomePage() {
                     <div className="absolute inset-2 rounded-full bg-white/20" />
                     <GraduationCap className="relative h-8 w-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-xl sm:text-2xl text-white">Education</CardTitle>
+                  <CardTitle className="font-heading text-2xl sm:text-3xl font-semibold text-white">Education</CardTitle>
                 </CardHeader>
                 <CardContent className="relative overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
@@ -1171,7 +1171,7 @@ export default function HomePage() {
                     <div className="absolute inset-2 rounded-full bg-white/20" />
                     <Zap className="relative h-8 w-8 text-white" />
                   </motion.div>
-                  <CardTitle className="text-xl sm:text-2xl text-white">Digital Transformation</CardTitle>
+                  <CardTitle className="font-heading text-2xl sm:text-3xl font-semibold text-white">Digital Transformation</CardTitle>
                 </CardHeader>
                 <CardContent className="relative overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 opacity-70">
@@ -1262,7 +1262,7 @@ export default function HomePage() {
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100/90">
               Products &amp; Solutions
             </Badge>
-            <h2 className="text-3xl lg:text-[2.5rem] font-bold text-gray-900 mb-3 leading-snug">
+            <h2 className="font-heading text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-[1.1]">
               World-Class Products, Proven Results
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
@@ -1314,7 +1314,7 @@ export default function HomePage() {
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500" />
                 <CardHeader>
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
-                  <CardTitle className="text-xl">Clinexa</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">Clinexa</CardTitle>
                   <CardDescription>
                     Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform.
                     Designed for hospitals, clinics, and digital health initiatives that need reliability, speed, and
@@ -1360,7 +1360,7 @@ export default function HomePage() {
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-400 via-amber-500 to-yellow-400" />
                 <CardHeader>
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare</Badge>
-                  <CardTitle className="text-xl">HaloMe</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">HaloMe</CardTitle>
                   <CardDescription>
                     HaloMe helps health systems reach, educate, and support patients beyond the hospital walls through
                     thoughtful, timely, and contextual communication.
@@ -1402,7 +1402,7 @@ export default function HomePage() {
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400" />
                 <CardHeader>
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
-                  <CardTitle className="text-xl">TrueBill</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">TrueBill</CardTitle>
                   <CardDescription>
                     TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single,
                     coherent view of how revenue flows through your business.
@@ -1447,7 +1447,7 @@ export default function HomePage() {
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-400" />
                 <CardHeader>
                   <Badge className="mb-3 bg-orange-100 text-orange-700 hover:bg-orange-100">AI Solutions</Badge>
-                  <CardTitle className="text-xl">Tafsir Divine Guidance</CardTitle>
+                  <CardTitle className="font-heading text-2xl lg:text-3xl">Tafsir Divine Guidance</CardTitle>
                   <CardDescription>
                     TafsirAI helps learners, scholars, and institutions explore Quranic text with augmentative AIrespectfully and responsibly. It is designed to support understanding, not replace scholarship.
                   </CardDescription>
@@ -1573,7 +1573,7 @@ export default function HomePage() {
           </div>
           <div className="relative text-center mb-14 max-w-3xl mx-auto">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Value Realized</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+            <h2 className="font-heading text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-[1.1]">
               Empowering Innovation Worldwide
             </h2>
             <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
@@ -1614,7 +1614,7 @@ export default function HomePage() {
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-14 max-w-5xl mx-auto">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Recognized for Innovation</Badge>
-            <h2 className="text-3xl lg:text-[2.4rem] font-bold text-gray-900 mb-4 leading-snug">
+            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 leading-[1.1]">
               Developed a winning design that secured World Bank–backed projects for the Tamil Nadu State Government
             </h2>
             <p className="text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -1645,7 +1645,7 @@ export default function HomePage() {
                       <div className="w-11 h-11 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
                         <Zap className="h-5 w-5 text-white" />
                       </div>
-                      <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900">
+                      <CardTitle className="font-heading text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900">
                         <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
                           Government of Tamil Nadu Award
                         </span>
@@ -1673,7 +1673,7 @@ export default function HomePage() {
                       <div className="w-11 h-11 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
                         <Brain className="h-5 w-5 text-white" />
                       </div>
-                      <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900">
+                      <CardTitle className="font-heading text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900">
                         <span className="bg-gradient-to-r from-orange-600 to-pink-500 bg-clip-text text-transparent">
                           Innovation Recognition
                         </span>
@@ -1700,7 +1700,7 @@ export default function HomePage() {
                       <div className="w-11 h-11 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl flex items-center justify-center shadow-md shadow-orange-200">
                         <Users className="h-5 w-5 text-white" />
                       </div>
-                      <CardTitle className="text-2xl font-semibold tracking-tight text-gray-900">
+                      <CardTitle className="font-heading text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900">
                         <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
                           Community Impact
                         </span>
@@ -1943,7 +1943,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
               viewport={{ once: true, amount: 0.4 }}
             >
               <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">About TrueSpur</Badge>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Innovation Meets Excellence</h2>
+              <h2 className="font-heading text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-[1.1]">Innovation Meets Excellence</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 At TrueSpur Technology Solutions, we believe in the power of technology to transform businesses and
                 improve lives. Our team of experienced developers, designers, and consultants work closely with clients
@@ -2064,7 +2064,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
             <Badge className="mb-4 bg-orange-900 text-orange-300 hover:bg-orange-900">
               Trusted By Industry Leaders
             </Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">Our Valued Customers</h2>
+            <h2 className="font-heading text-5xl lg:text-6xl font-bold text-white mb-4 leading-[1.1]">Our Valued Customers</h2>
             <p className="text-lg lg:text-xl text-slate-200/90 max-w-3xl mx-auto">
               We&apos;re proud to partner with innovative companies across healthcare, education, and enterprise sectors.
             </p>
@@ -2285,7 +2285,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
           <div className="mt-14">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500 px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
+                <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-2">
                   Join these industry leaders in transforming their business with technology.
                 </h3>
                 <p className="text-sm md:text-base text-white/90 max-w-xl">
@@ -2317,7 +2317,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Get In Touch</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-heading text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-[1.1]">
               {"Build Software That Moves Your Business Forward"}
             </h2>
             <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -2370,7 +2370,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                  <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Contact Information</h3>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -2411,7 +2411,7 @@ Directorate for Welfare of the Differently Abled & StartupTN, World Bank–backe
             <Card className="relative rounded-2xl border border-orange-100 bg-white/95 shadow-xl shadow-orange-100/60 overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500" />
               <CardHeader className="pt-6 pb-4 px-6">
-                <CardTitle className="text-2xl">
+                <CardTitle className="font-heading text-2xl lg:text-3xl">
                   {formStatus === "success" ? "Message sent" : "Send us a message"}
                 </CardTitle>
                 <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-gray-600">
