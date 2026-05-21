@@ -1,8 +1,8 @@
 # TrueSpur Design System
 
-**Version:** 1.0  
-**Date:** May 20, 2026  
-**Purpose:** Premium brand redesign - Visual-first storytelling with trust architecture
+**Version:** 2.0  
+**Date:** May 22, 2026  
+**Purpose:** Premium brand refinement - Orange brand identity with sophisticated typography
 
 ---
 
@@ -10,43 +10,49 @@
 
 ### Primary Colors
 
-**Navy (Primary)**
-- `navy-950`: `#0A0F1E` - Darkest, for text
-- `navy-900`: `#0F172A` - Primary brand color
-- `navy-800`: `#1E293B` - Hover states
-- `navy-700`: `#334155` - Borders, dividers
+**Orange (Primary Brand)**
+- `orange-500`: `#F97316` - Primary brand color
+- `orange-600`: `#EA580C` - Hover states, darker accent
+- `orange-400`: `#FB923C` - Lighter accents
+- `orange-700`: `#C2410C` - Deep orange for emphasis
 
-**Gold (Accent)**
-- `gold-600`: `#D4AF37` - Primary accent
-- `gold-500`: `#E5C158` - Lighter accent
-- `gold-400`: `#F0D97A` - Subtle highlights
+**Yellow (Accent)**
+- `yellow-500`: `#EAB308` - Gradient accent
+- `yellow-400`: `#FACC15` - Lighter gradient
+- `yellow-600`: `#CA8A04` - Darker gradient
 
-**Copper (Secondary Accent)**
-- `copper-600`: `#B87333` - Secondary accent
-- `copper-500`: `#C98850` - Lighter copper
-- `copper-400`: `#DA9D6D` - Subtle copper
+**Amber (Secondary Accent)**
+- `amber-500`: `#F59E0B` - Secondary accent
+- `amber-400`: `#FBBF24` - Lighter amber
+- `amber-600`: `#D97706` - Darker amber
 
 ### Neutral Colors
 
-**Warm Grays**
-- `warm-50`: `#FAFAF9` - Background
-- `warm-100`: `#F5F5F4` - Card backgrounds
-- `warm-200`: `#E7E5E4` - Borders
-- `warm-300`: `#D6D3D1` - Disabled states
-- `warm-600`: `#78716C` - Secondary text
-- `warm-700`: `#57534E` - Body text
-- `warm-900`: `#1C1917` - Headings
+**Grays**
+- `gray-50`: `#F9FAFB` - Light backgrounds
+- `gray-100`: `#F3F4F6` - Card backgrounds
+- `gray-200`: `#E5E7EB` - Borders
+- `gray-300`: `#D1D5DB` - Disabled states
+- `gray-500`: `#6B7280` - Secondary text
+- `gray-600`: `#4B5563` - Body text
+- `gray-700`: `#374151` - Subheadings
+- `gray-800`: `#1F2937` - Dark text
+- `gray-900`: `#111827` - Headings
+
+**Dark Slate (Hero/Dark Sections)**
+- `slate-900`: `#0F172A` - Dark backgrounds
+- `slate-950`: `#020617` - Darkest backgrounds
 
 ### Semantic Colors
 
 **Success**
-- `success`: `#10B981` - Green for positive actions
+- `green-600`: `#16A34A` - Green for positive actions
 
 **Warning**
-- `warning`: `#F59E0B` - Amber for caution
+- `orange-500`: `#F97316` - Orange for caution (brand color)
 
 **Error**
-- `error`: `#EF4444` - Red for errors
+- `red-600`: `#DC2626` - Red for errors
 
 ---
 
@@ -56,44 +62,95 @@
 
 **Headings (Serif)**
 - **Font:** Playfair Display
-- **Weights:** 400 (Regular), 600 (SemiBold), 700 (Bold)
-- **Usage:** H1, H2, H3, feature text
+- **Weights:** 400 (Regular), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
+- **Usage:** H1, H2, H3, all card titles, dialog titles
+- **Variable:** `--font-heading`
 - **Fallback:** Georgia, serif
+- **Implementation:** Applied via `font-heading` class
 
 **Body (Sans-Serif)**
 - **Font:** Inter
 - **Weights:** 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
-- **Usage:** Body text, UI elements, navigation
+- **Usage:** Body text, UI elements, navigation, descriptions
+- **Variable:** `--font-sans`
 - **Fallback:** -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+- **Implementation:** Default font via `font-sans` class
 
-### Type Scale
+### Implemented Type Scale
 
-| Element | Size | Line Height | Weight | Letter Spacing |
-|---------|------|-------------|--------|----------------|
-| **H1** | 64px (4rem) | 1.1 | 700 | -0.02em |
-| **H2** | 48px (3rem) | 1.2 | 700 | -0.01em |
-| **H3** | 32px (2rem) | 1.3 | 600 | 0 |
-| **H4** | 24px (1.5rem) | 1.4 | 600 | 0 |
-| **H5** | 20px (1.25rem) | 1.4 | 600 | 0 |
-| **Body Large** | 20px (1.25rem) | 1.6 | 400 | 0 |
-| **Body** | 16px (1rem) | 1.6 | 400 | 0 |
-| **Body Small** | 14px (0.875rem) | 1.5 | 400 | 0 |
-| **Caption** | 12px (0.75rem) | 1.4 | 500 | 0.02em |
+**Homepage & Product Pages:**
+
+| Element | Tailwind Classes | Actual Size | Line Height | Weight | Usage |
+|---------|-----------------|-------------|-------------|--------|-------|
+| **Hero H1** | `text-5xl lg:text-6xl xl:text-7xl` | 48px / 60px / 72px | 1.05 | 800 (Extrabold) | Homepage hero only |
+| **Section H2** | `text-5xl lg:text-6xl` | 48px / 60px | 1.1 | 700 (Bold) | Major section headings |
+| **Expertise H2** | `text-4xl lg:text-5xl` | 36px / 48px | 1.1 | 700 (Bold) | Dark background sections |
+| **Product H1** | `text-5xl md:text-6xl lg:text-7xl` | 48px / 60px / 72px | Default | 700 (Bold) | Product page titles |
+| **Product Subheading** | `text-2xl md:text-3xl` | 24px / 30px | Default | 600 (Semibold) | Product taglines |
+| **Section H3** | `text-3xl lg:text-4xl` | 30px / 36px | Default | 700 (Bold) | Subsection headings |
+| **Large Card Titles** | `text-2xl lg:text-3xl` | 24px / 30px | Default | 400/600 | Service, product cards |
+| **Medium Card Titles** | `text-xl lg:text-2xl` | 20px / 24px | Default | 400/600 | Feature cards |
+| **Small Card Titles** | `text-lg lg:text-xl` | 18px / 20px | Default | 400/600 | Detail cards |
+| **Dialog Titles** | `text-2xl lg:text-3xl` | 24px / 30px | Default | 400 | Modal/dialog headings |
+| **Body Large** | `text-lg lg:text-xl` | 18px / 20px | Relaxed (1.625) | 400 | Intro paragraphs |
+| **Body** | `text-base` | 16px | Relaxed (1.625) | 400 | Standard body text |
+| **Body Small** | `text-sm` | 14px | Normal (1.5) | 400 | Secondary text |
+| **Caption** | `text-xs` | 12px | Normal (1.5) | 500 | Labels, metadata |
+
+### Typography Implementation Details
+
+**All Headings Use Playfair Display:**
+- Homepage: Hero, Services, Expertise, Products, Stats, Awards, About, Customers, Contact
+- Product Pages: Main titles, subheadings, card titles, waitlist headings
+- Components: Dialog titles, form headings
+
+**Specific Implementations:**
+```tsx
+// Hero Heading (Homepage)
+<h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05]">
+
+// Section Headings (Homepage)
+<h2 className="font-heading text-5xl lg:text-6xl font-bold leading-[1.1]">
+
+// Service Card Titles
+<CardTitle className="font-heading text-2xl lg:text-3xl">
+
+// Expertise Card Titles
+<CardTitle className="font-heading text-2xl sm:text-3xl font-semibold">
+
+// Product Page Main Title
+<h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold">
+
+// Dialog Titles
+<DialogTitle className="font-heading text-2xl lg:text-3xl">
+```
 
 ### Typography Guidelines
 
 **Headings:**
-- Use Playfair Display for all headings
-- Navy-900 or Navy-950 for dark backgrounds
-- Warm-50 for light text on dark backgrounds
+- **Always** use `font-heading` class for Playfair Display
+- Use `font-extrabold` (800) only for hero headings
+- Use `font-bold` (700) for section headings
+- Use `font-semibold` (600) for card titles when emphasis needed
+- Tight line-height (`leading-[1.05]` or `leading-[1.1]`) for large headings
+- Gray-900 for light backgrounds
+- White for dark backgrounds
 - Maximum line length: 60-70 characters
 
 **Body Text:**
-- Use Inter for all body text
-- Warm-700 for primary body text
-- Warm-600 for secondary text
+- Use Inter (default `font-sans`) for all body text
+- Gray-600 for primary body text
+- Gray-500 for secondary text
+- `leading-relaxed` (1.625) for comfortable reading
 - Maximum line length: 65-75 characters
 - Minimum font size: 16px for body text
+
+**Color Usage:**
+- Headings on light backgrounds: `text-gray-900`
+- Headings on dark backgrounds: `text-white`
+- Body text on light backgrounds: `text-gray-600` or `text-gray-700`
+- Body text on dark backgrounds: `text-slate-200` or `text-white`
+- Subheadings: `text-gray-700`
 
 ---
 
@@ -412,10 +469,19 @@ When creating new components, ensure:
 
 ## 🔄 Version History
 
+**v2.0 (May 22, 2026)**
+- **Typography System Refinement:** Complete implementation of Playfair Display across all pages
+- Updated color palette to Orange brand (#F97316) from Navy + Gold
+- Detailed typography scale with Tailwind classes and actual implementations
+- Added ExtraBold (800) weight for hero headings
+- Comprehensive typography guidelines with code examples
+- Applied to: Homepage (30 elements), Product pages (24 elements), Dialogs (2 elements)
+- Total: 56+ typography elements now consistent
+
 **v1.0 (May 20, 2026)**
 - Initial design system
-- Premium color palette (Navy + Gold)
-- Typography system (Playfair Display + Inter)
+- Premium color palette (Navy + Gold) - DEPRECATED
+- Typography system (Playfair Display + Inter) - Foundation
 - Spacing system (8px base)
 - Component guidelines
 - Animation principles
@@ -423,4 +489,4 @@ When creating new components, ensure:
 
 ---
 
-_This design system supports the TrueSpur website redesign to create a premium, visual-first experience that builds trust within 60 seconds._
+_This design system supports the TrueSpur website redesign to create a premium, visual-first experience with consistent typography and orange brand identity that builds trust within 60 seconds._

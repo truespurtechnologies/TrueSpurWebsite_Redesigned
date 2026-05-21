@@ -72,9 +72,9 @@ export default function ClinexaPage() {
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare Product Suite</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
             Clinexa
-            <span className="block text-xl md:text-2xl font-semibold text-gray-700 mt-2">
+            <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               Connected care for modern healthcare delivery.
             </span>
           </h1>
@@ -122,7 +122,7 @@ export default function ClinexaPage() {
                 <HeartPulse className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-lg">Clinical-grade foundations</CardTitle>
+                <CardTitle className="font-heading text-xl lg:text-2xl">Clinical-grade foundations</CardTitle>
                 <p className="text-xs text-gray-500">Engineered for safety, reliability, and continuity of care.</p>
               </div>
             </CardHeader>
@@ -150,7 +150,7 @@ export default function ClinexaPage() {
         <div className="grid gap-8 md:grid-cols-3">
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Outpatient & Inpatient journeys</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Outpatient & Inpatient journeys</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Support both ambulatory and inpatient care with consistent, patient-centric workflows.</p>
@@ -158,7 +158,7 @@ export default function ClinexaPage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Care team collaboration</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Care team collaboration</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Connect physicians, nurses, and allied health professionals around a single source of truth.</p>
@@ -166,7 +166,7 @@ export default function ClinexaPage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Interoperable & extensible</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Interoperable & extensible</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Designed to integrate with lab, imaging, billing, and external health information systems.</p>
@@ -176,7 +176,7 @@ export default function ClinexaPage() {
       </section>
 
       <section id="clinexa-waitlist" className="mt-20 lg:mt-24 max-w-2xl">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Join the Clinexa waitlist</h2>
+        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the Clinexa waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as we open up early access and pilots.
         </p>

@@ -238,7 +238,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
       <DialogContent className="max-w-lg">
         {step !== "success" && (
           <DialogHeader>
-            <DialogTitle>Let&apos;s understand your project</DialogTitle>
+            <DialogTitle className="font-heading text-2xl lg:text-3xl">Let&apos;s understand your project</DialogTitle>
             <DialogDescription>
               Answer a few quick questions so TrueSpur can tailor a proposal for you.
             </DialogDescription>
@@ -397,7 +397,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
         {step === "success" && (
           <div className="space-y-4 mt-2">
             <DialogHeader>
-              <DialogTitle>Thank you, {fullName}!</DialogTitle>
+              <DialogTitle className="font-heading text-2xl lg:text-3xl">Thank you, {fullName}!</DialogTitle>
               <DialogDescription>
                 We&apos;ve received your enquiry and a copy has been sent to your email. The TrueSpur team will review your
                 details and get back to you shortly.

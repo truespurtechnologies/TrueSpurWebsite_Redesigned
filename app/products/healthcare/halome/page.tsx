@@ -72,9 +72,9 @@ export default function HaloMePage() {
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare Product Suite</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
             HaloMe
-            <span className="block text-xl md:text-2xl font-semibold text-gray-700 mt-2">
+            <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               Patient engagement that feels personal, not transactional.
             </span>
           </h1>
@@ -121,7 +121,7 @@ export default function HaloMePage() {
                 <MessageCircle className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-lg">Engagement with empathy</CardTitle>
+                <CardTitle className="font-heading text-xl lg:text-2xl">Engagement with empathy</CardTitle>
                 <p className="text-xs text-gray-500">Built for real patient lives, not just outreach campaigns.</p>
               </div>
             </CardHeader>
@@ -149,7 +149,7 @@ export default function HaloMePage() {
         <div className="grid gap-8 md:grid-cols-3">
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Pre-visit & post-discharge flows</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Pre-visit & post-discharge flows</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Design and automate journeys that prepare patients before visits and support them after discharge.</p>
@@ -157,7 +157,7 @@ export default function HaloMePage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Education that lands</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Education that lands</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Deliver the right educational content at the right time in the care journey.</p>
@@ -165,7 +165,7 @@ export default function HaloMePage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Feedback loops</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Feedback loops</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Capture satisfaction and outcome signals to improve care, not just processes.</p>
@@ -174,7 +174,7 @@ export default function HaloMePage() {
         </div>
       </section>
       <section id="halome-waitlist" className="mt-20 lg:mt-24 max-w-2xl">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Join the HaloMe waitlist</h2>
+        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the HaloMe waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as we open up early access and pilots.
         </p>

@@ -72,9 +72,9 @@ export default function TafsirAIPage() {
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Artificial Intelligence</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
             TafsirAI
-            <span className="block text-xl md:text-2xl font-semibold text-gray-700 mt-2">
+            <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               AI-powered insights and understanding of the Quran, built with care.
             </span>
           </h1>
@@ -121,7 +121,7 @@ export default function TafsirAIPage() {
                 <BookOpenCheck className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-lg">Built for depth, not shortcuts</CardTitle>
+                <CardTitle className="font-heading text-xl lg:text-2xl">Built for depth, not shortcuts</CardTitle>
                 <p className="text-xs text-gray-500">Tools that invite reflection, study, and dialogue.</p>
               </div>
             </CardHeader>
@@ -149,7 +149,7 @@ export default function TafsirAIPage() {
         <div className="grid gap-8 md:grid-cols-3">
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">For learners</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">For learners</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Support classes, halaqas, and self-paced study with structured journeys and prompts.</p>
@@ -157,7 +157,7 @@ export default function TafsirAIPage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">For institutions</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">For institutions</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Offer digital experiences that respect tradition while embracing modern tooling.</p>
@@ -165,7 +165,7 @@ export default function TafsirAIPage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">For researchers</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">For researchers</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Explore patterns, references, and themes at scale, with clear source grounding.</p>
@@ -174,7 +174,7 @@ export default function TafsirAIPage() {
         </div>
       </section>
       <section id="tafsirai-waitlist" className="mt-20 lg:mt-24 max-w-2xl">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Join the TafsirAI waitlist</h2>
+        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the TafsirAI waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as TafsirAI becomes available for broader access.
         </p>

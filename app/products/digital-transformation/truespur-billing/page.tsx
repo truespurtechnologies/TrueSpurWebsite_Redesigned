@@ -11,9 +11,9 @@ export default function TrueSpurBillingPage() {
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
             TrueSpur Billing
-            <span className="block text-xl md:text-2xl font-semibold text-gray-700 mt-2">
+            <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               Billing and invoicing built for growth-ready businesses.
             </span>
           </h1>
@@ -57,7 +57,7 @@ export default function TrueSpurBillingPage() {
                 <ReceiptIndianRupee className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-lg">Revenue, without the fog</CardTitle>
+                <CardTitle className="font-heading text-xl lg:text-2xl">Revenue, without the fog</CardTitle>
                 <p className="text-xs text-gray-500">Turn billing into a strategic advantage, not a recurring fire drill.</p>
               </div>
             </CardHeader>
@@ -85,7 +85,7 @@ export default function TrueSpurBillingPage() {
         <div className="grid gap-8 md:grid-cols-3">
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Quote-to-cash visibility</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Quote-to-cash visibility</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Follow the lifecycle of every rupee—from quotation to final payment—without spreadsheets.</p>
@@ -93,7 +93,7 @@ export default function TrueSpurBillingPage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Flexible integrations</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Flexible integrations</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Connect with ERPs, CRMs, and banking partners to automate data flows.</p>
@@ -101,7 +101,7 @@ export default function TrueSpurBillingPage() {
           </Card>
           <Card className="border-0 shadow-md">
             <CardHeader>
-              <CardTitle className="text-base">Governance-ready</CardTitle>
+              <CardTitle className="font-heading text-lg lg:text-xl">Governance-ready</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-gray-700 space-y-2">
               <p>Audit-friendly logs and controls to meet compliance and reporting needs.</p>
