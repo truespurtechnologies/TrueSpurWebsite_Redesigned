@@ -345,23 +345,24 @@ export default function HomePage() {
         source={leadFormSource}
       />
       {/* Header */}
-      <header className="border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
+      <header className="relative border-b border-slate-200/50 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent"></div>
+        <div className="container mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection("home")}
               className="focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg"
             >
               <img
-                src="/logo/truespur-main-logo.png"
-                alt="TrueSpur Technology Solutions - We Craft. You Lead."
-                className="h-16 w-auto md:h-18 lg:h-20 hover:opacity-80 transition-opacity cursor-pointer"
+                src="/images/TrueSpur logo.png"
+                alt="TrueSpur Technology Solutions"
+                className="h-12 w-auto md:h-14 lg:h-16 xl:h-18 hover:opacity-80 transition-opacity cursor-pointer"
               />
             </button>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <NavigationMenu viewport={true}>
               <NavigationMenuList>
                 {/* Home first */}
@@ -371,9 +372,9 @@ export default function HomePage() {
                     <NavigationMenuItem key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`text-[0.95rem] tracking-wide font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 ${
+                        className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
                           activeSection === item.id
-                            ? "text-orange-600 border-b-[3px] border-orange-600"
+                            ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
                             : "text-gray-600"
                         }`}
                       >
@@ -384,7 +385,7 @@ export default function HomePage() {
 
                 {/* Product Suite immediately after Home */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-orange-600">
+                  <NavigationMenuTrigger className="text-base font-medium text-gray-700 hover:text-orange-600">
                     Product Suite
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="md:min-w-[700px]">
@@ -425,9 +426,9 @@ export default function HomePage() {
                     <NavigationMenuItem key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`text-sm font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-1.5 ${
+                        className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
                           activeSection === item.id
-                            ? "text-orange-600 border-b-2 border-orange-600"
+                            ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
                             : "text-gray-600"
                         }`}
                       >
@@ -456,7 +457,7 @@ export default function HomePage() {
           {/* Desktop CTA Button */}
           <Button
             onClick={() => openLeadForm("get-started")}
-            className="hidden md:inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-transform transition-shadow duration-200"
+            className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-all duration-200"
           >
             Get Started
           </Button>
@@ -548,7 +549,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative overflow-hidden py-16 md:py-20 lg:py-32 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 hero-gradient-animated"
+        className="relative overflow-hidden pt-4 pb-16 md:pt-6 md:pb-20 lg:pt-8 lg:pb-32 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 hero-gradient-animated"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -556,108 +557,27 @@ export default function HomePage() {
       >
         <div className="pointer-events-none absolute inset-0">
           {/* Radial gradient overlay for warmth */}
-          <div className="absolute inset-0 bg-gradient-radial from-orange-950/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-radial from-orange-950/30 via-transparent to-transparent" />
           
           {/* Enhanced gradient blobs with more warmth */}
           <motion.div
-            className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-orange-500/25 via-amber-500/20 to-yellow-600/10 blur-3xl"
+            className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-orange-500/35 via-amber-500/28 to-yellow-600/14 blur-3xl"
             animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute -bottom-48 -right-32 h-[600px] w-[600px] rounded-full bg-gradient-to-tl from-amber-400/22 via-yellow-500/16 to-orange-500/8 blur-3xl"
+            className="absolute -bottom-48 -right-32 h-[600px] w-[600px] rounded-full bg-gradient-to-tl from-amber-400/32 via-yellow-500/24 to-orange-500/12 blur-3xl"
             animate={{ y: [0, 18, 0], x: [0, -12, 0] }}
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-yellow-400/16 via-orange-400/12 to-amber-500/6 blur-3xl"
+            className="absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-yellow-400/24 via-orange-400/18 to-amber-500/9 blur-3xl"
             animate={{ x: [0, 15, -8, 0], y: [0, -8, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
 
         <div className="relative container mx-auto px-4">
-          <motion.div
-            className="pointer-events-none absolute inset-x-4 top-10 bottom-10 hidden md:flex items-center justify-center"
-            animate={{ opacity: [0.5, 0.95, 0.5] }}
-            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <svg
-              viewBox="0 0 520 260"
-              className="w-full max-w-4xl text-orange-100/60"
-              aria-hidden="true"
-            >
-              <defs>
-                <linearGradient id="hero-tech-grid" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
-                  <stop offset="45%" stopColor="currentColor" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-
-              <rect
-                x="32"
-                y="28"
-                width="456"
-                height="204"
-                rx="28"
-                fill="none"
-                stroke="url(#hero-tech-grid)"
-                strokeWidth="1.4"
-              />
-
-              {Array.from({ length: 7 }).map((_, i) => (
-                <line
-                  key={`hv-${i}`}
-                  x1={60 + i * 52}
-                  y1={44}
-                  x2={60 + i * 52}
-                  y2={216}
-                  stroke="currentColor"
-                  strokeOpacity={0.25}
-                  strokeWidth="1"
-                />
-              ))}
-              {Array.from({ length: 5 }).map((_, i) => (
-                <line
-                  key={`hh-${i}`}
-                  x1={52}
-                  y1={64 + i * 36}
-                  x2={460}
-                  y2={64 + i * 36}
-                  stroke="currentColor"
-                  strokeOpacity={0.22}
-                  strokeWidth="1"
-                />
-              ))}
-
-              <path
-                d="M84 90h26l10-14 14 26 10-34 14 38 10-18h28"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeOpacity="1"
-              />
-              <path
-                d="M124 152h30M190 152h64M292 152h42"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeOpacity="0.8"
-                strokeLinecap="round"
-              />
-
-              <circle cx="112" cy="90" r="4" fill="currentColor" fillOpacity="0.9" />
-              <circle cx="172" cy="104" r="3.5" fill="currentColor" fillOpacity="0.85" />
-              <circle cx="220" cy="86" r="3.5" fill="currentColor" fillOpacity="0.85" />
-              <circle cx="260" cy="104" r="3.5" fill="currentColor" fillOpacity="0.85" />
-              <circle cx="332" cy="80" r="3" fill="currentColor" fillOpacity="0.8" />
-              <circle cx="372" cy="110" r="3" fill="currentColor" fillOpacity="0.8" />
-            </svg>
-          </motion.div>
-
           <div className="relative grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             <motion.div
               className="relative z-10"
@@ -666,17 +586,17 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <Badge className="mb-4 bg-orange-500/15 text-orange-300 hover:bg-orange-500/25 border border-orange-400/30 text-base font-semibold px-4 py-1.5 shadow-lg shadow-orange-500/20 backdrop-blur-sm">
+              <Badge className="mb-4 bg-orange-500/25 text-orange-300 hover:bg-orange-500/35 border border-orange-400/40 text-base font-semibold px-4 py-1.5 shadow-lg shadow-orange-500/20 backdrop-blur-sm">
                 Cutting-Edge Technology Solutions
               </Badge>
-              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-5 leading-[1.15] tracking-normal">
+              <h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-5 leading-[1.15] tracking-normal">
                 From Idea to{" "}
                 <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.3)]">
                   Scalable
                 </span>{" "}
                  Product
               </h1>
-              <p className="text-xl lg:text-2xl text-slate-300/95 mb-8 leading-relaxed max-w-2xl font-light">
+              <p className="text-xl lg:text-[1.6rem] xl:text-[1.75rem] text-slate-300/95 mb-8 leading-relaxed max-w-2xl font-light">
                 We help founders design, build, and launch modern software products with speed, clarity, and engineering excellence.
               </p>
               <p className="font-heading text-xl lg:text-2xl text-slate-300/95 font-semibold mb-10 italic tracking-wide">"We Craft. You Lead."</p>
@@ -684,7 +604,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   onClick={() => openLeadForm("start-project")}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-2xl shadow-orange-500/40 text-xl px-10 py-7 font-bold hover:scale-105 transition-transform duration-200"
+                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-2xl shadow-orange-500/40 hover:shadow-3xl hover:shadow-orange-500/60 text-xl px-10 py-7 font-bold hover:scale-105 transition-all duration-200"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 h-6 w-6" />
@@ -708,7 +628,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="relative rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/50">
-                <div className="absolute -inset-[1px] rounded-[32px] bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-transparent opacity-60 blur-sm" />
+                <div className="absolute -inset-[2px] rounded-[32px] bg-gradient-to-br from-orange-500/30 via-amber-500/20 to-yellow-500/10 opacity-70 blur-md" />
                 <div className="relative bg-white/95 rounded-[32px] overflow-hidden">
                   <img
                     src="/images/hero-team-collaboration.png"
