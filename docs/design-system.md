@@ -1,8 +1,8 @@
 # TrueSpur Design System
 
-**Version:** 2.0  
-**Date:** May 22, 2026  
-**Purpose:** Premium brand refinement - Orange brand identity with sophisticated typography
+**Version:** 2.1  
+**Date:** May 22, 2026 (Updated 11:55 PM)  
+**Purpose:** Premium brand refinement - Orange brand identity with modern tech typography
 
 ---
 
@@ -60,13 +60,16 @@
 
 ### Font Families
 
-**Headings (Serif)**
-- **Font:** Playfair Display
-- **Weights:** 400 (Regular), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
+**Headings (Sans-Serif)**
+- **Font:** Poppins
+- **Type:** Geometric sans-serif with warmth
+- **Weights:** 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold), 800 (ExtraBold), 900 (Black)
 - **Usage:** H1, H2, H3, all card titles, dialog titles
 - **Variable:** `--font-heading`
-- **Fallback:** Georgia, serif
+- **Fallback:** -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 - **Implementation:** Applied via `font-heading` class
+- **Rationale:** Premium tech aesthetic, geometric warmth, excellent readability
+- **Previous:** Playfair Display (serif) - Replaced May 22, 2026
 
 **Body (Sans-Serif)**
 - **Font:** Inter
@@ -82,7 +85,7 @@
 
 | Element | Tailwind Classes | Actual Size | Line Height | Weight | Usage |
 |---------|-----------------|-------------|-------------|--------|-------|
-| **Hero H1** | `text-6xl lg:text-7xl xl:text-8xl` | 64px / 80px / 96px | 1.05 | 900 (Black) | Homepage hero only - UPDATED May 22 |
+| **Hero H1** | `text-5xl lg:text-6xl xl:text-7xl` | 48px / 60px / 72px | 1.15 | 900 (Black) | Homepage hero - Poppins - UPDATED May 22 |
 | **Section H2** | `text-5xl lg:text-6xl` | 48px / 60px | 1.1 | 700 (Bold) | Major section headings |
 | **Expertise H2** | `text-4xl lg:text-5xl` | 36px / 48px | 1.1 | 700 (Bold) | Dark background sections |
 | **Product H1** | `text-5xl md:text-6xl lg:text-7xl` | 48px / 60px / 72px | Default | 700 (Bold) | Product page titles |

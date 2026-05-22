@@ -666,17 +666,18 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <Badge className="mb-4 bg-orange-500/15 text-orange-300 hover:bg-orange-500/25 border border-orange-400/30 text-sm font-semibold px-4 py-1.5 shadow-lg shadow-orange-500/20 backdrop-blur-sm">
+              <Badge className="mb-4 bg-orange-500/15 text-orange-300 hover:bg-orange-500/25 border border-orange-400/30 text-base font-semibold px-4 py-1.5 shadow-lg shadow-orange-500/20 backdrop-blur-sm">
                 Cutting-Edge Technology Solutions
               </Badge>
-              <h1 className="font-heading text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-[1.05]">
-                Transform Your Business with{" "}
-                <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
-                  Innovation
-                </span>
+              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-5 leading-[1.15] tracking-normal">
+                From Idea to{" "}
+                <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.3)]">
+                  Scalable
+                </span>{" "}
+                 Product
               </h1>
               <p className="text-xl lg:text-2xl text-slate-300/95 mb-8 leading-relaxed max-w-2xl font-light">
-                We build world-class software that transforms healthcare, education, and business operations.
+                We help founders design, build, and launch modern software products with speed, clarity, and engineering excellence.
               </p>
               <p className="font-heading text-xl lg:text-2xl text-slate-300/95 font-semibold mb-10 italic tracking-wide">"We Craft. You Lead."</p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">

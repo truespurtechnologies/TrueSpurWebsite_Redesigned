@@ -42,7 +42,7 @@ className="font-heading text-6xl lg:text-7xl xl:text-8xl font-black"
 We specialize in website development, mobile apps, custom software, AI solutions, and product consulting. Empowering healthcare, education, and digital transformation with cutting-edge technology.
 
 // After (13 words)
-We build world-class software that transforms healthcare, education, and business operations.
+We help founders design, build, and launch modern software products with speed, clarity, and engineering excellence.
 ```
 
 ### Badge

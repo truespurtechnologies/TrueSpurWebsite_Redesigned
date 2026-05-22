@@ -116,7 +116,7 @@ The main page (`app/page.tsx`) is a single-page application with multiple sectio
 - **Call-to-Action Button**: Prominent "Get Started" button
 
 #### 2. Hero Section
-- **Compelling Headline**: "Transform Your Business with Innovation"
+- **Compelling Headline**: "From Idea to Scalable Product"
 - **Service Overview**: Brief description of core offerings
 - **Brand Tagline**: "We Craft. You Lead."
 - **Visual Element**: Hero image showcasing team collaboration
