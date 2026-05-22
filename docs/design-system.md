@@ -82,7 +82,7 @@
 
 | Element | Tailwind Classes | Actual Size | Line Height | Weight | Usage |
 |---------|-----------------|-------------|-------------|--------|-------|
-| **Hero H1** | `text-5xl lg:text-6xl xl:text-7xl` | 48px / 60px / 72px | 1.05 | 800 (Extrabold) | Homepage hero only |
+| **Hero H1** | `text-6xl lg:text-7xl xl:text-8xl` | 64px / 80px / 96px | 1.05 | 900 (Black) | Homepage hero only - UPDATED May 22 |
 | **Section H2** | `text-5xl lg:text-6xl` | 48px / 60px | 1.1 | 700 (Bold) | Major section headings |
 | **Expertise H2** | `text-4xl lg:text-5xl` | 36px / 48px | 1.1 | 700 (Bold) | Dark background sections |
 | **Product H1** | `text-5xl md:text-6xl lg:text-7xl` | 48px / 60px / 72px | Default | 700 (Bold) | Product page titles |

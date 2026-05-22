@@ -548,39 +548,43 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-slate-950 hero-gradient-animated"
+        className="relative overflow-hidden py-16 md:py-20 lg:py-32 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 hero-gradient-animated"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="pointer-events-none absolute inset-0">
+          {/* Radial gradient overlay for warmth */}
+          <div className="absolute inset-0 bg-gradient-radial from-orange-950/20 via-transparent to-transparent" />
+          
+          {/* Enhanced gradient blobs with more warmth */}
           <motion.div
-            className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-orange-500/25 blur-3xl"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute -bottom-40 right-[-4rem] h-96 w-96 rounded-full bg-amber-400/20 blur-3xl"
-            animate={{ y: [0, 14, 0] }}
+            className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-orange-500/25 via-amber-500/20 to-yellow-600/10 blur-3xl"
+            animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute top-1/3 right-1/3 h-64 w-64 rounded-full bg-yellow-400/10 blur-3xl"
-            animate={{ x: [0, 10, -6, 0] }}
-            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-48 -right-32 h-[600px] w-[600px] rounded-full bg-gradient-to-tl from-amber-400/22 via-yellow-500/16 to-orange-500/8 blur-3xl"
+            animate={{ y: [0, 18, 0], x: [0, -12, 0] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-yellow-400/16 via-orange-400/12 to-amber-500/6 blur-3xl"
+            animate={{ x: [0, 15, -8, 0], y: [0, -8, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
 
         <div className="relative container mx-auto px-4">
           <motion.div
             className="pointer-events-none absolute inset-x-4 top-10 bottom-10 hidden md:flex items-center justify-center"
-            animate={{ opacity: [0.4, 0.85, 0.4] }}
+            animate={{ opacity: [0.5, 0.95, 0.5] }}
             transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           >
             <svg
               viewBox="0 0 520 260"
-              className="w-full max-w-4xl text-orange-100/40"
+              className="w-full max-w-4xl text-orange-100/60"
               aria-hidden="true"
             >
               <defs>
@@ -610,8 +614,8 @@ export default function HomePage() {
                   x2={60 + i * 52}
                   y2={216}
                   stroke="currentColor"
-                  strokeOpacity={0.18}
-                  strokeWidth="0.7"
+                  strokeOpacity={0.25}
+                  strokeWidth="1"
                 />
               ))}
               {Array.from({ length: 5 }).map((_, i) => (
@@ -622,8 +626,8 @@ export default function HomePage() {
                   x2={460}
                   y2={64 + i * 36}
                   stroke="currentColor"
-                  strokeOpacity={0.14}
-                  strokeWidth="0.7"
+                  strokeOpacity={0.22}
+                  strokeWidth="1"
                 />
               ))}
 
@@ -631,10 +635,10 @@ export default function HomePage() {
                 d="M84 90h26l10-14 14 26 10-34 14 38 10-18h28"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.8"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeOpacity="0.9"
+                strokeOpacity="1"
               />
               <path
                 d="M124 152h30M190 152h64M292 152h42"
@@ -654,7 +658,7 @@ export default function HomePage() {
             </svg>
           </motion.div>
 
-          <div className="relative grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             <motion.div
               className="relative z-10"
               initial={{ opacity: 0, x: -40 }}
@@ -662,34 +666,33 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <Badge className="mb-4 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 border border-orange-400/40">
+              <Badge className="mb-4 bg-orange-500/15 text-orange-300 hover:bg-orange-500/25 border border-orange-400/30 text-sm font-semibold px-4 py-1.5 shadow-lg shadow-orange-500/20 backdrop-blur-sm">
                 Cutting-Edge Technology Solutions
               </Badge>
-              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-[1.05]">
+              <h1 className="font-heading text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-[1.05]">
                 Transform Your Business with{" "}
                 <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
                   Innovation
                 </span>
               </h1>
-              <p className="text-lg lg:text-xl text-slate-200/90 mb-8 leading-relaxed max-w-2xl">
-                We specialize in website development, mobile apps, custom software, AI solutions, and product
-                consulting. Empowering healthcare, education, and digital transformation with cutting-edge technology.
+              <p className="text-xl lg:text-2xl text-slate-300/95 mb-8 leading-relaxed max-w-2xl font-light">
+                We build world-class software that transforms healthcare, education, and business operations.
               </p>
-              <p className="font-heading text-lg lg:text-xl text-slate-200/95 font-semibold mb-10 italic tracking-wide">"We Craft. You Lead."</p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <p className="font-heading text-xl lg:text-2xl text-slate-300/95 font-semibold mb-10 italic tracking-wide">"We Craft. You Lead."</p>
+              <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Button
                   size="lg"
                   onClick={() => openLeadForm("start-project")}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-md shadow-orange-200"
+                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-2xl shadow-orange-500/40 text-xl px-10 py-7 font-bold hover:scale-105 transition-transform duration-200"
                 >
                   Start Your Project
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-6 w-6" />
                 </Button>
                 <Button
-                  size="lg"
+                  size="default"
                   variant="outline"
                   onClick={() => scrollToSection("products")}
-                  className="border-orange-300 text-orange-600 hover:bg-orange-50 bg-white/80 backdrop-blur"
+                  className="border-2 border-orange-400/60 text-slate-100 hover:bg-white hover:text-slate-900 hover:border-white bg-transparent backdrop-blur-sm text-base font-medium px-6 py-5 transition-all duration-200"
                 >
                   View Our Work
                 </Button>
@@ -703,13 +706,15 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <div className="relative rounded-[32px] bg-white/95 shadow-2xl overflow-hidden">
-                {/* Retain the original hero image as a clean card without overlay */}
-                <img
-                  src="/images/hero-landing.jpg"
-                  alt="Team collaborating on modern technology solutions at TrueSpur"
-                  className="w-full h-[500px] object-cover"
-                />
+              <div className="relative rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/50">
+                <div className="absolute -inset-[1px] rounded-[32px] bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-transparent opacity-60 blur-sm" />
+                <div className="relative bg-white/95 rounded-[32px] overflow-hidden">
+                  <img
+                    src="/images/hero-team-collaboration.png"
+                    alt="TrueSpur team collaborating on innovative software solutions in modern workspace"
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
