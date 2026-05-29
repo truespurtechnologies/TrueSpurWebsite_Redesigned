@@ -38,6 +38,7 @@ import {
   X,
   Loader2,
   Lock,
+  Palette,
 } from "lucide-react"
 
 const statsData = [
@@ -657,164 +658,338 @@ export default function HomePage() {
         </div>
 
         <div className="relative container mx-auto px-4">
-          <div className="text-center mb-16">
+          {/* Section Header */}
+          <div className="text-center mb-20">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Our Services</Badge>
-            <h2 className="font-heading text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-[1.1]">
-              Turn Your Vision Into a Scalable Product
+            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-5 leading-[1.1]">
+              How We Build Great Products
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              From MVP to full-scale platforms, we build reliable, high-performance web and mobile applications that help startups and businesses grow with confidence.
+            <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+              A proven blend of product strategy, design, engineering, and AI to turn ambitious ideas into scalable software.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              className="relative group"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.5 }}
-            >
-              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500" />
-                <CardHeader>
-                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 p-[2px]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
-                      <Code className="h-5 w-5 text-white" />
-                    </div>
+          {/* How We Help — Journey Steps */}
+          <motion.div
+            className="mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <div className="flex flex-wrap justify-center gap-6 lg:gap-10 relative">
+              {/* Connecting line (desktop only) */}
+              <div className="hidden md:block absolute top-8 left-[12%] right-[12%] h-[1px] bg-gradient-to-r from-transparent via-orange-200 to-transparent" />
+
+              {[
+                { step: "01", title: "Discover", desc: "Validate ideas before investing heavily" },
+                { step: "02", title: "Design", desc: "Create experiences people actually adopt" },
+                { step: "03", title: "Build", desc: "Develop scalable web & mobile products" },
+                { step: "04", title: "Launch", desc: "Deploy, monitor, and optimise" },
+                { step: "05", title: "Scale", desc: "Add AI, automation & enterprise capabilities" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.step}
+                  className="relative text-center w-[calc(50%-12px)] md:w-auto md:flex-1 md:max-w-[160px]"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.08 * i, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.5 }}
+                >
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white border border-orange-100 shadow-sm mb-3 relative z-10">
+                    <span className="text-sm font-bold text-orange-600">{item.step}</span>
                   </div>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">Website Development</CardTitle>
-                  <CardDescription>
-                    Modern, responsive websites built with the latest technologies for optimal performance and user
-                    experience.
-                  </CardDescription>
+                  <h4 className="font-heading text-base font-semibold text-gray-900 mb-1">{item.title}</h4>
+                  <p className="text-sm text-gray-500 leading-snug max-w-[140px] mx-auto">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Service Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Product Discovery & Validation */}
+            <motion.div
+              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+              tabIndex={0}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              whileFocus={{ y: -4 }}
+              transition={{ duration: 0.35, delay: 0.05, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.5 }}
+              role="article"
+              aria-label="Product Discovery and Validation service"
+            >
+              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
+                <CardHeader className="p-7 lg:p-8">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+                    <Users className="h-7 w-7 text-orange-600" />
+                  </div>
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                    Product Discovery & Validation
+                  </CardTitle>
+                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                    Reduce risk before building.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Opportunity assessment</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Customer research</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Product roadmap planning</span>
+                    </li>
+                  </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
+            {/* UX & Product Design */}
             <motion.div
-              className="relative group"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+              tabIndex={0}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              whileFocus={{ y: -4 }}
+              transition={{ duration: 0.35, delay: 0.08, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
+              role="article"
+              aria-label="UX and Product Design service"
             >
-              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400" />
-                <CardHeader>
-                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-yellow-500 p-[2px]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
-                      <Smartphone className="h-5 w-5 text-white" />
-                    </div>
+              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
+                <CardHeader className="p-7 lg:p-8">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+                    <Palette className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">Mobile App Development</CardTitle>
-                  <CardDescription>
-                    Native and cross-platform mobile applications that deliver seamless experiences across all devices.
-                  </CardDescription>
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                    UX & Product Design
+                  </CardTitle>
+                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                    Create experiences users love.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>User research & testing</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Interface & interaction design</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Design systems & prototyping</span>
+                    </li>
+                  </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
+            {/* SaaS Product Development */}
             <motion.div
-              className="relative group"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+              tabIndex={0}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              whileFocus={{ y: -4 }}
+              transition={{ duration: 0.35, delay: 0.12, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
+              role="article"
+              aria-label="SaaS Product Development service"
             >
-              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-600 via-orange-500 to-amber-400" />
-                <CardHeader>
-                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-600 to-orange-500 p-[2px]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
-                      <Zap className="h-5 w-5 text-white" />
-                    </div>
+              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
+                <CardHeader className="p-7 lg:p-8">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+                    <Code className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">Custom Software Development</CardTitle>
-                  <CardDescription>
-                    Tailored software solutions designed to meet your specific business requirements and workflows.
-                  </CardDescription>
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                    SaaS Product Development
+                  </CardTitle>
+                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                    Launch products built for growth.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>MVP development</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Customer-facing platforms</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Scalable cloud architecture</span>
+                    </li>
+                  </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
+            {/* Mobile Product Engineering */}
             <motion.div
-              className="relative group"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+              tabIndex={0}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              whileFocus={{ y: -4 }}
+              transition={{ duration: 0.35, delay: 0.16, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
+              role="article"
+              aria-label="Mobile Product Engineering service"
             >
-              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500" />
-                <CardHeader>
-                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-600 to-yellow-500 p-[2px]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
-                      <Users className="h-5 w-5 text-white" />
-                    </div>
+              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
+                <CardHeader className="p-7 lg:p-8">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+                    <Smartphone className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">Product Research</CardTitle>
-                  <CardDescription>
-                    Strategic guidance and technical expertise to help you make informed decisions about your technology
-                    investments.
-                  </CardDescription>
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                    Mobile Product Engineering
+                  </CardTitle>
+                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                    Deliver seamless mobile experiences.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>iOS & Android applications</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Cross-platform development</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Performance optimization</span>
+                    </li>
+                  </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
+            {/* Enterprise Software Solutions */}
             <motion.div
-              className="relative group"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4, delay: 0.25, ease: "easeOut" }}
+              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+              tabIndex={0}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              whileFocus={{ y: -4 }}
+              transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
+              role="article"
+              aria-label="Enterprise Software Solutions service"
             >
-              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-white/95 backdrop-blur-sm overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500" />
-                <CardHeader>
-                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 p-[2px]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.7rem] bg-white/5">
-                      <Brain className="h-5 w-5 text-white" />
-                    </div>
+              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
+                <CardHeader className="p-7 lg:p-8">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+                    <Zap className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-2xl lg:text-3xl">AI Solutions</CardTitle>
-                  <CardDescription>
-                    Cutting-edge artificial intelligence and machine learning solutions to automate and optimize your
-                    business processes.
-                  </CardDescription>
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                    Enterprise Software Solutions
+                  </CardTitle>
+                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                    Modernize critical business operations.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Workflow digitization</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>System integrations</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Internal business platforms</span>
+                    </li>
+                  </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
+            {/* Applied AI & Automation */}
             <motion.div
-              className="relative group"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
+              tabIndex={0}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              whileFocus={{ y: -4 }}
+              transition={{ duration: 0.35, delay: 0.24, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
+              role="article"
+              aria-label="Applied AI and Automation service"
             >
-              <Card className="relative h-full border-0 shadow-lg rounded-2xl bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <CardHeader className="text-center p-8 md:p-10">
-                  <CardTitle className="font-heading text-2xl lg:text-3xl mb-2">Ready to Get Started?</CardTitle>
-                  <CardDescription>
-                    {"Let's discuss your project and find the perfect solution for your needs."}
-                  </CardDescription>
-                  <Button
-                    onClick={() => scrollToSection("contact")}
-                    className="mt-4 w-full border border-orange-300 text-orange-700 bg-white/90 hover:bg-orange-50 hover:text-orange-800 shadow-sm"
-                  >
-                    Contact Us Today
-                  </Button>
+              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
+                <CardHeader className="p-7 lg:p-8">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+                    <Brain className="h-7 w-7 text-orange-600" />
+                  </div>
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                    Applied AI & Automation
+                  </CardTitle>
+                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                    Embed intelligence into everyday workflows.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>AI-powered assistants</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Process automation</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span>Data-driven decision support</span>
+                    </li>
+                  </ul>
                 </CardHeader>
               </Card>
             </motion.div>
+
           </div>
+
+          {/* CTA Banner */}
+          <motion.div
+            className="mt-24 relative rounded-3xl overflow-hidden"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900" />
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-amber-500/5 to-orange-500/10" />
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-10 md:px-12 md:py-12">
+              <div className="text-center md:text-left">
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-white mb-2">
+                  Ready to Get Started?
+                </h3>
+                <p className="text-slate-300 text-lg max-w-xl">
+                  {"Let's discuss your project and find the perfect solution for your needs."}
+                </p>
+              </div>
+              <Button
+                onClick={() => openLeadForm("start-project")}
+                className="whitespace-nowrap bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 text-base font-bold px-8 py-6 rounded-full hover:scale-[1.03] transition-all duration-200"
+              >
+                Start Your Project
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
