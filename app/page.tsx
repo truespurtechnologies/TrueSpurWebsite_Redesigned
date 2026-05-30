@@ -646,32 +646,32 @@ export default function HomePage() {
       {/* Services Section */}
       <motion.section
         id="services"
-        className="relative overflow-hidden py-10 md:py-14 lg:py-24 bg-gradient-to-b from-white via-[#FFF7ED] to-[#FEFCE8]"
+        className="relative overflow-hidden py-16 md:py-24 lg:py-32 bg-white"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-orange-200/40 blur-3xl" />
-          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+          <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-orange-100/30 blur-3xl" />
+          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-100/20 blur-3xl" />
         </div>
 
         <div className="relative container mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-20">
-            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100">Our Services</Badge>
-            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-5 leading-[1.1]">
+          <div className="text-center mb-14">
+            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100 text-sm font-semibold px-3 py-1">Our Services</Badge>
+            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-5 leading-[1.1]">
               How We Build Great Products
             </h2>
-            <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl xl:text-[1.35rem] text-gray-500 max-w-2xl mx-auto leading-relaxed">
               A proven blend of product strategy, design, engineering, and AI to turn ambitious ideas into scalable software.
             </p>
           </div>
 
           {/* How We Help — Journey Steps */}
           <motion.div
-            className="mb-20"
+            className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -679,14 +679,14 @@ export default function HomePage() {
           >
             <div className="flex flex-wrap justify-center gap-6 lg:gap-10 relative">
               {/* Connecting line (desktop only) */}
-              <div className="hidden md:block absolute top-8 left-[12%] right-[12%] h-[1px] bg-gradient-to-r from-transparent via-orange-200 to-transparent" />
+              <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-orange-100 via-orange-300 to-orange-100" />
 
               {[
-                { step: "01", title: "Discover", desc: "Validate ideas before investing heavily" },
-                { step: "02", title: "Design", desc: "Create experiences people actually adopt" },
-                { step: "03", title: "Build", desc: "Develop scalable web & mobile products" },
-                { step: "04", title: "Launch", desc: "Deploy, monitor, and optimise" },
-                { step: "05", title: "Scale", desc: "Add AI, automation & enterprise capabilities" },
+                { step: "01", title: "Discover", desc: "Validate before you invest" },
+                { step: "02", title: "Design", desc: "Craft experiences that stick" },
+                { step: "03", title: "Build", desc: "Ship scalable products" },
+                { step: "04", title: "Launch", desc: "Deploy and optimise" },
+                { step: "05", title: "Scale", desc: "Add AI & automation" },
               ].map((item, i) => (
                 <motion.div
                   key={item.step}
@@ -696,18 +696,18 @@ export default function HomePage() {
                   transition={{ duration: 0.35, delay: 0.08 * i, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white border border-orange-100 shadow-sm mb-3 relative z-10">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-orange-50 border-2 border-orange-200 mb-3 relative z-10 shadow-sm">
                     <span className="text-sm font-bold text-orange-600">{item.step}</span>
                   </div>
-                  <h4 className="font-heading text-base font-semibold text-gray-900 mb-1">{item.title}</h4>
-                  <p className="text-sm text-gray-500 leading-snug max-w-[140px] mx-auto">{item.desc}</p>
+                  <h4 className="font-heading text-sm font-bold text-gray-900 mb-1 uppercase tracking-wide">{item.title}</h4>
+                  <p className="text-xs text-gray-400 leading-snug max-w-[120px] mx-auto">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
           {/* Service Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-9">
             {/* Product Discovery & Validation */}
             <motion.div
               className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
@@ -721,28 +721,29 @@ export default function HomePage() {
               role="article"
               aria-label="Product Discovery and Validation service"
             >
-              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
-                <CardHeader className="p-7 lg:p-8">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="p-8 lg:p-9">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Users className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
                     Product Discovery & Validation
                   </CardTitle>
-                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                  <p className="text-gray-600 text-base leading-relaxed mb-5">
                     Reduce risk before building.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-500">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Opportunity assessment</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Customer research</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Product roadmap planning</span>
                     </li>
                   </ul>
@@ -763,28 +764,29 @@ export default function HomePage() {
               role="article"
               aria-label="UX and Product Design service"
             >
-              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
-                <CardHeader className="p-7 lg:p-8">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="p-8 lg:p-9">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Palette className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
                     UX & Product Design
                   </CardTitle>
-                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                  <p className="text-gray-600 text-base leading-relaxed mb-5">
                     Create experiences users love.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-500">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>User research & testing</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Interface & interaction design</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Design systems & prototyping</span>
                     </li>
                   </ul>
@@ -805,28 +807,29 @@ export default function HomePage() {
               role="article"
               aria-label="SaaS Product Development service"
             >
-              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
-                <CardHeader className="p-7 lg:p-8">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="p-8 lg:p-9">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Code className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
                     SaaS Product Development
                   </CardTitle>
-                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                  <p className="text-gray-600 text-base leading-relaxed mb-5">
                     Launch products built for growth.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-500">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>MVP development</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Customer-facing platforms</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Scalable cloud architecture</span>
                     </li>
                   </ul>
@@ -847,28 +850,29 @@ export default function HomePage() {
               role="article"
               aria-label="Mobile Product Engineering service"
             >
-              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
-                <CardHeader className="p-7 lg:p-8">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="p-8 lg:p-9">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Smartphone className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
                     Mobile Product Engineering
                   </CardTitle>
-                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                  <p className="text-gray-600 text-base leading-relaxed mb-5">
                     Deliver seamless mobile experiences.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-500">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>iOS & Android applications</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Cross-platform development</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Performance optimization</span>
                     </li>
                   </ul>
@@ -889,28 +893,29 @@ export default function HomePage() {
               role="article"
               aria-label="Enterprise Software Solutions service"
             >
-              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
-                <CardHeader className="p-7 lg:p-8">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="p-8 lg:p-9">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Zap className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
                     Enterprise Software Solutions
                   </CardTitle>
-                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                  <p className="text-gray-600 text-base leading-relaxed mb-5">
                     Modernize critical business operations.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-500">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Workflow digitization</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>System integrations</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Internal business platforms</span>
                     </li>
                   </ul>
@@ -931,28 +936,29 @@ export default function HomePage() {
               role="article"
               aria-label="Applied AI and Automation service"
             >
-              <Card className="relative h-full border-0 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-md transition-all duration-300">
-                <CardHeader className="p-7 lg:p-8">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50">
+              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="p-8 lg:p-9">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Brain className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
                     Applied AI & Automation
                   </CardTitle>
-                  <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4">
+                  <p className="text-gray-600 text-base leading-relaxed mb-5">
                     Embed intelligence into everyday workflows.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-500">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                  <ul className="space-y-2.5 text-sm text-gray-500">
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>AI-powered assistants</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Process automation</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                    <li className="flex items-center gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Data-driven decision support</span>
                     </li>
                   </ul>
