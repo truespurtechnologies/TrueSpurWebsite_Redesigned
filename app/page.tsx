@@ -686,7 +686,7 @@ export default function HomePage() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-0 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
               {[
                 { title: "Discover", desc: "Validate before you invest" },
                 { title: "Design", desc: "Craft experiences that stick" },
@@ -696,15 +696,15 @@ export default function HomePage() {
               ].map((item, i) => (
                 <motion.div
                   key={item.title}
-                  className={`relative text-center px-6 py-6 md:py-8 ${i < 4 ? "md:border-r md:border-gray-300" : ""}`}
+                  className="relative group pl-6 pr-6 py-5 bg-white rounded-xl border border-gray-100/80 shadow-sm shadow-gray-900/5 hover:border-orange-200/60 hover:bg-gray-50/30 transition-all duration-300 hover:shadow-md hover:shadow-orange-100/20"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, delay: 0.06 * i, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gradient-to-r from-orange-400 to-amber-400" />
-                  <h4 className="font-heading text-base lg:text-lg font-bold text-gray-900 mb-1.5 tracking-wide">{item.title}</h4>
-                  <p className="text-sm lg:text-base text-gray-600 leading-snug">{item.desc}</p>
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:w-1.5 transition-all duration-300" />
+                  <h4 className="font-heading text-lg lg:text-xl font-bold text-gray-900 mb-2 tracking-tight">{item.title}</h4>
+                  <p className="text-sm lg:text-base text-gray-500 leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
