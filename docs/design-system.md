@@ -1,8 +1,8 @@
 # TrueSpur Design System
 
-**Version:** 2.1  
-**Date:** May 22, 2026 (Updated 11:55 PM)  
-**Purpose:** Premium brand refinement - Orange brand identity with modern tech typography
+**Version:** 2.2  
+**Date:** May 30, 2026  
+**Purpose:** Premium brand refinement - Orange brand identity with Poppins + Inter typography
 
 ---
 
@@ -85,13 +85,13 @@
 
 | Element | Tailwind Classes | Actual Size | Line Height | Weight | Usage |
 |---------|-----------------|-------------|-------------|--------|-------|
-| **Hero H1** | `text-5xl lg:text-6xl xl:text-7xl` | 48px / 60px / 72px | 1.15 | 900 (Black) | Homepage hero - Poppins - UPDATED May 22 |
-| **Section H2** | `text-5xl lg:text-6xl` | 48px / 60px | 1.1 | 700 (Bold) | Major section headings |
+| **Hero H1** | `text-5xl lg:text-7xl xl:text-8xl` | 48px / 72px / 96px | 1.15 | 900 (Black) | Homepage hero - Poppins |
+| **Section H2** | `text-4xl lg:text-5xl xl:text-6xl` | 36px / 48px / 60px | 1.1 | 800 (ExtraBold) | Major section headings (e.g. Services) |
 | **Expertise H2** | `text-4xl lg:text-5xl` | 36px / 48px | 1.1 | 700 (Bold) | Dark background sections |
 | **Product H1** | `text-5xl md:text-6xl lg:text-7xl` | 48px / 60px / 72px | Default | 700 (Bold) | Product page titles |
 | **Product Subheading** | `text-2xl md:text-3xl` | 24px / 30px | Default | 600 (Semibold) | Product taglines |
 | **Section H3** | `text-3xl lg:text-4xl` | 30px / 36px | Default | 700 (Bold) | Subsection headings |
-| **Large Card Titles** | `text-2xl lg:text-3xl` | 24px / 30px | Default | 400/600 | Service, product cards |
+| **Large Card Titles** | `text-2xl lg:text-3xl` | 24px / 30px | Default | 600/700 | Product cards, CTA banners |
 | **Medium Card Titles** | `text-xl lg:text-2xl` | 20px / 24px | Default | 400/600 | Feature cards |
 | **Small Card Titles** | `text-lg lg:text-xl` | 18px / 20px | Default | 400/600 | Detail cards |
 | **Dialog Titles** | `text-2xl lg:text-3xl` | 24px / 30px | Default | 400 | Modal/dialog headings |
@@ -102,24 +102,24 @@
 
 ### Typography Implementation Details
 
-**All Headings Use Playfair Display:**
+**All Headings Use Poppins** (via `font-heading` class):
 - Homepage: Hero, Services, Expertise, Products, Stats, Awards, About, Customers, Contact
 - Product Pages: Main titles, subheadings, card titles, waitlist headings
 - Components: Dialog titles, form headings
 
-**Specific Implementations:**
+**Specific Implementations (as of May 30, 2026):**
 ```tsx
 // Hero Heading (Homepage)
-<h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05]">
+<h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.15]">
 
-// Section Headings (Homepage)
-<h2 className="font-heading text-5xl lg:text-6xl font-bold leading-[1.1]">
+// Section Headings (Homepage — e.g. Services)
+<h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1]">
 
 // Service Card Titles
-<CardTitle className="font-heading text-2xl lg:text-3xl">
+<CardTitle className="font-heading text-lg lg:text-xl font-semibold">
 
-// Expertise Card Titles
-<CardTitle className="font-heading text-2xl sm:text-3xl font-semibold">
+// CTA Banner H3
+<h3 className="font-heading text-2xl lg:text-3xl font-bold">
 
 // Product Page Main Title
 <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold">
@@ -131,11 +131,12 @@
 ### Typography Guidelines
 
 **Headings:**
-- **Always** use `font-heading` class for Playfair Display
-- Use `font-extrabold` (800) only for hero headings
-- Use `font-bold` (700) for section headings
-- Use `font-semibold` (600) for card titles when emphasis needed
-- Tight line-height (`leading-[1.05]` or `leading-[1.1]`) for large headings
+- **Always** use `font-heading` class for Poppins
+- Use `font-black` (900) only for Hero H1
+- Use `font-extrabold` (800) for section H2 headings
+- Use `font-bold` (700) for H3 / CTA banner headings
+- Use `font-semibold` (600) for card titles
+- Tight line-height (`leading-[1.1]` or `leading-[1.15]`) for large headings
 - Gray-900 for light backgrounds
 - White for dark backgrounds
 - Maximum line length: 60-70 characters
@@ -202,67 +203,67 @@
 
 ### Buttons
 
-**Primary Button**
+**Primary CTA Button (Hero)**
 ```
-Background: Gold-600
-Text: Navy-950
-Padding: 16px 32px
-Border Radius: 8px
-Font: Inter, 16px, 600
-Hover: Gold-500 + lift effect
+Background: Gradient from-yellow-500 to-orange-500
+Text: white
+Padding: text-xl px-10 py-7
+Font: Inter, 20px, 700 (bold)
+Shadow: shadow-2xl shadow-orange-500/40
+Hover: from-yellow-600 to-orange-600 + scale-105 + shadow-3xl
+```
+
+**Primary CTA Button (Section banners)**
+```
+Background: Gradient from-yellow-500 to-orange-500
+Text: white
+Padding: text-base px-8 py-6
+Border Radius: rounded-full
+Font: Inter, 16px, 700 (bold)
+Shadow: shadow-lg shadow-orange-500/30
+Hover: scale-[1.03] + shadow-xl
 ```
 
 **Secondary Button**
 ```
 Background: Transparent
-Border: 2px solid Navy-700
-Text: Navy-900
-Padding: 14px 30px
-Border Radius: 8px
-Font: Inter, 16px, 600
-Hover: Navy-50 background
-```
-
-**CTA Button (Hero)**
-```
-Background: Gradient (Gold-600 to Copper-600)
-Text: White
-Padding: 18px 36px
-Border Radius: 12px
-Font: Inter, 18px, 600
-Shadow: 0 4px 12px rgba(212, 175, 55, 0.3)
-Hover: Lift + shadow increase
+Border: 2px solid orange-400/60
+Text: slate-100 (dark bg) or gray-900 (light bg)
+Padding: text-base px-6 py-5
+Font: Inter, 16px, 500 (medium)
+Hover: bg-white + text-slate-900 + border-white
 ```
 
 ### Cards
 
 **Service Card**
 ```
-Background: Warm-50
-Border: 1px solid Warm-200
-Border Radius: 16px
-Padding: 48px
-Shadow: 0 2px 8px rgba(0, 0, 0, 0.04)
-Hover: Lift (-4px) + shadow increase
+Background: white
+Border: 1px solid gray-100/80 (whisper-soft)
+Border Radius: rounded-2xl (16px)
+Padding: p-8 lg:p-9 (32-36px)
+Shadow: shadow-sm
+Hover: y: -4px + shadow-lg + border-gray-200/80
+Accent: Left gradient bar (orange-400 → amber-400), opacity 0→100% on hover
+Icon: h-7 w-7 in 56px container (bg-orange-100/70)
 ```
 
-**Portfolio Card**
+**CTA Banner Card**
 ```
-Background: White
-Border Radius: 12px
-Overflow: hidden
-Shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
-Hover: Scale (1.02) + shadow increase
+Background: Gradient from-slate-900 via-slate-800 to-slate-900
+Overlay: from-orange-500/10 via-amber-500/5 to-orange-500/10
+Border Radius: rounded-3xl
+Padding: px-8 py-10 md:px-12 md:py-12
 ```
 
-**Trust Badge**
+**Hero Badge**
 ```
-Background: Navy-900
-Text: Warm-50
-Padding: 12px 24px
-Border Radius: 24px (pill)
-Font: Inter, 14px, 600
-Icon: Gold-500
+Background: orange-500/25 with backdrop-blur-sm
+Border: 1px solid orange-400/40
+Text: orange-300
+Padding: px-4 py-1.5
+Font: Inter, 16px (text-base), 600 (semibold)
+Shadow: shadow-lg shadow-orange-500/20
 ```
 
 ### Navigation
@@ -271,10 +272,10 @@ Icon: Gold-500
 ```
 Background: White/95 (backdrop blur)
 Height: 80px
-Border Bottom: 1px solid Warm-200
+Border Bottom: 1px solid gray-200
 Font: Inter, 16px, 500
-Active: Gold-600 underline (3px)
-Hover: Gold-600 color
+Active: orange-600 underline (3px)
+Hover: orange-600 color
 ```
 
 **Mobile Navigation**
@@ -383,16 +384,17 @@ xl: 1280px  - Desktops
 
 **Style:**
 - Outline style (2px stroke)
-- 24px or 48px sizes
+- 16px (inline bullets), 24px (UI), 28px (card icons), 48px (features)
 - Lucide React library
-- Gold-600 for accent icons
-- Navy-700 for default icons
+- orange-600 for card header icons
+- orange-500 for bullet check icons
+- gray-700 for default/neutral icons
 
 **Usage:**
-- Service cards: 64px bold icons
+- Service card icons: h-7 w-7 (28px) in 56px bg-orange-100/70 container
+- Bullet checks: h-4 w-4 (16px) text-orange-500
 - Navigation: 24px icons
-- Inline: 20px icons
-- Trust badges: 20px icons
+- CTA arrows: h-5 w-5 to h-6 w-6
 
 ---
 
@@ -406,14 +408,15 @@ xl: 1280px  - Desktops
 - Interactive elements: Minimum 3:1
 
 **Verified Combinations:**
-- Navy-950 on Warm-50: ✅ 16.2:1
-- Warm-700 on Warm-50: ✅ 8.4:1
-- Gold-600 on Navy-900: ✅ 4.8:1
+- gray-900 on white: ✅ 16.2:1
+- gray-600 on white: ✅ 7.0:1
+- white on slate-900: ✅ 15.8:1
+- orange-600 on white: ✅ 4.6:1 (large text)
 
 ### Focus States
 
 **All interactive elements must have visible focus:**
-- Outline: 2px solid Gold-600
+- Outline: 2px solid orange-500
 - Offset: 2px
 - Border radius: Match element
 
@@ -472,19 +475,25 @@ When creating new components, ensure:
 
 ## 🔄 Version History
 
+**v2.2 (May 30, 2026)**
+- Synced all documentation with production code (`app/page.tsx`)
+- Fixed Hero H1 type scale: `text-5xl lg:text-7xl xl:text-8xl` (48/72/96px)
+- Fixed Section H2 weight: `font-extrabold` (800), added xl breakpoint
+- Updated all component styles from Navy/Gold to Orange brand tokens
+- Updated icon specs to match actual Lucide usage
+- Updated accessibility color combos and focus states
+- Corrected all Playfair Display references → Poppins
+
 **v2.0 (May 22, 2026)**
-- **Typography System Refinement:** Complete implementation of Playfair Display across all pages
-- Updated color palette to Orange brand (#F97316) from Navy + Gold
-- Detailed typography scale with Tailwind classes and actual implementations
-- Added ExtraBold (800) weight for hero headings
-- Comprehensive typography guidelines with code examples
-- Applied to: Homepage (30 elements), Product pages (24 elements), Dialogs (2 elements)
-- Total: 56+ typography elements now consistent
+- Typography system refined: Poppins replaced Playfair Display for headings
+- Updated color palette to Orange brand (#F97316)
+- Added font-black (900) weight for hero headings
+- 56+ typography elements made consistent
 
 **v1.0 (May 20, 2026)**
 - Initial design system
-- Premium color palette (Navy + Gold) - DEPRECATED
-- Typography system (Playfair Display + Inter) - Foundation
+- Premium color palette (Navy + Gold) — DEPRECATED
+- Typography system (Playfair Display + Inter) — DEPRECATED
 - Spacing system (8px base)
 - Component guidelines
 - Animation principles

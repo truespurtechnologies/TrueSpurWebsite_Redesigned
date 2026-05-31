@@ -1,7 +1,7 @@
 # TrueSpur Website - Spacing Specifications
 
-**Version:** 2.0  
-**Last Updated:** May 22, 2026  
+**Version:** 2.1  
+**Last Updated:** May 30, 2026  
 **Status:** Production-Ready ✅
 
 ---
@@ -25,23 +25,22 @@ This document defines the complete spacing system for the TrueSpur website, ensu
 
 ### **Main Section Padding**
 
-**All major sections use:**
+**Standard sections use:**
 ```tsx
-className="py-10 md:py-14 lg:py-24"
+className="py-16 md:py-24 lg:py-32"
 ```
 
 **Breakdown:**
-- **Mobile:** `py-10` = 40px top/bottom
-- **Tablet:** `md:py-14` = 56px top/bottom
-- **Desktop:** `lg:py-24` = 96px top/bottom
+- **Mobile:** `py-16` = 64px top/bottom
+- **Tablet:** `md:py-24` = 96px top/bottom
+- **Desktop:** `lg:py-32` = 128px top/bottom
 
 **Total Gap Between Sections:**
-- Mobile: 80px (40px + 40px)
-- Tablet: 112px (56px + 56px)
-- Desktop: 192px (96px + 96px)
+- Mobile: 128px (64px + 64px)
+- Tablet: 192px (96px + 96px)
+- Desktop: 256px (128px + 128px)
 
 **Applied To:**
-- Hero Section
 - Services Section
 - Expertise Section
 - Products Section
@@ -51,25 +50,35 @@ className="py-10 md:py-14 lg:py-24"
 - Customer Showcase Section
 - Contact Section
 
+### **Hero Section Padding (Exception)**
+
+The Hero uses **asymmetric** padding because it sits directly below the header:
+```tsx
+className="pt-4 pb-16 md:pt-6 md:pb-20 lg:pt-8 lg:pb-32"
+```
+
+**Breakdown:**
+- **Top:** Minimal (4–8px) — header provides visual top boundary
+- **Bottom:** Matches standard section padding (64–128px)
+
+> **Note:** Hero spacing is intentionally different from other sections. Do not apply standard `py-*` to the Hero.
+
 ---
 
 ## 🎴 Card Spacing
 
-### **1. Service Cards**
+### **1. Service Cards (Updated May 30, 2026)**
 
-**Card Header:**
+Service cards use a flat structure (no separate CardContent), all content inside `CardHeader`:
 ```tsx
-className="p-6 md:p-8 pb-4"
+className="p-8 lg:p-9"
 ```
-- Padding: 24px → 32px
-- Bottom reduced to 16px for tighter title-to-content flow
-
-**Card Content:**
-```tsx
-className="p-6 md:p-8 pt-0"
-```
-- Padding: 24px → 32px
-- Top padding removed (pt-0) to connect with header
+- Padding: 32px → 36px
+- Flat single-container layout (no header/content split)
+- Icon container: `mb-6` (24px gap below icon)
+- Title to description: `mb-3` (12px)
+- Description to bullets: `mb-5` (20px)
+- Bullet spacing: `space-y-2.5` (10px)
 
 ### **2. Expertise Cards (Dark Background)**
 
@@ -270,6 +279,16 @@ className="space-y-4 px-6 pb-6"
 
 ## 🔄 Hover & Transition Spacing
 
+### **Service Cards**
+
+**Hover Transform:**
+```tsx
+whileHover={{ y: -4 }}
+```
+- Lift: 4px upward via Framer Motion
+- Left accent bar: opacity 0 → 100% on hover (300ms)
+- Shadow: shadow-sm → shadow-lg on hover
+
 ### **Expertise Cards**
 
 **Hover Transform:**
@@ -302,16 +321,16 @@ className="hover:-translate-y-1"
 ## 📊 Spacing System Summary
 
 ### **Section Spacing**
-| Breakpoint | Padding | Total Gap |
-|------------|---------|-----------|
-| Mobile | 40px | 80px |
-| Tablet | 56px | 112px |
-| Desktop | 96px | 192px |
+| Breakpoint | Standard Padding | Total Gap | Hero Top | Hero Bottom |
+|------------|-----------------|-----------|----------|-------------|
+| Mobile | 64px (`py-16`) | 128px | 4px | 64px |
+| Tablet | 96px (`md:py-24`) | 192px | 6px | 80px |
+| Desktop | 128px (`lg:py-32`) | 256px | 8px | 128px |
 
 ### **Card Padding**
 | Component | Mobile | Tablet | Desktop |
 |-----------|--------|--------|---------|
-| Service Cards | 24px | 32px | 32px |
+| Service Cards | 32px | 32px | 36px |
 | Expertise Cards | 24px | 32px | 32px |
 | Product Cards | 24px | 32px | 32px |
 | Stats Cards | 32px | 40px | 48px |
@@ -361,10 +380,10 @@ className="hover:-translate-y-1"
 
 ### **Consistency Rules**
 
-1. **All major sections:** Use `py-10 md:py-14 lg:py-24`
-2. **All card headers:** Minimum `p-6 md:p-8`
-3. **All card content:** Minimum `p-6 md:p-8`
-4. **All lists:** Use `space-y-3` for readability
+1. **All major sections (except Hero):** Use `py-16 md:py-24 lg:py-32`
+2. **Hero section:** Use asymmetric `pt-4 pb-16 md:pt-6 md:pb-20 lg:pt-8 lg:pb-32`
+3. **All card headers:** Minimum `p-8 lg:p-9`
+4. **All lists:** Use `space-y-2.5` or `space-y-3` for readability
 5. **All hover lifts:** 4px or 8px (no other values)
 
 ### **Responsive Breakpoints**
@@ -385,7 +404,8 @@ className="hover:-translate-y-1"
 
 **Before deploying spacing changes:**
 
-- [ ] All sections use `py-10 md:py-14 lg:py-24`
+- [ ] All sections (except Hero) use `py-16 md:py-24 lg:py-32`
+- [ ] Hero uses asymmetric padding `pt-4 pb-16 md:pt-6 md:pb-20 lg:pt-8 lg:pb-32`
 - [ ] All cards have consistent internal padding
 - [ ] All product cards have title/description margins
 - [ ] All lists use `space-y-3`
@@ -414,5 +434,5 @@ className="hover:-translate-y-1"
 ---
 
 **Last Reviewed By:** Sally (UX Designer)  
-**Review Date:** May 22, 2026  
-**Next Review:** After Phase 2 (Visual Elements)
+**Review Date:** May 30, 2026  
+**Next Review:** After next section refinement pass

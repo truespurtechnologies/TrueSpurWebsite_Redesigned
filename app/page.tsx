@@ -550,7 +550,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative overflow-hidden pt-4 pb-16 md:pt-6 md:pb-20 lg:pt-8 lg:pb-32 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 hero-gradient-animated"
+        className="relative overflow-hidden pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 hero-gradient-animated"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -587,9 +587,6 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <Badge className="mb-4 bg-orange-500/25 text-orange-300 hover:bg-orange-500/35 border border-orange-400/40 text-base font-semibold px-4 py-1.5 shadow-lg shadow-orange-500/20 backdrop-blur-sm">
-                Cutting-Edge Technology Solutions
-              </Badge>
               <h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-5 leading-[1.15] tracking-normal">
                 From Idea to{" "}
                 <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.3)]">
@@ -609,14 +606,6 @@ export default function HomePage() {
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 h-6 w-6" />
-                </Button>
-                <Button
-                  size="default"
-                  variant="outline"
-                  onClick={() => scrollToSection("products")}
-                  className="border-2 border-orange-400/60 text-slate-100 hover:bg-white hover:text-slate-900 hover:border-white bg-transparent backdrop-blur-sm text-base font-medium px-6 py-5 transition-all duration-200"
-                >
-                  View Our Work
                 </Button>
               </div>
             </motion.div>
@@ -643,32 +632,52 @@ export default function HomePage() {
         </div>
       </motion.section>
 
+      {/* Transition Bridge Element */}
+      <div className="relative -mt-8 md:-mt-10 lg:-mt-12 z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="relative mx-auto max-w-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-10 lg:p-12">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
+              <div className="relative text-center">
+                <div className="inline-flex items-center gap-2 mb-4 text-orange-600">
+                  <div className="h-px w-10 bg-orange-400" />
+                  <span className="text-sm font-semibold tracking-widest uppercase">Our Services</span>
+                  <div className="h-px w-10 bg-orange-400" />
+                </div>
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold text-gray-900 mb-4 leading-[1.1]">
+                  How We Build{" "}
+                  <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">Great Products</span>
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                  A proven blend of product strategy, design, engineering, and AI to turn ambitious ideas into scalable software.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Services Section */}
       <motion.section
         id="services"
-        className="relative overflow-hidden py-16 md:py-24 lg:py-32 bg-white"
+        className="relative overflow-hidden pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-b from-gray-50/60 via-white to-white"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-orange-100/30 blur-3xl" />
-          <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-amber-100/20 blur-3xl" />
+          <div className="absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-orange-100/20 blur-3xl" />
+          <div className="absolute -bottom-32 right-1/4 h-72 w-72 rounded-full bg-amber-50/30 blur-3xl" />
         </div>
 
         <div className="relative container mx-auto px-4">
-          {/* Section Header */}
-          <div className="text-center mb-14">
-            <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-100 text-sm font-semibold px-3 py-1">Our Services</Badge>
-            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-5 leading-[1.1]">
-              How We Build Great Products
-            </h2>
-            <p className="text-lg lg:text-xl xl:text-[1.35rem] text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              A proven blend of product strategy, design, engineering, and AI to turn ambitious ideas into scalable software.
-            </p>
-          </div>
-
           {/* How We Help — Journey Steps */}
           <motion.div
             className="mb-16"
@@ -677,30 +686,25 @@ export default function HomePage() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <div className="flex flex-wrap justify-center gap-6 lg:gap-10 relative">
-              {/* Connecting line (desktop only) */}
-              <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-orange-100 via-orange-300 to-orange-100" />
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-0 max-w-4xl mx-auto">
               {[
-                { step: "01", title: "Discover", desc: "Validate before you invest" },
-                { step: "02", title: "Design", desc: "Craft experiences that stick" },
-                { step: "03", title: "Build", desc: "Ship scalable products" },
-                { step: "04", title: "Launch", desc: "Deploy and optimise" },
-                { step: "05", title: "Scale", desc: "Add AI & automation" },
+                { title: "Discover", desc: "Validate before you invest" },
+                { title: "Design", desc: "Craft experiences that stick" },
+                { title: "Build", desc: "Ship scalable products" },
+                { title: "Launch", desc: "Deploy and optimise" },
+                { title: "Scale", desc: "Add AI & automation" },
               ].map((item, i) => (
                 <motion.div
-                  key={item.step}
-                  className="relative text-center w-[calc(50%-12px)] md:w-auto md:flex-1 md:max-w-[160px]"
+                  key={item.title}
+                  className={`relative text-center px-6 py-6 md:py-8 ${i < 4 ? "md:border-r md:border-gray-300" : ""}`}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: 0.08 * i, ease: "easeOut" }}
+                  transition={{ duration: 0.35, delay: 0.06 * i, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-orange-50 border-2 border-orange-200 mb-3 relative z-10 shadow-sm">
-                    <span className="text-sm font-bold text-orange-600">{item.step}</span>
-                  </div>
-                  <h4 className="font-heading text-sm font-bold text-gray-900 mb-1 uppercase tracking-wide">{item.title}</h4>
-                  <p className="text-xs text-gray-400 leading-snug max-w-[120px] mx-auto">{item.desc}</p>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gradient-to-r from-orange-400 to-amber-400" />
+                  <h4 className="font-heading text-base lg:text-lg font-bold text-gray-900 mb-1.5 tracking-wide">{item.title}</h4>
+                  <p className="text-sm lg:text-base text-gray-600 leading-snug">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -987,13 +991,22 @@ export default function HomePage() {
                   {"Let's discuss your project and find the perfect solution for your needs."}
                 </p>
               </div>
-              <Button
-                onClick={() => openLeadForm("start-project")}
-                className="whitespace-nowrap bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 text-base font-bold px-8 py-6 rounded-full hover:scale-[1.03] transition-all duration-200"
-              >
-                Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 items-center">
+                <Button
+                  variant="outline"
+                  onClick={() => scrollToSection("products")}
+                  className="whitespace-nowrap border-2 border-white/40 text-white hover:bg-white hover:text-slate-900 hover:border-white bg-transparent backdrop-blur-sm text-base font-medium px-6 py-5 rounded-full transition-all duration-200"
+                >
+                  View Our Work
+                </Button>
+                <Button
+                  onClick={() => openLeadForm("start-project")}
+                  className="whitespace-nowrap bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 text-base font-bold px-8 py-6 rounded-full hover:scale-[1.03] transition-all duration-200"
+                >
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>

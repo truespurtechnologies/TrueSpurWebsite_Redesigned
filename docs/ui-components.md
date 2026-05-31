@@ -299,14 +299,19 @@ const [formMessage, setFormMessage] = useState("")
 
 ### Typography
 
-**Font Family:**
-- Primary: Geist (from `geist` package)
-- Monospace: Geist Mono
+**Font Families:**
+- Headings: Poppins (`font-heading`, `--font-heading`)
+- Body: Inter (`font-sans`, `--font-sans`)
+- Monospace: Geist Mono (`--font-mono`)
 
 **Text Sizes:**
-- Headings: `text-4xl`, `text-5xl`, `text-6xl`
+- Hero H1: `text-5xl lg:text-7xl xl:text-8xl` (font-black 900)
+- Section H2: `text-4xl lg:text-5xl xl:text-6xl` (font-extrabold 800)
+- Card Titles: `text-lg lg:text-xl` (font-semibold 600)
 - Body: `text-base`, `text-lg`
 - Small: `text-sm`, `text-xs`
+
+> See `docs/design-system.md` and `docs/brand-identity-guidelines.md` for full type scale.
 
 ### Spacing & Layout
 

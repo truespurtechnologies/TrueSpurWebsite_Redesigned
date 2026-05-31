@@ -1,8 +1,8 @@
 # TrueSpur Technology Solutions - Brand Identity Guidelines
 
-**Version:** 2.0  
-**Date:** May 21, 2026  
-**Brand Strategy:** Premium Tech - Option 6A (Royal Purple + Gold)  
+**Version:** 3.0  
+**Date:** May 30, 2026  
+**Brand Strategy:** Premium Tech — Orange Brand Identity (Refined)  
 **Designer:** Sally (UX Designer) + Aswar (Founder)
 
 ---
@@ -11,15 +11,17 @@
 
 ### Brand Decision Rationale
 
-**Selected Palette:** Option 6A - Tech Royalty (Deep Purple + Gold + Warm Cream)
+**Selected Palette:** Orange Brand Identity (Refined from original TrueSpur brand)
 
 **Why This Palette:**
-1. **Unique Positioning** - Stands out in tech industry (most use blue/navy)
-2. **Premium Signal** - Purple = innovation + luxury, Gold = quality
-3. **Memorable** - Distinctive color combination creates strong brand recall
-4. **Warm & Approachable** - Warm cream neutrals prevent coldness
-5. **International Appeal** - Works globally, not culturally specific
-6. **Innovation Statement** - Purple signals forward-thinking technology
+1. **Established Identity** — Orange is already the TrueSpur brand; users recognize it
+2. **Warm & Distinctive** — Stands out in a sea of blue/navy tech websites
+3. **Premium Signal** — Orange + dark slate conveys energy, confidence, and quality
+4. **Approachable** — Warm amber/yellow accents create inviting atmosphere
+5. **International Appeal** — Works globally, not culturally specific
+6. **Mentor-Validated** — The problem was never the color; it was aesthetic execution
+
+> **Key Insight (May 21, 2026):** A Purple + Gold rebrand was explored and rejected. The founder confirmed: *"If I close my eyes, I actually like my current website. The only thing not right is design aesthetics and too much text."* Decision: **Refine, don't redesign.**
 
 **Brand Personality:**
 - Innovative yet trustworthy
@@ -39,58 +41,65 @@
 
 ### Primary Colors
 
-**Royal Purple (Primary Brand Color)**
-- `purple-950`: `#2E1065` - Darkest, for text on light backgrounds
-- `purple-900`: `#4C1D95` - Primary brand color (hero backgrounds, major elements)
-- `purple-800`: `#5B21B6` - Hover states, interactive elements
-- `purple-700`: `#6D28D9` - Lighter purple for accents
-- `purple-600`: `#7C3AED` - Bright purple for highlights
+**Orange (Primary Brand Color)**
+- `orange-500`: `#F97316` — Primary brand color
+- `orange-600`: `#EA580C` — Hover states, darker accent
+- `orange-400`: `#FB923C` — Lighter accents
+- `orange-700`: `#C2410C` — Deep orange for emphasis
 
-**Rationale:** Deep purple conveys innovation, creativity, and premium quality. Darker shades maintain professionalism while brighter shades add energy.
-
----
-
-**Bright Gold (Accent Color)**
-- `gold-600`: `#FBBF24` - Primary accent (CTAs, highlights, icons)
-- `gold-500`: `#FCD34D` - Lighter gold for hover states
-- `gold-400`: `#FDE68A` - Subtle gold highlights
-- `gold-700`: `#F59E0B` - Deeper gold for contrast
-
-**Rationale:** Bright gold (not muted) creates strong contrast with purple, signals quality and premium positioning. More vibrant than traditional gold for modern feel.
+**Rationale:** Orange conveys energy, warmth, and innovation. It is TrueSpur's established brand color and stands out distinctively in the tech industry.
 
 ---
 
-### Neutral Colors (Warm Palette)
+**Yellow (Gradient Accent)**
+- `yellow-500`: `#EAB308` — Gradient accent (CTA buttons)
+- `yellow-400`: `#FACC15` — Lighter gradient
+- `yellow-600`: `#CA8A04` — Darker gradient
 
-**Warm Cream/Beige**
-- `cream-50`: `#FAFAF9` - Lightest background
-- `cream-100`: `#F5F5F4` - Card backgrounds
-- `cream-200`: `#E7E5E4` - Borders, dividers
-- `cream-300`: `#D6D3D1` - Disabled states
+**Amber (Secondary Accent)**
+- `amber-500`: `#F59E0B` — Secondary accent
+- `amber-400`: `#FBBF24` — Lighter amber
+- `amber-600`: `#D97706` — Darker amber
 
-**Warm Grays (for text)**
-- `warm-600`: `#78716C` - Secondary text
-- `warm-700`: `#57534E` - Body text
-- `warm-800`: `#44403C` - Headings on light backgrounds
-- `warm-900`: `#292524` - Darkest text
+**Rationale:** Yellow and amber complement the orange brand, providing gradient depth for CTAs and atmospheric warmth in dark sections.
 
-**Rationale:** Warm neutrals (not cool grays) create approachable, human-centered feel. Prevents coldness that cool grays can introduce.
+---
+
+### Dark Slate (Hero / Dark Sections)
+
+- `slate-900`: `#0F172A` — Dark backgrounds (lighter)
+- `slate-950`: `#020617` — Darkest backgrounds
+- `orange-950`: `#431407` — Dark warmth for radial overlays
+
+### Neutral Colors
+
+**Grays (for text & UI)**
+- `gray-50`: `#F9FAFB` — Light backgrounds
+- `gray-100`: `#F3F4F6` — Card backgrounds, badges
+- `gray-200`: `#E5E7EB` — Borders
+- `gray-300`: `#D1D5DB` — Disabled states
+- `gray-500`: `#6B7280` — Secondary text
+- `gray-600`: `#4B5563` — Body text
+- `gray-700`: `#374151` — Subheadings
+- `gray-900`: `#111827` — Headings on light backgrounds
+
+**Rationale:** Cool grays paired with warm orange/amber accents create a modern tech feel with human warmth.
 
 ---
 
 ### Semantic Colors
 
 **Success**
-- `success`: `#10B981` - Green for positive actions, confirmations
+- `green-600`: `#16A34A` — Positive actions, confirmations
 
 **Warning**
-- `warning`: `#F59E0B` - Amber for caution, alerts
+- `orange-500`: `#F97316` — Caution, alerts (brand color)
 
 **Error**
-- `error`: `#EF4444` - Red for errors, destructive actions
+- `red-600`: `#DC2626` — Errors, destructive actions
 
 **Info**
-- `info`: `#3B82F6` - Blue for informational messages
+- `blue-500`: `#3B82F6` — Informational messages
 
 ---
 
@@ -98,48 +107,46 @@
 
 ### Primary Use Cases
 
-**Purple (Primary):**
-- Hero section backgrounds
-- Navigation backgrounds (dark mode)
-- Primary buttons (with gold text)
-- Section dividers
-- Brand elements
-- Footer backgrounds
+**Dark Slate (Hero & Dark Sections):**
+- Hero section background (`slate-900 → slate-950 → slate-900` gradient)
+- CTA banners within sections
+- Footer background
+- Expertise/domain section backgrounds
 
-**Gold (Accent):**
-- Call-to-action buttons
-- Interactive elements
-- Icons and highlights
-- Links and hover states
-- Trust badges
-- Accent borders
+**Orange (Primary Brand Accent):**
+- CTA button gradients (`from-yellow-500 to-orange-500`)
+- Icon containers (`bg-orange-100/70`)
+- Badge accents, hover borders
+- Gradient text highlights
+- Atmospheric gradient blobs on dark backgrounds
 
-**Warm Cream (Background):**
-- Page backgrounds
+**White (Light Section Backgrounds):**
+- Services section, Products section
 - Card backgrounds
-- Light sections
 - Content areas
 
-**Warm Gray (Text):**
-- Body copy
-- Secondary information
-- Captions
-- Metadata
+**Gray (Text & UI):**
+- `gray-900` — Headings on light backgrounds
+- `gray-600` — Body text on light backgrounds
+- `gray-500` — Secondary text, descriptions
+- `white` — Headings on dark backgrounds
+- `slate-300` — Body text on dark backgrounds
 
 ---
 
 ### Color Combinations (Tested for Accessibility)
 
 **High Contrast Combinations:**
-- ✅ Purple-950 on Cream-50: 16.8:1 (Excellent)
-- ✅ Warm-900 on Cream-50: 15.2:1 (Excellent)
-- ✅ Gold-600 on Purple-900: 5.2:1 (Good for large text)
-- ✅ Cream-50 on Purple-900: 12.4:1 (Excellent)
+- ✅ gray-900 on white: 16.2:1 (Excellent)
+- ✅ white on slate-900: 15.8:1 (Excellent)
+- ✅ gray-600 on white: 7.0:1 (Excellent)
+- ✅ orange-600 on white: 4.6:1 (Good for large text)
+- ✅ white on orange-500 gradient: 3.1:1 (Acceptable for large bold text)
 
 **Avoid:**
-- ❌ Gold-400 on Cream-50 (too low contrast)
-- ❌ Purple-700 on Purple-900 (insufficient contrast)
-- ❌ Warm-600 on Cream-100 (borderline, use warm-700 minimum)
+- ❌ orange-300 on white (too low contrast)
+- ❌ gray-400 on white (insufficient contrast for body text)
+- ❌ yellow-500 on white (fails all contrast ratios)
 
 ---
 
@@ -147,59 +154,70 @@
 
 ### Font Families
 
-**Headings (Serif)**
-- **Font:** Playfair Display
-- **Weights:** 400 (Regular), 600 (SemiBold), 700 (Bold)
-- **Usage:** H1, H2, H3, hero text, feature headings
-- **Fallback:** Georgia, serif
-- **Character:** Elegant, premium, editorial
+**Headings (Sans-Serif)**
+- **Font:** Poppins
+- **Type:** Geometric sans-serif with warmth
+- **Weights:** 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold), 800 (ExtraBold), 900 (Black)
+- **Usage:** H1, H2, H3, all card titles, dialog titles
+- **Variable:** `--font-heading`
+- **Fallback:** -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+- **Implementation:** Applied via `font-heading` class
+- **Character:** Premium tech aesthetic, geometric warmth, excellent readability
+
+> **History:** Playfair Display (serif) was used in v1.0–v2.0 but replaced May 22, 2026 after iterative testing. Cabinet Grotesk was also tested and rejected as too cold.
 
 **Body (Sans-Serif)**
 - **Font:** Inter
 - **Weights:** 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
 - **Usage:** Body text, UI elements, navigation, buttons
+- **Variable:** `--font-sans`
 - **Fallback:** -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
 - **Character:** Clean, modern, highly readable
 
-**Rationale:** Playfair Display adds sophistication and premium feel. Inter provides excellent readability and modern tech aesthetic. Combination creates balance between elegance and functionality.
+**Rationale:** Poppins provides geometric warmth without coldness, pairs perfectly with Inter body text. Used by successful tech brands. Weight 900 (Black) provides maximum hero impact.
 
 ---
 
 ### Type Scale
 
-| Element | Font | Size | Line Height | Weight | Color |
-|---------|------|------|-------------|--------|-------|
-| **H1 (Hero)** | Playfair Display | 64px (4rem) | 1.1 | 700 | Purple-950 or Cream-50 |
-| **H2** | Playfair Display | 48px (3rem) | 1.2 | 700 | Purple-900 or Warm-900 |
-| **H3** | Playfair Display | 32px (2rem) | 1.3 | 600 | Purple-900 or Warm-900 |
-| **H4** | Inter | 24px (1.5rem) | 1.4 | 600 | Warm-900 |
-| **H5** | Inter | 20px (1.25rem) | 1.4 | 600 | Warm-800 |
-| **Body Large** | Inter | 20px (1.25rem) | 1.6 | 400 | Warm-700 |
-| **Body** | Inter | 16px (1rem) | 1.6 | 400 | Warm-700 |
-| **Body Small** | Inter | 14px (0.875rem) | 1.5 | 400 | Warm-600 |
-| **Caption** | Inter | 12px (0.75rem) | 1.4 | 500 | Warm-600 |
+| Element | Font | Tailwind Classes | Size | Line Height | Weight | Color |
+|---------|------|-----------------|------|-------------|--------|-------|
+| **Hero H1** | Poppins | `text-5xl lg:text-7xl xl:text-8xl` | 48 / 72 / 96px | 1.15 | 900 (Black) | white (dark bg) |
+| **Section H2** | Poppins | `text-4xl lg:text-5xl xl:text-6xl` | 36 / 48 / 60px | 1.1 | 800 (ExtraBold) | gray-900 (light bg), white (dark bg) |
+| **Section H3** | Poppins | `text-2xl lg:text-3xl` | 24 / 30px | default | 700 (Bold) | gray-900 or white |
+| **Card Titles** | Poppins | `text-lg lg:text-xl` | 18 / 20px | default | 600 (SemiBold) | gray-900 |
+| **H4 (Journey)** | Poppins | `text-sm` | 14px | default | 700 (Bold) | gray-900 |
+| **Body Large** | Inter | `text-lg lg:text-xl` | 18 / 20px | relaxed (1.625) | 400 | gray-600 |
+| **Body** | Inter | `text-base` | 16px | relaxed (1.625) | 400 | gray-600 |
+| **Body Small** | Inter | `text-sm` | 14px | normal (1.5) | 400 | gray-500 |
+| **Caption** | Inter | `text-xs` | 12px | normal (1.5) | 500 | gray-400 |
 
 ---
 
 ### Typography Guidelines
 
 **Headings:**
-- Use Playfair Display for H1, H2, H3 to establish premium feel
-- Use Inter for H4, H5 for better readability at smaller sizes
-- Purple-950 on light backgrounds, Cream-50 on dark backgrounds
-- Maximum line length: 60-70 characters
+- **Always** use `font-heading` class for Poppins
+- Use `font-black` (900) only for Hero H1
+- Use `font-extrabold` (800) for section H2 headings
+- Use `font-semibold` (600) for card titles
+- Tight line-height (`leading-[1.1]` or `leading-[1.15]`) for large headings
+- `gray-900` on light backgrounds, `white` on dark backgrounds
+- Maximum line length: 60–70 characters
 
 **Body Text:**
-- Always use Inter for body text
-- Warm-700 for primary body text (excellent contrast)
-- Warm-600 for secondary text (captions, metadata)
+- Always use Inter (default `font-sans`) for all body text
+- `gray-600` for primary body text on light backgrounds
+- `gray-500` for secondary text
+- `slate-300` for body text on dark backgrounds
+- `leading-relaxed` (1.625) for comfortable reading
 - Minimum font size: 16px for body text (accessibility)
-- Maximum line length: 65-75 characters
+- Maximum line length: 65–75 characters
 
 **Accent Text:**
-- Gold-600 for highlighted text on dark backgrounds
-- Gold-700 for highlighted text on light backgrounds
-- Use sparingly for maximum impact
+- Gradient (`from-yellow-500 to-orange-500`) for highlighted words on dark backgrounds
+- `orange-600` for highlighted text on light backgrounds
+- Use sparingly — one gradient accent per section maximum
 
 ---
 
@@ -212,13 +230,13 @@
 **Symbol:**
 - Geometric "T" monogram or abstract spur icon
 - Style: Minimalist, modern, geometric
-- Color: Gold-600 on light backgrounds, Gold-600 on dark backgrounds
+- Color: Orange-500 on light backgrounds, Orange-500 on dark backgrounds
 - Size: Square aspect ratio
 
 **Wordmark:**
 - Font: Custom or Inter Bold (700)
 - "TrueSpur" - single word, no spaces
-- Color: Purple-950 on light, Cream-50 on dark
+- Color: gray-900 on light backgrounds, white on dark backgrounds
 - Letter spacing: -0.02em (tight, modern)
 
 **Tagline (Optional):**
@@ -233,31 +251,31 @@
 ### Logo Variations
 
 **1. Primary Logo (Full Color)**
-- Symbol: Gold-600
-- Wordmark: Purple-950
-- Background: Light (Cream-50 or white)
+- Symbol: Orange-500
+- Wordmark: gray-900
+- Background: Light (white)
 - Use: Website header, marketing materials, light backgrounds
 
 **2. Reversed Logo (Dark Background)**
-- Symbol: Gold-600
-- Wordmark: Cream-50
-- Background: Dark (Purple-900 or Purple-950)
+- Symbol: Orange-500
+- Wordmark: white
+- Background: Dark (slate-900 or slate-950)
 - Use: Hero sections, footer, dark mode
 
-**3. Monochrome Logo (Purple)**
-- Symbol: Purple-900
-- Wordmark: Purple-900
+**3. Monochrome Logo (Dark)**
+- Symbol: gray-900
+- Wordmark: gray-900
 - Background: Light
 - Use: Print, single-color applications
 
 **4. Monochrome Logo (White)**
-- Symbol: Cream-50
-- Wordmark: Cream-50
+- Symbol: white
+- Wordmark: white
 - Background: Dark
-- Use: Dark backgrounds when gold accent not appropriate
+- Use: Dark backgrounds when orange accent not appropriate
 
 **5. Icon Only**
-- Symbol: Gold-600 or Purple-900
+- Symbol: Orange-500 or gray-900
 - Use: Favicon, app icons, social media avatars
 
 ---
@@ -280,7 +298,7 @@
 ❌ Do not add effects (shadows, gradients, outlines)  
 ❌ Do not stretch or distort proportions  
 ❌ Do not place on busy backgrounds without sufficient contrast  
-❌ Do not use old orange logo alongside new brand
+❌ Do not use deprecated purple/gold branding alongside current orange brand
 
 ---
 
@@ -331,35 +349,37 @@
 
 ### Buttons
 
-**Primary Button (CTA)**
+**Primary Button (CTA — Hero)**
 ```
-Background: Gradient from Gold-600 to Gold-700
-Text: Purple-950
-Padding: 16px 32px (md: 18px 36px for hero)
-Border Radius: 12px
+Background: Gradient from-yellow-500 to-orange-500
+Text: white
+Padding: text-xl px-10 py-7
+Border Radius: default (rounded)
+Font: Inter, 20px, 700 (bold)
+Shadow: shadow-2xl shadow-orange-500/40
+Hover: from-yellow-600 to-orange-600 + scale-105 + shadow-3xl shadow-orange-500/60
+```
+
+**Primary Button (CTA — Section banners)**
+```
+Background: Gradient from-yellow-500 to-orange-500
+Text: white
+Padding: text-base px-8 py-6
+Border Radius: rounded-full
 Font: Inter, 16px, 700 (bold)
-Shadow: 0 4px 12px rgba(251, 191, 36, 0.4)
-Hover: Lift (-2px) + shadow increase + Gold-500
+Shadow: shadow-lg shadow-orange-500/30
+Hover: scale-[1.03] + shadow-xl
 ```
 
 **Secondary Button**
 ```
 Background: Transparent
-Border: 2px solid Purple-700
-Text: Purple-900 (light bg) or Gold-600 (dark bg)
-Padding: 14px 30px
-Border Radius: 12px
-Font: Inter, 16px, 600
-Hover: Background Purple-50 (light) or Purple-800/20 (dark)
-```
-
-**Ghost Button**
-```
-Background: Transparent
-Text: Purple-900 or Warm-700
-Padding: 12px 24px
-Font: Inter, 16px, 600
-Hover: Background Cream-100
+Border: 2px solid orange-400/60
+Text: slate-100 (dark bg) or gray-900 (light bg)
+Padding: text-base px-6 py-5
+Border Radius: default
+Font: Inter, 16px, 500 (medium)
+Hover: bg-white + text-slate-900 + border-white
 ```
 
 ---
@@ -368,32 +388,40 @@ Hover: Background Cream-100
 
 **Service Card**
 ```
-Background: Cream-50
-Border: 1px solid Cream-200
-Border Radius: 16px
-Padding: 48px
-Shadow: 0 2px 8px rgba(0, 0, 0, 0.04)
-Hover: Lift (-4px) + shadow increase + border Gold-600/30
+Background: white
+Border: 1px solid gray-100/80 (whisper-soft)
+Border Radius: rounded-2xl (16px)
+Padding: p-8 lg:p-9 (32-36px)
+Shadow: shadow-sm
+Hover: y: -4px + shadow-lg + border-gray-200/80
+Accent: Left gradient bar (orange-400 → amber-400), opacity 0 → 100% on hover
+Icon: h-7 w-7 in 56px rounded-2xl container (bg-orange-100/70)
 ```
 
-**Portfolio Card**
+**CTA Banner Card**
 ```
-Background: White
-Border Radius: 12px
-Overflow: hidden
-Shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
-Hover: Scale (1.02) + shadow increase
+Background: Gradient from-slate-900 via-slate-800 to-slate-900
+Overlay: from-orange-500/10 via-amber-500/5 to-orange-500/10
+Border Radius: rounded-3xl
+Padding: px-8 py-10 md:px-12 md:py-12
 ```
 
-**Trust Badge**
+**Hero Badge**
 ```
-Background: Gold-600/20 with backdrop blur
-Border: 2px solid Gold-600
-Text: Gold-600 (dark bg) or Gold-700 (light bg)
-Padding: 12px 24px
-Border Radius: 24px (pill)
-Font: Inter, 14px, 700
-Icon: Gold-600, 20px
+Background: orange-500/25 with backdrop-blur-sm
+Border: 1px solid orange-400/40
+Text: orange-300
+Padding: px-4 py-1.5
+Font: Inter, 16px (text-base), 600 (semibold)
+Shadow: shadow-lg shadow-orange-500/20
+```
+
+**Section Badge (Light bg)**
+```
+Background: gray-100
+Text: gray-700
+Padding: px-3 py-1
+Font: Inter, 14px (text-sm), 600 (semibold)
 ```
 
 ---
@@ -401,18 +429,18 @@ Icon: Gold-600, 20px
 ### Icons
 
 **Style:** Outline style (2px stroke)  
-**Sizes:** 20px (inline), 24px (UI), 48px (features), 64px (hero)  
+**Sizes:** 16px (inline bullets), 24px (UI), 28px (card icons), 48px (features)  
 **Library:** Lucide React  
 **Colors:**
-- Primary: Gold-600 (accent icons)
-- Secondary: Purple-700 (brand icons)
-- Neutral: Warm-700 (default icons)
+- Primary: `orange-600` (card header icons)
+- Accent: `orange-500` (bullet check icons)
+- Neutral: `gray-700` (default icons)
 
 **Usage:**
-- Service cards: 64px icons in Gold-600
-- Navigation: 24px icons in Warm-700
-- Trust badges: 20px icons in Gold-600
-- Feature highlights: 48px icons in Purple-700
+- Service card icons: h-7 w-7 (28px) in 56px `bg-orange-100/70` container
+- Bullet checks: h-4 w-4 (16px) `text-orange-500`
+- Navigation: 24px icons
+- CTA arrows: h-5 w-5 to h-6 w-6
 
 ---
 
@@ -440,9 +468,10 @@ Icon: Gold-600, 20px
 ### Common Animations
 
 **Hover Effects:**
-- Buttons: Lift (-2px) + shadow increase (250ms)
-- Cards: Lift (-4px) + shadow increase + border color change (250ms)
-- Links: Color change to Gold-600 (200ms)
+- Buttons: Scale (1.03–1.05) + shadow increase (200ms)
+- Cards: Lift (-4px) via `whileHover={{ y: -4 }}` + shadow-lg (300ms)
+- Links: Color change to orange-600 (200ms)
+- Left accent bar: opacity 0 → 100% on card hover (300ms)
 
 **Scroll Triggers:**
 - Fade in: opacity 0 → 1 (400ms ease-out)
@@ -468,16 +497,16 @@ Icon: Gold-600, 20px
 - Interactive elements: Minimum 3:1 ✅
 
 **Verified Combinations:**
-- Purple-950 on Cream-50: ✅ 16.8:1 (Excellent)
-- Warm-900 on Cream-50: ✅ 15.2:1 (Excellent)
-- Warm-700 on Cream-50: ✅ 8.4:1 (Excellent)
-- Gold-600 on Purple-900: ✅ 5.2:1 (Good for large text)
-- Cream-50 on Purple-900: ✅ 12.4:1 (Excellent)
+- gray-900 on white: ✅ 16.2:1 (Excellent)
+- white on slate-900: ✅ 15.8:1 (Excellent)
+- gray-600 on white: ✅ 7.0:1 (Excellent)
+- orange-600 on white: ✅ 4.6:1 (Good for large text)
+- white on orange-500 gradient: ✅ 3.1:1 (Acceptable for large bold text)
 
 ### Focus States
 
 **All interactive elements must have visible focus:**
-- Outline: 2px solid Gold-600
+- Outline: 2px solid orange-500
 - Offset: 2px
 - Border radius: Match element
 - Visible on keyboard navigation
@@ -511,7 +540,7 @@ Icon: Gold-600, 20px
 - Subtle vignette for focus
 - Slight desaturation for sophistication
 - Consistent color grading (warm tones)
-- Purple or gold color overlay at 10-20% opacity (optional)
+- Orange/amber gradient glow overlay at low opacity (optional, for dark sections)
 
 **Avoid:**
 - Generic stock photos
@@ -522,7 +551,7 @@ Icon: Gold-600, 20px
 ### Illustration Style (if used)
 
 **Style:** Minimalist, geometric, modern  
-**Colors:** Purple-700, Gold-600, Warm-700  
+**Colors:** orange-500, amber-500, gray-700  
 **Usage:** Icons, diagrams, abstract backgrounds  
 **Avoid:** Cartoon-style, overly detailed illustrations
 
@@ -562,8 +591,8 @@ Icon: Gold-600, 20px
 
 When creating any brand touchpoint, ensure:
 
-- [ ] Uses approved color palette (Purple + Gold + Warm Cream)
-- [ ] Uses approved typography (Playfair Display + Inter)
+- [ ] Uses approved color palette (Orange + Amber/Yellow + Gray)
+- [ ] Uses approved typography (Poppins headings + Inter body)
 - [ ] Logo has proper clear space
 - [ ] Color contrast meets accessibility standards (4.5:1 minimum)
 - [ ] Animations are subtle and purposeful
@@ -577,18 +606,21 @@ When creating any brand touchpoint, ensure:
 
 ## 🔄 Version History
 
-**v2.0 (May 21, 2026)**
-- Complete rebrand from orange to purple + gold
-- Selected Option 6A: Tech Royalty (Deep Purple + Gold + Warm Cream)
-- Defined comprehensive color system
-- Established typography system (Playfair Display + Inter)
-- Created logo specifications
-- Defined component styles
-- Established accessibility standards
-- Created brand voice guidelines
+**v3.0 (May 30, 2026)**
+- Full documentation update to match production implementation
+- All references updated from Purple+Gold to Orange brand
+- Typography updated from Playfair Display to Poppins
+- Component styles updated to match actual code (`app/page.tsx`)
+- Added Tailwind classes to type scale table
+- Updated accessibility color combinations
+
+**v2.0 (May 21, 2026)** — DEPRECATED
+- Explored Purple + Gold rebrand (Option 6A)
+- Rejected by founder after A/B testing against existing orange brand
+- See `docs/design-exploration-summary.md` for full rationale
 
 **v1.0 (Previous)**
-- Temporary orange logo and inconsistent brand identity
+- Original orange logo and initial brand identity
 
 ---
 
@@ -596,7 +628,7 @@ When creating any brand touchpoint, ensure:
 
 **Brand Owner:** Aswar (Founder)  
 **Design Lead:** Sally (UX Designer)  
-**Last Updated:** May 21, 2026
+**Last Updated:** May 30, 2026
 
 **For brand questions or exceptions:**
 - Review this document first
@@ -608,16 +640,16 @@ When creating any brand touchpoint, ensure:
 ## 🎨 Quick Reference
 
 **Primary Colors:**
-- Purple: `#4C1D95`
-- Gold: `#FBBF24`
-- Cream: `#FAFAF9`
+- Orange: `#F97316` (brand accent)
+- Slate: `#0F172A` (dark backgrounds)
+- White: `#FFFFFF` (light backgrounds)
 
 **Typography:**
-- Headings: Playfair Display
-- Body: Inter
+- Headings: Poppins (`font-heading`)
+- Body: Inter (`font-sans`)
 
 **Logo:**
-- Gold symbol + Purple wordmark
+- Orange symbol + dark/white wordmark
 - Tagline: "We Craft. You Lead."
 
 **Brand Personality:**
