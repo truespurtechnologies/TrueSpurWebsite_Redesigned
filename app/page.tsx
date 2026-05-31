@@ -645,17 +645,15 @@ export default function HomePage() {
             <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-10 lg:p-12">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
               <div className="relative text-center">
-                <div className="inline-flex items-center gap-2 mb-4 text-orange-600">
-                  <div className="h-px w-10 bg-orange-400" />
-                  <span className="text-sm font-semibold tracking-widest uppercase">Our Services</span>
-                  <div className="h-px w-10 bg-orange-400" />
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-4">
+                  <span className="text-sm font-semibold tracking-wide uppercase text-gray-700">Our Approach</span>
                 </div>
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold text-gray-900 mb-4 leading-[1.1]">
+                <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-4 leading-[1.1]">
                   How We Build{" "}
                   <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">Great Products</span>
                 </h2>
                 <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                  A proven blend of product strategy, design, engineering, and AI to turn ambitious ideas into scalable software.
+                  A proven blend of product strategy, design, engineering, and AI that transforms ambitious ideas into scalable software product.
                 </p>
               </div>
             </div>
@@ -678,41 +676,74 @@ export default function HomePage() {
         </div>
 
         <div className="relative container mx-auto px-4">
-          {/* How We Help — Journey Steps */}
+          {/* Horizontal Process Timeline */}
           <motion.div
-            className="mb-16"
+            className="mb-16 md:mb-20 lg:mb-28"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-              {[
-                { title: "Discover", desc: "Validate before you invest" },
-                { title: "Design", desc: "Craft experiences that stick" },
-                { title: "Build", desc: "Ship scalable products" },
-                { title: "Launch", desc: "Deploy and optimise" },
-                { title: "Scale", desc: "Add AI & automation" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  className="relative group pl-6 pr-6 py-5 bg-white rounded-xl border border-gray-100/80 shadow-sm shadow-gray-900/5 hover:border-orange-200/60 hover:bg-gray-50/30 transition-all duration-300 hover:shadow-md hover:shadow-orange-100/20"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: 0.06 * i, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.5 }}
-                >
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:w-1.5 transition-all duration-300" />
-                  <h4 className="font-heading text-lg lg:text-xl font-bold text-gray-900 mb-2 tracking-tight">{item.title}</h4>
-                  <p className="text-sm lg:text-base text-gray-500 leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
+            <div className="max-w-6xl mx-auto">
+              <div className="relative">
+                {/* Timeline connector line */}
+                <div className="absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-200 via-orange-300 to-orange-200 hidden lg:block" />
+                
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4">
+                  {[
+                    { title: "Discover", desc: "Validate before you invest" },
+                    { title: "Design", desc: "Craft experiences that stick" },
+                    { title: "Build", desc: "Ship scalable products" },
+                    { title: "Launch", desc: "Deploy and optimise" },
+                    { title: "Scale", desc: "Add AI & automation" },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.title}
+                      className="relative flex flex-col items-center text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.1 * i, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.5 }}
+                    >
+                      {/* Timeline dot */}
+                      <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center mb-4 shadow-lg shadow-orange-500/30">
+                        <span className="font-heading text-white text-xl font-bold">{i + 1}</span>
+                      </div>
+                      <h4 className="font-heading text-lg lg:text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Service Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-9">
-            {/* Product Discovery & Validation */}
+          {/* What We Deliver - Elevated Bridge Card Section */}
+          <motion.div
+            className="relative mx-auto max-w-7xl mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-12 lg:p-16">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
+              
+              <div className="relative">
+                {/* Section Header */}
+                <div className="text-center mb-12 lg:mb-16">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-4">
+                    <span className="text-sm font-semibold tracking-wide uppercase text-gray-700">What We Deliver</span>
+                  </div>
+                  <h3 className="font-heading text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
+                    End-to-end{" "}
+                    <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">product development</span>
+                  </h3>
+                </div>
+
+                {/* Service Cards Grid */}
+                <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Product Strategy */}
             <motion.div
               className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
               tabIndex={0}
@@ -723,7 +754,7 @@ export default function HomePage() {
               transition={{ duration: 0.35, delay: 0.05, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
               role="article"
-              aria-label="Product Discovery and Validation service"
+              aria-label="Product Strategy service"
             >
               <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
                 <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -731,16 +762,16 @@ export default function HomePage() {
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Users className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-                    Product Discovery & Validation
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    Product Strategy
                   </CardTitle>
                   <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Reduce risk before building.
+                    Validate ideas and define the roadmap.
                   </p>
                   <ul className="space-y-2.5 text-sm text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Opportunity assessment</span>
+                      <span>Market validation</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
@@ -748,14 +779,14 @@ export default function HomePage() {
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Product roadmap planning</span>
+                      <span>Product planning</span>
                     </li>
                   </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
-            {/* UX & Product Design */}
+            {/* Product Design */}
             <motion.div
               className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
               tabIndex={0}
@@ -766,7 +797,7 @@ export default function HomePage() {
               transition={{ duration: 0.35, delay: 0.08, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
               role="article"
-              aria-label="UX and Product Design service"
+              aria-label="Product Design service"
             >
               <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
                 <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -774,31 +805,31 @@ export default function HomePage() {
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Palette className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-                    UX & Product Design
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    Product Design
                   </CardTitle>
                   <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Create experiences users love.
+                    Design intuitive experiences.
                   </p>
                   <ul className="space-y-2.5 text-sm text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>User research & testing</span>
+                      <span>UX research</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Interface & interaction design</span>
+                      <span>Wireframes</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Design systems & prototyping</span>
+                      <span>Interactive prototypes</span>
                     </li>
                   </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
-            {/* SaaS Product Development */}
+            {/* Product Engineering */}
             <motion.div
               className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
               tabIndex={0}
@@ -809,7 +840,7 @@ export default function HomePage() {
               transition={{ duration: 0.35, delay: 0.12, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
               role="article"
-              aria-label="SaaS Product Development service"
+              aria-label="Product Engineering service"
             >
               <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
                 <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -817,31 +848,31 @@ export default function HomePage() {
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Code className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-                    SaaS Product Development
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    Product Engineering
                   </CardTitle>
                   <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Launch products built for growth.
+                    Build modern digital products.
                   </p>
                   <ul className="space-y-2.5 text-sm text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>MVP development</span>
+                      <span>Web applications</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Customer-facing platforms</span>
+                      <span>Mobile apps</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Scalable cloud architecture</span>
+                      <span>SaaS platforms</span>
                     </li>
                   </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
-            {/* Mobile Product Engineering */}
+            {/* AI & Automation */}
             <motion.div
               className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
               tabIndex={0}
@@ -852,93 +883,7 @@ export default function HomePage() {
               transition={{ duration: 0.35, delay: 0.16, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }}
               role="article"
-              aria-label="Mobile Product Engineering service"
-            >
-              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
-                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="p-8 lg:p-9">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
-                    <Smartphone className="h-7 w-7 text-orange-600" />
-                  </div>
-                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-                    Mobile Product Engineering
-                  </CardTitle>
-                  <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Deliver seamless mobile experiences.
-                  </p>
-                  <ul className="space-y-2.5 text-sm text-gray-500">
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>iOS & Android applications</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Cross-platform development</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Performance optimization</span>
-                    </li>
-                  </ul>
-                </CardHeader>
-              </Card>
-            </motion.div>
-
-            {/* Enterprise Software Solutions */}
-            <motion.div
-              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
-              tabIndex={0}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4 }}
-              whileFocus={{ y: -4 }}
-              transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.5 }}
-              role="article"
-              aria-label="Enterprise Software Solutions service"
-            >
-              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
-                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="p-8 lg:p-9">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
-                    <Zap className="h-7 w-7 text-orange-600" />
-                  </div>
-                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-                    Enterprise Software Solutions
-                  </CardTitle>
-                  <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Modernize critical business operations.
-                  </p>
-                  <ul className="space-y-2.5 text-sm text-gray-500">
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Workflow digitization</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>System integrations</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Internal business platforms</span>
-                    </li>
-                  </ul>
-                </CardHeader>
-              </Card>
-            </motion.div>
-
-            {/* Applied AI & Automation */}
-            <motion.div
-              className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
-              tabIndex={0}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4 }}
-              whileFocus={{ y: -4 }}
-              transition={{ duration: 0.35, delay: 0.24, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.5 }}
-              role="article"
-              aria-label="Applied AI and Automation service"
+              aria-label="AI and Automation service"
             >
               <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
                 <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -946,31 +891,34 @@ export default function HomePage() {
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
                     <Brain className="h-7 w-7 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-                    Applied AI & Automation
+                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    AI & Automation
                   </CardTitle>
                   <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Embed intelligence into everyday workflows.
+                    Automate workflows and operations.
                   </p>
                   <ul className="space-y-2.5 text-sm text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>AI-powered assistants</span>
+                      <span>AI assistants</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Process automation</span>
+                      <span>Workflow automation</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Data-driven decision support</span>
+                      <span>Decision support systems</span>
                     </li>
                   </ul>
                 </CardHeader>
               </Card>
             </motion.div>
 
-          </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* CTA Banner */}
           <motion.div
