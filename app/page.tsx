@@ -39,6 +39,8 @@ import {
   Loader2,
   Lock,
   Palette,
+  Target,
+  Building2,
 } from "lucide-react"
 
 const statsData = [
@@ -633,84 +635,77 @@ export default function HomePage() {
       </motion.section>
 
       {/* Transition Bridge Element */}
-      <div className="relative -mt-8 md:-mt-10 lg:-mt-12 z-10">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="relative mx-auto max-w-5xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-10 lg:p-12">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
-              <div className="relative text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-4">
-                  <span className="text-sm font-semibold tracking-wide uppercase text-gray-700">Our Approach</span>
-                </div>
-                <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-4 leading-[1.1]">
-                  How We Build{" "}
-                  <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">Great Products</span>
-                </h2>
-                <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                  A proven blend of product strategy, design, engineering, and AI that transforms ambitious ideas into scalable software product.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
 
       {/* Services Section */}
       <motion.section
         id="services"
-        className="relative overflow-hidden pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-b from-gray-50/60 via-white to-white"
+        className="relative overflow-hidden py-20 md:py-32 lg:py-40 bg-white"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-orange-100/20 blur-3xl" />
-          <div className="absolute -bottom-32 right-1/4 h-72 w-72 rounded-full bg-amber-50/30 blur-3xl" />
-        </div>
-
         <div className="relative container mx-auto px-4">
-          {/* Horizontal Process Timeline */}
+          {/* Our Approach - Typography Only */}
           <motion.div
-            className="mb-16 md:mb-20 lg:mb-28"
+            className="text-center mb-20 md:mb-28 lg:mb-36"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="max-w-6xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-6">
+              <span className="text-sm font-semibold tracking-widest uppercase text-gray-700">Our Approach</span>
+            </div>
+            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 mb-6 leading-[1.05]">
+              How We Build{" "}
+              <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">Products That Scale</span>
+            </h2>
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+              Strategy. Design. Engineering. AI.
+            </p>
+            <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mt-4 leading-relaxed">
+              Integrated into a product development process built for ambitious founders.
+            </p>
+          </motion.div>
+          {/* Premium Process Timeline */}
+          <motion.div
+            className="mb-24 md:mb-32 lg:mb-40"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <div className="max-w-7xl mx-auto">
               <div className="relative">
                 {/* Timeline connector line */}
-                <div className="absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-200 via-orange-300 to-orange-200 hidden lg:block" />
+                <div className="absolute top-12 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-orange-300 to-transparent hidden lg:block" />
                 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8">
                   {[
-                    { title: "Discover", desc: "Validate before you invest" },
-                    { title: "Design", desc: "Craft experiences that stick" },
-                    { title: "Build", desc: "Ship scalable products" },
-                    { title: "Launch", desc: "Deploy and optimise" },
-                    { title: "Scale", desc: "Add AI & automation" },
+                    { num: "01", title: "Discover", desc: "Validate before you invest." },
+                    { num: "02", title: "Design", desc: "Create experiences users love." },
+                    { num: "03", title: "Build", desc: "Develop scalable products." },
+                    { num: "04", title: "Launch", desc: "Release with confidence." },
+                    { num: "05", title: "Scale", desc: "Grow through automation and insights." },
                   ].map((item, i) => (
                     <motion.div
-                      key={item.title}
-                      className="relative flex flex-col items-center text-center"
-                      initial={{ opacity: 0, y: 20 }}
+                      key={item.num}
+                      className="relative flex flex-col items-center text-center group cursor-default"
+                      initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.1 * i, ease: "easeOut" }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.5, delay: 0.1 * i, ease: "easeOut" }}
                       viewport={{ once: true, amount: 0.5 }}
                     >
-                      {/* Timeline dot */}
-                      <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center mb-4 shadow-lg shadow-orange-500/30">
-                        <span className="font-heading text-white text-xl font-bold">{i + 1}</span>
+                      {/* Large number with enhanced hover */}
+                      <div className="relative z-10 mb-6">
+                        <span className="font-heading text-7xl md:text-8xl font-black bg-gradient-to-br from-orange-500 to-amber-500 bg-clip-text text-transparent opacity-85 group-hover:opacity-100 transition-all duration-400">
+                          {item.num}
+                        </span>
                       </div>
-                      <h4 className="font-heading text-lg lg:text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                      <h4 className="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">{item.title}</h4>
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xs group-hover:text-gray-900 transition-colors duration-300">{item.desc}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -718,31 +713,28 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* What We Deliver - Elevated Bridge Card Section */}
+          {/* What We Deliver - No Container */}
           <motion.div
-            className="relative mx-auto max-w-7xl mb-16"
+            className="mb-24 md:mb-32 lg:mb-40"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-12 lg:p-16">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
-              
-              <div className="relative">
-                {/* Section Header */}
-                <div className="text-center mb-12 lg:mb-16">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-4">
-                    <span className="text-sm font-semibold tracking-wide uppercase text-gray-700">What We Deliver</span>
-                  </div>
-                  <h3 className="font-heading text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-                    End-to-end{" "}
-                    <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">product development</span>
-                  </h3>
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-16 md:mb-20 lg:mb-24">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-6">
+                  <span className="text-sm font-semibold tracking-widest uppercase text-gray-700">What We Deliver</span>
                 </div>
+                <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-tight mb-6">
+                  End-to-end{" "}
+                  <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">product development</span>
+                </h3>
+              </div>
 
-                {/* Service Cards Grid */}
-                <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+              {/* Service Cards Grid - Larger, More Whitespace */}
+              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Product Strategy */}
             <motion.div
               className="relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-2xl"
@@ -756,30 +748,29 @@ export default function HomePage() {
               role="article"
               aria-label="Product Strategy service"
             >
-              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
-                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="p-8 lg:p-9">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
-                    <Users className="h-7 w-7 text-orange-600" />
+              <Card className="relative h-full border border-gray-200/60 shadow-sm rounded-3xl bg-white overflow-hidden group-hover:shadow-xl group-hover:border-orange-200/40 transition-all duration-400">
+                <CardHeader className="p-8 lg:p-10">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100/70">
+                    <Users className="h-8 w-8 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                  <CardTitle className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
                     Product Strategy
                   </CardTitle>
-                  <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Validate ideas and define the roadmap.
+                  <p className="text-gray-600 text-lg leading-relaxed mb-5">
+                    Validate before you invest.
                   </p>
-                  <ul className="space-y-2.5 text-sm text-gray-500">
+                  <ul className="space-y-3 text-base text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Market validation</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Customer research</span>
+                      <span>Customer interviews</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Product planning</span>
+                      <span>Product roadmap</span>
                     </li>
                   </ul>
                 </CardHeader>
@@ -799,19 +790,18 @@ export default function HomePage() {
               role="article"
               aria-label="Product Design service"
             >
-              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
-                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="p-8 lg:p-9">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
-                    <Palette className="h-7 w-7 text-orange-600" />
+              <Card className="relative h-full border border-gray-200/60 shadow-sm rounded-3xl bg-white overflow-hidden group-hover:shadow-xl group-hover:border-orange-200/40 transition-all duration-400">
+                <CardHeader className="p-8 lg:p-10">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100/70">
+                    <Palette className="h-8 w-8 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                  <CardTitle className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
                     Product Design
                   </CardTitle>
-                  <p className="text-gray-600 text-base leading-relaxed mb-5">
-                    Design intuitive experiences.
+                  <p className="text-gray-600 text-lg leading-relaxed mb-5">
+                    Design experiences users love.
                   </p>
-                  <ul className="space-y-2.5 text-sm text-gray-500">
+                  <ul className="space-y-3 text-base text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>UX research</span>
@@ -842,26 +832,25 @@ export default function HomePage() {
               role="article"
               aria-label="Product Engineering service"
             >
-              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
-                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="p-8 lg:p-9">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
-                    <Code className="h-7 w-7 text-orange-600" />
+              <Card className="relative h-full border border-gray-200/60 shadow-sm rounded-3xl bg-white overflow-hidden group-hover:shadow-xl group-hover:border-orange-200/40 transition-all duration-400">
+                <CardHeader className="p-8 lg:p-10">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100/70">
+                    <Code className="h-8 w-8 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                  <CardTitle className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
                     Product Engineering
                   </CardTitle>
-                  <p className="text-gray-600 text-base leading-relaxed mb-5">
+                  <p className="text-gray-600 text-lg leading-relaxed mb-5">
                     Build modern digital products.
                   </p>
-                  <ul className="space-y-2.5 text-sm text-gray-500">
+                  <ul className="space-y-3 text-base text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>Web applications</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
-                      <span>Mobile apps</span>
+                      <span>Mobile applications</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
@@ -885,19 +874,18 @@ export default function HomePage() {
               role="article"
               aria-label="AI and Automation service"
             >
-              <Card className="relative h-full border border-gray-100/80 shadow-sm rounded-2xl bg-white overflow-hidden group-hover:shadow-lg group-hover:border-gray-200/80 transition-all duration-300">
-                <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-orange-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="p-8 lg:p-9">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100/70">
-                    <Brain className="h-7 w-7 text-orange-600" />
+              <Card className="relative h-full border border-gray-200/60 shadow-sm rounded-3xl bg-white overflow-hidden group-hover:shadow-xl group-hover:border-orange-200/40 transition-all duration-400">
+                <CardHeader className="p-8 lg:p-10">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100/70">
+                    <Brain className="h-8 w-8 text-orange-600" />
                   </div>
-                  <CardTitle className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                  <CardTitle className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
                     AI & Automation
                   </CardTitle>
-                  <p className="text-gray-600 text-base leading-relaxed mb-5">
+                  <p className="text-gray-600 text-lg leading-relaxed mb-5">
                     Automate workflows and operations.
                   </p>
-                  <ul className="space-y-2.5 text-sm text-gray-500">
+                  <ul className="space-y-3 text-base text-gray-500">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className="h-4 w-4 text-orange-500 shrink-0" />
                       <span>AI assistants</span>
@@ -915,46 +903,128 @@ export default function HomePage() {
               </Card>
             </motion.div>
 
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Trust Section - Why Founders Choose TrueSpur */}
+          <motion.div
+            className="mb-24 md:mb-32 lg:mb-40"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="max-w-6xl mx-auto">
+              <h3 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-16 md:mb-20">
+                Why Founders Choose TrueSpur
+              </h3>
+              <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-100/70 mb-6">
+                    <Target className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <h4 className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    Product-First Thinking
+                  </h4>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                    We focus on outcomes, not just code.
+                  </p>
+                  <p className="text-sm font-semibold text-orange-600">
+                    Product-First Delivery Approach
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-100/70 mb-6">
+                    <Zap className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <h4 className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    Startup Speed
+                  </h4>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                    Move quickly without sacrificing quality.
+                  </p>
+                  <p className="text-sm font-semibold text-orange-600">
+                    Rapid Iteration & Deployment
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-100/70 mb-6">
+                    <Building2 className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <h4 className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                    Enterprise Experience
+                  </h4>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                    Deep experience in healthcare, enterprise platforms, and regulated environments.
+                  </p>
+                  <p className="text-sm font-semibold text-orange-600">
+                    15+ Years Experience
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* CTA Banner */}
+          {/* Social Proof Section */}
           <motion.div
-            className="mt-24 relative rounded-3xl overflow-hidden"
-            initial={{ opacity: 0, y: 24 }}
+            className="mb-24 md:mb-32 lg:mb-40"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center">
+                <p className="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-8">Trusted By</p>
+                <div className="grid grid-cols-3 gap-8 md:gap-12 items-center">
+                  <div className="flex flex-col items-center">
+                    <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">15+</div>
+                    <p className="text-sm md:text-base text-gray-600">Years Experience</p>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">50+</div>
+                    <p className="text-sm md:text-base text-gray-600">Products Delivered</p>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">3</div>
+                    <p className="text-sm md:text-base text-gray-600">Key Industries</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Premium CTA */}
+          <motion.div
+            className="max-w-5xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900" />
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-amber-500/5 to-orange-500/10" />
-            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-10 md:px-12 md:py-12">
-              <div className="text-center md:text-left">
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-white mb-2">
-                  Ready to Get Started?
-                </h3>
-                <p className="text-slate-300 text-lg max-w-xl">
-                  {"Let's discuss your project and find the perfect solution for your needs."}
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <Button
-                  variant="outline"
-                  onClick={() => scrollToSection("products")}
-                  className="whitespace-nowrap border-2 border-white/40 text-white hover:bg-white hover:text-slate-900 hover:border-white bg-transparent backdrop-blur-sm text-base font-medium px-6 py-5 rounded-full transition-all duration-200"
-                >
-                  View Our Work
-                </Button>
-                <Button
-                  onClick={() => openLeadForm("start-project")}
-                  className="whitespace-nowrap bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 text-base font-bold px-8 py-6 rounded-full hover:scale-[1.03] transition-all duration-200"
-                >
-                  Start Your Project
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
+            <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Ready to Turn Your Idea Into a{" "}
+              <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">Product?</span>
+            </h3>
+            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss your vision, validate the opportunity, and build something that scales.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
+              <Button
+                onClick={() => openLeadForm("start-project")}
+                className="whitespace-nowrap bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-xl shadow-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/40 text-lg font-bold px-10 py-7 rounded-full hover:scale-[1.02] transition-all duration-300"
+              >
+                Book a Discovery Call
+                <ArrowRight className="ml-2 h-6 w-6" />
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => scrollToSection("products")}
+                className="whitespace-nowrap border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-white text-lg font-semibold px-10 py-7 rounded-full transition-all duration-300"
+              >
+                View Our Work
+              </Button>
             </div>
           </motion.div>
         </div>
