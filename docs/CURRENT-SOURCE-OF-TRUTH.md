@@ -1,9 +1,9 @@
 # CURRENT SOURCE OF TRUTH
 
 **Document Type:** Strategic Governance Authority  
-**Version:** 1.2  
+**Version:** 1.3  
 **Created:** June 6, 2026  
-**Last Updated:** June 11, 2026  
+**Last Updated:** June 12, 2026  
 **Status:** ACTIVE - Highest Priority Reference  
 **Authority Level:** OVERRIDES ALL CONFLICTING DOCUMENTS
 
@@ -661,6 +661,12 @@ Real customer testimonials (even small scale) > fake case studies. Honest about 
    - Authority: Definitive source for all homepage content implementation
    - Contains: All 7 homepage sections with final copy, design notes, CTA guidance
 
+5. **ABOUT-PAGE-COPY-FINAL-V2.md** (v2.1 - June 12, 2026) ⭐ **ABOUT PAGE COPY AUTHORITY**
+   - Status: FINAL - Ready for Design & Development
+   - Purpose: Complete About page copy with founder story, company narrative, healthcare expertise
+   - Authority: Definitive source for all About page content implementation
+   - Contains: 9 sections, 1,074 words, optimized company/founder balance (65/35)
+
 ---
 
 ## 14. SUPERSEDED DOCUMENTS
@@ -1221,13 +1227,14 @@ If you find a conflict between this document and any other document (including a
 
 ### Version Control
 
-**Current Version:** 1.2  
-**Next Version:** 1.3 (when strategic changes occur)
+**Current Version:** 1.3  
+**Next Version:** 1.4 (when strategic changes occur)
 
 **Version History:**
 - v1.0 (June 6, 2026): Initial creation, strategic governance established
 - v1.1 (June 6, 2026): Governance consistency corrections - separated mission from founder thesis, corrected product status inconsistencies, softened Halo definition, removed design decisions from Decision Log, added internal products non-negotiable
 - v1.2 (June 11, 2026): Updated for completed strategy and homepage phases - added FINAL-WEBSITE-STRATEGY.md and HOMEPAGE-COPY-FINAL.md as authoritative documents, updated current project phase to About Page copywriting, marked strategy and homepage as complete and frozen
+- v1.3 (June 12, 2026): Updated for completed About Page phase - added ABOUT-PAGE-COPY-FINAL-V2.md as authoritative document, standardized Halo description to "patient engagement platform" across all references, updated current project phase to Design & Development (both Homepage and About Page ready for implementation)
 
 ---
 
