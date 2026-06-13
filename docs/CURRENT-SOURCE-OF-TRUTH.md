@@ -1,7 +1,7 @@
 # CURRENT SOURCE OF TRUTH
 
 **Document Type:** Strategic Governance Authority  
-**Version:** 1.3  
+**Version:** 1.4  
 **Created:** June 6, 2026  
 **Last Updated:** June 12, 2026  
 **Status:** ACTIVE - Highest Priority Reference  
@@ -667,6 +667,12 @@ Real customer testimonials (even small scale) > fake case studies. Honest about 
    - Authority: Definitive source for all About page content implementation
    - Contains: 9 sections, 1,074 words, optimized company/founder balance (65/35)
 
+6. **HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md** (v1.2 - June 12, 2026) ⭐ **HOMEPAGE DESIGN AUTHORITY**
+   - Status: APPROVED FOR IMPLEMENTATION - Design Baseline Established
+   - Purpose: Complete homepage design specification with layout, visual hierarchy, components, interaction design
+   - Authority: Definitive source for homepage implementation (design source of truth)
+   - Contains: 7 sections fully specified, global interaction system, TrueSpur visual identity principles, component code examples
+
 ---
 
 ## 14. SUPERSEDED DOCUMENTS
@@ -1061,60 +1067,68 @@ These are locked strategic decisions that future contributors must preserve:
 
 ## 18. CURRENT PROJECT PHASE
 
-### Current Phase: Content Development — About Page Copywriting
+### Current Phase: Homepage Implementation — Design & Development
 
-**Status:** Active (June 11, 2026)
+**Status:** Active (June 12, 2026)
 
 **Completed Work:**
 - ✅ Website Strategy finalized (FINAL-WEBSITE-STRATEGY.md v2.1)
 - ✅ Homepage Copy finalized (HOMEPAGE-COPY-FINAL.md v2.1)
-- ✅ Homepage frozen for design and development
+- ✅ Homepage Design Specification finalized (v1.2 - Approved for Implementation)
+- ✅ About Page Copy finalized (ABOUT-PAGE-COPY-FINAL-V2.md v2.1)
 - ✅ Positioning clarity achieved (Founder-Led Product Studio)
 - ✅ Messaging hierarchy established
 - ✅ Homepage architecture locked (7 sections)
+- ✅ Design baseline established (approved and ready)
 
 **Current Focus:**
-- About Page copywriting and content development
-- Implementing founder story from FOUNDER-STORY-ASWAR.md
-- Creating About page content aligned with finalized strategy
-- Developing founder narrative for trust building
+- Homepage implementation (Phase 1: Foundation - design system, Hero, bridge card)
+- About Page design specification development
+- Visual design execution following approved design system
+- Component development aligned with HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md
 
 **What This Means for Future Agents:**
 
-The project is in **About Page content development phase**.
+The project is in **Homepage Implementation phase**.
 
-**Strategy and Homepage are COMPLETE and FROZEN:**
+**Strategy, Homepage Copy, and Homepage Design are COMPLETE and APPROVED:**
 - Website strategy is finalized and locked
 - Homepage copy is finalized and frozen for implementation
-- No further strategic changes or homepage copy changes permitted
-- All positioning, messaging, and architecture decisions are final
+- Homepage design specification is approved (design baseline established)
+- About Page copy is finalized and frozen for implementation
+- No further strategic changes, homepage copy changes, or homepage design changes permitted
+- All positioning, messaging, architecture, and design direction decisions are final
 
 **DO prioritize:**
-- About Page copywriting aligned with finalized strategy
-- Founder story content development
-- Content that builds on approved homepage foundation
-- Alignment with FINAL-WEBSITE-STRATEGY.md and HOMEPAGE-COPY-FINAL.md
-- Evidence-based claims and authentic storytelling
+- Homepage implementation following HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md
+- About Page design specification development
+- Component development aligned with design system
+- Implementation refinements within approved design system (accessibility, performance, technical edge cases)
+- Visual design execution following brand guidelines
 
 **DO NOT do (unless explicitly requested):**
 - Revisit website strategy or positioning
 - Modify homepage copy or architecture
+- Propose homepage design changes (design baseline is approved)
+- Modify About Page copy
 - Propose alternative messaging or headlines
 - Challenge finalized strategic decisions
-- Visual redesign recommendations
+- Major visual redesign recommendations
 - Color scheme or typography changes
 
 **Rationale:**
 
-Strategy phase is complete. Homepage is frozen for implementation. Current work is About Page content development that aligns with and builds upon the finalized foundation.
+Strategy, content, and design phases are complete for Homepage. Homepage is approved for implementation. Current work is executing the approved design specification and developing About Page design specs.
 
-### Not Current Phase: Strategy or Homepage Revision
+### Not Current Phase: Strategy, Homepage Copy, or Homepage Design Revision
 
-**Status:** Complete and Frozen (June 7-11, 2026)
+**Status:** Complete and Frozen (June 7-12, 2026)
 
 **Completed Work:**
 - Website strategy finalized (FINAL-WEBSITE-STRATEGY.md v2.1)
 - Homepage copy finalized (HOMEPAGE-COPY-FINAL.md v2.1)
+- Homepage design specification finalized (v1.2 - Approved for Implementation)
+- About Page copy finalized (ABOUT-PAGE-COPY-FINAL-V2.md v2.1)
 - Positioning locked: Founder-Led Product Studio
 - Messaging hierarchy established
 - Homepage architecture locked (7 sections)
@@ -1125,15 +1139,18 @@ Strategy phase is complete. Homepage is frozen for implementation. Current work 
 - Orange (#F97316) brand color locked
 - Poppins Black (900) for Hero H1 locked
 - Component library established
+- Homepage design baseline approved (strategic decisions, architecture, design direction locked)
 
-**Strategy and homepage are NOT open for revision.**
+**Strategy, homepage copy, and homepage design are NOT open for revision.**
 
 Future agents should NOT:
 1. Propose strategy changes or alternatives
 2. Modify homepage copy or architecture
-3. Challenge finalized positioning or messaging
-4. Recommend visual redesigns (unless explicitly requested)
-5. Reopen strategic discussions that have been finalized
+3. Modify homepage design direction or approved specifications
+4. Challenge finalized positioning or messaging
+5. Recommend major visual redesigns (unless explicitly requested)
+6. Reopen strategic discussions that have been finalized
+7. Change approved design baseline (implementation refinements within design system are permitted)
 
 ---
 
@@ -1227,14 +1244,15 @@ If you find a conflict between this document and any other document (including a
 
 ### Version Control
 
-**Current Version:** 1.3  
-**Next Version:** 1.4 (when strategic changes occur)
+**Current Version:** 1.4  
+**Next Version:** 1.5 (when strategic changes occur)
 
 **Version History:**
 - v1.0 (June 6, 2026): Initial creation, strategic governance established
 - v1.1 (June 6, 2026): Governance consistency corrections - separated mission from founder thesis, corrected product status inconsistencies, softened Halo definition, removed design decisions from Decision Log, added internal products non-negotiable
 - v1.2 (June 11, 2026): Updated for completed strategy and homepage phases - added FINAL-WEBSITE-STRATEGY.md and HOMEPAGE-COPY-FINAL.md as authoritative documents, updated current project phase to About Page copywriting, marked strategy and homepage as complete and frozen
 - v1.3 (June 12, 2026): Updated for completed About Page phase - added ABOUT-PAGE-COPY-FINAL-V2.md as authoritative document, standardized Halo description to "patient engagement platform" across all references, updated current project phase to Design & Development (both Homepage and About Page ready for implementation)
+- v1.4 (June 12, 2026): Updated for completed Homepage Design Specification - added HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md as authoritative document, updated current project phase to Homepage Implementation (design baseline approved and ready), marked homepage design as approved with implementation refinements permitted within design system
 
 ---
 

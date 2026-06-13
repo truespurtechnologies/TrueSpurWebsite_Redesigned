@@ -21,6 +21,7 @@
 2. **Website Strategy & Content:**
    - [FINAL-WEBSITE-STRATEGY.md](../02-COMPANY-STRATEGY/FINAL-WEBSITE-STRATEGY.md) ⭐ **Website Authority**
    - [HOMEPAGE-COPY-FINAL.md](../07-WEBSITE CONTENT DOCUMENTS/HOMEPAGE-COPY-FINAL.md) ⭐ **Homepage Copy**
+   - [HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md](../07-APPROVED CONTENT DOCUMENTS/HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md) ⭐ **Homepage Design**
    - [ABOUT-PAGE-COPY-FINAL-V2.md](../07-WEBSITE CONTENT DOCUMENTS/ABOUT-PAGE-COPY-FINAL-V2.md) ⭐ **About Page Copy**
 
 3. **Strategic Foundation:**
@@ -150,8 +151,9 @@
 **Status:** Active (June 12, 2026)
 
 **Completed:**
-- ✅ Website Strategy finalized (FINAL-WEBSITE-STRATEGY.md v2.0)
+- ✅ Website Strategy finalized (FINAL-WEBSITE-STRATEGY.md v2.1)
 - ✅ Homepage Copy finalized (HOMEPAGE-COPY-FINAL.md v2.1)
+- ✅ Homepage Design Specification finalized (v1.2 - Approved for Implementation)
 - ✅ About Page Copy finalized (ABOUT-PAGE-COPY-FINAL-V2.md v2.1)
 - ✅ Services Section finalized (A+ 98/100 grade)
 - ✅ All content frozen for implementation
@@ -159,13 +161,15 @@
 - ✅ Messaging hierarchy established
 
 **Current Focus:**
-- Design implementation for Homepage and About Page
+- Homepage implementation (Phase 1: Foundation)
+- About Page design specification
 - Development of finalized sections
 - Visual design execution following design system
 
 **NOT Current Focus:**
 - Strategy revision (complete and frozen)
 - Homepage copy changes (frozen for implementation)
+- Homepage design changes (approved baseline established)
 - About Page copy changes (frozen for implementation)
 - Positioning or messaging exploration
 
@@ -272,10 +276,11 @@ pnpm lint         # Run ESLint
 
 1. [CURRENT-SOURCE-OF-TRUTH.md](../CURRENT-SOURCE-OF-TRUTH.md)
 2. [HOMEPAGE-COPY-FINAL.md](../07-WEBSITE CONTENT DOCUMENTS/HOMEPAGE-COPY-FINAL.md) — Homepage content
-3. [ABOUT-PAGE-COPY-FINAL-V2.md](../07-WEBSITE CONTENT DOCUMENTS/ABOUT-PAGE-COPY-FINAL-V2.md) — About page content
-4. [Brand Identity Guidelines](../05-DESIGN-SYSTEM/brand-identity-guidelines.md)
-5. [Design System](../05-DESIGN-SYSTEM/design-system.md)
-6. [UI Components](../05-DESIGN-SYSTEM/ui-components.md)
+3. [HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md](../07-APPROVED CONTENT DOCUMENTS/HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md) — Homepage design specs
+4. [ABOUT-PAGE-COPY-FINAL-V2.md](../07-WEBSITE CONTENT DOCUMENTS/ABOUT-PAGE-COPY-FINAL-V2.md) — About page content
+5. [Brand Identity Guidelines](../05-DESIGN-SYSTEM/brand-identity-guidelines.md)
+6. [Design System](../05-DESIGN-SYSTEM/design-system.md)
+7. [UI Components](../05-DESIGN-SYSTEM/ui-components.md)
 
 ### Developers
 
@@ -288,15 +293,16 @@ pnpm lint         # Run ESLint
 
 1. **MUST READ FIRST:** [CURRENT-SOURCE-OF-TRUTH.md](../CURRENT-SOURCE-OF-TRUTH.md)
 2. **READ SECOND:** [FINAL-WEBSITE-STRATEGY.md](../02-COMPANY-STRATEGY/FINAL-WEBSITE-STRATEGY.md) — Website strategy is FINAL
-3. **READ THIRD:** [HOMEPAGE-COPY-FINAL.md](../07-WEBSITE CONTENT DOCUMENTS/HOMEPAGE-COPY-FINAL.md) — Homepage is FROZEN
-4. **READ FOURTH:** [ABOUT-PAGE-COPY-FINAL-V2.md](../07-WEBSITE CONTENT DOCUMENTS/ABOUT-PAGE-COPY-FINAL-V2.md) — About Page is FROZEN
-5. Verify alignment with Section 2 (Company Identity)
-6. Check Section 11 (Approved Messaging Hierarchy)
-7. Avoid Section 12 (Messaging to Avoid)
-8. Reference Section 13 (Authoritative Documents) for details
-9. Review Section 17 (Strategic Non-Negotiables)
-10. Understand current project phase: Design & Development (content complete)
-11. **DO NOT** propose strategy changes, homepage copy modifications, or About Page copy modifications
+3. **READ THIRD:** [HOMEPAGE-COPY-FINAL.md](../07-WEBSITE CONTENT DOCUMENTS/HOMEPAGE-COPY-FINAL.md) — Homepage copy is FROZEN
+4. **READ FOURTH:** [HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md](../07-APPROVED CONTENT DOCUMENTS/HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md) — Homepage design is APPROVED
+5. **READ FIFTH:** [ABOUT-PAGE-COPY-FINAL-V2.md](../07-WEBSITE CONTENT DOCUMENTS/ABOUT-PAGE-COPY-FINAL-V2.md) — About Page copy is FROZEN
+6. Verify alignment with Section 2 (Company Identity)
+7. Check Section 11 (Approved Messaging Hierarchy)
+8. Avoid Section 12 (Messaging to Avoid)
+9. Reference Section 13 (Authoritative Documents) for details
+10. Review Section 17 (Strategic Non-Negotiables)
+11. Understand current project phase: Homepage Implementation (design baseline established)
+12. **DO NOT** propose strategy changes, homepage copy modifications, homepage design changes, or About Page copy modifications
 
 ---
 
@@ -304,13 +310,14 @@ pnpm lint         # Run ESLint
 
 ### Document Authority Hierarchy
 
-1. **CURRENT-SOURCE-OF-TRUTH.md** (v1.3) - HIGHEST AUTHORITY
-2. **FINAL-WEBSITE-STRATEGY.md** (v2.0) - Website implementation authority
+1. **CURRENT-SOURCE-OF-TRUTH.md** (v1.4) - HIGHEST AUTHORITY
+2. **FINAL-WEBSITE-STRATEGY.md** (v2.1) - Website implementation authority
 3. **HOMEPAGE-COPY-FINAL.md** (v2.1) - Homepage content authority (FROZEN)
-4. **ABOUT-PAGE-COPY-FINAL-V2.md** (v2.1) - About Page content authority (FROZEN)
-5. Authoritative documents listed in CURRENT-SOURCE-OF-TRUTH Section 13
-6. Live website code (for implementation details)
-7. Superseded documents (context only, not authority)
+4. **HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md** (v1.2) - Homepage design authority (APPROVED)
+5. **ABOUT-PAGE-COPY-FINAL-V2.md** (v2.1) - About Page content authority (FROZEN)
+6. Authoritative documents listed in CURRENT-SOURCE-OF-TRUTH Section 13
+7. Live website code (for implementation details)
+8. Superseded documents (context only, not authority)
 
 ### Conflict Resolution
 
@@ -335,5 +342,5 @@ For questions about:
 ---
 
 **Last Updated:** June 12, 2026  
-**Document Version:** 1.3 (Updated for completed About Page phase - ready for Design & Development)  
+**Document Version:** 1.4 (Updated for completed Homepage Design Specification v1.2 - ready for implementation)  
 **Maintained By:** TrueSpur Project Team
