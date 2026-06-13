@@ -174,12 +174,12 @@
 | # | Deliverable | Description | Owner | Hours |
 |---|-------------|-------------|-------|-------|
 | 3.1 | Products page structure | Page layout and framework | Marketing | 2h |
-| 3.2 | Clinexa product story | Complete product detail | Founder | 3h |
+| 3.2 | Clinax product story | Complete product detail | Founder | 3h |
 | 3.3 | Halo product story | Complete product detail | Founder | 3h |
 | 3.4 | TrueBill product story | Complete product detail | Founder | 3h |
 | 3.5 | TafsirAI product story | Complete product detail | Founder | 3h |
 | 3.6 | "Why We Build Products" section | Philosophy and reasoning | Marketing | 2h |
-| 3.7 | Product images/screenshots | Visual assets | Design | 6h |
+| 3.7 | Product icons/illustrations | Visual identity assets | Design | 6h |
 | 3.8 | Products page design | Visual implementation | Design | 6h |
 | 3.9 | Products page development | Code implementation | Dev | 6h |
 | 3.10 | Review and publish | Final review and go-live | Founder | 2h |
@@ -206,7 +206,7 @@
 
 **WEEK 5:**
 - Day 1: Structure Products page (2h)
-- Day 2: Founder writes Clinexa story (3h)
+- Day 2: Founder writes Clinax story (3h)
 - Day 3: Founder writes Halo story (3h)
 - Day 4: Founder writes TrueBill story (3h)
 - Day 5: Founder writes TafsirAI story (3h)
@@ -223,17 +223,17 @@
 **Products Page Must Include:**
 - [ ] Page title: "Products We're Building"
 - [ ] Subheadline: "Innovation through internal product ventures"
-- [ ] Clinexa (Healthcare - Beta)
+- [ ] Clinax (Healthcare Platform - Beta)
 - [ ] Halo (Healthcare - MVP)
 - [ ] TrueBill (Business Tools - Production)
 - [ ] TafsirAI (AI & Insights - Concept/Early MVP)
 - [ ] "Why We Build Products" section
-- [ ] Product stage labels (no false metrics)
+- [ ] Progress descriptors (honest status communication)
 - [ ] CTA: "Build With Us"
 
 **Per Product Must Include:**
 - [ ] Product name and category
-- [ ] Stage label (Concept/MVP/Beta/Production)
+- [ ] Progress descriptor (honest activity communication)
 - [ ] The Problem (what we're solving)
 - [ ] The Solution (how it works)
 - [ ] The Impact (verified status/metrics only)
@@ -513,7 +513,130 @@ WEEK 9-12: Premium Design Polish
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** June 4, 2026  
+## PHASE 6: PRODUCT ECOSYSTEM EXPANSION (Post-Launch)
+
+### **Objectives**
+
+1. Build dedicated product pages for ICP validation and stakeholder discovery
+2. Create product-specific CTAs and conversion paths
+3. Establish early access programs for products in validation stages
+4. Support product-specific storytelling separate from Product Studio positioning
+5. Enable targeted market feedback and design partner conversations
+
+### **Strategic Context**
+
+The initial website launch (Phases 1-5) establishes TrueSpur as a Founder-Led Product Studio with a portfolio credibility layer.
+
+Post-launch, dedicated product pages will support:
+- **Clinax & Halo:** Healthcare stakeholder conversations and workflow validation
+- **TrueBill:** Product education and MSME onboarding
+- **TafsirAI:** Early user acquisition and community building
+
+### **Priority Order**
+
+**1. Clinax** (Highest Priority)
+- **Stage:** Beta
+- **Objective:** Healthcare stakeholder conversations, workflow validation, early adopter discovery
+- **CTAs:** Request Early Access, Let's Talk, Share Your Workflow
+
+**2. Halo** (High Priority)
+- **Stage:** MVP Development
+- **Objective:** Provider feedback, telehealth workflow validation, design partner conversations
+- **CTAs:** Let's Talk, Provider Feedback Program, Request Early Access
+
+**3. TrueBill** (Medium Priority)
+- **Stage:** Production
+- **Objective:** Product education, product onboarding, MSME digitization demonstration
+- **CTAs:** Learn More, Request Demo, Request Access
+
+**4. TafsirAI** (Medium Priority)
+- **Stage:** Concept / Early MVP
+- **Objective:** Early user acquisition, product validation, community building
+- **CTAs:** Join Early Access, Explore TafsirAI, Get Early Updates
+
+### **Rationale**
+
+**Why Clinax and Halo First:**
+- Currently provide strongest opportunities for stakeholder conversations
+- Active validation stages require market feedback
+- Healthcare domain expertise demonstration
+- Design partner recruitment critical for product development
+
+**Why Post-Launch:**
+- Maintains execution focus on core website launch
+- Accelerates time-to-launch for Product Studio positioning
+- Allows product pages to be built with insights from initial launch
+- Preserves premium restraint on main Products page
+
+### **Information Architecture**
+
+**URL Structure:**
+```
+/products/clinax
+/products/halo
+/products/truebill
+/products/tafsirai
+```
+
+**Navigation:**
+- Products page links to individual product detail pages
+- Product cards become clickable (optional)
+- Breadcrumb: Home > Products > [Product Name]
+
+### **Per Product Page Requirements**
+
+**Must Include:**
+- [ ] Product hero section (name, tagline, stage)
+- [ ] The Problem (what we're solving)
+- [ ] The Solution (how it works)
+- [ ] Key Features (3-5 features)
+- [ ] Technology Stack (transparency)
+- [ ] Current Status (honest progress update)
+- [ ] Product-specific CTA (early access, feedback, demo)
+- [ ] Optional: Screenshots/mockups (if available)
+- [ ] Optional: Discovery Signals (if seeking feedback)
+
+**Must NOT Include:**
+- ❌ Fake metrics or traction
+- ❌ Aspirational roadmaps
+- ❌ Startup hype language
+- ❌ Product Studio positioning (belongs on main Products page)
+
+### **Estimated Effort**
+
+| Product | Content | Design | Development | Total |
+|---------|---------|--------|-------------|-------|
+| Clinax | 6h | 8h | 8h | 22h |
+| Halo | 6h | 8h | 8h | 22h |
+| TrueBill | 6h | 8h | 8h | 22h |
+| TafsirAI | 6h | 8h | 8h | 22h |
+| **TOTAL** | **24h** | **32h** | **32h** | **88h** |
+
+### **Success Metrics**
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Product page views | 40% of Products page visitors | Google Analytics |
+| Early access signups (Clinax) | 10-15/month | Form submissions |
+| Provider feedback requests (Halo) | 5-10/month | Form submissions |
+| Demo requests (TrueBill) | 5-10/month | Form submissions |
+| Early access signups (TafsirAI) | 20-30/month | Form submissions |
+
+### **When to Start**
+
+**Trigger:** Core website launch complete (end of Phase 5)
+
+**Timeline:** 4-6 weeks post-launch
+
+**Dependencies:**
+- Core website live and stable
+- Initial traffic and feedback collected
+- Product status updates available
+- Founder availability for product content
+
+---
+
+**Document Version:** 1.1  
+**Last Updated:** June 13, 2026  
 **Status:** Ready for Execution  
 **Next:** Visual Design Prioritization Plan

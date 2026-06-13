@@ -328,6 +328,105 @@ A product studio is a company that:
 
 **Governance Note:** Future agents must NOT assume all products are production-ready or have verified user metrics unless explicitly stated above.
 
+### Product Status Communication Model
+
+TrueSpur maintains two separate status systems:
+
+#### Internal Product Stage (Governance Use Only)
+
+**Purpose:**
+- Planning and roadmap prioritization
+- Product management tracking
+- Team execution coordination
+- Internal decision-making
+
+**Values:**
+- Concept
+- MVP Development
+- Beta
+- Production
+
+**Where Used:**
+- CURRENT-SOURCE-OF-TRUTH.md (this document)
+- 90-DAY-EXECUTION-ROADMAP.md
+- Internal planning documents
+- Team status updates
+
+**NOT Used:**
+- Public website
+- Product portfolio presentation
+- Marketing materials
+
+---
+
+#### Public Progress Descriptor (Website Communication)
+
+**Purpose:**
+- Product Studio positioning
+- Honest activity communication
+- Avoid unintentional maturity ranking
+- Support credibility without hype
+
+**Format:**
+- Natural language activity statements
+- Focus on validation, iteration, operational support
+- Reflect reality, not aspiration
+
+**Examples:**
+- "Actively validating clinical workflows with healthcare stakeholders"
+- "Refining telehealth workflows through provider feedback"
+- "Supporting daily business operations through digital workflows"
+- "Exploring how AI can improve access to authentic Islamic knowledge"
+
+**Where Used:**
+- Products Page (primary)
+- Product portfolio presentations
+- Public-facing materials
+
+**NOT Used:**
+- Internal planning
+- Roadmaps
+- Execution tracking
+
+---
+
+#### Critical Distinction
+
+**Internal stages are NOT directly translated to public descriptors.**
+
+Public progress descriptors are intentionally crafted to:
+1. Communicate activity without creating maturity hierarchy
+2. Support Product Studio positioning
+3. Maintain premium perception while being honest
+4. Avoid startup hype language
+
+**Example Mapping:**
+
+```
+Internal Stage: Beta
+
+Public Progress Descriptor: 
+"Actively validating clinical workflows with healthcare stakeholders"
+
+These are related but intentionally different.
+```
+
+**Why the difference?**
+- Internal stage communicates maturity for planning
+- Public descriptor communicates activity for positioning
+- One informs execution, the other supports credibility
+
+**Governance Rule:**
+
+When updating product status:
+1. Update internal stage in governance documents (CURRENT-SOURCE-OF-TRUTH.md, roadmaps)
+2. Separately craft/update public progress descriptor in PRODUCTS-PAGE-DESIGN-SPECIFICATION.md
+3. Do NOT assume one-to-one mapping between internal stage and public descriptor
+
+**Authoritative Reference:** PRODUCTS-PAGE-DESIGN-SPECIFICATION.md (lines 164-202) provides complete guidance on progress descriptor philosophy and implementation.
+
+---
+
 ### What TrueSpur Is Not
 
 - ❌ **Not a software agency** (we build our own products, not just client work)

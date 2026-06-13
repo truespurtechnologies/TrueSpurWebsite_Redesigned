@@ -1192,6 +1192,125 @@ Healthcare supports the positioning. Healthcare does not define the positioning.
 
 ---
 
+## POST-LAUNCH PRODUCT ECOSYSTEM EXPANSION
+
+### Strategic Decision
+
+The initial website launch focuses on establishing TrueSpur's core positioning as a Founder-Led Product Studio.
+
+**Launch scope includes:**
+- Homepage
+- About
+- Products
+- Services
+- Contact
+
+The Products page serves as a portfolio and credibility layer demonstrating active product development.
+
+**Dedicated product pages are intentionally excluded from the initial launch scope** to maintain execution focus and accelerate launch timelines.
+
+---
+
+### Post-Launch Expansion
+
+Immediately following website launch, TrueSpur will begin building dedicated product pages for products requiring:
+
+- ICP validation
+- Stakeholder discovery
+- Early access recruitment
+- Product-specific storytelling
+- Product-specific conversion paths
+
+---
+
+### Future Product Pages
+
+#### Clinax
+
+**Primary Objective:**
+- Healthcare stakeholder conversations
+- Workflow validation
+- Early adopter discovery
+
+**Potential CTA Examples:**
+- Request Early Access
+- Let's Talk
+- Share Your Workflow
+
+---
+
+#### Halo
+
+**Primary Objective:**
+- Provider feedback
+- Telehealth workflow validation
+- Design partner conversations
+
+**Potential CTA Examples:**
+- Let's Talk
+- Provider Feedback Program
+- Request Early Access
+
+---
+
+#### TrueBill
+
+**Primary Objective:**
+- Product education
+- Product onboarding
+- Demonstration of MSME digitization value
+
+**Potential CTA Examples:**
+- Learn More
+- Request Demo
+- Request Access
+
+---
+
+#### TafsirAI
+
+**Primary Objective:**
+- Early user acquisition
+- Product validation
+- Community building
+
+**Potential CTA Examples:**
+- Join Early Access
+- Explore TafsirAI
+- Get Early Updates
+
+---
+
+### Information Architecture Direction
+
+**Future state:**
+
+```
+Products Page
+→ Product Detail Pages
+
+/products/clinax
+/products/halo
+/products/truebill
+/products/tafsirai
+```
+
+**Strategic Principle:**
+
+Product-specific CTAs belong on dedicated product pages rather than the main Products page.
+
+The Products page remains focused on Product Studio positioning and portfolio credibility.
+
+**Rationale:**
+
+- Maintains clean Products page focused on studio positioning
+- Allows product-specific storytelling and conversion paths
+- Supports ICP validation and stakeholder discovery
+- Enables targeted early access programs per product
+- Preserves premium restraint on main Products page
+
+---
+
 ## LOCKED DECISIONS
 
 The following decisions are **FINAL** and **LOCKED**:

@@ -23,6 +23,7 @@
    - [HOMEPAGE-COPY-FINAL.md](../07-WEBSITE CONTENT DOCUMENTS/HOMEPAGE-COPY-FINAL.md) ⭐ **Homepage Copy**
    - [HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md](../07-APPROVED CONTENT DOCUMENTS/HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md) ⭐ **Homepage Design**
    - [ABOUT-PAGE-COPY-FINAL-V2.md](../07-WEBSITE CONTENT DOCUMENTS/ABOUT-PAGE-COPY-FINAL-V2.md) ⭐ **About Page Copy**
+   - [PRODUCTS-PAGE-DESIGN-SPECIFICATION.md](../07-APPROVED PAGE SPECIFICATIONS/PRODUCTS-PAGE-DESIGN-SPECIFICATION.md) ⭐ **Products Page Design**
 
 3. **Strategic Foundation:**
    - [90-Day Execution Roadmap](../02-COMPANY-STRATEGY/90-DAY-EXECUTION-ROADMAP.md)
@@ -186,12 +187,14 @@
 
 ### Internal Products
 
-| Product | Status | Description |
-|---------|--------|-------------|
-| **Clinax** | MVP Development | Healthcare telemedicine platform |
-| **Halo** | Concept | Patient engagement platform |
+**Note:** Status values below are internal product stages for governance and planning. Public website uses separate progress descriptors (see PRODUCTS-PAGE-DESIGN-SPECIFICATION.md).
+
+| Product | Internal Stage | Description |
+|---------|----------------|-------------|
+| **Clinax** | Beta | Healthcare operations platform (clinical workflows validation) |
+| **Halo** | MVP Development | Patient engagement platform (telehealth workflows) |
 | **TrueBill** | Production | Billing automation (live with customers) |
-| **TafsirAI** | Concept | AI-powered Quranic insights |
+| **TafsirAI** | Concept / Early MVP | AI-powered Quranic insights |
 
 ### Strategic Non-Negotiables
 
