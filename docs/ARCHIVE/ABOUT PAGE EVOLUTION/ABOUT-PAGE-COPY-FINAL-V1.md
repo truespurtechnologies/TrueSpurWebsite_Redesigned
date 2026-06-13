@@ -72,7 +72,7 @@ Most founders face the same challenge: they have a great idea, but lack the tech
 
 We built TrueSpur to solve that problem.
 
-We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We build products that scale from launch to thousands of users without rebuilding.
+We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We Build products ready to grow with your business to thousands of users without rebuilding.
 
 And because we build our own products (Clinax, Halo, TrueBill, TafsirAI), we understand product challenges from the inside. We've faced the tough technical decisions, the launch anxiety, the scaling challenges. That's why we don't just advise—we build alongside you.
 
@@ -313,7 +313,7 @@ Most founders face the same challenge: they have a great idea, but lack the tech
 
 We built TrueSpur to solve that problem.
 
-We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We build products that scale from launch to thousands of users without rebuilding.
+We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We Build products ready to grow with your business to thousands of users without rebuilding.
 
 And because we build our own products (Clinax, Halo, TrueBill, TafsirAI), we understand product challenges from the inside. We've faced the tough technical decisions, the launch anxiety, the scaling challenges. That's why we don't just advise—we build alongside you.
 

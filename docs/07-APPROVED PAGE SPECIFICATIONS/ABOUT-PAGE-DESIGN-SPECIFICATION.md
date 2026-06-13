@@ -358,7 +358,7 @@ Explain company's reason for being. Address founder pain points (empathy), posit
       <div className="max-w-4xl mx-auto space-y-4 text-base lg:text-lg text-gray-600">
         <p>Most founders face the same challenge: they have a great idea, but lack the technical expertise to build it. They hire agencies that don't understand product thinking. They work with developers who can't translate vision into execution.</p>
         <p>We built TrueSpur to solve that problem.</p>
-        <p>We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We build products that scale from launch to thousands of users without rebuilding.</p>
+        <p>We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We Build products ready to grow with your business to thousands of users without rebuilding.</p>
         <p>And because we build our own products (Clinax, Halo, TrueBill, TafsirAI), we understand product challenges from the inside. We've faced the tough technical decisions, the launch anxiety, the scaling challenges. That's why we don't just advise—we build alongside you.</p>
       </div>
       
