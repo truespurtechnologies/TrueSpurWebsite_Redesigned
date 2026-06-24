@@ -717,23 +717,9 @@ Real customer testimonials (even small scale) > fake case studies. Honest about 
    - Authority: Reference only - FINAL-WEBSITE-STRATEGY.md is current authority
 
 5. **90-DAY-EXECUTION-ROADMAP.md** (June 4, 2026)
-   - Status: In Progress
+   - Status: Active Reference
    - Purpose: 12-week execution plan, 5 phases, 167 hours
    - Authority: Authoritative for implementation timeline and priorities
-
-### Website Content Documents
-
-**Location:** `docs/03-WEBSITE-CURRENT-STATE/`
-
-1. **ABOUT-PAGE-V1.md**
-   - Status: In Progress
-   - Purpose: About page content strategy
-   - Authority: Authoritative for About page structure
-
-2. **SERVICES-SECTION-FINAL-STATE-MAY31-2026.md**
-   - Status: Final
-   - Purpose: Services section specifications
-   - Authority: Authoritative for Services section implementation
 
 ### Design System Documents
 
@@ -856,6 +842,21 @@ These documents provide historical context and decision rationale but should NOT
 1. **FOUNDER-MANIFESTO-WHY-WE-BUILD.md** (v1.0)
    - Superseded by: FOUNDER-MANIFESTO-WHY-WE-BUILD-v1.1.md
    - Do NOT use: Use v1.1 instead
+
+### Website Content Documents (Superseded)
+
+**Location:** `docs/03-WEBSITE-CURRENT-STATE/`
+
+2. **ABOUT-PAGE-V1.md**
+   - Why superseded: V1 replaced by ABOUT-PAGE-COPY-FINAL-V2.md (v2.1) and ABOUT-PAGE-DESIGN-SPECIFICATION.md (v1.2)
+   - Use for: Understanding About page evolution from V1 to V2.1
+   - Do NOT use for: Current About page implementation (use approved copy and design specifications)
+
+3. **SERVICES-SECTION-FINAL-STATE-MAY31-2026.md**
+   - Why superseded: Homepage services section refinement document superseded by dedicated Services Page copy and design specifications
+   - Use for: Understanding homepage services section evolution (May 2026 refinement to A+ 98/100 grade)
+   - Do NOT use for: Current Services Page implementation (use SERVICES-PAGE-COPY-FINAL.md and SERVICES-PAGE-DESIGN-SPECIFICATION.md)
+   - Note: This document remains authoritative for homepage services section implementation on homepage (not Services Page)
 
 2. **Founder Journey draft.docx** and **Founder Journey draftMD.md**
    - Superseded by: FOUNDER-STORY-ASWAR.md
@@ -1403,8 +1404,8 @@ If you find a conflict between this document and any other document (including a
 
 ### Version Control
 
-**Current Version:** 1.6  
-**Next Version:** 1.7 (when strategic changes occur)
+**Current Version:** 1.7  
+**Next Version:** 1.8 (when strategic changes occur)
 
 **Version History:**
 - v1.0 (June 6, 2026): Initial creation, strategic governance established
