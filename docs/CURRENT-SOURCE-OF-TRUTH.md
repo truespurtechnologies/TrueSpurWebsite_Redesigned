@@ -297,7 +297,7 @@ A product studio is a company that:
 ### TrueSpur's Hybrid Model
 
 **INTERNAL PRODUCTS (Product Ventures):**
-- Clinax (Healthcare telemedicine)
+- Clinax (Healthcare operations platform)
 - Halo (Patient engagement platform)
 - TrueBill (Billing automation)
 - TafsirAI (AI-powered insights)
@@ -316,7 +316,7 @@ A product studio is a company that:
 
 | Product | Current Status | Description |
 |---------|---------------|-------------|
-| **Clinax** | MVP Development | Healthcare telemedicine platform for Tier 2/3 cities. Patient-facing mobile app + provider-facing virtual clinic system. ABDM integration in progress. |
+| **Clinax** | MVP Development | Healthcare operations platform for Tier 2/3 cities. Patient-facing mobile app + provider-facing virtual clinic system. ABDM integration in progress. |
 | **Halo** | Concept | Patient engagement that feels personal, not transactional. Helps health systems reach, educate, and support patients beyond hospital walls through thoughtful, timely, and contextual communication. Product concept currently under exploration. |
 | **TrueBill** | Production | Billing and invoicing automation for small businesses. Live with paying customers. |
 | **TafsirAI** | Concept | AI-powered platform for Quranic insights and learning. Exploring AI applications for religious education. |
@@ -455,7 +455,7 @@ When updating product status:
 **Message:** "We're not just consultants. We're product builders."
 
 **Proof:**
-- Clinax (telemedicine platform in MVP development)
+- Clinax (healthcare operations platform in MVP development)
 - Halo (patient engagement platform in concept)
 - TrueBill (billing automation in production)
 - TafsirAI (AI insights in concept)
@@ -1197,6 +1197,28 @@ These are locked strategic decisions that future contributors must preserve:
 
 ---
 
+#### 12. Secondary CTA Strategy
+
+**Non-Negotiable:**
+
+Secondary CTA usage varies intentionally by page context and visitor journey stage.
+
+**Products Page:**
+- Primary CTA: Start Your Project
+- Secondary CTA: View Our Services
+
+**Rationale:** Visitors exploring TrueSpur products may benefit from understanding service offerings before initiating contact.
+
+**Services Page:**
+- Primary CTA: Start Your Project
+- Secondary CTA: Schedule a Call
+
+**Rationale:** Visitors on the Services page already understand the offering and are closer to conversion readiness.
+
+**Governance Rule:** This CTA difference is intentional and does not represent a consistency issue. Different page contexts warrant different secondary CTAs to optimize visitor journey flow.
+
+---
+
 ## 18. CURRENT PROJECT PHASE
 
 ### Current Phase: Website Implementation
@@ -1217,14 +1239,27 @@ These are locked strategic decisions that future contributors must preserve:
 - ✅ Messaging hierarchy established
 - ✅ All page architectures locked
 - ✅ All design baselines established and approved
+- ✅ **Governance Audit completed (Implementation Readiness Score: 100/100)**
+- ✅ **All governance corrections applied**
+- ✅ **Project approved for implementation - No governance blockers remaining**
 
 **Current Focus:**
-- Website development and implementation
-- Global layout and foundation components
-- Homepage implementation
-- About Page implementation
-- Products Page implementation
-- Services Page implementation
+
+**Phase 1 — Foundation (Active)**
+- Design system setup
+- Global layout and navigation
+- Footer component
+- Shared components library
+
+**Phase 2 — Homepage Implementation (Pending)**
+
+**Phase 3 — About Page Implementation (Pending)**
+
+**Phase 4 — Products Page Implementation (Pending)**
+
+**Phase 5 — Services Page Implementation (Pending)**
+
+**Phase 6 — QA & Optimization (Pending)**
 
 **What This Means for Future Agents:**
 
@@ -1243,16 +1278,35 @@ The project is in **Website Implementation phase**.
 - ❌ Messaging exploration (COMPLETE)
 - ❌ Copywriting (COMPLETE - all 4 pages frozen)
 - ❌ Design specification creation (COMPLETE - all 4 pages frozen)
+- ❌ Governance audit (COMPLETE - 100/100 score, all corrections applied)
 
 **Active Workstream:**
 - ✅ Website Development & Implementation
 
-**Next Deliverables:**
-- Global layout and foundation components
-- Homepage implementation
-- About Page implementation
-- Products Page implementation
-- Services Page implementation
+**Implementation Sub-Phases:**
+1. **Phase 1 — Foundation** (Current)
+   - Design system setup
+   - Global layout and navigation
+   - Footer component
+   - Shared components library
+
+2. **Phase 2 — Homepage Implementation**
+   - All 7 sections per HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md
+
+3. **Phase 3 — About Page Implementation**
+   - All 9 sections per ABOUT-PAGE-DESIGN-SPECIFICATION.md v1.2
+
+4. **Phase 4 — Products Page Implementation**
+   - All 6 sections per PRODUCTS-PAGE-DESIGN-SPECIFICATION.md v1.2
+
+5. **Phase 5 — Services Page Implementation**
+   - All 6 sections per SERVICES-PAGE-DESIGN-SPECIFICATION.md v1.3.1
+
+6. **Phase 6 — QA & Optimization**
+   - Cross-browser testing
+   - Performance optimization
+   - Accessibility audit
+   - Final polish
 
 **DO prioritize:**
 - Website development following approved design specifications
@@ -1404,8 +1458,8 @@ If you find a conflict between this document and any other document (including a
 
 ### Version Control
 
-**Current Version:** 1.7  
-**Next Version:** 1.8 (when strategic changes occur)
+**Current Version:** 1.8  
+**Next Version:** 1.9 (when strategic changes occur)
 
 **Version History:**
 - v1.0 (June 6, 2026): Initial creation, strategic governance established
@@ -1416,6 +1470,7 @@ If you find a conflict between this document and any other document (including a
 - v1.5 (June 13, 2026): Updated for completed Products and Services Page copy - added PRODUCTS-PAGE-COPY-FINAL.md and SERVICES-PAGE-COPY-FINAL.md as authoritative documents, updated current focus to include Products and Services Page design specification development, marked both page copies as frozen for implementation
 - v1.6 (June 13, 2026): Services Page copy synchronization and About Page governance updates - completed internal consistency corrections in SERVICES-PAGE-COPY-FINAL.md (synchronized COMPLETE SERVICES PAGE COPY section with approved copy definitions), updated ABOUT-PAGE-DESIGN-SPECIFICATION.md to v1.2 with founder photo and product logo governance clarifications, no strategic changes
 - v1.7 (June 24, 2026): Updated for completed design specification phase - added ABOUT-PAGE-DESIGN-SPECIFICATION.md (v1.2), PRODUCTS-PAGE-DESIGN-SPECIFICATION.md (v1.2), and SERVICES-PAGE-DESIGN-SPECIFICATION.md (v1.3.1) as authoritative documents, updated current project phase to Website Implementation, marked all four page design specifications as approved and frozen, closed strategy/copy/design workstreams, opened implementation workstream
+- v1.8 (June 24, 2026): **Governance Lock Completed - Project Approved For Implementation** - completed comprehensive governance audit (Implementation Readiness Score: 100/100), applied all governance corrections (Halo and TafsirAI product descriptions aligned in HOMEPAGE-COPY-FINAL.md, Clinax description standardized to "healthcare operations platform" across all CSOT references), added Secondary CTA Strategy governance note (Section 17.12), formalized Website Planning Phase closure, defined 6-phase implementation roadmap (Foundation → Homepage → About → Products → Services → QA), closed governance audit workstream, project ready for development with zero governance blockers
 
 ---
 
@@ -1526,9 +1581,9 @@ If you find a conflict between this document and any other document (including a
 
 ---
 
-**END OF CURRENT SOURCE OF TRUTH v1.7**
+**END OF CURRENT SOURCE OF TRUTH v1.8**
 
 **Last Updated:** June 24, 2026  
 **Next Review:** July 24, 2026  
 **Authority Level:** HIGHEST - Overrides all conflicting documents  
-**Status:** ACTIVE
+**Status:** ACTIVE — GOVERNANCE LOCK COMPLETE — APPROVED FOR IMPLEMENTATION

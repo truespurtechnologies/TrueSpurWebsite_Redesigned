@@ -114,7 +114,7 @@ Healthcare platform connecting patients, providers, and pharmacies.
 *Beta — Active Development*
 
 **HALO**  
-Telemedicine platform for remote patient care.  
+Patient engagement platform for remote patient care.  
 *MVP — Pilot Phase*
 
 **TRUEBILL**  
@@ -122,7 +122,7 @@ Billing and invoicing tool for modern businesses.
 *Production — Live Customers*
 
 **TAFSIRAI**  
-AI-powered platform for Islamic text analysis.  
+AI-powered Quran companion for Islamic knowledge.  
 *Concept — Early Stage*
 
 ---
