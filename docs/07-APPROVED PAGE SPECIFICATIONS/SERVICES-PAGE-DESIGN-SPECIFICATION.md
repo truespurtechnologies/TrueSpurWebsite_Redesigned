@@ -112,6 +112,59 @@ This specification provides complete design guidance for implementing the TrueSp
 - Two CTAs: "Start Your Project" + "Schedule a Call"
 - Light gray background
 
+### Page Flow Governance
+
+**Approved Narrative Sequence:**
+
+```
+Hero
+  ↓
+From Idea to Product
+  ↓
+What We Offer
+  ↓
+Why Founders Work With Us
+  ↓
+How We Work With Founders
+  ↓
+Final CTA
+```
+
+**Strategic Rationale:**
+
+This six-section flow creates a conversion-optimized trust-building progression:
+1. **Hero** — Immediate clarity (what we do)
+2. **Journey** — Empathy (we understand your challenges)
+3. **Services** — Capability (what we can help with)
+4. **Differentiation** — Trust (why choose us)
+5. **Philosophy** — Partnership (how we work)
+6. **CTA** — Conversion (low-pressure invitation)
+
+**Prohibited Changes Without Strategic Approval:**
+
+- ❌ Inserting new sections between approved sections
+- ❌ Reordering sections
+- ❌ Removing sections
+- ❌ Adding testimonials, case studies, or social proof sections
+- ❌ Adding pricing, packages, or comparison tables
+- ❌ Adding team bios or company history
+- ❌ Adding FAQ or support sections
+
+**Rationale:**
+
+Each section serves a specific conversion purpose. The sequence is strategic, not arbitrary. Adding sections disrupts the trust-building progression and dilutes conversion focus.
+
+**Allowed Enhancements:**
+
+- ✅ Refining content within existing sections
+- ✅ Adding optional visual enhancements (e.g., Founder Journey Visualization, Credibility Theme Cards)
+- ✅ Improving accessibility or mobile optimization
+- ✅ Performance optimizations
+
+**Governance Principle:**
+
+The Services Page is a conversion-focused narrative, not a comprehensive information repository. Maintain focus, maintain flow, maintain conversion optimization.
+
 ---
 
 ## GLOBAL INTERACTION SYSTEM
@@ -600,6 +653,59 @@ Main conversion section. Explain TrueSpur's service offerings. Keep scannable an
 - Focus on typography and content hierarchy
 - Keep cards clean and scannable
 
+### Service Card Visual Restraint Governance
+
+**Current Implementation:**
+
+Service cards use typography-first presentation:
+- Service title (Poppins Semibold, text-xl lg:text-2xl)
+- Positioning statement (orange-600, italic, medium weight)
+- Outcome bullets (Check icon + text)
+
+**Governance Principle:**
+
+Service cards intentionally avoid decorative icons, illustrations, or category graphics.
+
+**Rationale:**
+
+- **Typography carries the hierarchy** — Title → Positioning → Bullets creates clear visual flow
+- **Outcomes carry the value proposition** — Bullets communicate value, not icons
+- **Content carries the differentiation** — Words differentiate TrueSpur, not graphics
+- **Premium restraint philosophy** — Minimal, purposeful, not decorative
+
+**Explicitly Prohibited Visual Elements:**
+
+- ❌ Service category icons (lightbulb, rocket, brain, gear, etc.)
+- ❌ SaaS marketing icons (charts, dashboards, analytics graphics)
+- ❌ Healthcare icons (stethoscope, heart, medical cross)
+- ❌ AI/tech icons (brain, neural network, robot graphics)
+- ❌ Rocketship or growth illustrations
+- ❌ Generic agency-style artwork or spot illustrations
+- ❌ Decorative service-category imagery
+- ❌ Icon backgrounds, icon containers, or icon badges
+- ❌ Gradient icon treatments or 3D icon effects
+
+**Allowed Visual Elements:**
+
+- ✅ Check icon for outcome bullets (Lucide React, orange-500, 20px)
+- ✅ Left gradient accent bar (hover state only)
+- ✅ Typography hierarchy (title, positioning, bullets)
+- ✅ Whitespace and card structure
+
+**Why This Matters:**
+
+Adding service icons would:
+- Create generic agency aesthetic (contradicts Product Studio positioning)
+- Reduce scannability (visual noise competes with content)
+- Weaken premium restraint (decorative over functional)
+- Dilute differentiation (icons are commoditized, words are unique)
+
+**Governance Rule:**
+
+If a visual element doesn't improve scannability, hierarchy, or conversion, it doesn't belong on service cards.
+
+Maintain typography-first presentation consistent with TrueSpur's premium restraint philosophy and Product Studio positioning.
+
 ### Interaction Design
 
 **Card Hover:**
@@ -703,7 +809,7 @@ Differentiate TrueSpur without attacking competitors. Show what makes TrueSpur d
       <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-gray-600">
         
         <p className="text-center">
-          We're not a typical development agency. We're a product studio—which means we build our own products (Clinax, Halo, TrueBill, TafsirAI) alongside building yours.
+          We're not a typical development agency. We're a product studio—which means we're building products ourselves while helping founders build theirs.
         </p>
         
         <div className="space-y-6 mt-10">
@@ -827,7 +933,7 @@ Differentiate TrueSpur without attacking competitors. Show what makes TrueSpur d
 - Three subsections with bold headlines create scannable format
 - Avoids defensive "unlike agencies" language
 - Focuses on positive differentiation
-- Product names mentioned (Clinax, Halo, TrueBill, TafsirAI)
+- Product portfolio referenced conceptually (specific products showcased on Products Page)
 - Credibility theme cards are optional enhancement (recommended for post-launch activation if needed)
 
 ---
@@ -1303,6 +1409,35 @@ At launch, both CTAs ("Start Your Project" and "Schedule a Call") should route t
 - Avoid unnecessary funnel complexity (no A/B routing at launch)
 - Maintain conversion focus (both CTAs represent same intent: "talk to us")
 
+**Preferred Launch Destination:**
+
+**Primary Recommendation:**
+- Calendly consultation booking workflow
+
+**Rationale:**
+- Lowest friction (no form fields, instant confirmation)
+- Automatic calendar integration (reduces manual scheduling)
+- Professional experience (founders expect modern booking)
+- Conversion-optimized (fewer steps = higher completion)
+- Operational efficiency (automated scheduling reduces back-and-forth)
+
+**Fallback Option:**
+- Contact form workflow (if Calendly unavailable or inappropriate)
+
+**Implementation Guidance:**
+
+Use Calendly unless:
+- Business operations don't support immediate booking
+- Qualification workflow required before scheduling
+- Technical constraints prevent Calendly integration
+- Strategic decision to use alternative intake process
+
+If using contact form fallback:
+- Keep fields minimal (Name, Email, Message)
+- Auto-response confirmation required
+- Response SLA documented (e.g., "We'll respond within 24 hours")
+- Consider adding Calendly link in confirmation email
+
 **Future Optimization:**
 
 Separate conversion paths may be introduced later based on:
@@ -1543,9 +1678,9 @@ Separate conversion paths may be introduced later based on:
 
 ---
 
-**Document Version:** 1.2 (Refined)  
-**Date:** June 13, 2026  
-**Status:** Ready for Implementation  
+**Document Version:** 1.3.1 (Micro Maintenance Update)  
+**Date:** June 24, 2026  
+**Status:** ✅ FROZEN FOR IMPLEMENTATION  
 **Refinements Applied:**
 - v1.1: Founder Journey Visualization promoted to Required Component (Card-Based pattern)
 - v1.1: Trust Signal Visualization simplified to single pattern (optional)
@@ -1553,9 +1688,13 @@ Separate conversion paths may be introduced later based on:
 - v1.1: Maintenance Guidelines section added
 - v1.2: Trust Signal pattern updated from Stat Callouts to Credibility Theme Cards
 - v1.2: CTA Destination Governance added to Implementation Guidance
+- v1.3: Page Flow Governance added (narrative sequence protection)
+- v1.3: Service Card Visual Restraint Governance added (prevent icon/illustration drift)
+- v1.3: Preferred Launch Destination added to CTA Governance (Calendly primary recommendation)
+- v1.3.1: Product name references removed for maintainability (Section 4 opening paragraph)
 
 **Next Steps:** Begin development using this specification as source of truth  
-**Maintenance:** Update this document if design patterns change
+**Maintenance:** Document frozen — no further refinements without strategic approval
 
 ---
 
