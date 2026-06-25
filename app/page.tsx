@@ -665,6 +665,201 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Section 3: Products We're Building */}
+      <motion.section
+        className="relative py-16 md:py-24 lg:py-32 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            {/* Section Headline */}
+            <motion.div
+              className="text-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900">
+                Products We're Building
+              </h2>
+            </motion.div>
+
+            {/* Section Introduction */}
+            <motion.div
+              className="text-center mb-12 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p className="text-base lg:text-lg text-gray-600">
+                We don't just build products for clients—we build our own. Each one teaches us something we bring to yours.
+              </p>
+            </motion.div>
+
+            {/* Product Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5 lg:gap-6 mb-12">
+              {/* Clinax */}
+              <motion.div
+                className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                {/* Top brand accent */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
+                
+                {/* Left gradient accent */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Category badge */}
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                  Healthcare Platform
+                </span>
+                
+                {/* Product name */}
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                  Clinax
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                  Healthcare platform connecting patients, providers, and pharmacies.
+                </p>
+                
+                {/* Status badge */}
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50/80 text-purple-600">
+                  Beta — Active Development
+                </span>
+              </motion.div>
+
+              {/* Halo */}
+              <motion.div
+                className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                {/* Top brand accent */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
+                
+                {/* Left gradient accent */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Category badge */}
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                  Healthcare Platform
+                </span>
+                
+                {/* Product name */}
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                  Halo
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                  Telemedicine platform for remote patient care.
+                </p>
+                
+                {/* Status badge */}
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50/80 text-blue-600">
+                  MVP — Pilot Phase
+                </span>
+              </motion.div>
+
+              {/* TrueBill */}
+              <motion.div
+                className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                {/* Top brand accent */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
+                
+                {/* Left gradient accent */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Category badge */}
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                  Business Tool
+                </span>
+                
+                {/* Product name */}
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                  TrueBill
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                  Billing and invoicing tool for modern businesses.
+                </p>
+                
+                {/* Status badge */}
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-50/80 text-green-600">
+                  Production — Live Customers
+                </span>
+              </motion.div>
+
+              {/* TafsirAI */}
+              <motion.div
+                className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                {/* Top brand accent */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
+                
+                {/* Left gradient accent */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Category badge */}
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                  AI Application
+                </span>
+                
+                {/* Product name */}
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                  TafsirAI
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                  AI-powered platform for Islamic text analysis.
+                </p>
+                
+                {/* Status badge */}
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-50/80 text-gray-600">
+                  Concept — Early Stage
+                </span>
+              </motion.div>
+            </div>
+
+            {/* Closing Statement */}
+            <motion.div
+              className="text-center max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p className="text-base lg:text-lg text-gray-600">
+                Each product we build teaches us something we bring to yours.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Services Section */}
       <motion.section
         id="services"
