@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -101,17 +100,17 @@
   --color-amber-500: #F59E0B;
   --color-amber-600: #D97706;
   
-  /* Neutrals - Warm Grays */
-  --color-warm-50: #FAFAF9;
-  --color-warm-100: #F5F5F4;
-  --color-warm-200: #E7E5E4;
-  --color-warm-300: #D6D3D1;
-  --color-warm-400: #A8A29E;
-  --color-warm-500: #78716C;
-  --color-warm-600: #57534E;
-  --color-warm-700: #44403C;
-  --color-warm-800: #292524;
-  --color-warm-900: #1C1917;
+  /* Neutrals - Gray Scale */
+  --color-gray-50: #FAFAF9;
+  --color-gray-100: #F5F5F4;
+  --color-gray-200: #E7E5E4;
+  --color-gray-300: #D6D3D1;
+  --color-gray-400: #A8A29E;
+  --color-gray-500: #78716C;
+  --color-gray-600: #57534E;
+  --color-gray-700: #44403C;
+  --color-gray-800: #292524;
+  --color-gray-900: #1C1917;
   
   /* Dark Slate for Hero */
   --color-slate-950: #020617;
@@ -125,23 +124,23 @@
   
   /* Shadcn/UI compatibility - mapped to orange brand */
   --color-background: #FFFFFF;
-  --color-foreground: var(--color-warm-900);
+  --color-foreground: var(--color-gray-900);
   --color-card: #FFFFFF;
-  --color-card-foreground: var(--color-warm-900);
+  --color-card-foreground: var(--color-gray-900);
   --color-popover: #FFFFFF;
-  --color-popover-foreground: var(--color-warm-900);
+  --color-popover-foreground: var(--color-gray-900);
   --color-primary: var(--color-orange-500);
   --color-primary-foreground: #FFFFFF;
-  --color-secondary: var(--color-warm-100);
-  --color-secondary-foreground: var(--color-warm-900);
-  --color-muted: var(--color-warm-100);
-  --color-muted-foreground: var(--color-warm-600);
+  --color-secondary: var(--color-gray-100);
+  --color-secondary-foreground: var(--color-gray-900);
+  --color-muted: var(--color-gray-100);
+  --color-muted-foreground: var(--color-gray-600);
   --color-accent: var(--color-orange-500);
   --color-accent-foreground: #FFFFFF;
   --color-destructive: var(--color-error);
   --color-destructive-foreground: #FFFFFF;
-  --color-border: var(--color-warm-200);
-  --color-input: var(--color-warm-200);
+  --color-border: var(--color-gray-200);
+  --color-input: var(--color-gray-200);
   --color-ring: var(--color-orange-500);
   --color-chart-1: var(--color-orange-500);
   --color-chart-2: var(--color-amber-500);
@@ -152,13 +151,13 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--color-warm-50);
-  --color-sidebar-foreground: var(--color-warm-900);
+  --color-sidebar: var(--color-gray-50);
+  --color-sidebar-foreground: var(--color-gray-900);
   --color-sidebar-primary: var(--color-orange-500);
   --color-sidebar-primary-foreground: #FFFFFF;
-  --color-sidebar-accent: var(--color-warm-100);
-  --color-sidebar-accent-foreground: var(--color-warm-900);
-  --color-sidebar-border: var(--color-warm-200);
+  --color-sidebar-accent: var(--color-gray-100);
+  --color-sidebar-accent-foreground: var(--color-gray-900);
+  --color-sidebar-border: var(--color-gray-200);
   --color-sidebar-ring: var(--color-orange-500);
 }
 
