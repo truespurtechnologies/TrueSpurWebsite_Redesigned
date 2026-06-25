@@ -348,6 +348,8 @@ export default function HomePage() {
         source={leadFormSource}
       />
       {/* Header */}
+      {/* TODO: Navigation visual refinement intentionally deferred until full Homepage implementation is complete.
+          Future refinement should evaluate: navigation proportions, logo scale, menu spacing, visual hierarchy, overall balance against all homepage sections */}
       <header className="relative border-b border-slate-200/50 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent"></div>
         <div className="container mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
@@ -359,7 +361,7 @@ export default function HomePage() {
               <img
                 src="/images/TrueSpur logo.png"
                 alt="TrueSpur Technology Solutions"
-                className="h-12 w-auto md:h-14 lg:h-16 xl:h-18 hover:opacity-80 transition-opacity cursor-pointer"
+                className="h-11 w-auto md:h-13 lg:h-15 xl:h-17 hover:opacity-80 transition-opacity cursor-pointer"
               />
             </button>
           </div>
@@ -552,89 +554,116 @@ export default function HomePage() {
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative overflow-hidden pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 hero-gradient-animated"
+        className="relative min-h-screen overflow-hidden px-4 pt-32 pb-20 lg:pt-36 lg:pb-24 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="pointer-events-none absolute inset-0">
-          {/* Radial gradient overlay for warmth */}
-          <div className="absolute inset-0 bg-gradient-radial from-orange-950/30 via-transparent to-transparent" />
-          
-          {/* Enhanced gradient blobs with more warmth */}
-          <motion.div
-            className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-orange-500/35 via-amber-500/28 to-yellow-600/14 blur-3xl"
-            animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute -bottom-48 -right-32 h-[600px] w-[600px] rounded-full bg-gradient-to-tl from-amber-400/32 via-yellow-500/24 to-orange-500/12 blur-3xl"
-            animate={{ y: [0, 18, 0], x: [0, -12, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute top-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-yellow-400/24 via-orange-400/18 to-amber-500/9 blur-3xl"
-            animate={{ x: [0, 15, -8, 0], y: [0, -8, 0] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+        {/* Background System */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+        
+        {/* Subtle texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.015]" 
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }} 
+        />
+        
+        {/* Optional: Subtle orange glow */}
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/3.5 blur-3xl rounded-full" />
 
-        <div className="relative container mx-auto px-4">
-          <div className="relative grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="relative container mx-auto">
+          <div className="max-w-[900px] ml-0 lg:ml-12">
             <motion.div
-              className="relative z-10"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.4 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
+              viewport={{ once: true }}
             >
-              <h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-5 leading-[1.15] tracking-normal">
-                From Idea to{" "}
-                <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.3)]">
-                  Scalable
-                </span>{" "}
-                 Product
+              <h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.15] text-white">
+                Turn Ideas Into Scalable Digital Products
               </h1>
-              <p className="text-xl lg:text-[1.6rem] xl:text-[1.75rem] text-slate-300/95 mb-8 leading-relaxed max-w-2xl font-light">
-                We help founders design, build, and launch modern software products with speed, clarity, and engineering excellence.
-              </p>
-              <p className="font-heading text-xl lg:text-2xl text-slate-300/95 font-semibold mb-10 italic tracking-wide">"We Craft. You Lead."</p>
-              <div className="flex flex-col sm:flex-row gap-4 items-start">
-                <Button
-                  size="lg"
-                  onClick={() => openLeadForm("start-project")}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white shadow-2xl shadow-orange-500/40 hover:shadow-3xl hover:shadow-orange-500/60 text-xl px-10 py-7 font-bold hover:scale-105 transition-all duration-200"
-                >
-                  Start Your Project
-                  <ArrowRight className="ml-2 h-6 w-6" />
-                </Button>
-              </div>
             </motion.div>
 
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.4 }}
+            <motion.p
+              className="text-lg lg:text-xl leading-relaxed text-slate-300 mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true }}
             >
-              <div className="relative rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/50">
-                <div className="absolute -inset-[2px] rounded-[32px] bg-gradient-to-br from-orange-500/30 via-amber-500/20 to-yellow-500/10 opacity-70 blur-md" />
-                <div className="relative bg-white/95 rounded-[32px] overflow-hidden">
-                  <img
-                    src="/images/hero-team-collaboration.png"
-                    alt="TrueSpur team collaborating on innovative software solutions in modern workspace"
-                    className="w-full h-[500px] object-cover"
-                  />
-                </div>
-              </div>
+              From validation to launch, we help you build products that solve real problems and scale with confidence.
+            </motion.p>
+
+            <motion.p
+              className="text-base text-slate-200 font-medium mt-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Founder-led product studio. Building products — our own and yours.
+            </motion.p>
+
+            <motion.p
+              className="text-sm lg:text-base text-slate-400 mt-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              15+ years building products across healthcare and complex platforms.
+            </motion.p>
+
+            <motion.div
+              className="mt-16"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Button
+                onClick={() => openLeadForm("start-project")}
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xl px-10 py-7 rounded shadow-2xl shadow-orange-500/40 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.03] transition-all duration-300"
+              >
+                Start Your Project
+              </Button>
             </motion.div>
           </div>
         </div>
       </motion.section>
 
-      {/* Transition Bridge Element */}
+      {/* Section 2: Product Studio Bridge */}
+      <div className="relative -mt-8 md:-mt-10 lg:-mt-12 z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="relative mx-auto max-w-5xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-10 lg:p-12">
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
+              
+              <div className="relative text-center">
+                <h2 className="font-heading text-3xl lg:text-4xl xl:text-5xl font-extrabold text-gray-900">
+                  We Understand Product Challenges From the Inside
+                </h2>
+                <p className="text-base lg:text-lg text-gray-600 mt-6 max-w-3xl mx-auto">
+                  We're building four products right now—Clinax, Halo, TrueBill, TafsirAI. Each one teaches us what founders face: validating ideas, making tough technical calls, launching without costly mistakes.
+                </p>
+                <p className="text-base lg:text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+                  That's why we build alongside you—not just for you.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Services Section */}
       <motion.section
