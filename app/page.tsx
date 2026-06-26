@@ -49,6 +49,33 @@ import {
   Settings,
 } from "lucide-react"
 
+// Reduced motion utility
+const useReducedMotion = () => {
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setShouldReduceMotion(mediaQuery.matches)
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setShouldReduceMotion(e.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  return shouldReduceMotion
+}
+
+// Animation variants with reduced motion support
+const createAnimationProps = (shouldReduceMotion: boolean) => ({
+  initial: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 },
+  whileInView: shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 },
+  transition: shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease: "easeOut" },
+  viewport: { once: true, amount: 0.3 }
+})
+
 const statsData = [
   { label: "Projects Delivered", value: 10, suffix: "+" },
   { label: "Customers Served", value: 10, suffix: "+" },
@@ -126,6 +153,7 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isProductMobileOpen, setIsProductMobileOpen] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
   const [leadFormSource, setLeadFormSource] = useState<
     "get-started" | "start-project" | "get-proposal" | "success-story" | null
@@ -468,7 +496,7 @@ export default function HomePage() {
           {/* Desktop CTA Button */}
           <Button
             onClick={() => openLeadForm("get-started")}
-            className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-all duration-200"
+            className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.01] text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             Get Started
           </Button>
@@ -561,10 +589,7 @@ export default function HomePage() {
       <motion.section
         id="home"
         className="relative min-h-screen overflow-hidden px-4 pt-32 pb-20 lg:pt-36 lg:pb-24 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }}
+        {...createAnimationProps(shouldReduceMotion)}
       >
         {/* Background System */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
@@ -581,7 +606,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/3.5 blur-3xl rounded-full" />
 
         <div className="relative container mx-auto">
-          <div className="max-w-[900px] ml-0 lg:ml-12">
+          <div className="max-w-[800px] ml-0 lg:ml-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -632,7 +657,7 @@ export default function HomePage() {
             >
               <Button
                 onClick={() => openLeadForm("start-project")}
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xl px-10 py-7 rounded shadow-2xl shadow-orange-500/40 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.03] transition-all duration-300"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/20 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-white"
               >
                 Start Your Project
               </Button>
@@ -724,7 +749,7 @@ export default function HomePage() {
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
                   Healthcare Platform
                 </span>
                 
@@ -759,7 +784,7 @@ export default function HomePage() {
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
                   Healthcare Platform
                 </span>
                 
@@ -794,7 +819,7 @@ export default function HomePage() {
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
                   Business Tool
                 </span>
                 
@@ -829,7 +854,7 @@ export default function HomePage() {
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 mb-6">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
                   AI Application
                 </span>
                 
@@ -1168,9 +1193,9 @@ export default function HomePage() {
       {/* Section 7: Final CTA */}
       <motion.section
         className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 }}
+        whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="container mx-auto px-4">
@@ -1208,14 +1233,14 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <Button 
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full hover:scale-[1.03] transition-all duration-300"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/20 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-white"
                 onClick={() => scrollToSection("contact")}
               >
                 Start Your Project
               </Button>
               <Button 
                 variant="outline" 
-                className="border-2 border-orange-400/60 text-slate-100 text-lg px-8 py-6 rounded-full hover:bg-white hover:text-slate-900 hover:border-white transition-all duration-300"
+                className="border-2 border-orange-400/40 text-slate-200 text-lg px-8 py-6 rounded-full hover:bg-white/95 hover:text-slate-900 hover:border-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400/60 focus:ring-offset-2 focus:ring-offset-slate-900"
                 onClick={() => window.open('https://calendly.com/truespur', '_blank')}
               >
                 Schedule a Call
