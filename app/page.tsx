@@ -41,6 +41,12 @@ import {
   Palette,
   Target,
   Building2,
+  Database,
+  Video,
+  Shield,
+  Network,
+  Activity,
+  Settings,
 } from "lucide-react"
 
 const statsData = [
@@ -960,6 +966,90 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Section 5: Deep Healthcare Expertise */}
+      <motion.section
+        className="pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-32 bg-gray-50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Section Headline */}
+            <motion.h2
+              className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Deep Healthcare Expertise
+            </motion.h2>
+            
+            {/* Body Copy */}
+            <motion.div
+              className="max-w-3xl mx-auto text-center space-y-6 text-base lg:text-lg text-gray-600 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p>
+                Most teams hit a wall with healthcare technology. The regulations, the integrations, the compliance requirements—they stop projects cold.
+              </p>
+              <p>
+                We've navigated it all for over a decade: EHR integration, HIPAA compliance, HL7/FHIR standards, telemedicine regulations. Won government contracts. Rescued failing platforms. Built products serving thousands of patients.
+              </p>
+              <p className="text-gray-800 font-medium text-lg lg:text-xl mt-10">
+                That expertise makes us better builders—whether your product is in healthcare or not.
+              </p>
+            </motion.div>
+            
+            {/* Expertise Grid */}
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              {[
+                { id: 1, name: 'EHR Integration', icon: Database },
+                { id: 2, name: 'Telemedicine', icon: Video },
+                { id: 3, name: 'HIPAA Compliance', icon: Shield },
+                { id: 4, name: 'HL7/FHIR', icon: Network },
+                { id: 5, name: 'Clinical Workflows', icon: Activity },
+                { id: 6, name: 'Healthcare Operations', icon: Settings },
+              ].map((capability, index) => (
+                <motion.div
+                  key={capability.id}
+                  className="capability-block group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <div className="flex flex-col items-center text-center p-2.5 rounded-lg border border-gray-100/60 bg-white/80 hover:border-gray-200 transition-all duration-300">
+                    {/* Icon */}
+                    <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1.5">
+                      <capability.icon className="h-4 w-4 text-orange-600" />
+                    </div>
+                    
+                    {/* Label */}
+                    <span className="text-sm font-medium text-gray-900">
+                      {capability.name}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+            
           </div>
         </div>
       </motion.section>
