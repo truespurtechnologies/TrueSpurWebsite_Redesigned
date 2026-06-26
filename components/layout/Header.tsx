@@ -14,20 +14,44 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Menu, X } from "lucide-react"
 
+import { useRouter } from "next/navigation"
+
 interface HeaderProps {
   activeSection: string
   scrollToSection: (sectionId: string) => void
   openLeadForm: (source: string) => void
+  currentPage?: string
 }
 
-export function Header({ activeSection, scrollToSection, openLeadForm }: HeaderProps) {
+export function Header({ activeSection, scrollToSection, openLeadForm, currentPage = "home" }: HeaderProps) {
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isProductMobileOpen, setIsProductMobileOpen] = useState(false)
+
+  const handleNavigation = (item: { id: string; label: string }) => {
+    if (item.id === "about") {
+      // Navigate to About page
+      router.push("/about")
+    } else if (item.id === "contact") {
+      // Navigate to Contact page (placeholder for now)
+      router.push("/contact")
+    } else if (currentPage === "about" && item.id === "home") {
+      // Navigate back to home page
+      router.push("/")
+    } else if (currentPage === "home" && item.id === "home") {
+      // Scroll to top on home page
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      // Use scroll navigation for single-page sections
+      scrollToSection(item.id)
+    }
+    // Close mobile menu if open
+    setIsMenuOpen(false)
+  }
 
   const navItems = [
     { id: "home", label: "Home" },
     { id: "services", label: "Services" },
-    { id: "expertise", label: "Expertise" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
   ]
@@ -97,9 +121,9 @@ export function Header({ activeSection, scrollToSection, openLeadForm }: HeaderP
                 .map((item) => (
                   <NavigationMenuItem key={item.id}>
                     <button
-                      onClick={() => scrollToSection(item.id)}
+                      onClick={() => handleNavigation(item)}
                       className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
-                        activeSection === item.id
+                        (currentPage === "home" && activeSection === item.id) || (currentPage === "about" && item.id === "home")
                           ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
                           : "text-gray-600"
                       }`}
@@ -151,9 +175,9 @@ export function Header({ activeSection, scrollToSection, openLeadForm }: HeaderP
                 .map((item) => (
                   <NavigationMenuItem key={item.id}>
                     <button
-                      onClick={() => scrollToSection(item.id)}
+                      onClick={() => handleNavigation(item)}
                       className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
-                        activeSection === item.id
+                        (currentPage === "home" && activeSection === item.id) || (currentPage === "about" && item.id === "about")
                           ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
                           : "text-gray-600"
                       }`}
@@ -199,9 +223,9 @@ export function Header({ activeSection, scrollToSection, openLeadForm }: HeaderP
               .map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavigation(item)}
                   className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                    activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
+                    (currentPage === "home" && activeSection === item.id) || (currentPage === "about" && item.id === "home") ? "text-orange-600 bg-orange-50" : "text-gray-600"
                   }`}
                 >
                   {item.label}
@@ -251,9 +275,9 @@ export function Header({ activeSection, scrollToSection, openLeadForm }: HeaderP
               .map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavigation(item)}
                   className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                    activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
+                    (currentPage === "home" && activeSection === item.id) || (currentPage === "about" && item.id === "about") ? "text-orange-600 bg-orange-50" : "text-gray-600"
                   }`}
                 >
                   {item.label}
