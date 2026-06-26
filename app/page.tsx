@@ -1054,6 +1054,178 @@ export default function HomePage() {
         </div>
       </motion.section>
 
+      {/* Section 6: Proven Track Record */}
+      <motion.section
+        className="py-16 md:py-24 lg:py-32 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Section Headline */}
+            <motion.h2
+              className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-16 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Proven Track Record
+            </motion.h2>
+
+            {/* Two-column layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
+              
+              {/* Company Proof Column (60% visual weight) */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900">
+                  Active Product Studio
+                </h3>
+                
+                <p className="text-base lg:text-lg text-gray-600">
+                  Four products in active development. From healthcare platforms to AI tools. Each one proves our model works and teaches us something we bring to yours.
+                </p>
+                
+                {/* Product logos grid */}
+                <div className="grid grid-cols-2 gap-3 mt-4">
+                  {/* Clinax */}
+                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
+                    <div className="text-center">
+                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
+                        <Heart className="h-4 w-4 text-orange-600" />
+                      </div>
+                      <span className="text-xs font-medium text-gray-900">Clinax</span>
+                    </div>
+                  </div>
+                  
+                  {/* Halo */}
+                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
+                    <div className="text-center">
+                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
+                        <Video className="h-4 w-4 text-orange-600" />
+                      </div>
+                      <span className="text-xs font-medium text-gray-900">Halo</span>
+                    </div>
+                  </div>
+                  
+                  {/* TrueBill */}
+                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
+                    <div className="text-center">
+                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
+                        <Building2 className="h-4 w-4 text-orange-600" />
+                      </div>
+                      <span className="text-xs font-medium text-gray-900">TrueBill</span>
+                    </div>
+                  </div>
+                  
+                  {/* TafsirAI */}
+                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
+                    <div className="text-center">
+                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
+                        <Brain className="h-4 w-4 text-orange-600" />
+                      </div>
+                      <span className="text-xs font-medium text-gray-900">TafsirAI</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Founder Proof Column (40% visual weight) */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900">
+                  Government-Recognized Innovation
+                </h3>
+                
+                <p className="text-base lg:text-lg text-gray-600">
+                  Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+                </p>
+                
+                <p className="text-base font-medium text-gray-600">
+                  Third-party validation. Measurable outcomes.
+                </p>
+              </motion.div>
+
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Section 7: Final CTA */}
+      <motion.section
+        className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            
+            {/* Section Headline */}
+            <motion.h2
+              className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Have an Idea Worth Building?
+            </motion.h2>
+            
+            {/* Supporting Copy */}
+            <motion.div
+              className="space-y-4 text-base lg:text-lg text-slate-300 mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p>Whether you're validating a concept or ready to build, let's talk. We'll discuss your product, your goals, and whether we're the right partner.</p>
+              <p>No sales pitch. Just an honest conversation about what you're building.</p>
+            </motion.div>
+            
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <Button 
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full hover:scale-[1.03] transition-all duration-300"
+                onClick={() => scrollToSection("contact")}
+              >
+                Start Your Project
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-2 border-orange-400/60 text-slate-100 text-lg px-8 py-6 rounded-full hover:bg-white hover:text-slate-900 hover:border-white transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/truespur', '_blank')}
+              >
+                Schedule a Call
+              </Button>
+            </motion.div>
+            
+          </div>
+        </div>
+      </motion.section>
+
       {/* Footer */}
       <footer className="bg-black text-white py-12">
         <div className="container mx-auto px-4">
