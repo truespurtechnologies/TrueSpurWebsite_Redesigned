@@ -9,18 +9,10 @@ import useEmblaCarousel from "embla-carousel-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
 import { useState, useEffect, useRef } from "react"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 import {
   ArrowRight,
   Code,
@@ -150,9 +142,6 @@ function AnimatedStatCard({
 }
 
 export default function HomePage() {
-  const [activeSection, setActiveSection] = useState("home")
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isProductMobileOpen, setIsProductMobileOpen] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
   const [leadFormSource, setLeadFormSource] = useState<
@@ -171,39 +160,10 @@ export default function HomePage() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
   const [spotlightIndex, setSpotlightIndex] = useState(0)
 
-  const openLeadForm = (
-    source: "get-started" | "start-project" | "get-proposal" | "success-story",
-  ) => {
-    setLeadFormSource(source)
+  const openLeadForm = (source: string) => {
+    setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
     setIsLeadFormOpen(true)
   }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "services", "expertise", "about", "contact"]
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections) {
-        const element =
-          section === "home"
-            ? (document.querySelector("header")?.nextElementSibling as HTMLElement)
-            : document.getElementById(section)
-
-        if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   useEffect(() => {
     if (!emblaApi) return
@@ -226,9 +186,7 @@ export default function HomePage() {
     }
   }, [emblaApi])
 
-  const scrollToSection = (sectionId: string) => {
-    setIsMenuOpen(false)
-
+  const navigateToSection = (sectionId: string) => {
     if (sectionId === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
@@ -241,14 +199,6 @@ export default function HomePage() {
       window.scrollTo({ top: elementPosition, behavior: "smooth" })
     }
   }
-
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "services", label: "Services" },
-    { id: "expertise", label: "Expertise" },
-    { id: "about", label: "About" },
-    { id: "contact", label: "Contact" },
-  ]
 
   const [activeTestimonial, setActiveTestimonial] = useState(0)
 
@@ -382,208 +332,7 @@ export default function HomePage() {
         source={leadFormSource}
       />
       {/* Header */}
-      {/* TODO: Navigation visual refinement intentionally deferred until full Homepage implementation is complete.
-          Future refinement should evaluate: navigation proportions, logo scale, menu spacing, visual hierarchy, overall balance against all homepage sections */}
-      <header className="relative border-b border-slate-200/50 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent"></div>
-        <div className="container mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
-          <div className="flex items-center">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg"
-            >
-              <img
-                src="/images/TrueSpur logo.png"
-                alt="TrueSpur Technology Solutions"
-                className="h-11 w-auto md:h-13 lg:h-15 xl:h-17 hover:opacity-80 transition-opacity cursor-pointer"
-              />
-            </button>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <NavigationMenu viewport={true}>
-              <NavigationMenuList>
-                {/* Home first */}
-                {navItems
-                  .filter((item) => item.id === "home")
-                  .map((item) => (
-                    <NavigationMenuItem key={item.id}>
-                      <button
-                        onClick={() => scrollToSection(item.id)}
-                        className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
-                          activeSection === item.id
-                            ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
-                            : "text-gray-600"
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    </NavigationMenuItem>
-                  ))}
-
-                {/* Product Suite immediately after Home */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-base font-medium text-gray-700 hover:text-orange-600">
-                    Product Suite
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="md:min-w-[700px]">
-                    <div className="grid gap-6 p-4 md:grid-cols-3 bg-white rounded-xl border shadow-xl">
-                      {productSuite.map((group) => (
-                        <div key={group.category} className="space-y-3">
-                          <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
-                            {group.category}
-                          </p>
-                          <div className="space-y-2">
-                            {group.items.map((product) => (
-                              <NavigationMenuLink
-                                key={product.label}
-                                href={product.href}
-                                className="block rounded-lg border border-transparent px-3 py-2 text-left hover:border-orange-200 hover:bg-orange-50/80 transition-all duration-200"
-                              >
-                                <div className="text-sm font-semibold text-gray-900">
-                                  {product.label}
-                                </div>
-                                {product.description && (
-                                  <p className="mt-1 text-xs text-gray-600 leading-snug">
-                                    {product.description}
-                                  </p>
-                                )}
-                              </NavigationMenuLink>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                {/* Remaining sections */}
-                {navItems
-                  .filter((item) => item.id !== "home")
-                  .map((item) => (
-                    <NavigationMenuItem key={item.id}>
-                      <button
-                        onClick={() => scrollToSection(item.id)}
-                        className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
-                          activeSection === item.id
-                            ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
-                            : "text-gray-600"
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    </NavigationMenuItem>
-                  ))}
-
-                <NavigationMenuIndicator />
-              </NavigationMenuList>
-              <NavigationMenuViewport />
-            </NavigationMenu>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-md p-2"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-
-          {/* Desktop CTA Button */}
-          <Button
-            onClick={() => openLeadForm("get-started")}
-            className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.01] text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-          >
-            Get Started
-          </Button>
-        </div>
-
-        {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t bg-white/95 backdrop-blur">
-            <nav className="container mx-auto px-4 py-4 space-y-2">
-              {/* Home first */}
-              {navItems
-                .filter((item) => item.id === "home")
-                .map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                      activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-
-              {/* Mobile Product Suite */}
-              <div className="mt-2 border-t border-gray-100 pt-3">
-                <button
-                  onClick={() => setIsProductMobileOpen((open) => !open)}
-                  className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                >
-                  <span>Product Suite</span>
-                  <span className={`transition-transform ${isProductMobileOpen ? "rotate-180" : "rotate-0"}`}>
-                    ?
-                  </span>
-                </button>
-
-                {isProductMobileOpen && (
-                  <div className="mt-2 space-y-3 px-2">
-                    {productSuite.map((group) => (
-                      <div key={group.category} className="space-y-1">
-                        <p className="px-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
-                          {group.category}
-                        </p>
-                        <div className="space-y-1">
-                          {group.items.map((product) => (
-                            <a
-                              key={product.label}
-                              href={product.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block w-full rounded-lg px-3 py-2 text-left text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
-                            >
-                              {product.label}
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Remaining sections */}
-              {navItems
-                .filter((item) => item.id !== "home")
-                .map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-orange-50 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                      activeSection === item.id ? "text-orange-600 bg-orange-50" : "text-gray-600"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              <div className="pt-4">
-                <Button
-                  onClick={() => openLeadForm("get-started")}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
-                >
-                  Get Started
-                </Button>
-              </div>
-            </nav>
-          </div>
-        )}
-      </header>
+      <Header currentPage="home" openLeadForm={openLeadForm} />
 
       {/* Hero Section */}
       <motion.section
@@ -1234,7 +983,7 @@ export default function HomePage() {
             >
               <Button 
                 className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/20 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-white"
-                onClick={() => scrollToSection("contact")}
+                onClick={() => openLeadForm("get-started")}
               >
                 Start Your Project
               </Button>
@@ -1252,154 +1001,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg"
-                >
-                  <img
-                    src="/logo/truespur-footer-logo.png"
-                    alt="TrueSpur Technology Solutions - We Craft. You Lead."
-                    className="h-12 w-auto brightness-0 invert hover:opacity-80 transition-opacity cursor-pointer"
-                  />
-                </button>
-              </div>
-              <p className="text-gray-400 mb-4">Transforming businesses with cutting-edge technology solutions.</p>
-              <p className="text-amber-300 text-sm italic tracking-wide">"We Craft. You Lead."</p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-orange-400">Services</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Website Development
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Mobile App Development
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Custom Software
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    AI Solutions
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Product Consulting
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-orange-400">Industries</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <button
-                    onClick={() => scrollToSection("expertise")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Healthcare
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("expertise")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Education
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("expertise")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Digital Transformation
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("expertise")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Enterprise Solutions
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-orange-400">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <button
-                    onClick={() => scrollToSection("about")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    About Us
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("about")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Our Team
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Careers
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-                  >
-                    Contact
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2026 TrueSpur Technology Solutions. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer scrollToSection={navigateToSection} />
     </div>
   )
 }

@@ -81,11 +81,6 @@ export default function AboutPage() {
   const shouldReduceMotion = useReducedMotion()
   const animationProps = createAnimationProps(shouldReduceMotion)
 
-  const scrollToSection = (sectionId: string) => {
-    // Implementation for scrolling to specific sections
-    console.log(`Scrolling to ${sectionId}`)
-  }
-
   const openLeadForm = (source: string) => {
     // Implementation for opening lead form
     console.log(`Opening lead form from ${source}`)
@@ -94,10 +89,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header 
-        activeSection="about" 
-        scrollToSection={scrollToSection}
+        currentPage="/about"
         openLeadForm={openLeadForm}
-        currentPage="about"
       />
       
       <main id="main-content" className="focus:outline-none">
@@ -466,7 +459,7 @@ export default function AboutPage() {
 
       </main>
 
-      <Footer scrollToSection={scrollToSection} />
+      <Footer />
     </div>
   )
 }

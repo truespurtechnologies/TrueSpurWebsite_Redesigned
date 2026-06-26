@@ -1,5 +1,5 @@
 interface FooterProps {
-  scrollToSection: (sectionId: string) => void
+  scrollToSection?: (sectionId: string) => void
 }
 
 export function Footer({ scrollToSection }: FooterProps) {
@@ -10,7 +10,7 @@ export function Footer({ scrollToSection }: FooterProps) {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <button
-                onClick={() => scrollToSection("home")}
+                onClick={() => scrollToSection ? scrollToSection("home") : window.location.href = "/"}
                 className="focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg"
               >
                 <img
@@ -29,7 +29,7 @@ export function Footer({ scrollToSection }: FooterProps) {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection ? scrollToSection("services") : window.location.href = "/services"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Website Development
@@ -37,7 +37,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection ? scrollToSection("services") : window.location.href = "/services"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Mobile App Development
@@ -45,7 +45,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection ? scrollToSection("services") : window.location.href = "/services"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Custom Software
@@ -53,7 +53,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection ? scrollToSection("services") : window.location.href = "/services"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   AI Solutions
@@ -61,7 +61,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection ? scrollToSection("services") : window.location.href = "/services"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Product Consulting
@@ -75,7 +75,7 @@ export function Footer({ scrollToSection }: FooterProps) {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <button
-                  onClick={() => scrollToSection("expertise")}
+                  onClick={() => scrollToSection ? scrollToSection("expertise") : window.location.href = "/"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Healthcare
@@ -83,7 +83,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("expertise")}
+                  onClick={() => scrollToSection ? scrollToSection("expertise") : window.location.href = "/"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Education
@@ -91,7 +91,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("expertise")}
+                  onClick={() => scrollToSection ? scrollToSection("expertise") : window.location.href = "/"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Digital Transformation
@@ -99,7 +99,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("expertise")}
+                  onClick={() => scrollToSection ? scrollToSection("expertise") : window.location.href = "/"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Enterprise Solutions
@@ -113,7 +113,7 @@ export function Footer({ scrollToSection }: FooterProps) {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <button
-                  onClick={() => scrollToSection("about")}
+                  onClick={() => window.location.href = "/about"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   About Us
@@ -121,7 +121,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("about")}
+                  onClick={() => window.location.href = "/about"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Our Team
@@ -129,7 +129,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => window.location.href = "/contact"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Careers
@@ -137,7 +137,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => window.location.href = "/contact"}
                   className="hover:text-orange-400 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
                 >
                   Contact
@@ -149,6 +149,7 @@ export function Footer({ scrollToSection }: FooterProps) {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2026 TrueSpur Technology Solutions. All rights reserved.</p>
+          <p className="mt-2 text-sm">"We Craft. You Lead."</p>
         </div>
       </div>
     </footer>
