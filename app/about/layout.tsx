@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'About TrueSpur - Founder-Led Product Studio',
     description: 'Building products—our own and yours. Learn about our founder-led approach to digital product development.',
     type: 'website',
-    url: 'https://truespur.com/about',
+    url: 'https://www.truespur.ai/about',
     images: [
       {
         url: '/images/truespur-og-image.jpg',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     images: ['/images/truespur-og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://truespur.com/about',
+    canonical: 'https://www.truespur.ai/about',
   },
   robots: {
     index: true,

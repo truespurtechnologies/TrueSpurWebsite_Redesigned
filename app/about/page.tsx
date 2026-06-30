@@ -43,7 +43,7 @@ function CapabilityCard({ title, description }: { title: string; description: st
   return (
     <Card className="relative bg-white rounded-xl border border-gray-100/80 p-7 lg:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out group">
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
       
       {/* Capability headline */}
       <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
@@ -63,7 +63,7 @@ function BeliefCard({ belief, explanation }: { belief: string; explanation: stri
   return (
     <Card className="relative bg-white rounded-xl border border-gray-100/80 p-7 lg:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out group">
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
       
       {/* Belief headline */}
       <h3 className="font-heading text-base lg:text-lg font-semibold text-gray-900 mb-4">
