@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
+import { LeadFormDialog } from "@/components/lead-form-dialog"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -42,7 +43,7 @@ function CapabilityCard({ title, description }: { title: string; description: st
   return (
     <Card className="relative bg-white rounded-xl border border-gray-100/80 p-7 lg:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out group">
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
       
       {/* Capability headline */}
       <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
@@ -62,7 +63,7 @@ function BeliefCard({ belief, explanation }: { belief: string; explanation: stri
   return (
     <Card className="relative bg-white rounded-xl border border-gray-100/80 p-7 lg:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out group">
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
       
       {/* Belief headline */}
       <h3 className="font-heading text-base lg:text-lg font-semibold text-gray-900 mb-4">
@@ -80,14 +81,24 @@ function BeliefCard({ belief, explanation }: { belief: string; explanation: stri
 export default function AboutPage() {
   const shouldReduceMotion = useReducedMotion()
   const animationProps = createAnimationProps(shouldReduceMotion)
+  
+  const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
+  const [leadFormSource, setLeadFormSource] = useState<
+    "get-started" | "start-project" | "get-proposal" | "success-story" | null
+  >(null)
 
   const openLeadForm = (source: string) => {
-    // Implementation for opening lead form
-    console.log(`Opening lead form from ${source}`)
+    setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
+    setIsLeadFormOpen(true)
   }
 
   return (
     <div className="min-h-screen bg-white">
+      <LeadFormDialog
+        open={isLeadFormOpen}
+        onOpenChange={setIsLeadFormOpen}
+        source={leadFormSource}
+      />
       <Header 
         currentPage="/about"
         openLeadForm={openLeadForm}
@@ -238,7 +249,7 @@ export default function AboutPage() {
               
               {/* Founder Photo */}
               <div className="col-span-1 lg:col-span-2">
-                <div className="w-full max-w-sm mx-auto lg:mx-0 bg-gray-200 rounded-2xl shadow-lg aspect-[3/4] overflow-hidden relative">
+                <div className="w-full max-w-sm mx-auto lg:mx-0 bg-gray-200 rounded-2xl shadow-lg aspect-3/4 overflow-hidden relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-gray-500 text-center px-4 text-sm" role="img" aria-label="Founder photograph placeholder">
                       Founder Photo
@@ -448,7 +459,7 @@ export default function AboutPage() {
               <PrimaryButton size="lg" onClick={() => openLeadForm('about-final-cta-primary')}>
                 Start Your Project
               </PrimaryButton>
-              <SecondaryButton size="lg" onClick={() => openLeadForm('about-final-cta-secondary')}>
+              <SecondaryButton size="lg" onClick={() => window.open('https://calendly.com/truespur', '_blank')}>
                 Schedule a Call
               </SecondaryButton>
             </div>

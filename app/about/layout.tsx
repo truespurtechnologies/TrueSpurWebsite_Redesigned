@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 export default function AboutLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: any
 }) {
   return children
 }

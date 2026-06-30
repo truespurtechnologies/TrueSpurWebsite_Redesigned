@@ -88,7 +88,7 @@ function AnimatedStatCard({
 }) {
   const ref = useRef<HTMLDivElement | null>(null)
   const count = useMotionValue(0)
-  const rounded = useTransform(count, (latest) => Math.floor(latest))
+  const rounded = useTransform(count, (latest: number) => Math.floor(latest))
 
   useEffect(() => {
     if (!ref.current) return
@@ -123,7 +123,7 @@ function AnimatedStatCard({
       transition={{ duration: 0.5, delay: 0.1 * index, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.6 }}
     >
-      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-yellow-400/70 via-orange-500/70 to-amber-500/70 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+      <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-yellow-400/70 via-orange-500/70 to-amber-500/70 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
       <Card className="relative border-0 bg-white/95 shadow-lg rounded-2xl overflow-hidden backdrop-blur-sm group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
         <CardContent className="p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center">
           <div className="mb-3 inline-flex items-baseline gap-1">
@@ -642,7 +642,7 @@ export default function HomePage() {
 
       {/* Section 4: How We Build Products That Scale */}
       <motion.section
-        className="relative py-20 md:py-28 lg:py-36 bg-white"
+        className="relative py-16 md:py-24 lg:py-32 bg-white"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
