@@ -1,12 +1,7 @@
-"use client"
-
-import { motion } from "framer-motion"
-
 interface JourneyStep {
   id: number
   title: string
-  description: string
-  icon: string
+  tagline: string
 }
 
 interface FounderJourneyVisualizationProps {
@@ -15,74 +10,51 @@ interface FounderJourneyVisualizationProps {
 
 export function FounderJourneyVisualization({ className = "" }: FounderJourneyVisualizationProps) {
   const journeySteps: JourneyStep[] = [
-    {
-      id: 1,
-      title: "Validate",
-      description: "We validate your concept through market research and technical feasibility analysis.",
-      icon: "✓"
-    },
-    {
-      id: 2,
-      title: "Define",
-      description: "We define requirements, user stories, and technical architecture for your solution.",
-      icon: "📋"
-    },
-    {
-      id: 3,
-      title: "Design",
-      description: "We create intuitive user interfaces and exceptional user experiences.",
-      icon: "🎨"
-    },
-    {
-      id: 4,
-      title: "Build",
-      description: "We develop robust, scalable software using modern technologies.",
-      icon: "🔧"
-    },
-    {
-      id: 5,
-      title: "Launch & Learn",
-      description: "We launch your product and continuously improve based on user feedback.",
-      icon: "🚀"
-    }
+    { id: 1, title: 'Validate', tagline: 'Test demand first' },
+    { id: 2, title: 'Define', tagline: 'Scope your MVP' },
+    { id: 3, title: 'Design', tagline: 'Create experiences' },
+    { id: 4, title: 'Build', tagline: 'Develop scalably' },
+    { id: 5, title: 'Launch & Learn', tagline: 'Ship with confidence' },
   ]
 
   return (
-    <div className={`w-full ${className}`}>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <div className={`mt-16 relative max-w-6xl mx-auto ${className}`}>
+      {/* Subtle progression connector line - desktop only */}
+      <div className="hidden lg:block absolute top-[52px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent" aria-hidden="true" />
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-5 lg:gap-6 relative">
         {journeySteps.map((step, index) => (
-          <motion.div
-            key={step.id}
-            className="relative group"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            {/* Left gradient accent bar - permanent as per specification */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-400 via-orange-500 to-amber-500 rounded-full" />
-            
-            {/* Card content */}
-            <div className="pl-6 pr-4 py-6 bg-white rounded-xl border border-gray-100/80 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:shadow-gray-900/10 hover:-translate-y-1 transition-all duration-300">
-              {/* Step number and icon */}
-              <div className="flex items-center mb-4">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold text-sm">
-                  {step.icon}
+          <div key={step.id} className="relative">
+            {/* Card */}
+            <div className="relative bg-white rounded-xl border border-gray-100/80 p-6 shadow-sm">
+              {/* Left gradient accent */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl" />
+              
+              <div className="text-center">
+                {/* Step number badge */}
+                <div className="w-12 h-12 rounded-full bg-orange-100/70 flex items-center justify-center text-orange-600 font-heading font-black text-base mb-4 mx-auto relative z-10">
+                  {index + 1}
                 </div>
-                <span className="ml-3 text-sm font-medium text-gray-500">Step {step.id}</span>
+                
+                {/* Step title */}
+                <h4 className="font-heading text-base font-semibold text-gray-900 mb-2 leading-tight">
+                  {step.title}
+                </h4>
+                
+                {/* Step tagline */}
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  {step.tagline}
+                </p>
               </div>
-              
-              {/* Title */}
-              <h3 className="font-semibold text-gray-900 mb-2 text-lg">
-                {step.title}
-              </h3>
-              
-              {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {step.description}
-              </p>
             </div>
-          </motion.div>
+            
+            {/* Mobile progression indicator - subtle arrow between cards */}
+            {index < journeySteps.length - 1 && (
+              <div className="lg:hidden flex justify-center my-3" aria-hidden="true">
+                <div className="w-px h-6 bg-gradient-to-b from-orange-200/60 to-transparent" />
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>
