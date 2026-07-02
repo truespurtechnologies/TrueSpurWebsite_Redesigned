@@ -1,10 +1,10 @@
 # SERVICES PAGE DESIGN SPECIFICATION
 
 **Document Type:** Implementation-Ready Design Specification  
-**Version:** 1.0 (Final)  
-**Date:** June 13, 2026  
-**Status:** ✅ READY FOR IMPLEMENTATION — Design Specification Complete  
-**Authority:** Aligned with SERVICES-PAGE-COPY-FINAL.md, HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md, FINAL-WEBSITE-STRATEGY.md, design-system.md, brand-identity-guidelines.md
+**Version:** 1.4 (Governance Aligned)  
+**Date:** July 2, 2026  
+**Status:** ✅ FROZEN FOR IMPLEMENTATION — Aligned with Frozen Design System  
+**Authority:** Aligned with SERVICES-PAGE-COPY-FINAL.md, FINAL-WEBSITE-STRATEGY.md, docs/05-DESIGN-SYSTEM/design-system.md (v2.2), docs/05-DESIGN-SYSTEM/brand-identity-guidelines.md (v3.0), Frozen CTA Component System
 
 ---
 
@@ -15,13 +15,14 @@ This specification provides complete design guidance for implementing the TrueSp
 **This specification reuses the governance discipline, component consistency, and premium restraint philosophy established in Homepage Design Specification v1.2 while adapting for the Services Page's conversion-focused purpose.**
 
 **Key Sources:**
-- SERVICES-PAGE-COPY-FINAL.md (v1.0) — All copy is final (750 words, conversion-optimized)
-- HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md — Reusable patterns and component standards
-- ABOUT-PAGE-DESIGN-SPECIFICATION.md — Narrative-driven page patterns
-- PRODUCTS-PAGE-DESIGN-SPECIFICATION.md — Portfolio presentation patterns
-- design-system.md (v2.2) — Typography, colors, spacing
-- brand-identity-guidelines.md (v3.0) — Brand standards
-- FINAL-WEBSITE-STRATEGY.md — Product studio positioning
+- docs/03-APPROVED COPY/SERVICES-PAGE-COPY-FINAL.md (v1.0) — All copy is final (750 words, conversion-optimized)
+- docs/05-DESIGN-SYSTEM/design-system.md (v2.2) — Typography, colors, spacing, animation tokens
+- docs/05-DESIGN-SYSTEM/brand-identity-guidelines.md (v3.0) — Brand standards and color system
+- docs/02-COMPANY-STRATEGY/FINAL-WEBSITE-STRATEGY.md (v2.0) — Product studio positioning
+- components/cta/PrimaryButton.tsx — Frozen reusable primary CTA component
+- components/cta/SecondaryButton.tsx — Frozen reusable secondary CTA component
+- components/layout/Header.tsx, Footer.tsx, PageContainer.tsx — Frozen shared layout components
+- Mature architecture established by Homepage, About, and Products implementations
 
 ---
 
@@ -242,24 +243,24 @@ Create immediate clarity. Answer "What does TrueSpur do?" Position as product bu
 - Two sentences explaining value proposition
 
 **Primary CTA:** "Start Your Project"
-- Gradient button: `from-yellow-500 to-orange-500`
-- `text-base px-8 py-6` (desktop)
-- Font: Inter Bold (700)
-- Shadow: `shadow-lg shadow-orange-500/30`
-- Hover: Scale 1.03, enhanced shadow
-- Rounded: `rounded-full`
+- **Component:** `PrimaryButton` (components/cta/PrimaryButton.tsx)
+- **Size:** `lg` (px-10 py-4)
+- **Styling:** Frozen component handles all styling (gradient, shadow, hover states)
+- **Implementation:** Use reusable component without page-specific overrides
 
 **Secondary CTA:** "Schedule a Call"
-- Outline button
-- Border: `border-2 border-orange-400/60`
-- Text: gray-900
-- Padding: `text-base px-6 py-5`
-- Font: Inter Medium (500)
-- Hover: `bg-orange-50` + `border-orange-500`
+- **Component:** `SecondaryButton` (components/cta/SecondaryButton.tsx)
+- **Variant:** `light` (border-orange-500, text-orange-600)
+- **Size:** `lg` (px-10 py-4)
+- **Styling:** Frozen component handles all styling (border, hover states)
+- **Implementation:** Use reusable component without page-specific overrides
 
-### Component Recommendations
+### Component Implementation
 
 ```tsx
+import { PrimaryButton } from '@/components/cta/PrimaryButton'
+import { SecondaryButton } from '@/components/cta/SecondaryButton'
+
 <section className="py-20 md:py-24 lg:py-28 bg-white">
   <div className="container mx-auto px-4">
     <div className="max-w-5xl mx-auto text-center">
@@ -273,19 +274,26 @@ Create immediate clarity. Answer "What does TrueSpur do?" Position as product bu
       </p>
       
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-        <Button className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-base px-8 py-6 rounded-full shadow-lg shadow-orange-500/30 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.03] transition-all duration-300">
+        <PrimaryButton size="lg">
           Start Your Project
-        </Button>
+        </PrimaryButton>
         
-        <Button className="border-2 border-orange-400/60 text-gray-900 text-base px-6 py-5 rounded-full hover:bg-orange-50 hover:border-orange-500 transition-all duration-300">
+        <SecondaryButton size="lg" variant="light">
           Schedule a Call
-        </Button>
+        </SecondaryButton>
       </div>
       
     </div>
   </div>
 </section>
 ```
+
+**Implementation Notes:**
+- Use frozen `PrimaryButton` and `SecondaryButton` components
+- Do NOT add page-specific className overrides
+- Do NOT modify component styling inline
+- Components handle all hover states, shadows, and transitions
+- Consistent with Homepage, About, and Products implementations
 
 ### Visual Content Requirements
 - No images required
@@ -295,8 +303,9 @@ Create immediate clarity. Answer "What does TrueSpur do?" Position as product bu
 ### Interaction Design
 
 **Hover States:**
-- Primary CTA: Pattern B (scale 1.03, shadow enhancement, 300ms)
-- Secondary CTA: Background shift to orange-50, border to orange-500
+- Primary CTA: Handled by frozen `PrimaryButton` component (scale-[1.02], shadow enhancement, 200ms)
+- Secondary CTA: Handled by frozen `SecondaryButton` component (bg-orange-50, border-orange-600, -translate-y-0.5, 200ms)
+- **Note:** Do NOT override component hover states with page-specific styling
 
 **Scroll Behavior:**
 - Fade to next section smoothly
@@ -326,8 +335,10 @@ Create immediate clarity. Answer "What does TrueSpur do?" Position as product bu
 ### Development Notes
 
 **Reusable Components:**
-- CTA button component (gradient + outline variants)
-- Two-CTA layout pattern (reused in Section 6)
+- `PrimaryButton` (components/cta/PrimaryButton.tsx) — Frozen gradient CTA
+- `SecondaryButton` (components/cta/SecondaryButton.tsx) — Frozen outline CTA with light/dark variants
+- Two-CTA layout pattern (Hero + Final CTA sections)
+- **Implementation:** Import and use frozen components without modifications
 
 **Performance:**
 - Preload critical fonts (Poppins Black, Inter Regular)
@@ -1100,17 +1111,21 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
 - Max-width: 700px, centered
 
 **Primary CTA:** "Start Your Project"
-- Gradient button (same as Hero)
+- **Component:** `PrimaryButton` (components/cta/PrimaryButton.tsx)
+- **Size:** `lg`
 - Prominent, first position
 
 **Secondary CTA:** "Schedule a Call"
-- Outline button
-- Border: `border-2 border-orange-400/60`
-- Text: gray-900
+- **Component:** `SecondaryButton` (components/cta/SecondaryButton.tsx)
+- **Variant:** `light`
+- **Size:** `lg`
 
-### Component Recommendations
+### Component Implementation
 
 ```tsx
+import { PrimaryButton } from '@/components/cta/PrimaryButton'
+import { SecondaryButton } from '@/components/cta/SecondaryButton'
+
 <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
   <div className="container mx-auto px-4">
     <div className="max-w-4xl mx-auto text-center">
@@ -1129,19 +1144,24 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
       </div>
       
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-base px-8 py-6 rounded-full shadow-lg shadow-orange-500/30 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.03] transition-all duration-300">
+        <PrimaryButton size="lg">
           Start Your Project
-        </Button>
+        </PrimaryButton>
         
-        <Button className="border-2 border-orange-400/60 text-gray-900 text-base px-6 py-5 rounded-full hover:bg-orange-50 hover:border-orange-500 transition-all duration-300">
+        <SecondaryButton size="lg" variant="light">
           Schedule a Call
-        </Button>
+        </SecondaryButton>
       </div>
       
     </div>
   </div>
 </section>
 ```
+
+**Implementation Notes:**
+- Use frozen `PrimaryButton` and `SecondaryButton` components
+- Do NOT add page-specific className overrides
+- Components handle all styling, hover states, and transitions
 
 ### Visual Content Requirements
 - No images required
@@ -1151,8 +1171,9 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
 ### Interaction Design
 
 **Hover States:**
-- Primary CTA: Pattern B (scale 1.03, shadow enhancement, 300ms)
-- Secondary CTA: Background shift to orange-50, border to orange-500
+- Primary CTA: Handled by frozen `PrimaryButton` component
+- Secondary CTA: Handled by frozen `SecondaryButton` component
+- **Note:** Do NOT override component hover states
 
 **Scroll Animation:**
 - Headline: Fade in + slide up (400ms, 0ms delay)
@@ -1176,8 +1197,10 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
 ### Development Notes
 
 **Reusable Components:**
-- CTA button component (matches Hero CTAs)
-- Two-CTA layout pattern
+- `PrimaryButton` (components/cta/PrimaryButton.tsx) — Frozen gradient CTA
+- `SecondaryButton` (components/cta/SecondaryButton.tsx) — Frozen outline CTA
+- Two-CTA layout pattern (identical to Hero section)
+- **Implementation:** Import and use frozen components without modifications
 
 **Conversion Optimization:**
 - Low-pressure language ("Let's talk" vs "Get started now")
@@ -1298,27 +1321,118 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
 
 ### Component Inventory
 
-**Reusable Components:**
-1. **CTA Button (Gradient)** — Primary conversion button
-2. **CTA Button (Outline)** — Secondary conversion button
-3. **Service Card** — Service offering card with bullets
-4. **Section Container** — Standard section wrapper with padding
-5. **Subsection Block** — Bold headline + body paragraph
+**EXISTING SHARED COMPONENTS (Direct Reuse):**
+
+1. **Header** — `components/layout/Header.tsx` (Frozen)
+   - Global site navigation
+   - Direct reuse, no modifications
+
+2. **Footer** — `components/layout/Footer.tsx` (Frozen)
+   - Global site footer
+   - Direct reuse, no modifications
+
+3. **PageContainer** — `components/layout/PageContainer.tsx` (Frozen)
+   - Standard page wrapper
+   - Direct reuse, no modifications
+
+4. **PrimaryButton** — `components/cta/PrimaryButton.tsx` (Frozen)
+   - Gradient CTA button (yellow-500 → orange-500)
+   - Hover: scale-[1.02], shadow enhancement, 200ms
+   - Sizes: sm, md, lg
+   - **Usage:** Hero CTA, Final CTA
+   - **Implementation:** Import and use without page-specific overrides
+
+5. **SecondaryButton** — `components/cta/SecondaryButton.tsx` (Frozen)
+   - Outline CTA button
+   - Variants: light (border-orange-500), dark (border-white)
+   - Hover: bg-orange-50, border-orange-600, -translate-y-0.5, 200ms
+   - Sizes: sm, md, lg
+   - **Usage:** Hero CTA, Final CTA
+   - **Implementation:** Import and use without page-specific overrides
+
+6. **Typography System** — Design System (Frozen)
+   - Poppins headings (font-heading)
+   - Inter body text (font-sans)
+   - Responsive type scale
+   - **Usage:** All sections
+
+7. **Spacing System** — Design System (Frozen)
+   - Section padding: `py-16 md:py-24 lg:py-32`
+   - Card padding: `p-8 lg:p-9`
+   - Grid gaps: `gap-6 lg:gap-8`
+   - **Usage:** All sections
+
+8. **Animation System** — Design System (Frozen)
+   - Durations: 150ms, 200ms, 300ms, 400ms
+   - Easing: ease-out
+   - prefers-reduced-motion support
+   - **Usage:** Scroll reveals, hover states
+
+**NEW REUSABLE COMPONENTS (To Be Created):**
+
+9. **ServiceCard** — Service offering card
+   - Structure: Title + positioning statement + 5 outcome bullets
+   - Hover: shadow-sm → shadow-lg, -translate-y-1, left gradient accent reveal
+   - Visual Restraint: NO decorative icons (typography-first)
+   - **Usage:** Section 3 (Services Grid)
+   - **Reusability:** HIGH — Could replace Homepage service cards
+
+10. **FounderJourneyVisualization** — 5-step journey cards (REQUIRED)
+    - Steps: Validate → Define → Design → Build → Launch & Learn
+    - Grid: 5-column → 3-column → 1-column (responsive)
+    - Card-based pattern with numbered indicators
+    - **Usage:** Section 2 (From Idea to Product)
+    - **Status:** REQUIRED FOR LAUNCH
+
+11. **SubsectionBlock** — Bold headline + paragraph (Optional)
+    - Structure: H3 + body paragraph wrapper
+    - **Usage:** Sections 4 & 5 (narrative subsections)
+    - **Reusability:** HIGH — Narrative sections across site
+
+**PAGE-SPECIFIC COMPONENTS:**
+- None — All components are shared or genuinely reusable
+
+**IMPLEMENTATION GOVERNANCE:**
+
+**Reuse Existing Components:**
+- Use frozen `PrimaryButton` and `SecondaryButton` without modifications
+- Use frozen `Header`, `Footer`, `PageContainer` without modifications
+- Use frozen Typography, Spacing, and Animation systems
+- Do NOT create page-specific CTA styling
+- Do NOT override component hover states
+- Do NOT introduce duplicate implementations
+
+**Respect Visual Restraint Governance:**
+- ServiceCard: NO decorative icons (lines 656-707)
+- Typography-first presentation
+- Premium restraint philosophy
+- Calm, editorial aesthetic
+
+**Follow Mature Architecture:**
+- Component-based architecture (no monolithic page.tsx)
+- TypeScript types for all components
+- Responsive design with approved spacing system
+- Animation tokens (150ms, 200ms, 300ms, 400ms)
+- prefers-reduced-motion handling
 
 **Component Code Examples:**
 
-**CTA Button (Gradient):**
+**PrimaryButton Usage:**
 ```tsx
-<Button className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-base px-8 py-6 rounded-full shadow-lg shadow-orange-500/30 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.03] transition-all duration-300">
+import { PrimaryButton } from '@/components/cta/PrimaryButton'
+
+<PrimaryButton size="lg">
   Start Your Project
-</Button>
+</PrimaryButton>
 ```
 
-**CTA Button (Outline):**
+**SecondaryButton Usage:**
 ```tsx
-<Button className="border-2 border-orange-400/60 text-gray-900 text-base px-6 py-5 rounded-full hover:bg-orange-50 hover:border-orange-500 transition-all duration-300">
+import { SecondaryButton } from '@/components/cta/SecondaryButton'
+
+<SecondaryButton size="lg" variant="light">
   Schedule a Call
-</Button>
+</SecondaryButton>
 ```
 
 **Service Card:**
@@ -1339,6 +1453,8 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
 ```
 
 ### Design System References
+
+**Source:** docs/05-DESIGN-SYSTEM/design-system.md (v2.2)
 
 **Typography:**
 - Headings: Poppins via `font-heading` class
@@ -1364,12 +1480,18 @@ Convert visitors who've read entire page. Provide clear next steps. Low-pressure
 **Shadows:**
 - Card default: `shadow-sm`
 - Card hover: `shadow-lg`
-- CTA button: `shadow-lg shadow-orange-500/30`
+- CTA button: `shadow-md` (handled by PrimaryButton component)
 
 **Border Radius:**
 - Cards: `rounded-2xl` (16px)
 - Buttons: `rounded-full`
 - Icon containers: `rounded-lg` (8px)
+
+**Animation Tokens:**
+- Micro-interactions: 150ms, 200ms
+- Scroll reveals: 300ms, 400ms
+- Easing: ease-out
+- Respect: prefers-reduced-motion
 
 ### Developer Notes
 
@@ -1678,9 +1800,9 @@ Separate conversion paths may be introduced later based on:
 
 ---
 
-**Document Version:** 1.3.1 (Micro Maintenance Update)  
-**Date:** June 24, 2026  
-**Status:** ✅ FROZEN FOR IMPLEMENTATION  
+**Document Version:** 1.4 (Governance Aligned)  
+**Date:** July 2, 2026  
+**Status:** ✅ FROZEN FOR IMPLEMENTATION — Aligned with Frozen Design System  
 **Refinements Applied:**
 - v1.1: Founder Journey Visualization promoted to Required Component (Card-Based pattern)
 - v1.1: Trust Signal Visualization simplified to single pattern (optional)
@@ -1692,8 +1814,19 @@ Separate conversion paths may be introduced later based on:
 - v1.3: Service Card Visual Restraint Governance added (prevent icon/illustration drift)
 - v1.3: Preferred Launch Destination added to CTA Governance (Calendly primary recommendation)
 - v1.3.1: Product name references removed for maintainability (Section 4 opening paragraph)
+- **v1.4: Pre-Implementation Governance Alignment Sprint (July 2, 2026)**
+  - Updated all CTA references to frozen `PrimaryButton` and `SecondaryButton` components
+  - Corrected all Design System file paths (docs/05-DESIGN-SYSTEM/)
+  - Updated Component Inventory to reflect mature architecture (8 existing shared + 3 new reusable)
+  - Added Implementation Governance guidance (reuse existing, respect Visual Restraint, follow mature architecture)
+  - Updated hover state descriptions to reference frozen component behavior
+  - Removed outdated inline CTA styling specifications
+  - Added explicit "Do NOT override" warnings for component modifications
+  - Synchronized all cross-references with current repository structure
+  - Aligned specification with Homepage, About, and Products frozen implementations
 
-**Next Steps:** Begin development using this specification as source of truth  
+**Governance Synchronization:** Complete — All documentation aligned with frozen Design System  
+**Next Steps:** Begin Services Page implementation using frozen components  
 **Maintenance:** Document frozen — no further refinements without strategic approval
 
 ---
