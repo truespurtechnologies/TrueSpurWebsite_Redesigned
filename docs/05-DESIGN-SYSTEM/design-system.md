@@ -224,14 +224,34 @@ Shadow: shadow-lg shadow-orange-500/30
 Hover: scale-[1.03] + shadow-xl
 ```
 
-**Secondary Button**
+**Secondary Button (Light Variant) — PRODUCTION-QUALITY**
 ```
 Background: Transparent
-Border: 2px solid orange-400/60
-Text: slate-100 (dark bg) or gray-900 (light bg)
-Padding: text-base px-6 py-5
-Font: Inter, 16px, 500 (medium)
-Hover: bg-white + text-slate-900 + border-white
+Border: 2px solid orange-500 (NO opacity)
+Text: orange-600
+Padding: text-base px-8 py-3 (md size)
+Border Radius: rounded-full
+Font: Inter, 16px, 700 (bold)
+Shadow: shadow-sm (base depth)
+Hover: bg-orange-50 + border-orange-600 + text-orange-700 + shadow-md + -translate-y-0.5
+Transition: duration-200 ease-out
+Use: Light backgrounds (white, gray-50)
+Status: ✅ FROZEN — Production-quality (July 2, 2026)
+```
+
+**Secondary Button (Dark Variant) — PRODUCTION-QUALITY**
+```
+Background: white/15 (subtle fill, enhanced from white/10)
+Border: 2px solid white (NO opacity)
+Text: white
+Padding: text-base px-8 py-3 (md size)
+Border Radius: rounded-full
+Font: Inter, 16px, 700 (bold)
+Shadow: shadow-sm shadow-white/10 (tinted for depth)
+Hover: bg-white + text-slate-900 + border-white + shadow-lg shadow-white/20 + -translate-y-0.5
+Transition: duration-200 ease-out
+Use: Dark backgrounds (slate-900, slate-950, dark gradients)
+Status: ✅ FROZEN — Production-quality (July 2, 2026)
 ```
 
 ### Cards

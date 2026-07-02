@@ -13,6 +13,7 @@ import { useState, useEffect, useRef } from "react"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
+import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import {
   ArrowRight,
   Code,
@@ -987,13 +988,13 @@ export default function HomePage() {
               >
                 Start Your Project
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-2 border-orange-400/40 text-slate-200 text-lg px-8 py-6 rounded-full hover:bg-white/95 hover:text-slate-900 hover:border-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400/60 focus:ring-offset-2 focus:ring-offset-slate-900"
+              <SecondaryButton 
+                size="lg"
+                variant="dark"
                 onClick={() => window.open('https://calendly.com/truespur', '_blank')}
               >
                 Schedule a Call
-              </Button>
+              </SecondaryButton>
             </motion.div>
             
           </div>
