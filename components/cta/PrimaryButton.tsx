@@ -31,7 +31,7 @@ export function PrimaryButton({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${sizeClasses[size]} rounded-full font-bold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${className}`}
+      className={`${sizeClasses[size]} rounded-full font-bold shadow-sm bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-md text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
     >
       {loading ? (
         <>

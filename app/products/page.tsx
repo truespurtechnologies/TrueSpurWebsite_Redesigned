@@ -144,7 +144,6 @@ export default function ProductsPage() {
       />
       <Header 
         currentPage="/products"
-        openLeadForm={openLeadForm}
       />
       
       <main id="main-content" className="focus:outline-none">

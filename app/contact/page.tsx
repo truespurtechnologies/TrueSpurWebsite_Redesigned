@@ -3,11 +3,11 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
-import { PageContainer } from "@/components/layout/PageContainer"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
-import { SecondaryButton } from "@/components/cta/SecondaryButton"
+import { ContactForm } from "@/components/contact/ContactForm"
+import { ProcessStepCard } from "@/components/contact/ProcessStepCard"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -30,9 +30,9 @@ const useReducedMotion = () => {
 
 // Animation variants with reduced motion support
 const createAnimationProps = (_shouldReduceMotion: boolean) => ({
-  initial: _shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 },
+  initial: _shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 },
   whileInView: _shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 },
-  transition: _shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease: "easeOut" },
+  transition: _shouldReduceMotion ? { duration: 0 } : { duration: 0.4, ease: "easeOut" },
   viewport: { once: true, amount: 0.3 }
 })
 
@@ -40,69 +40,271 @@ export default function ContactPage() {
   const shouldReduceMotion = useReducedMotion()
   const animationProps = createAnimationProps(shouldReduceMotion)
 
-  const openLeadForm = (source: string) => {
-    // Implementation for opening lead form
-    console.log(`Opening lead form from ${source}`)
+  const scrollToForm = () => {
+    const formSection = document.getElementById('contact-form')
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage="/contact" openLeadForm={openLeadForm} />
+      <Header currentPage="/contact" />
       
       <main>
-        <PageContainer>
-          <motion.div 
-            initial={animationProps.initial}
-            whileInView={animationProps.whileInView}
-            transition={animationProps.transition}
-            viewport={animationProps.viewport}
-            className="text-center py-16 lg:py-24"
-          >
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Contact Us
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              Get in touch with the TrueSpur team to discuss your project ideas and learn how we can help bring them to life.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <PrimaryButton 
-                onClick={() => openLeadForm("get-started")}
-                className="inline-flex items-center"
-              >
-                Start Your Project
-              </PrimaryButton>
-              <SecondaryButton 
-                onClick={() => window.location.href = "/about"}
-                className="inline-flex items-center"
-              >
-                Learn About Us
-              </SecondaryButton>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            initial={animationProps.initial}
-            whileInView={animationProps.whileInView}
-            transition={animationProps.transition}
-            viewport={animationProps.viewport}
-            className="max-w-4xl mx-auto py-12"
-          >
-            <div className="bg-gray-50 rounded-2xl p-8 md:p-12 text-center">
-              <h2 className="font-heading text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-                Contact Page Coming Soon
+        {/* SECTION 1: HERO */}
+        <section className="py-16 md:py-24 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <motion.div 
+              {...animationProps}
+              className="text-center"
+            >
+              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-[1.15] mb-6">
+                Let's Talk About What You're Building.
+              </h1>
+              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
+                Whether you're validating an idea or ready to build, we'd love to have a conversation. No sales pitch. No pressure. Just an honest discussion about your product and whether we're the right partner to help you build it.
+              </p>
+              <div className="mt-10">
+                <PrimaryButton 
+                  onClick={scrollToForm}
+                  size="lg"
+                >
+                  Start a Conversation
+                </PrimaryButton>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 2: WHY FOUNDERS REACH OUT */}
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.div {...animationProps}>
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+                Why Founders Reach Out
               </h2>
-              <p className="text-gray-600 mb-6">
-                We're currently building our comprehensive contact page with detailed contact information, 
-                contact forms, and team information. In the meantime, please use the "Start Your Project" 
-                button above to get in touch with us.
+              <div className="space-y-6 text-base leading-relaxed text-gray-600">
+                <p>
+                  Founders reach out to us at different stages—some are validating an idea, others are ready to build, and some are already building but need help navigating complexity.
+                </p>
+                <p>
+                  You might be a non-tech founder who understands your domain but needs help translating vision into execution. You might be building in healthcare and need expertise in compliance, EHR integration, or clinical workflows. Or you might just want to talk to someone who thinks like a product manager, not a vendor.
+                </p>
+                <p>
+                  Wherever you are in your journey, if you're thinking about building a product, we're here to talk.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 3: WHAT HAPPENS NEXT */}
+        <section className="py-16 md:py-24 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <motion.div {...animationProps}>
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
+                What Happens Next
+              </h2>
+              <p className="text-base text-gray-600 leading-relaxed text-center mb-12">
+                Here's exactly what to expect after you reach out:
               </p>
-              <p className="text-sm text-gray-500">
-                This page is under development and will be updated according to the approved specifications.
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ProcessStepCard
+                  number={1}
+                  title="You fill out the form."
+                  description="Tell us about what you're building. Just a few sentences—enough for us to understand the problem you're solving and who it's for."
+                />
+                <ProcessStepCard
+                  number={2}
+                  title="We respond within 24 hours."
+                  description="Aswar (our founder) or a senior team member will reach out to schedule a conversation. We'll send a calendar link or suggest a few times that work."
+                />
+                <ProcessStepCard
+                  number={3}
+                  title="We have a 30-45 minute conversation."
+                  description="No sales pitch. We'll ask about your product, your goals, and what you've validated so far. We'll share how we'd approach it, what concerns us, and what excites us. We'll challenge assumptions and help you think through the hard questions."
+                />
+                <ProcessStepCard
+                  number={4}
+                  title="We determine fit together."
+                  description="Not every idea should be built. Not every founder-partner fit works. We'll be honest about whether we think we're the right partner for you. If we're not, we'll say so. If we are, we'll talk about next steps."
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 4: PERMISSION FRAMEWORK */}
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <motion.div {...animationProps}>
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+                You Don't Need Everything Figured Out
+              </h2>
+              <div className="space-y-6 text-base leading-relaxed text-gray-600">
+                <p>
+                  You don't need a detailed spec. You don't need wireframes. You don't need a budget estimate or a technology stack picked out.
+                </p>
+                <p>
+                  You just need to be thinking about a problem worth solving.
+                </p>
+              </div>
+
+              <div className="mt-8 space-y-8">
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    If you're still validating:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    We can help you figure out whether there's real demand, who your users are, and what to build first.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    If you're not sure where to start:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    We can help you break down the problem, prioritize what matters, and create a roadmap that balances vision with reality.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    If you're worried about cost:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    We'll have an honest conversation about what's realistic for your stage and goals. We're optimizing for building products that work, not maximizing project scope.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    If you're building in healthcare:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    We understand the complexity—HIPAA compliance, EHR integration, clinical workflows, regulatory requirements. We've navigated it all for over a decade.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-base text-gray-600 leading-relaxed mt-8">
+                The best time to reach out is when you're thinking seriously about building something. We'll help you figure out the rest.
               </p>
-            </div>
-          </motion.div>
-        </PageContainer>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 5: HOW WE HELP FOUNDERS */}
+        <section className="py-16 md:py-24 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.div {...animationProps}>
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+                How We Help Founders
+              </h2>
+              <p className="text-base text-gray-600 leading-relaxed mb-8">
+                We partner with founders through the entire journey—from validating demand to launching products people want to use.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    Product Discovery & Validation:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Test assumptions before investing months of development. Validate market demand. Define your MVP. Build strategy grounded in evidence.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    Product Design & User Experience:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Design experiences users understand and adopt quickly. Test with real users before writing code. Create foundations that evolve as your product grows.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    Product Development:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Build MVPs on scalable foundations. Ship products ready for real users, not just technically complete. Focus on outcomes—solving problems, not just shipping features.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    Healthcare Expertise:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Navigate HIPAA compliance, EHR integration, clinical workflows, and regulatory requirements. Build healthcare products grounded in operational reality.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
+                    AI Integration:
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    Identify where AI creates value vs. where it's just hype. Build AI-assisted workflows that solve real problems, not chase trends.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-base text-gray-600 leading-relaxed mt-8">
+                We think like product managers, not vendors. We validate before we build. We measure success by outcomes, not features shipped.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 6: CONTACT FORM */}
+        <section id="contact-form" data-contact-form className="py-20 md:py-28 lg:py-32 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-2xl">
+            <motion.div {...animationProps}>
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
+                Ready to Start the Conversation?
+              </h2>
+              <p className="text-base text-gray-600 leading-relaxed text-center mb-8">
+                Tell us a bit about what you're building. We're only asking for what we need to have a meaningful conversation—your name, how to reach you, and a brief description of your product idea.
+              </p>
+              <p className="text-base text-gray-600 leading-relaxed text-center mb-12">
+                Everything else is optional. We'll learn the details when we talk.
+              </p>
+              
+              <ContactForm />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 7: CLOSING REASSURANCE */}
+        <section className="py-16 md:py-24 lg:py-32 mb-24 md:mb-32 lg:mb-40 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.div {...animationProps} className="text-center">
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+                We're Looking Forward to Talking
+              </h2>
+              <div className="space-y-6 text-base leading-relaxed text-gray-600">
+                <p>
+                  Whether we end up working together or not, we'll make sure you leave the conversation with more clarity than you came in with.
+                </p>
+                <p>
+                  We'll share what we think about your idea—honestly. We'll surface risks you might not have considered. We'll suggest approaches you might not have explored. And if we're not the right fit, we'll tell you that too.
+                </p>
+                <p>
+                  Because the best partnerships start with honest conversations.
+                </p>
+                <p>
+                  We're looking forward to hearing what you're building.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
       </main>
       
       <Footer />

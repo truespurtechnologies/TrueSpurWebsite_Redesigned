@@ -78,7 +78,7 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage="/services" openLeadForm={openLeadForm} />
+      <Header currentPage="/services" />
       
       <main>
         {/* SECTION 1: HERO */}

@@ -101,7 +101,6 @@ export default function AboutPage() {
       />
       <Header 
         currentPage="/about"
-        openLeadForm={openLeadForm}
       />
       
       <main id="main-content" className="focus:outline-none">

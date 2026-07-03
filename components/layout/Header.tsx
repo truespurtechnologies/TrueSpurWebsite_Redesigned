@@ -8,15 +8,38 @@ import { useRouter } from "next/navigation"
 
 interface HeaderProps {
   currentPage?: string
-  openLeadForm?: (source: string) => void
 }
 
-export function Header({ currentPage = "home", openLeadForm }: HeaderProps) {
+export function Header({ currentPage = "home" }: HeaderProps) {
   const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleNavigation = (path: string) => {
     router.push(path)
+    setIsMenuOpen(false)
+  }
+
+  const handleCTAClick = () => {
+    if (currentPage === "/contact") {
+      // On Contact page, check if form is visible before scrolling
+      const formSection = document.querySelector('[data-contact-form]') as HTMLElement
+      if (formSection) {
+        const rect = formSection.getBoundingClientRect()
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+        
+        // Check if form is substantially visible (at least 30% in viewport)
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0)
+        const isSubstantiallyVisible = visibleHeight > 0 && visibleHeight >= rect.height * 0.3
+        
+        // Only scroll if form is not substantially visible
+        if (!isSubstantiallyVisible) {
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    } else {
+      // On all other pages, navigate to Contact
+      router.push('/contact')
+    }
     setIsMenuOpen(false)
   }
 
@@ -75,14 +98,12 @@ export function Header({ currentPage = "home", openLeadForm }: HeaderProps) {
         </div>
 
         {/* Desktop CTA Button */}
-        {openLeadForm && (
-          <Button
-            onClick={() => openLeadForm("get-started")}
-            className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-md bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-lg hover:scale-[1.02] text-white transition-all duration-200"
-          >
-            Get Started
-          </Button>
-        )}
+        <Button
+          onClick={handleCTAClick}
+          className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-sm bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-md text-white transition-all duration-200"
+        >
+          Start a Conversation
+        </Button>
       </div>
 
       {/* Mobile Navigation Menu */}
@@ -102,16 +123,14 @@ export function Header({ currentPage = "home", openLeadForm }: HeaderProps) {
                 {item.label}
               </button>
             ))}
-            {openLeadForm && (
-              <div className="pt-4">
-                <Button
-                  onClick={() => openLeadForm("get-started")}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
-                >
-                  Get Started
-                </Button>
-              </div>
-            )}
+            <div className="pt-4">
+              <Button
+                onClick={handleCTAClick}
+                className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
+              >
+                Start a Conversation
+              </Button>
+            </div>
           </nav>
         </div>
       )}

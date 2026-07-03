@@ -333,7 +333,7 @@ export default function HomePage() {
         source={leadFormSource}
       />
       {/* Header */}
-      <Header currentPage="home" openLeadForm={openLeadForm} />
+      <Header currentPage="home" />
 
       {/* Hero Section */}
       <motion.section
