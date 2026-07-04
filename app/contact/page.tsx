@@ -152,7 +152,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="mt-8 space-y-8">
+              <div className="mt-8 space-y-6">
                 <div>
                   <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
                     If you're still validating:
@@ -208,7 +208,7 @@ export default function ContactPage() {
                 We partner with founders through the entire journey—from validating demand to launching products people want to use.
               </p>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
                   <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
                     Product Discovery & Validation:
@@ -263,7 +263,7 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 6: CONTACT FORM */}
-        <section id="contact-form" data-contact-form className="py-20 md:py-28 lg:py-32 bg-gray-50">
+        <section id="contact-form" data-contact-form className="py-16 md:py-24 lg:py-28 bg-gray-50">
           <div className="container mx-auto px-4 max-w-2xl">
             <motion.div {...animationProps}>
               <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
@@ -282,10 +282,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 7: CLOSING REASSURANCE */}
-        <section className="py-16 md:py-24 lg:py-32 mb-24 md:mb-32 lg:mb-40 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 mb-16 md:mb-20 lg:mb-24 bg-white">
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div {...animationProps} className="text-center">
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6">
                 We're Looking Forward to Talking
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-gray-600">
