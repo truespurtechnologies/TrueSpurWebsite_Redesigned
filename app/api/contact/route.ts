@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import { rateLimit } from "@/lib/rate-limit"
 
 interface ContactFormData {
   firstName: string
@@ -9,8 +10,34 @@ interface ContactFormData {
   message: string
 }
 
+const limiter = rateLimit({
+  interval: 15 * 60 * 1000,
+  uniqueTokenPerInterval: 5,
+})
+
 export async function POST(request: NextRequest) {
   try {
+    const identifier = request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip") ?? "anonymous"
+    const rateLimitResult = limiter.check(identifier)
+
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          error: "Too many requests. Please try again later.",
+          retryAfter: Math.ceil((rateLimitResult.reset - Date.now()) / 1000),
+        },
+        {
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+            "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+            "X-RateLimit-Reset": rateLimitResult.reset.toString(),
+            "Retry-After": Math.ceil((rateLimitResult.reset - Date.now()) / 1000).toString(),
+          },
+        },
+      )
+    }
+
     const body: ContactFormData = await request.json()
 
     // Validate required fields
@@ -45,10 +72,6 @@ export async function POST(request: NextRequest) {
       auth: {
         user: smtpUser,
         pass: smtpPass,
-      },
-      // Additional security options
-      tls: {
-        rejectUnauthorized: false, // May be needed for some email providers
       },
     })
 

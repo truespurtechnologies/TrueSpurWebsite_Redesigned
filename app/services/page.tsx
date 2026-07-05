@@ -11,10 +11,12 @@ import { LeadFormDialog } from "@/components/lead-form-dialog"
 
 export default function ServicesPage() {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
-  const [leadFormSource, setLeadFormSource] = useState("")
+  const [leadFormSource, setLeadFormSource] = useState<
+    "get-started" | "start-project" | "get-proposal" | "success-story" | null
+  >(null)
 
   const openLeadForm = (source: string) => {
-    setLeadFormSource(source)
+    setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
     setIsLeadFormOpen(true)
   }
 
@@ -132,7 +134,7 @@ export default function ServicesPage() {
                   We guide you through the entire journey—from validating demand to designing experiences to building software that can evolve with your business to launching with confidence.
                 </p>
                 <p>
-                  We don't just execute requirements. We challenge assumptions, suggest better approaches, and help you avoid mistakes we've already made building our own products.
+                  We don&apos;t just execute requirements. We challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made building our own products.
                 </p>
               </div>
               
@@ -178,7 +180,7 @@ export default function ServicesPage() {
               <div className="max-w-4xl mx-auto text-base lg:text-lg text-gray-600">
                 
                 <p className="text-center mb-12">
-                  We're not a typical development agency. We're a product studio—which means we build our own products (Clinax, Halo, TrueBill, TafsirAI) alongside building yours.
+                  We&apos;re not a typical development agency. We&apos;re a product studio—which means we build our own products (Clinax, Halo, TrueBill, TafsirAI) alongside building yours.
                 </p>
                 
                 {/* Editorial 2-column layout for visual variation */}
@@ -189,7 +191,7 @@ export default function ServicesPage() {
                       We think like founders.
                     </h3>
                     <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      We've faced the same challenges you face: limited budget, uncertain demand, pressure to ship fast without breaking things. That shared experience changes how we work. We don't just execute—we challenge assumptions, suggest better approaches, and help you avoid mistakes we've already made.
+                      We&apos;ve faced the same challenges you face: limited budget, uncertain demand, pressure to ship fast without breaking things. That shared experience changes how we work. We don&apos;t just execute—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.
                     </p>
                   </div>
                   
@@ -204,10 +206,10 @@ export default function ServicesPage() {
                   
                   <div className="space-y-3 lg:col-span-2 max-w-3xl mx-auto">
                     <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900">
-                      We're actively building.
+                      We&apos;re actively building.
                     </h3>
                     <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      When you work with a team that's building products themselves, you get partners who understand the journey—not just the destination. We know what it's like to make difficult product decisions, work within constraints, and balance speed with long-term sustainability.
+                      When you work with a team that&apos;s building products themselves, you get partners who understand the journey—not just the destination. We know what it&apos;s like to make difficult product decisions, work within constraints, and balance speed with long-term sustainability.
                     </p>
                   </div>
                   
@@ -241,7 +243,7 @@ export default function ServicesPage() {
                       We start with honest conversations.
                     </h3>
                     <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      Not every idea should be built. Not every feature matters. We'll tell you when we think you're solving the wrong problem or building the wrong thing. That honesty saves you time and money.
+                      Not every idea should be built. Not every feature matters. We&apos;ll tell you when we think you&apos;re solving the wrong problem or building the wrong thing. That honesty saves you time and money.
                     </p>
                   </div>
                   
@@ -259,7 +261,7 @@ export default function ServicesPage() {
                       We think long-term.
                     </h3>
                     <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      We're not optimizing for the fastest path to invoicing hours. We're optimizing for building products that solve real problems and scale sustainably. That means sometimes saying no to features that don't move the business forward.
+                      We&apos;re not optimizing for the fastest path to invoicing hours. We&apos;re optimizing for building products that solve real problems and scale sustainably. That means sometimes saying no to features that don&apos;t move the business forward.
                     </p>
                   </div>
                   
@@ -268,7 +270,7 @@ export default function ServicesPage() {
                       We build alongside you.
                     </h3>
                     <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      You're not handing off requirements to a vendor. You're partnering with builders who understand product challenges from the inside. We're in the trenches with you.
+                      You&apos;re not handing off requirements to a vendor. You&apos;re partnering with builders who understand product challenges from the inside. We&apos;re in the trenches with you.
                     </p>
                   </div>
                   
@@ -286,15 +288,15 @@ export default function ServicesPage() {
             <div className="max-w-3xl mx-auto text-center">
               
               <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
-                Let's Talk About What You're Building.
+                Let&apos;s Talk About What You&apos;re Building.
               </h2>
               
               <div className="max-w-2xl mx-auto space-y-5 text-lg lg:text-xl text-gray-600 leading-relaxed mb-12">
                 <p>
-                  Whether you're validating an idea or ready to build, let's talk. We'll discuss your product, your goals, and whether we're the right partner.
+                  Whether you&apos;re validating an idea or ready to build, let&apos;s talk. We&apos;ll discuss your product, your goals, and whether we&apos;re the right partner.
                 </p>
                 <p>
-                  No sales pitch. Just an honest conversation about what you're building and how we can help.
+                  No sales pitch. Just an honest conversation about what you&apos;re building and how we can help.
                 </p>
               </div>
               
@@ -316,8 +318,8 @@ export default function ServicesPage() {
       <Footer />
       
       <LeadFormDialog
-        isOpen={isLeadFormOpen}
-        onClose={() => setIsLeadFormOpen(false)}
+        open={isLeadFormOpen}
+        onOpenChange={setIsLeadFormOpen}
         source={leadFormSource}
       />
     </div>

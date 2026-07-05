@@ -60,10 +60,10 @@ export default function ContactPage() {
               className="text-center"
             >
               <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-[1.15] mb-6">
-                Let's Talk About What You're Building.
+                Let&apos;s Talk About What You&apos;re Building.
               </h1>
               <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
-                Whether you're validating an idea or ready to build, we'd love to have a conversation. No sales pitch. No pressure. Just an honest discussion about your product and whether we're the right partner to help you build it.
+                Whether you&apos;re validating an idea or ready to build, we&apos;d love to have a conversation. No sales pitch. No pressure. Just an honest discussion about your product and whether we&apos;re the right partner to help you build it.
               </p>
               <div className="mt-10">
                 <PrimaryButton 
@@ -92,7 +92,7 @@ export default function ContactPage() {
                   You might be a non-tech founder who understands your domain but needs help translating vision into execution. You might be building in healthcare and need expertise in compliance, EHR integration, or clinical workflows. Or you might just want to talk to someone who thinks like a product manager, not a vendor.
                 </p>
                 <p>
-                  Wherever you are in your journey, if you're thinking about building a product, we're here to talk.
+                  Wherever you are in your journey, if you&apos;re thinking about building a product, we&apos;re here to talk.
                 </p>
               </div>
             </motion.div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 What Happens Next
               </h2>
               <p className="text-base text-gray-600 leading-relaxed text-center mb-12">
-                Here's exactly what to expect after you reach out:
+                Here&apos;s exactly what to expect after you reach out:
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -141,11 +141,11 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 max-w-3xl">
             <motion.div {...animationProps}>
               <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
-                You Don't Need Everything Figured Out
+                You Don&apos;t Need Everything Figured Out
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-gray-600">
                 <p>
-                  You don't need a detailed spec. You don't need wireframes. You don't need a budget estimate or a technology stack picked out.
+                  You don&apos;t need a detailed spec. You don&apos;t need wireframes. You don&apos;t need a budget estimate or a technology stack picked out.
                 </p>
                 <p>
                   You just need to be thinking about a problem worth solving.
@@ -155,16 +155,16 @@ export default function ContactPage() {
               <div className="mt-8 space-y-6">
                 <div>
                   <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
-                    If you're still validating:
+                    If you&apos;re still validating:
                   </h3>
                   <p className="text-base text-gray-600 leading-relaxed">
-                    We can help you figure out whether there's real demand, who your users are, and what to build first.
+                    We can help you figure out whether there&apos;s real demand, who your users are, and what to build first.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
-                    If you're not sure where to start:
+                    If you&apos;re not sure where to start:
                   </h3>
                   <p className="text-base text-gray-600 leading-relaxed">
                     We can help you break down the problem, prioritize what matters, and create a roadmap that balances vision with reality.
@@ -173,25 +173,25 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
-                    If you're worried about cost:
+                    If you&apos;re worried about cost:
                   </h3>
                   <p className="text-base text-gray-600 leading-relaxed">
-                    We'll have an honest conversation about what's realistic for your stage and goals. We're optimizing for building products that work, not maximizing project scope.
+                    We&apos;ll have an honest conversation about what&apos;s realistic for your stage and goals. We&apos;re optimizing for building products that work, not maximizing project scope.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-2">
-                    If you're building in healthcare:
+                    If you&apos;re building in healthcare:
                   </h3>
                   <p className="text-base text-gray-600 leading-relaxed">
-                    We understand the complexity—HIPAA compliance, EHR integration, clinical workflows, regulatory requirements. We've navigated it all for over a decade.
+                    We understand the complexity—HIPAA compliance, EHR integration, clinical workflows, regulatory requirements. We&apos;ve navigated it all for over a decade.
                   </p>
                 </div>
               </div>
 
               <p className="text-base text-gray-600 leading-relaxed mt-8">
-                The best time to reach out is when you're thinking seriously about building something. We'll help you figure out the rest.
+                The best time to reach out is when you&apos;re thinking seriously about building something. We&apos;ll help you figure out the rest.
               </p>
             </motion.div>
           </div>
@@ -250,7 +250,7 @@ export default function ContactPage() {
                     AI Integration:
                   </h3>
                   <p className="text-base text-gray-600 leading-relaxed">
-                    Identify where AI creates value vs. where it's just hype. Build AI-assisted workflows that solve real problems, not chase trends.
+                    Identify where AI creates value vs. where it&apos;s just hype. Build AI-assisted workflows that solve real problems, not chase trends.
                   </p>
                 </div>
               </div>
@@ -270,10 +270,10 @@ export default function ContactPage() {
                 Ready to Start the Conversation?
               </h2>
               <p className="text-base text-gray-600 leading-relaxed text-center mb-8">
-                Tell us a bit about what you're building. We're only asking for what we need to have a meaningful conversation—your name, how to reach you, and a brief description of your product idea.
+                Tell us a bit about what you&apos;re building. We&apos;re only asking for what we need to have a meaningful conversation—your name, how to reach you, and a brief description of your product idea.
               </p>
               <p className="text-base text-gray-600 leading-relaxed text-center mb-12">
-                Everything else is optional. We'll learn the details when we talk.
+                Everything else is optional. We&apos;ll learn the details when we talk.
               </p>
               
               <ContactForm />
@@ -286,20 +286,20 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div {...animationProps} className="text-center">
               <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6">
-                We're Looking Forward to Talking
+                We&apos;re Looking Forward to Talking
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-gray-600">
                 <p>
-                  Whether we end up working together or not, we'll make sure you leave the conversation with more clarity than you came in with.
+                  Whether we end up working together or not, we&apos;ll make sure you leave the conversation with more clarity than you came in with.
                 </p>
                 <p>
-                  We'll share what we think about your idea—honestly. We'll surface risks you might not have considered. We'll suggest approaches you might not have explored. And if we're not the right fit, we'll tell you that too.
+                  We&apos;ll share what we think about your idea—honestly. We&apos;ll surface risks you might not have considered. We&apos;ll suggest approaches you might not have explored. And if we&apos;re not the right fit, we&apos;ll tell you that too.
                 </p>
                 <p>
                   Because the best partnerships start with honest conversations.
                 </p>
                 <p>
-                  We're looking forward to hearing what you're building.
+                  We&apos;re looking forward to hearing what you&apos;re building.
                 </p>
               </div>
             </motion.div>

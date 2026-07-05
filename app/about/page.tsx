@@ -150,10 +150,10 @@ export default function AboutPage() {
             </h2>
             
             <div className="max-w-4xl mx-auto space-y-4 text-base lg:text-lg text-gray-600">
-              <p>Most founders face the same challenge: they have a great idea, but lack the technical expertise to build it. They hire agencies that don't understand product thinking. They work with developers who can't translate vision into execution.</p>
+              <p>Most founders face the same challenge: they have a great idea, but lack the technical expertise to build it. They hire agencies that don&apos;t understand product thinking. They work with developers who can&apos;t translate vision into execution.</p>
               <p>We built TrueSpur to solve that problem.</p>
-              <p>We're product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We Build products ready to grow with your business to thousands of users without rebuilding.</p>
-              <p>And because we build our own products (Clinax, Halo, TrueBill, TafsirAI), we understand product challenges from the inside. We've faced the tough technical decisions, the launch anxiety, the scaling challenges. That's why we don't just advise—we build alongside you.</p>
+              <p>We&apos;re product builders who partner with founders—not just execute requirements. We validate before you invest. We design for real users. We Build products ready to grow with your business to thousands of users without rebuilding.</p>
+              <p>And because we build our own products (Clinax, Halo, TrueBill, TafsirAI), we understand product challenges from the inside. We&apos;ve faced the tough technical decisions, the launch anxiety, the scaling challenges. That&apos;s why we don&apos;t just advise—we build alongside you.</p>
             </div>
             
           </div>
@@ -174,16 +174,16 @@ export default function AboutPage() {
             </h2>
             
             <div className="max-w-4xl mx-auto space-y-4 text-base lg:text-lg text-gray-600">
-              <p>We don't just build products for clients. We build our own.</p>
-              <p>Right now, we're actively developing four products: Clinax (healthcare platform), Halo (patient engagement platform), TrueBill (billing automation), and TafsirAI (AI-powered insights). Each one teaches us something we bring to yours.</p>
+              <p>We don&apos;t just build products for clients. We build our own.</p>
+              <p>Right now, we&apos;re actively developing four products: Clinax (healthcare platform), Halo (patient engagement platform), TrueBill (billing automation), and TafsirAI (AI-powered insights). Each one teaches us something we bring to yours.</p>
               
               <h3 className="font-heading text-xl lg:text-2xl font-semibold text-gray-900 mt-6 mb-4">
                 Why this matters:
               </h3>
               
-              <p>Building your own products forces you to make the same hard decisions your clients face. Do we build this feature now or later? How do we validate demand before investing months of development? What's the minimum we can ship to test with real users?</p>
-              <p>When you've wrestled with those questions yourself, you become a better partner. You understand that founders need speed and clarity, not just technical execution. You know when to push back on a bad idea and when to move fast on a good one.</p>
-              <p>That's the product studio difference. We're not just service providers—we're builders who understand the journey because we're building products ourselves.</p>
+              <p>Building your own products forces you to make the same hard decisions your clients face. Do we build this feature now or later? How do we validate demand before investing months of development? What&apos;s the minimum we can ship to test with real users?</p>
+              <p>When you&apos;ve wrestled with those questions yourself, you become a better partner. You understand that founders need speed and clarity, not just technical execution. You know when to push back on a bad idea and when to move fast on a good one.</p>
+              <p>That&apos;s the product studio difference. We&apos;re not just service providers—we&apos;re builders who understand the journey because we&apos;re building products ourselves.</p>
             </div>
             
           </div>
@@ -273,7 +273,7 @@ export default function AboutPage() {
                 </p>
                 
                 <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                  He wasn't always a product leader—he learned it through years of solving hard problems, rescuing failing products, and proving that capability comes from relentless learning, not pedigree.
+                  He wasn&apos;t always a product leader—he learned it through years of solving hard problems, rescuing failing products, and proving that capability comes from relentless learning, not pedigree.
                 </p>
                 
                 <div>
@@ -290,7 +290,7 @@ export default function AboutPage() {
                     Why this experience matters:
                   </h3>
                   <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
-                    Aswar doesn't just understand product theory. He's rescued failing products, built new ones from scratch, and scaled them in production. He knows what works, what doesn't, and how to navigate the messy reality between vision and execution.
+                    Aswar doesn&apos;t just understand product theory. He&apos;s rescued failing products, built new ones from scratch, and scaled them in production. He knows what works, what doesn&apos;t, and how to navigate the messy reality between vision and execution.
                   </p>
                 </div>
                 
@@ -321,7 +321,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto space-y-5 text-base lg:text-lg text-gray-600">
               
               <p>Healthcare technology is notoriously difficult. The regulations, the integrations, the compliance requirements—they stop most projects cold.</p>
-              <p>We've navigated it all for over a decade.</p>
+              <p>We&apos;ve navigated it all for over a decade.</p>
               
               <div className="text-left space-y-5">
                 <div>
@@ -347,7 +347,7 @@ export default function AboutPage() {
                     Production experience:
                   </h3>
                   <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
-                    We've built healthcare platforms across EHR integration, telemedicine workflows, and clinical data exchange—navigating complex regulatory requirements, legacy system integrations, and interoperability standards that most teams never encounter.
+                    We&apos;ve built healthcare platforms across EHR integration, telemedicine workflows, and clinical data exchange—navigating complex regulatory requirements, legacy system integrations, and interoperability standards that most teams never encounter.
                   </p>
                 </div>
                 
@@ -425,11 +425,11 @@ export default function AboutPage() {
             </h2>
             
             <div className="max-w-4xl mx-auto space-y-4 text-base lg:text-lg text-gray-600">
-              <p>We're building TrueSpur to prove that world-class products can be built from India—products that solve meaningful problems and compete globally.</p>
-              <p>Our internal products (Clinax, Halo, TrueBill, TafsirAI) are the proof. Each one is designed to solve real problems and scale to thousands of users. We're not building portfolio pieces—we're building businesses.</p>
-              <p>As we grow, we'll continue the dual model: building our own products and partnering with founders to build theirs. Both sides make us better. Our products teach us what founders face. Our client work exposes us to new industries and challenges.</p>
-              <p>The goal isn't just revenue or growth. It's impact. Creating jobs. Helping founders bring their ideas to life. Building products that solve real problems for real people.</p>
-              <p>That's what drives us. Building products that solve real problems, helping founders bring ideas to life, and proving that world-class products can be built from anywhere.</p>
+              <p>We&apos;re building TrueSpur to prove that world-class products can be built from India—products that solve meaningful problems and compete globally.</p>
+              <p>Our internal products (Clinax, Halo, TrueBill, TafsirAI) are the proof. Each one is designed to solve real problems and scale to thousands of users. We&apos;re not building portfolio pieces—we&apos;re building businesses.</p>
+              <p>As we grow, we&apos;ll continue the dual model: building our own products and partnering with founders to build theirs. Both sides make us better. Our products teach us what founders face. Our client work exposes us to new industries and challenges.</p>
+              <p>The goal isn&apos;t just revenue or growth. It&apos;s impact. Creating jobs. Helping founders bring their ideas to life. Building products that solve real problems for real people.</p>
+              <p>That&apos;s what drives us. Building products that solve real problems, helping founders bring ideas to life, and proving that world-class products can be built from anywhere.</p>
             </div>
             
           </div>
@@ -446,12 +446,12 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center">
             
             <h2 id="cta-heading" className="font-heading text-3xl lg:text-4xl xl:text-5xl font-extrabold text-gray-900 mb-8">
-              Let's Build Something Together
+              Let&apos;s Build Something Together
             </h2>
             
             <div className="max-w-3xl mx-auto space-y-4 text-base lg:text-lg text-gray-600 mb-12">
-              <p>Whether you're validating a concept or ready to build, we'd love to talk.</p>
-              <p>We'll discuss your product, your goals, and whether we're the right partner. No sales pitch. Just an honest conversation about what you're building and how we can help.</p>
+              <p>Whether you&apos;re validating a concept or ready to build, we&apos;d love to talk.</p>
+              <p>We&apos;ll discuss your product, your goals, and whether we&apos;re the right partner. No sales pitch. Just an honest conversation about what you&apos;re building and how we can help.</p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import { rateLimit } from "@/lib/rate-limit"
 
 interface IntakeFormData {
   fullName: string
@@ -14,8 +15,34 @@ interface IntakeFormData {
   source?: "get-started" | "start-project" | "get-proposal" | "success-story" | null
 }
 
+const limiter = rateLimit({
+  interval: 15 * 60 * 1000,
+  uniqueTokenPerInterval: 3,
+})
+
 export async function POST(request: NextRequest) {
   try {
+    const identifier = request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip") ?? "anonymous"
+    const rateLimitResult = limiter.check(identifier)
+
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          error: "Too many requests. Please try again later.",
+          retryAfter: Math.ceil((rateLimitResult.reset - Date.now()) / 1000),
+        },
+        {
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+            "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+            "X-RateLimit-Reset": rateLimitResult.reset.toString(),
+            "Retry-After": Math.ceil((rateLimitResult.reset - Date.now()) / 1000).toString(),
+          },
+        },
+      )
+    }
+
     const body: IntakeFormData = await request.json()
 
     if (!body.fullName?.trim() || !body.email?.trim() || !body.phoneNumber?.trim()) {
@@ -96,9 +123,6 @@ export async function POST(request: NextRequest) {
       auth: {
         user: smtpUser,
         pass: smtpPass,
-      },
-      tls: {
-        rejectUnauthorized: false,
       },
     })
 

@@ -335,6 +335,8 @@ export default function HomePage() {
       {/* Header */}
       <Header currentPage="home" />
 
+      <main>
+
       {/* Hero Section */}
       <motion.section
         id="home"
@@ -435,10 +437,10 @@ export default function HomePage() {
                   We Understand Product Challenges From the Inside
                 </h2>
                 <p className="text-base lg:text-lg text-gray-600 mt-6 max-w-3xl mx-auto">
-                  We're building four products right now—Clinax, Halo, TrueBill, TafsirAI. Each one teaches us what founders face: validating ideas, making tough technical calls, launching without costly mistakes.
+                  We&apos;re building four products right now—Clinax, Halo, TrueBill, TafsirAI. Each one teaches us what founders face: validating ideas, making tough technical calls, launching without costly mistakes.
                 </p>
                 <p className="text-base lg:text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
-                  That's why we build alongside you—not just for you.
+                  That&apos;s why we build alongside you—not just for you.
                 </p>
               </div>
             </div>
@@ -465,7 +467,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900">
-                Products We're Building
+                Products We&apos;re Building
               </h2>
             </motion.div>
 
@@ -478,7 +480,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <p className="text-base lg:text-lg text-gray-600">
-                We don't just build products for clients—we build our own. Each one teaches us something we bring to yours.
+                We don&apos;t just build products for clients—we build our own. Each one teaches us something we bring to yours.
               </p>
             </motion.div>
 
@@ -779,7 +781,7 @@ export default function HomePage() {
                 Most teams hit a wall with healthcare technology. The regulations, the integrations, the compliance requirements—they stop projects cold.
               </p>
               <p>
-                We've navigated it all for over a decade: EHR integration, HIPAA compliance, HL7/FHIR standards, telemedicine regulations. Won government contracts. Rescued failing platforms. Built products serving thousands of patients.
+                We&apos;ve navigated it all for over a decade: EHR integration, HIPAA compliance, HL7/FHIR standards, telemedicine regulations. Won government contracts. Rescued failing platforms. Built products serving thousands of patients.
               </p>
               <p className="text-gray-800 font-medium text-lg lg:text-xl mt-10">
                 That expertise makes us better builders—whether your product is in healthcare or not.
@@ -970,8 +972,8 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <p>Whether you're validating a concept or ready to build, let's talk. We'll discuss your product, your goals, and whether we're the right partner.</p>
-              <p>No sales pitch. Just an honest conversation about what you're building.</p>
+              <p>Whether you&apos;re validating a concept or ready to build, let&apos;s talk. We&apos;ll discuss your product, your goals, and whether we&apos;re the right partner.</p>
+              <p>No sales pitch. Just an honest conversation about what you&apos;re building.</p>
             </motion.div>
             
             {/* CTA Buttons */}
@@ -1000,6 +1002,8 @@ export default function HomePage() {
           </div>
         </div>
       </motion.section>
+
+      </main>
 
       {/* Footer */}
       <Footer scrollToSection={navigateToSection} />

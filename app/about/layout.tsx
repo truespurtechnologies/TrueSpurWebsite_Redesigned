@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
 export default function AboutLayout({
   children,
 }: {
-  children: any
+  children: ReactNode
 }) {
   return children
 }

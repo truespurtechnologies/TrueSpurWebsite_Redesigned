@@ -12,7 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
-type LeadFormSource = "get-started" | "start-project" | "get-proposal" | "success-story"
+type LeadFormSource = "get-started" | "start-project" | "get-proposal" | "success-story" | "about-hero" | "about-final-cta-primary" | "services-hero-primary" | "services-hero-secondary" | "services-final-cta-primary" | "services-final-cta-secondary" | "products-hero" | "products-final-cta-primary"
 
 type StepKey =
   | "welcome"

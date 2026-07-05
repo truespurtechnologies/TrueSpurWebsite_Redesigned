@@ -41,9 +41,6 @@ export async function POST(request: NextRequest) {
         user: smtpUser,
         pass: smtpPass,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
     })
 
     const recipientEmailContent = `

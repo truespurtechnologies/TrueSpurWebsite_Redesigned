@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -31,7 +32,7 @@ export default function TrueSpurBillingPage() {
               className="border-orange-300 text-orange-600 hover:bg-orange-50"
               asChild
             >
-              <a href="/">Back to home</a>
+              <Link href="/">Back to home</Link>
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">

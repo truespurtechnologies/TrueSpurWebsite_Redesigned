@@ -21,7 +21,7 @@ export function Footer({ scrollToSection }: FooterProps) {
               </button>
             </div>
             <p className="text-gray-400 mb-4">Transforming businesses with cutting-edge technology solutions.</p>
-            <p className="text-amber-300 text-sm italic tracking-wide">"We Craft. You Lead."</p>
+            <p className="text-amber-300 text-sm italic tracking-wide">&quot;We Craft. You Lead.&quot;</p>
           </div>
 
           <div>
@@ -149,7 +149,7 @@ export function Footer({ scrollToSection }: FooterProps) {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2026 TrueSpur Technology Solutions. All rights reserved.</p>
-          <p className="mt-2 text-sm">"We Craft. You Lead."</p>
+          <p className="mt-2 text-sm">&quot;We Craft. You Lead.&quot;</p>
         </div>
       </div>
     </footer>

@@ -22,6 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://truespur.ai'),
   title: 'TrueSpur Technology Solutions',
   description: 'Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.',
   generator: 'Next.js',

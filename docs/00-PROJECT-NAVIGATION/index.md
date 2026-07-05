@@ -2,8 +2,8 @@
 
 **Project:** TrueSpur Website Redesign & Narrative Transformation  
 **Tech Stack:** Next.js 15, React, TypeScript, Tailwind CSS, shadcn/ui  
-**Status:** Launch Hardening & Production Readiness Phase (All Public-Facing Pages Complete & Frozen)  
-**Last Updated:** July 3, 2026
+**Status:** Release Candidate Validation (RC1) — RC1 Baseline Established | BUILD-STABLE  
+**Last Updated:** July 4, 2026
 
 ---
 
@@ -46,12 +46,12 @@
 
 ### 🎯 Strategic Governance (Read First)
 
-**[CURRENT-SOURCE-OF-TRUTH.md](../CURRENT-SOURCE-OF-TRUTH.md)** (v3.0)
+**[CURRENT-SOURCE-OF-TRUTH.md](../CURRENT-SOURCE-OF-TRUTH.md)** (v3.2)
 - **Purpose:** Single authoritative strategic reference for entire project
 - **Authority:** OVERRIDES ALL CONFLICTING DOCUMENTS
 - **Contains:** Company identity, mission, vision, founder narrative, positioning, messaging hierarchy, strategic non-negotiables, current project phase, all pages frozen status
-- **Status:** ACTIVE — WEBSITE MILESTONE FREEZE COMPLETE — LAUNCH HARDENING PHASE
-- **Latest Update:** All public-facing pages frozen (July 3, 2026)
+- **Status:** ACTIVE — RC1 BASELINE ESTABLISHED — RELEASE CANDIDATE VALIDATION PHASE
+- **Latest Update:** RC1 Baseline established (July 4, 2026) — Engineering Audit complete, Build Stable, all pages frozen
 
 ---
 
@@ -164,14 +164,15 @@
 - **Components:** 59 total (57 shadcn/ui + 2 custom)
 - **Architecture:** Stateless, serverless, component-based
 
-### Current Phase: Launch Hardening & Production Readiness
+### Current Phase: Release Candidate Validation (RC1)
 
-**Previous Phase:** Feature Implementation (Complete - July 3, 2026)  
-**Current Phase:** Launch Hardening & Production Readiness (Active - July 3, 2026)  
-**Status:** Active — All Public-Facing Pages Complete & Frozen
+**Previous Phase:** Feature Implementation + Engineering Audit (Complete - July 4, 2026)  
+**Current Phase:** Release Candidate Validation (RC1) (Active - July 4, 2026)  
+**Status:** Active — BUILD-STABLE | RC1 BASELINE ESTABLISHED
 
 **✅ WEBSITE PLANNING PHASE CLOSED**
 **✅ WEBSITE IMPLEMENTATION PHASE CLOSED**
+**✅ ENGINEERING AUDIT & BUILD STABILIZATION CLOSED**
 
 **Completed:**
 - ✅ Website Strategy finalized (FINAL-WEBSITE-STRATEGY.md v2.1)
@@ -238,9 +239,16 @@
 - Global Header Consistency Refinement (complete)
 - ContactForm and ProcessStepCard reusable components
 
+**✅ Milestone 7.5: Engineering Audit & Build Stabilization (COMPLETE — July 4, 2026)**
+- Engineering Audit completed (PRODUCTION-READINESS-ENGINEERING-AUDIT.md)
+- Sprint 1 — P1 Critical Blockers resolved (5 issues)
+- Sprint 1.5 — Build Stabilization complete (11 files, 70+ lint errors resolved)
+- Clean production build: `npm run lint` 0 errors | `npm run build` exit 0 | 17 pages
+- RC1 Baseline established
+
 **⏳ Remaining Work:**
-- **Milestone 8:** Launch Hardening & Production Readiness (QA, accessibility, performance, SEO, cross-browser testing)
-- **Milestone 9:** Footer Review & Final UI Polish (CONDITIONAL — only if Launch Hardening identifies genuine issues)
+- **Milestone 8:** Release Candidate Validation (RC1) — Accessibility, performance, SEO, browser compatibility, forms/API validation, analytics, deployment readiness
+- **Milestone 9:** Conditional Footer Review & Final UI Polish (CONDITIONAL — only if RC1 identifies genuine issues)
 - **Milestone 10:** Production Launch
 
 
@@ -252,14 +260,17 @@
 - Page implementation (all pages complete and frozen)
 - Reopening completed workstreams
 - New page development (website experience is complete)
+- Engineering audit or lint fixes (complete — build stable)
 
-**Current Focus:**
-- Quality assurance and testing (cross-browser, responsive, accessibility)
+**Current Focus (RC1 Validation):**
+- Accessibility audit and validation (WCAG 2.1 AA)
 - Performance optimization (Lighthouse, Core Web Vitals)
-- SEO optimization (metadata, sitemap, robots.txt, Open Graph)
-- Production deployment preparation
-- Security review and hardening
-- Analytics integration
+- SEO validation (metadata, Open Graph, sitemap, robots.txt)
+- Browser compatibility testing (Chrome, Firefox, Safari, Edge)
+- Responsive validation (mobile, tablet, desktop)
+- Forms and API validation (contact, intake, waitlist)
+- Analytics integration and verification
+- Production deployment preparation and readiness
 
 ---
 
@@ -506,7 +517,7 @@ Contains superseded documents, old drafts, and historical references. Use for co
 - ✅ WCAG 2.1 AA Accessibility
 - ✅ Performance Verified (5.96 kB page size)
 - ✅ Code Quality Verified
-- ✅ Production Domain Updated (www.truespur.ai)
+- ✅ Production Domain Updated (https://truespur.ai)
 - ✅ Metadata Verified
 
 **Freeze Status:**
@@ -593,6 +604,6 @@ For questions about:
 
 ---
 
-**Last Updated:** July 3, 2026  
-**Document Version:** 3.0 (Updated for Website Milestone Freeze — All Pages Complete)  
+**Last Updated:** July 4, 2026  
+**Document Version:** 3.2 (Updated for RC1 Governance Cleanup — Domain standardization, progress wording refinement)  
 **Maintained By:** TrueSpur Project Team

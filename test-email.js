@@ -37,9 +37,6 @@ async function testSpaceshipEmail() {
         user: smtpUser,
         pass: smtpPass,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
     });
 
     // Test connection

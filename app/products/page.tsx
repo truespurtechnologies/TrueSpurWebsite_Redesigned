@@ -170,21 +170,21 @@ export default function ProductsPage() {
                 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.15] tracking-[-0.02em] text-white"
                 {...animationProps}
               >
-                Products We're Building
+                Products We&apos;re Building
               </motion.h1>
               
               <motion.p 
                 className="text-lg lg:text-xl leading-[1.6] text-slate-300 mt-8 max-w-3xl mx-auto"
                 {...animationProps}
               >
-                We don't just build products for clients—we build our own. Each one teaches us something we bring to yours.
+                We don&apos;t just build products for clients—we build our own. Each one teaches us something we bring to yours.
               </motion.p>
               
               <motion.p 
                 className="text-base lg:text-lg leading-[1.6] text-slate-400/90 mt-6 lg:mt-8 max-w-2xl mx-auto"
                 {...animationProps}
               >
-                From healthcare platforms to AI applications, we're solving real problems and learning what founders face every day.
+                From healthcare platforms to AI applications, we&apos;re solving real problems and learning what founders face every day.
               </motion.p>
               
               <motion.div className="mt-14 lg:mt-16" {...animationProps}>
@@ -212,13 +212,13 @@ export default function ProductsPage() {
               
               <div className="max-w-3xl mx-auto space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
                 <p>
-                  Building your own products forces you to make the same hard decisions your clients face. Do we build this feature now or later? How do we validate demand before investing months of development? What's the minimum we can ship to test with real users?
+                  Building your own products forces you to make the same hard decisions your clients face. Do we build this feature now or later? How do we validate demand before investing months of development? What&apos;s the minimum we can ship to test with real users?
                 </p>
                 <p>
-                  When you've wrestled with those questions yourself, you become a better partner. You understand that founders need speed and clarity, not just technical execution. You know when to push back on a bad idea and when to move fast on a good one.
+                  When you&apos;ve wrestled with those questions yourself, you become a better partner. You understand that founders need speed and clarity, not just technical execution. You know when to push back on a bad idea and when to move fast on a good one.
                 </p>
                 <p>
-                  That's why we build Clinax, Halo, TrueBill, and TafsirAI. Each product teaches us something we bring to yours—from healthcare workflows to AI applications, from validation to long-term product evolution.
+                  That&apos;s why we build Clinax, Halo, TrueBill, and TafsirAI. Each product teaches us something we bring to yours—from healthcare workflows to AI applications, from validation to long-term product evolution.
                 </p>
               </div>
               
@@ -312,7 +312,7 @@ export default function ProductsPage() {
               </h2>
               
               <p className="text-base lg:text-lg text-gray-600 text-center leading-[1.7] max-w-4xl mx-auto mb-12">
-                Every product we build teaches us something we bring to yours. Here's what we've learned from being in the trenches.
+                Every product we build teaches us something we bring to yours. Here&apos;s what we&apos;ve learned from being in the trenches.
               </p>
               
               {/* Learning Grid */}
@@ -369,13 +369,13 @@ export default function ProductsPage() {
               <div className="max-w-4xl mx-auto">
                 {/* Pull Quote - Prominent opening */}
                 <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-[1.6] mb-12 lg:mb-16">
-                  Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we've faced the same dilemmas founders face: limited budget, uncertain demand, pressure to ship fast without breaking things.
+                  Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we&apos;ve faced the same dilemmas founders face: limited budget, uncertain demand, pressure to ship fast without breaking things.
                 </p>
                 
                 {/* Supporting paragraphs - Standard editorial rhythm */}
                 <div className="max-w-3xl space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
                   <p>
-                    We have. That's why we don't just execute your requirements—we challenge assumptions, suggest better approaches, and help you avoid mistakes we've already made.
+                    We have. That&apos;s why we don&apos;t just execute your requirements—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.
                   </p>
                   <p>
                     When you work with builders who are building too, you get partners who understand the journey—not just the destination.
@@ -414,7 +414,7 @@ export default function ProductsPage() {
                 {...animationProps}
               >
                 <p>
-                  We're building products ourselves and helping founders build theirs. If you have an idea worth building, let's talk.
+                  We&apos;re building products ourselves and helping founders build theirs. If you have an idea worth building, let&apos;s talk.
                 </p>
                 <p className="text-slate-400">
                   No sales pitch. Just an honest conversation about your product and how we can help.
