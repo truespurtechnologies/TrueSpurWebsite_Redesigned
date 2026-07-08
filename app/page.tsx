@@ -355,43 +355,44 @@ export default function HomePage() {
       {/* Header */}
       <Header currentPage="home" />
 
-      <main>
+      <main id="main-content" className="focus:outline-none">
 
       {/* Hero Section */}
       <motion.section
         id="home"
-        className="relative min-h-screen overflow-hidden px-4 pt-32 pb-20 lg:pt-36 lg:pb-24 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
+        aria-labelledby="hero-heading"
+        className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
         {...createAnimationProps(shouldReduceMotion)}
       >
         {/* Background System */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
-        
+
         {/* Subtle texture overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.015]" 
+        <div
+          className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }} 
+          }}
         />
-        
+
         {/* Optional: Subtle orange glow */}
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/3.5 blur-3xl rounded-full" />
 
-        <div className="relative container mx-auto">
-          <div className="max-w-[800px] ml-0 lg:ml-8">
+        <div className="relative container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
               viewport={{ once: true }}
             >
-              <h1 className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.15] text-white">
+              <h1 id="hero-heading" className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.15] text-white">
                 Turn Ideas Into Scalable Digital Products
               </h1>
             </motion.div>
 
             <motion.p
-              className="text-lg lg:text-xl leading-relaxed text-slate-300 mt-6"
+              className="text-lg lg:text-xl leading-relaxed text-slate-300 mt-6 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
