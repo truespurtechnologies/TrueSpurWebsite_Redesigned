@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { ContactForm } from "@/components/contact/ContactForm"
 import { ProcessStepCard } from "@/components/contact/ProcessStepCard"
+import { JsonLd } from "@/components/seo/JsonLd"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -49,17 +50,26 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact TrueSpur",
+          description: "Get in touch with TrueSpur. Whether you have a product idea, need technical expertise, or want to discuss a project, we&apos;re here to help you build something great.",
+          url: "https://truespur.ai/contact",
+        }}
+      />
       <Header currentPage="/contact" />
       
       <main>
         {/* SECTION 1: HERO */}
-        <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="contact-hero-heading">
           <div className="container mx-auto px-4 max-w-5xl">
             <motion.div 
               {...animationProps}
               className="text-center"
             >
-              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-[1.15] mb-6">
+              <h1 id="contact-hero-heading" className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-[1.15] mb-6">
                 Let&apos;s Talk About What You&apos;re Building.
               </h1>
               <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
@@ -78,10 +88,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 2: WHY FOUNDERS REACH OUT */}
-        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50" aria-labelledby="contact-why-heading">
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div {...animationProps}>
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+              <h2 id="contact-why-heading" className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
                 Why Founders Reach Out
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-gray-600">
@@ -100,10 +110,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 3: WHAT HAPPENS NEXT */}
-        <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="contact-process-heading">
           <div className="container mx-auto px-4 max-w-5xl">
             <motion.div {...animationProps}>
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
+              <h2 id="contact-process-heading" className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
                 What Happens Next
               </h2>
               <p className="text-base text-gray-600 leading-relaxed text-center mb-12">
@@ -137,10 +147,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 4: PERMISSION FRAMEWORK */}
-        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50" aria-labelledby="contact-permission-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <motion.div {...animationProps}>
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+              <h2 id="contact-permission-heading" className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
                 You Don&apos;t Need Everything Figured Out
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-gray-600">
@@ -198,10 +208,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 5: HOW WE HELP FOUNDERS */}
-        <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="contact-help-heading">
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div {...animationProps}>
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
+              <h2 id="contact-help-heading" className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-8">
                 How We Help Founders
               </h2>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
@@ -263,10 +273,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 6: CONTACT FORM */}
-        <section id="contact-form" data-contact-form className="py-16 md:py-24 lg:py-28 bg-gray-50">
+        <section id="contact-form" data-contact-form className="py-16 md:py-24 lg:py-28 bg-gray-50" aria-labelledby="contact-form-heading">
           <div className="container mx-auto px-4 max-w-2xl">
             <motion.div {...animationProps}>
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
+              <h2 id="contact-form-heading" className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6 text-center">
                 Ready to Start the Conversation?
               </h2>
               <p className="text-base text-gray-600 leading-relaxed text-center mb-8">
@@ -282,10 +292,10 @@ export default function ContactPage() {
         </section>
 
         {/* SECTION 7: CLOSING REASSURANCE */}
-        <section className="py-16 md:py-24 lg:py-32 mb-16 md:mb-20 lg:mb-24 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 mb-16 md:mb-20 lg:mb-24 bg-white" aria-labelledby="contact-closing-heading">
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div {...animationProps} className="text-center">
-              <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6">
+              <h2 id="contact-closing-heading" className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] mb-6">
                 We&apos;re Looking Forward to Talking
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-gray-600">

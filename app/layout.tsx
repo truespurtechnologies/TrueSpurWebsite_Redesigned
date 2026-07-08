@@ -27,7 +27,43 @@ export const metadata: Metadata = {
   description: 'Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.',
   generator: 'Next.js',
   icons: {
-    icon: '/logo/truespur-main-logo.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    title: 'TrueSpur Technology Solutions',
+    description: 'Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.',
+    type: 'website',
+    url: 'https://truespur.ai',
+    images: [
+      {
+        url: '/logo/truespur-main-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'TrueSpur Technology Solutions',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TrueSpur Technology Solutions',
+    description: 'Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.',
+    images: ['/logo/truespur-main-logo.png'],
+  },
+  alternates: {
+    canonical: 'https://truespur.ai',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 

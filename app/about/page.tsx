@@ -10,6 +10,7 @@ import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
+import { JsonLd } from "@/components/seo/JsonLd"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -94,6 +95,15 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About TrueSpur",
+          description: "Learn about TrueSpur, a founder-led product studio that helps ambitious founders turn ideas into scalable digital products.",
+          url: "https://truespur.ai/about",
+        }}
+      />
       <LeadFormDialog
         open={isLeadFormOpen}
         onOpenChange={setIsLeadFormOpen}

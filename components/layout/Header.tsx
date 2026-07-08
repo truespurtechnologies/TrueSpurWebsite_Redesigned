@@ -109,7 +109,7 @@ export function Header({ currentPage = "home" }: HeaderProps) {
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden border-t bg-white/95 backdrop-blur">
-          <nav className="container mx-auto px-4 py-4 space-y-2">
+          <nav className="container mx-auto px-4 py-4 space-y-2" aria-label="Mobile navigation">
             {navigationItems.map((item) => (
               <button
                 key={item.path}

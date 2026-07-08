@@ -14,6 +14,7 @@ import { LeadFormDialog } from "@/components/lead-form-dialog"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
+import { JsonLd } from "@/components/seo/JsonLd"
 import {
   ArrowRight,
   Code,
@@ -327,6 +328,25 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "TrueSpur Technology Solutions",
+          description: "Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.",
+          url: "https://truespur.ai",
+          logo: "https://truespur.ai/logo/truespur-main-logo.png",
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "TrueSpur Technology Solutions",
+          url: "https://truespur.ai",
+          description: "Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.",
+        }}
+      />
       <LeadFormDialog
         open={isLeadFormOpen}
         onOpenChange={setIsLeadFormOpen}

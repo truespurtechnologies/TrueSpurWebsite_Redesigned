@@ -9,10 +9,10 @@ export const metadata: Metadata = {
     title: 'About TrueSpur - Founder-Led Product Studio',
     description: 'Building products—our own and yours. Learn about our founder-led approach to digital product development.',
     type: 'website',
-    url: 'https://www.truespur.ai/about',
+    url: 'https://truespur.ai/about',
     images: [
       {
-        url: '/images/truespur-og-image.jpg',
+        url: '/logo/truespur-main-logo.png',
         width: 1200,
         height: 630,
         alt: 'TrueSpur - Founder-Led Product Studio',
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About TrueSpur - Founder-Led Product Studio',
     description: 'Building products—our own and yours. Learn about our founder-led approach to digital product development.',
-    images: ['/images/truespur-og-image.jpg'],
+    images: ['/logo/truespur-main-logo.png'],
   },
   alternates: {
-    canonical: 'https://www.truespur.ai/about',
+    canonical: 'https://truespur.ai/about',
   },
   robots: {
     index: true,

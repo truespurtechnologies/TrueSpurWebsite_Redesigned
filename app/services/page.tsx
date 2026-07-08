@@ -8,6 +8,7 @@ import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { ServiceCard } from "@/components/cards/ServiceCard"
 import { FounderJourneyVisualization } from "@/components/page/FounderJourneyVisualization"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
+import { JsonLd } from "@/components/seo/JsonLd"
 
 export default function ServicesPage() {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
@@ -80,15 +81,24 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "TrueSpur Services",
+          description: "We build products. We help you build yours. Product strategy, design, and engineering—integrated into one team that thinks like founders, not vendors.",
+          url: "https://truespur.ai/services",
+        }}
+      />
       <Header currentPage="/services" />
       
       <main>
         {/* SECTION 1: HERO */}
-        <section className="py-20 md:py-24 lg:py-28 bg-white">
+        <section className="py-20 md:py-24 lg:py-28 bg-white" aria-labelledby="services-hero-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               
-              <h1 className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-gray-900">
+              <h1 id="services-hero-heading" className="font-heading text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-gray-900">
                 We Build Products. We Help You Build Yours.
               </h1>
               
@@ -118,11 +128,11 @@ export default function ServicesPage() {
         </section>
 
         {/* SECTION 2: FROM IDEA TO PRODUCT */}
-        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50" aria-labelledby="services-journey-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               
-              <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
+              <h2 id="services-journey-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
                 From Idea to Product
               </h2>
               
@@ -145,11 +155,11 @@ export default function ServicesPage() {
         </section>
 
         {/* SECTION 3: WHAT WE OFFER (SERVICES GRID) */}
-        <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="services-offerings-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               
-              <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-12">
+              <h2 id="services-offerings-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-12">
                 What We Offer
               </h2>
               
@@ -169,11 +179,11 @@ export default function ServicesPage() {
         </section>
 
         {/* SECTION 4: WHY FOUNDERS WORK WITH US */}
-        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50" aria-labelledby="services-why-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               
-              <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
+              <h2 id="services-why-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
                 Why Founders Work With Us
               </h2>
               
@@ -222,11 +232,11 @@ export default function ServicesPage() {
         </section>
 
         {/* SECTION 5: HOW WE WORK WITH FOUNDERS */}
-        <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="services-how-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               
-              <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
+              <h2 id="services-how-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
                 How We Work With Founders
               </h2>
               
@@ -283,11 +293,11 @@ export default function ServicesPage() {
         </section>
 
         {/* SECTION 6: FINAL CTA */}
-        <section className="py-16 md:py-24 lg:py-32 bg-gray-50">
+        <section className="py-16 md:py-24 lg:py-32 bg-gray-50" aria-labelledby="services-cta-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               
-              <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
+              <h2 id="services-cta-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
                 Let&apos;s Talk About What You&apos;re Building.
               </h2>
               

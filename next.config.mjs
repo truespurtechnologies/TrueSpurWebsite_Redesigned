@@ -23,30 +23,36 @@ const nextConfig = {
   },
   // Security headers including Content Security Policy
   async headers() {
+    // Only apply strict CSP in production, not in development
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
     return [
       {
         source: '/:path*',
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: [
-              // default-src: Fallback for all resource types
+            value: isDevelopment ? [
+              // Development: More permissive CSP to allow inline scripts for Vercel Analytics
               "default-src 'self'",
-              // script-src: Allow Next.js scripts and Vercel Analytics (unsafe-inline removed per engineering validation)
-              "script-src 'self' 'unsafe-eval' https://va.vercel-scripts.com",
-              // style-src: Allow inline styles (required for Tailwind, Framer Motion)
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline'",
-              // font-src: Allow self-hosted fonts (fonts.gstatic.com removed - next/font self-hosts)
               "font-src 'self' data:",
-              // img-src: Allow self-hosted images, data URIs, and common CDNs
               "img-src 'self' data: https: blob:",
-              // connect-src: Allow API calls to self and Vercel Analytics
               "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
-              // frame-ancestors: Prevent clickjacking
               "frame-ancestors 'none'",
-              // base-uri: Restrict base tag URLs
               "base-uri 'self'",
-              // form-action: Restrict form submissions
+              "form-action 'self'",
+            ].join('; ') : [
+              // Production: Strict CSP with hash-based inline script allowance
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-eval' https://va.vercel-scripts.com 'sha256-7mu4H06fwDCjmnxxr/xNHyuQC6pLTHr4M2E4jXw5WZs=' 'sha256-kyaKBybsHvqmdq5RcfhCZ+crfD0hW2GQeUy0Bp1fWNg=' 'sha256-LcsuUMiDkprrt6ZKeiLP4iYNhWo8NqaSbAgtoZxVK3s=' 'sha256-jxpmuzEyvVmGf1uu3rLnVb++ac4Q0kh49VFIlwUf6Q0=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-SdxwFk4f0olb0W2PnqJdfZ9VFWhMoYOkMwCGZnNzYkI=' 'sha256-yTfsSWOLPbL5gt3QPVguxfi7MjuyCitVIdbAPYDenN8=' 'sha256-m9NpPYPqlCtOGTayhTCyb6C50MO99WMPt9p6WH2yY9Y=' 'sha256-FLsAuWqsgHjz6CpEofaOzFpyppYTae03kTaLrj3mR7o=' 'sha256-Bd8lVd1ovpyQsRN6C1OZ5AFZPO/mRRzQH1ScYoQY+dk=' 'sha256-DX9leBWSokQWEota8lBMWnKsW1dK8nUgdBIhtwPy0lg=' 'sha256-C6+XPIGAyhBUCXjMoZp0qcKAeqp6ATYjJti9442TD58=' 'sha256-AwacO7oHacWWocZC6iQ2WbbViFRNzIkQaQxnhRlF0MM=' 'sha256-r+KWWJuFHDCDSctlY79cmuV23A2FxBkRDs5tMabAfbY='",
+              "style-src 'self' 'unsafe-inline'",
+              "font-src 'self' data:",
+              "img-src 'self' data: https: blob:",
+              "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+              "frame-ancestors 'none'",
+              "base-uri 'self'",
               "form-action 'self'",
             ].join('; '),
           },
