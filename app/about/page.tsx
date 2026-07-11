@@ -1,8 +1,9 @@
 "use client"
 
 import type React from "react"
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
+import Image from "next/image"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect, useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { PageContainer } from "@/components/layout/PageContainer"
 import { Header } from "@/components/layout/Header"
@@ -12,6 +13,79 @@ import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { SITE_CONFIG } from "@/lib/constants"
+
+// Recognition Certificate Modal
+function RecognitionModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const closeRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (open) {
+      closeRef.current?.focus()
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    if (open) document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [open, onClose])
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/70 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Certificate of Recognition"
+        >
+          <motion.div
+            className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-2 overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 16 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              ref={closeRef}
+              onClick={onClose}
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              aria-label="Close certificate"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+            <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden">
+              <Image
+                src="/images/recognition/Certificate.png"
+                alt="Certificate of Recognition awarded to Mohideen Aswar N for winning first place in the Design Hackathon titled Design of Mobile Outreach and Therapy Unit, jointly organised by the Directorate for Welfare of the Differently Abled and StartupTN, August–October 2023"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 95vw, 672px"
+              />
+            </div>
+            <p className="text-center text-xs text-gray-500 mt-2 mb-1 px-2">
+              Certificate of Recognition — First Place, Design Hackathon, 2023
+            </p>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -88,6 +162,7 @@ export default function AboutPage() {
   const [leadFormSource, setLeadFormSource] = useState<
     "get-started" | "start-project" | "get-proposal" | "success-story" | null
   >(null)
+  const [isCertModalOpen, setIsCertModalOpen] = useState(false)
 
   const openLeadForm = (source: string) => {
     setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
@@ -110,6 +185,7 @@ export default function AboutPage() {
         onOpenChange={setIsLeadFormOpen}
         source={leadFormSource}
       />
+      <RecognitionModal open={isCertModalOpen} onClose={() => setIsCertModalOpen(false)} />
       <Header 
         currentPage="/about"
       />
@@ -345,12 +421,44 @@ export default function AboutPage() {
                 </div>
                 
                 <div>
-                  <h3 className="font-heading text-base lg:text-lg font-semibold text-gray-900 mb-3">
+                  <h3 className="font-heading text-base lg:text-lg font-semibold text-gray-900 mb-4">
                     Government-recognized:
                   </h3>
-                  <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
-                    Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
-                  </p>
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-5 lg:gap-8">
+                    {/* Award presentation photo — landscape 442×367, safe max 300px wide */}
+                    <div className="w-full max-w-[300px] mx-auto lg:mx-0 lg:w-[300px] shrink-0">
+                      <div className="relative rounded-xl overflow-hidden border border-gray-100/80 shadow-sm bg-gray-50" style={{ aspectRatio: '442 / 367' }}>
+                        <Image
+                          src="/images/recognition/Govt Official Giving award.png"
+                          alt="Aswar receiving first-place recognition for the Mobile Outreach and Therapy Unit design initiative in 2023"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 300px, 300px"
+                          loading="lazy"
+                        />
+                      </div>
+                      <p className="mt-2 text-xs text-gray-500 text-center">
+                        First-place recognition, Design Hackathon, 2023
+                      </p>
+                    </div>
+                    {/* Text */}
+                    <div className="flex-1 space-y-3 lg:pt-1">
+                      <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
+                        Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
+                      </p>
+                      <button
+                        onClick={() => setIsCertModalOpen(true)}
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-orange-600 hover:text-orange-700 underline underline-offset-2 decoration-orange-300 hover:decoration-orange-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-orange-400 rounded-sm"
+                        aria-label="View Certificate of Recognition"
+                      >
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                          <rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+                          <path d="M3.5 6h5M3.5 4h3M3.5 8h4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                        </svg>
+                        View certificate
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 
                 <div>

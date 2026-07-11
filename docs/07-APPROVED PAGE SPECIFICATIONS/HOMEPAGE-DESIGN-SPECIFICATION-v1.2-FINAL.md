@@ -908,7 +908,7 @@ Build trust through balanced company/founder proof. Show active building (compan
   </h3>
   
   <p className="text-base lg:text-lg text-gray-600">
-    Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+    Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
   </p>
   
   <p className="text-base font-semibold text-gray-700">

@@ -54,7 +54,7 @@ Two implementation-level refinements have been applied to the FINAL-WEBSITE-STRA
 ### Proof Framework Details
 
 **Founder Proof (40%):**
-1. Government Award — Won competitive healthcare contract
+1. Government Award — First place, Design Hackathon (Design of Mobile Outreach and Therapy Unit), Directorate for Welfare of the Differently Abled + StartupTN, 2023
 2. DIRECT Turnaround — 5% to 80%+ success rate
 3. Healthcare Leadership — Deep domain expertise
 

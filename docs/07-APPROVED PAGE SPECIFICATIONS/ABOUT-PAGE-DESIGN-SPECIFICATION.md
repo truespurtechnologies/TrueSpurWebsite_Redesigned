@@ -859,7 +859,7 @@ Position healthcare as company capability and differentiation. Show depth withou
             Government-recognized:
           </h3>
           <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
-            Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
+            Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
           </p>
         </div>
         

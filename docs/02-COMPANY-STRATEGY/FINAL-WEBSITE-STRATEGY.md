@@ -761,7 +761,9 @@ Turn traction into sustainable growth.
 **Content:**
 "Deep experience building healthcare technology across EHR systems, telemedicine platforms, interoperability (HL7, FHIR, DIRECT), and clinical workflows.
 
-Government-recognized for healthcare innovation. Won competitive healthcare contract against multinational corporations.
+Government-recognized for healthcare innovation. Won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN for the design of a Mobile Outreach and Therapy Unit.
+
+> ⚠️ FACTUAL CORRECTION (July 2026): Previous wording claiming a "competitive healthcare contract against multinational corporations" was not supported by the Certificate of Recognition.
 
 Production experience with healthcare platforms serving thousands of patients and practices. Deep regulatory knowledge: HIPAA compliance, clinical validation, healthcare data security."
 
@@ -784,7 +786,7 @@ Production experience with healthcare platforms serving thousands of patients an
 ### Founder Proof (40%)
 
 **Assets:**
-1. **Government Award** — Won competitive healthcare contract against multinational corporations
+1. **Government Award** — First place, Design Hackathon (Design of Mobile Outreach and Therapy Unit), jointly organized by Directorate for Welfare of the Differently Abled and StartupTN, 2023
 2. **DIRECT Turnaround** — Rescued healthcare platform from 5% to 80%+ success rate
 3. **Healthcare Leadership** — Deep healthcare expertise and domain knowledge
 

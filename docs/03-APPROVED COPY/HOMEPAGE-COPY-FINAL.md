@@ -299,7 +299,9 @@ Four products in active development. From healthcare platforms to AI tools. Each
 Government-Recognized Innovation
 
 **BODY COPY:**  
-Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+
+> ⚠️ FACTUAL CORRECTION (July 2026): Previous wording claiming "Government of India contract" and "beating multinational corporations" was not supported by the Certificate of Recognition. Corrected to verified certificate facts.
 
 Third-party validation. Measurable outcomes.
 
@@ -618,7 +620,9 @@ Four products in active development. From healthcare platforms to AI tools. Each
 
 **Government-Recognized Innovation**
 
-Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+
+> ⚠️ FACTUAL CORRECTION (July 2026): Previous wording claiming "Government of India contract" and "beating multinational corporations" was not supported by the Certificate of Recognition. Corrected to verified certificate facts.
 
 Third-party validation. Measurable outcomes.
 

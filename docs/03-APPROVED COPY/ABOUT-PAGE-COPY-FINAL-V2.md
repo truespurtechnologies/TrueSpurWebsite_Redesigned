@@ -218,7 +218,9 @@ We've navigated it all for over a decade.
 TrueSpur has deep experience across the entire healthcare technology stack: EHR systems, telemedicine platforms, healthcare interoperability (HL7, FHIR, DIRECT), clinical workflows, insurance billing, and data analytics. We understand HIPAA compliance, clinical validation, and healthcare data security—not from reading documentation, but from shipping products that meet those standards.
 
 **Government-recognized:**  
-Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
+Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
+
+> ⚠️ FACTUAL CORRECTION (July 2026): Previous wording claiming "Government of India contract" and "beating multinational corporations" was not supported by the Certificate of Recognition. Corrected to verified certificate facts.
 
 **Production experience:**  
 We've built healthcare platforms across EHR integration, telemedicine workflows, and clinical data exchange—navigating complex regulatory requirements, legacy system integrations, and interoperability standards that most teams never encounter.
@@ -436,7 +438,9 @@ We've navigated it all for over a decade.
 TrueSpur has deep experience across the entire healthcare technology stack: EHR systems, telemedicine platforms, healthcare interoperability (HL7, FHIR, DIRECT), clinical workflows, insurance billing, and data analytics. We understand HIPAA compliance, clinical validation, and healthcare data security—not from reading documentation, but from shipping products that meet those standards.
 
 **Government-recognized:**  
-Our founder won a competitive healthcare contract from the Government of India—beating multinational corporations. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
+Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. The win came from doing the ground work: visiting hospitals, interviewing healthcare workers, understanding real constraints. Not assumptions. Evidence.
+
+> ⚠️ FACTUAL CORRECTION (July 2026): Previous wording claiming "Government of India contract" and "beating multinational corporations" was not supported by the Certificate of Recognition. Corrected to verified certificate facts.
 
 **Production experience:**  
 We've built healthcare platforms across EHR integration, telemedicine workflows, and clinical data exchange—navigating complex regulatory requirements, legacy system integrations, and interoperability standards that most teams never encounter.
