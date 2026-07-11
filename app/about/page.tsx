@@ -11,6 +11,7 @@ import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
 import { JsonLd } from "@/components/seo/JsonLd"
+import { SITE_CONFIG } from "@/lib/constants"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -468,7 +469,7 @@ export default function AboutPage() {
               <PrimaryButton size="lg" onClick={() => openLeadForm('about-final-cta-primary')}>
                 Start Your Project
               </PrimaryButton>
-              <SecondaryButton size="lg" onClick={() => window.open('https://calendly.com/truespur', '_blank')}>
+              <SecondaryButton size="lg" onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}>
                 Schedule a Call
               </SecondaryButton>
             </div>

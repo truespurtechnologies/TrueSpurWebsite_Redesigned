@@ -9,6 +9,7 @@ import { ServiceCard } from "@/components/cards/ServiceCard"
 import { FounderJourneyVisualization } from "@/components/page/FounderJourneyVisualization"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
 import { JsonLd } from "@/components/seo/JsonLd"
+import { SITE_CONFIG } from "@/lib/constants"
 
 export default function ServicesPage() {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
@@ -118,7 +119,7 @@ export default function ServicesPage() {
                   Start Your Project
                 </PrimaryButton>
                 
-                <SecondaryButton size="lg" variant="light" onClick={() => openLeadForm("services-hero-secondary")}>
+                <SecondaryButton size="lg" variant="light" onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}>
                   Schedule a Call
                 </SecondaryButton>
               </div>
@@ -315,7 +316,7 @@ export default function ServicesPage() {
                   Start Your Project
                 </PrimaryButton>
                 
-                <SecondaryButton size="lg" variant="light" onClick={() => openLeadForm("services-final-cta-secondary")}>
+                <SecondaryButton size="lg" variant="light" onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}>
                   Schedule a Call
                 </SecondaryButton>
               </div>

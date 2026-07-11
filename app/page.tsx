@@ -15,6 +15,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { JsonLd } from "@/components/seo/JsonLd"
+import { SITE_CONFIG } from "@/lib/constants"
 import {
   ArrowRight,
   Code,
@@ -1014,7 +1015,7 @@ export default function HomePage() {
               <SecondaryButton 
                 size="lg"
                 variant="dark"
-                onClick={() => window.open('https://calendly.com/truespur', '_blank')}
+                onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}
               >
                 Schedule a Call
               </SecondaryButton>
