@@ -335,10 +335,10 @@ export default function HomePage() {
       tagline: "Strategy & Validation",
       desc: "Test assumptions, understand your market, and define success before writing a single line of code.",
       icon: Target,
-      iconBg: "bg-orange-100",
-      iconColor: "text-orange-600",
-      numColor: "text-orange-600",
-      bar: "from-orange-400 to-amber-500",
+      iconBg: "bg-orange-50",
+      iconColor: "text-orange-500",
+      numColor: "text-orange-500",
+      bar: "from-yellow-400 to-orange-500",
       ring: "ring-1 ring-orange-100",
     },
     {
@@ -783,13 +783,27 @@ export default function HomePage() {
 
       {/* Section 4: How We Build Products That Scale */}
       <motion.section
-        className="relative py-16 md:py-24 lg:py-32 bg-white"
+        className="relative py-16 md:py-24 lg:py-32 bg-white overflow-hidden"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="container mx-auto px-4">
+        {/* Dynamic Background Elements for Glassmorphism */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div 
+            className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-100/30 rounded-full blur-[100px]"
+            animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div 
+            className="absolute bottom-1/4 -right-20 w-96 h-96 bg-violet-100/30 rounded-full blur-[100px]"
+            animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
           <motion.div
             className="text-center mb-20 md:mb-28 lg:mb-36"
@@ -801,8 +815,52 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gray-100 rounded-full mb-8">
               <span className="text-sm font-semibold tracking-widest uppercase text-gray-700">Our Approach</span>
             </div>
-            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
-              How We Build Products That Scale
+            <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8 leading-[1.15] tracking-tight">
+              How We Build <br className="md:hidden" />
+              <span className="relative inline-block mt-2 md:mt-0">
+                <span className="relative z-10 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                  Products That Scale
+                </span>
+                {/* Dynamic Glowing Aura - Multi-layered */}
+                <motion.span 
+                  className="absolute -inset-x-12 -inset-y-6 bg-orange-500/10 blur-[50px] rounded-full -z-20"
+                  animate={{ 
+                    opacity: [0.1, 0.3, 0.1], 
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+                <motion.span 
+                  className="absolute -inset-x-8 -inset-y-4 bg-yellow-400/20 blur-3xl rounded-full -z-10"
+                  animate={{ 
+                    opacity: [0.2, 0.5, 0.2], 
+                    scale: [0.95, 1.1, 0.95],
+                    rotate: [0, 5, -5, 0] 
+                  }}
+                  transition={{ 
+                    duration: 5, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+                <motion.span 
+                  className="absolute -inset-x-4 -inset-y-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-xl rounded-full -z-10"
+                  animate={{ 
+                    opacity: [0.3, 0.7, 0.3], 
+                    scale: [1, 1.05, 1] 
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 0.5 
+                  }}
+                />
+              </span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Built for ambitious founders who need speed and clarity.
@@ -823,7 +881,7 @@ export default function HomePage() {
               {/* Connecting Path Line */}
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 rounded-full overflow-hidden">
                 <motion.div 
-                  className="h-full bg-gradient-to-r from-orange-400 via-violet-400 to-amber-400"
+                  className="h-full bg-gradient-to-r from-yellow-400 via-violet-400 to-orange-500"
                   initial={{ width: "0%" }}
                   animate={{ width: `${(activeApproachStep / (approachSteps.length - 1)) * 100}%` }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -851,7 +909,7 @@ export default function HomePage() {
                       >
                         {/* Circle Node */}
                         <motion.div 
-                          className={`w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-500 bg-white ${
+                          className={`w-20 h-20 rounded-full border-2 flex items-center justify-center transition-all duration-500 bg-white ${
                             isActive 
                               ? `border-transparent shadow-xl ${step.ring.replace('ring-1', 'ring-4')}` 
                               : isPast 
@@ -859,33 +917,33 @@ export default function HomePage() {
                                 : "border-gray-200"
                           }`}
                           animate={{ 
-                            scale: isActive ? 1.15 : 1,
+                            scale: isActive ? 1.1 : 1,
                           }}
                         >
                           <div className={`w-full h-full rounded-full flex items-center justify-center ${isActive ? step.iconBg : 'bg-transparent'}`}>
-                            <step.icon 
-                              className={`w-6 h-6 transition-colors duration-500 ${
-                                isActive ? step.iconColor : isPast ? "text-gray-400" : "text-gray-300"
-                              }`} 
-                              strokeWidth={isActive ? 2 : 1.5}
-                            />
+                            <span className={`font-heading text-xl font-black transition-colors duration-500 ${
+                              isActive ? step.numColor : isPast ? "text-gray-400" : "text-gray-300"
+                            }`}>
+                              {step.num}
+                            </span>
                           </div>
                         </motion.div>
 
-                        {/* Label */}
+                        {/* Label with dynamic glassmorphism */}
                         <motion.div 
-                          className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-center"
+                          className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-center"
                           animate={{ 
                             y: isActive ? 4 : 0,
                             opacity: isActive ? 1 : 0.6
                           }}
                         >
-                          <span className={`block text-[10px] font-black tracking-widest uppercase mb-0.5 ${isActive ? step.numColor : "text-gray-400"}`}>
-                            {step.num}
-                          </span>
-                          <span className={`text-sm font-bold tracking-tight ${isActive ? "text-gray-900" : "text-gray-500"}`}>
-                            {step.title}
-                          </span>
+                          <div className={`relative px-4 py-1.5 rounded-full transition-all duration-500 ${
+                            isActive ? "bg-white/40 backdrop-blur-md border border-white/20 shadow-sm" : "bg-transparent border-transparent"
+                          }`}>
+                            <span className={`text-sm font-bold tracking-tight ${isActive ? "text-gray-900" : "text-gray-500"}`}>
+                              {step.title}
+                            </span>
+                          </div>
                         </motion.div>
                       </button>
                     </div>
@@ -895,10 +953,9 @@ export default function HomePage() {
             </div>
 
             {/* Mobile Navigation Path (Vertical - compact) */}
-            <div className="lg:hidden flex items-center justify-between px-4 mb-8">
+            <div className="lg:hidden flex items-center justify-between px-2 mb-8">
               {approachSteps.map((step, index) => {
                 const isActive = activeApproachStep === index
-                const isPast = activeApproachStep > index
                 return (
                   <button
                     key={step.num}
@@ -908,14 +965,20 @@ export default function HomePage() {
                     }}
                     className="relative group flex flex-col items-center"
                   >
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                      isActive ? `${step.iconBg} shadow-lg ${step.ring}` : "bg-gray-100"
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                      isActive ? `${step.iconBg} shadow-lg ${step.ring} scale-110` : "bg-gray-100"
                     }`}>
-                      <step.icon className={`w-5 h-5 ${isActive ? step.iconColor : "text-gray-400"}`} />
+                      <span className={`font-heading text-sm font-black ${isActive ? step.numColor : "text-gray-400"}`}>
+                        {step.num}
+                      </span>
                     </div>
-                    <div className={`mt-2 h-1 rounded-full transition-all duration-300 ${
-                      isActive ? `w-6 bg-gradient-to-r ${step.bar}` : "w-1.5 bg-gray-200"
-                    }`} />
+                    <div className={`mt-3 px-2 py-0.5 rounded-full transition-all duration-300 ${
+                      isActive ? "bg-white/60 backdrop-blur-sm border border-white/40 shadow-sm" : "bg-transparent border-transparent"
+                    }`}>
+                      <span className={`text-[10px] font-bold tracking-tight whitespace-nowrap ${isActive ? "text-gray-900" : "text-gray-400"}`}>
+                        {step.title}
+                      </span>
+                    </div>
                   </button>
                 )
               })}
