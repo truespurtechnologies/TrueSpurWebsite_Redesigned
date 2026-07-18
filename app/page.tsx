@@ -3,7 +3,7 @@
 import type React from "react"
 
 import Image from "next/image"
-import { animate, motion, useMotionValue, useTransform } from "framer-motion"
+import { AnimatePresence, animate, motion, useMotionValue, useTransform } from "framer-motion"
 import useEmblaCarousel from "embla-carousel-react"
 
 import { Button } from "@/components/ui/button"
@@ -35,6 +35,7 @@ import {
   Lock,
   Palette,
   Target,
+  Rocket,
   Building2,
   Database,
   Video,
@@ -327,6 +328,80 @@ export default function HomePage() {
     }))
   }
 
+  const approachSteps = [
+    {
+      num: "01",
+      title: "Discover",
+      tagline: "Strategy & Validation",
+      desc: "Test assumptions, understand your market, and define success before writing a single line of code.",
+      icon: Target,
+      iconBg: "bg-orange-100",
+      iconColor: "text-orange-600",
+      numColor: "text-orange-600",
+      bar: "from-orange-400 to-amber-500",
+      ring: "ring-1 ring-orange-100",
+    },
+    {
+      num: "02",
+      title: "Design",
+      tagline: "Experience First",
+      desc: "User research, wireframes, and visual design that turns complex problems into intuitive solutions.",
+      icon: Palette,
+      iconBg: "bg-violet-100",
+      iconColor: "text-violet-600",
+      numColor: "text-violet-600",
+      bar: "from-violet-400 to-purple-500",
+      ring: "ring-1 ring-violet-100",
+    },
+    {
+      num: "03",
+      title: "Build",
+      tagline: "Engineering Excellence",
+      desc: "Clean architecture, modern tech stack, and engineering practices that support growth from day one.",
+      icon: Code,
+      iconBg: "bg-sky-100",
+      iconColor: "text-sky-600",
+      numColor: "text-sky-600",
+      bar: "from-sky-400 to-blue-500",
+      ring: "ring-1 ring-sky-100",
+    },
+    {
+      num: "04",
+      title: "Launch",
+      tagline: "Seamless Deployment",
+      desc: "Testing, deployment, monitoring, and support to ensure your product performs in the real world.",
+      icon: Rocket,
+      iconBg: "bg-teal-100",
+      iconColor: "text-teal-600",
+      numColor: "text-teal-600",
+      bar: "from-teal-400 to-emerald-500",
+      ring: "ring-1 ring-teal-100",
+    },
+    {
+      num: "05",
+      title: "Scale",
+      tagline: "Data-Driven Growth",
+      desc: "Optimize performance, add features strategically, and use data to guide your product evolution.",
+      icon: Zap,
+      iconBg: "bg-amber-100",
+      iconColor: "text-amber-600",
+      numColor: "text-amber-600",
+      bar: "from-amber-400 to-yellow-500",
+      ring: "ring-1 ring-amber-100",
+    },
+  ]
+
+  const [activeApproachStep, setActiveApproachStep] = useState(0)
+  const [isApproachAutoplay, setIsApproachAutoplay] = useState(true)
+
+  useEffect(() => {
+    if (!isApproachAutoplay) return
+    const timer = setInterval(() => {
+      setActiveApproachStep((prev) => (prev + 1) % approachSteps.length)
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [isApproachAutoplay, activeApproachStep])
+
   return (
     <div className="min-h-screen bg-white">
       <JsonLd
@@ -362,7 +437,7 @@ export default function HomePage() {
       <motion.section
         id="home"
         aria-labelledby="hero-heading"
-        className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
+        className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
         {...createAnimationProps(shouldReduceMotion)}
       >
         {/* Background System */}
@@ -376,66 +451,132 @@ export default function HomePage() {
           }}
         />
 
-        {/* Optional: Subtle orange glow */}
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/3.5 blur-3xl rounded-full" />
+        {/* Ambient glow — right side where image lives */}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-orange-500/5 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-0 w-80 h-80 bg-slate-800/40 blur-3xl rounded-full pointer-events-none" />
 
         <div className="relative container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
-              viewport={{ once: true }}
-            >
-              <h1 id="hero-heading" className="font-heading text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.15] text-white">
-                Turn Ideas Into Scalable Digital Products
-              </h1>
-            </motion.div>
+          {/* Two-column split: text left, photo right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
 
-            <motion.p
-              className="text-lg lg:text-xl leading-relaxed text-slate-300 mt-6 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              From validation to launch, we help you build products that solve real problems and scale with confidence.
-            </motion.p>
-
-            <motion.p
-              className="text-base text-slate-200 font-medium mt-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Founder-led product studio. Building products — our own and yours.
-            </motion.p>
-
-            <motion.p
-              className="text-sm lg:text-base text-slate-400 mt-3"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              15+ years building products across healthcare and complex platforms.
-            </motion.p>
-
-            <motion.div
-              className="mt-16"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Button
-                onClick={() => openLeadForm("start-project")}
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/20 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-white"
+            {/* Left column */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
               >
-                Start Your Project
-              </Button>
+                <h1 id="hero-heading" className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] text-white">
+                  Turn Ideas Into{" "}
+                  <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                    Scalable Digital
+                  </span>{" "}
+                  Products
+                </h1>
+              </motion.div>
+
+              <motion.p
+                className="text-base lg:text-lg leading-relaxed text-slate-300 mt-6 max-w-xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              >
+                From validation to launch, we help you build products that solve real problems and scale with confidence.
+              </motion.p>
+
+              <motion.p
+                className="text-sm text-slate-400 mt-2 max-w-lg"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              >
+                Founder-led product studio. Building products — our own and yours.
+              </motion.p>
+
+              {/* Credential pills */}
+              <motion.div
+                className="flex flex-wrap gap-2.5 mt-8"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+              >
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/10 backdrop-blur-sm">
+                  <div className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0" />
+                  <span className="text-sm font-semibold text-slate-200">15+ Years Experience</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/10 backdrop-blur-sm">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                  <span className="text-sm font-semibold text-slate-200">4 Products Building</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/10 backdrop-blur-sm">
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 shrink-0" />
+                  <span className="text-sm font-semibold text-slate-200">Govt. Recognized</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="mt-10"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+              >
+                <Button
+                  onClick={() => openLeadForm("start-project")}
+                  className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-base lg:text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/25 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900"
+                >
+                  Start Your Project
+                </Button>
+              </motion.div>
+            </div>
+
+            {/* Right column — team photo with floating proof cards */}
+            <motion.div
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+            >
+              {/* Decorative glow behind image */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 blur-2xl pointer-events-none" />
+
+              {/* Photo frame */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/60 ring-1 ring-white/10">
+                <Image
+                  src="/images/hero-team-collaboration.png"
+                  alt="TrueSpur team collaborating on product strategy around a whiteboard showing a product roadmap"
+                  width={640}
+                  height={428}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+                {/* Subtle vignette bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-950/30 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Floating proof card — bottom-left */}
+              <motion.div
+                className="absolute -bottom-5 -left-5 bg-white rounded-xl px-4 py-3 shadow-xl shadow-slate-900/20 border border-gray-100/60"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.8 }}
+              >
+                <p className="text-xs text-gray-500 font-medium uppercase tracking-wide">Recognized by</p>
+                <p className="text-xl font-black text-gray-900 font-heading leading-tight">StartupTN</p>
+                <p className="text-xs text-gray-500 mt-0.5">Tamil Nadu Govt. initiative</p>
+              </motion.div>
+
+              {/* Floating award badge — top-right */}
+              <motion.div
+                className="absolute -top-5 -right-5 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl px-6 py-5 shadow-2xl shadow-orange-500/40 ring-2 ring-white/30"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.9 }}
+              >
+                <p className="font-heading text-xl font-black text-white leading-none tracking-tight">#1 of 54</p>
+                <p className="text-base font-semibold text-orange-100 leading-tight mt-1.5">Govt. Award</p>
+              </motion.div>
             </motion.div>
+
           </div>
         </div>
       </motion.section>
@@ -508,7 +649,8 @@ export default function HomePage() {
 
             {/* Product Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5 lg:gap-6 mb-12">
-              {/* Clinax */}
+
+              {/* Clinax — Healthcare: teal/cyan identity */}
               <motion.div
                 className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -516,34 +658,28 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                {/* Top brand accent */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
-                
-                {/* Left gradient accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-cyan-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-400 to-cyan-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Domain icon block */}
+                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100/60 flex items-center justify-center mb-5">
+                  <Heart className="h-7 w-7 text-teal-600" strokeWidth={1.5} />
+                </div>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-teal-50 text-teal-700 mb-4">
                   Healthcare Platform
                 </span>
-                
-                {/* Product name */}
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
                   Clinax
                 </h3>
-                
-                {/* Description */}
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
                   Healthcare platform connecting patients, providers, and pharmacies.
                 </p>
-                
-                {/* Status badge */}
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50/80 text-purple-600">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
                   Beta — Active Development
                 </span>
               </motion.div>
 
-              {/* Halo */}
+              {/* Halo — Patient Engagement: sky/blue identity */}
               <motion.div
                 className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -551,34 +687,27 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                {/* Top brand accent */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
-                
-                {/* Left gradient accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
-                  Healthcare Platform
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-blue-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-400 to-blue-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-100/60 flex items-center justify-center mb-5">
+                  <Users className="h-7 w-7 text-sky-600" strokeWidth={1.5} />
+                </div>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-sky-50 text-sky-700 mb-4">
+                  Patient Engagement
                 </span>
-                
-                {/* Product name */}
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
                   Halo
                 </h3>
-                
-                {/* Description */}
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
                   Telemedicine platform for remote patient care.
                 </p>
-                
-                {/* Status badge */}
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50/80 text-blue-600">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                   MVP — Pilot Phase
                 </span>
               </motion.div>
 
-              {/* TrueBill */}
+              {/* TrueBill — Business Tool: amber/green identity */}
               <motion.div
                 className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -586,34 +715,27 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                {/* Top brand accent */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
-                
-                {/* Left gradient accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-400 to-orange-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100/60 flex items-center justify-center mb-5">
+                  <Zap className="h-7 w-7 text-amber-600" strokeWidth={1.5} />
+                </div>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700 mb-4">
                   Business Tool
                 </span>
-                
-                {/* Product name */}
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
                   TrueBill
                 </h3>
-                
-                {/* Description */}
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
                   Billing and invoicing tool for modern businesses.
                 </p>
-                
-                {/* Status badge */}
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-50/80 text-green-600">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
                   Production — Live Customers
                 </span>
               </motion.div>
 
-              {/* TafsirAI */}
+              {/* TafsirAI — AI Application: indigo/violet identity */}
               <motion.div
                 className="group relative bg-white rounded-2xl border border-gray-100/50 p-6 lg:p-8 shadow-sm shadow-gray-900/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -621,32 +743,26 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                {/* Top brand accent */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
-                
-                {/* Left gradient accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Category badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-normal bg-gray-50/80 text-gray-600 mb-6">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-400 to-violet-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-400 to-violet-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100/60 flex items-center justify-center mb-5">
+                  <Brain className="h-7 w-7 text-indigo-600" strokeWidth={1.5} />
+                </div>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 mb-4">
                   AI Application
                 </span>
-                
-                {/* Product name */}
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
                   TafsirAI
                 </h3>
-                
-                {/* Description */}
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
                   AI-powered platform for Islamic text analysis.
                 </p>
-                
-                {/* Status badge */}
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-50/80 text-gray-600">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gray-50 text-gray-600">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400 shrink-0" />
                   Concept — Early Stage
                 </span>
               </motion.div>
+
             </div>
 
             {/* Closing Statement */}
@@ -693,79 +809,195 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Process Timeline */}
-          <div className="max-w-7xl mx-auto">
-            <div className="relative">
-              {/* Subtle connector line for desktop */}
-              <div className="absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-100 to-transparent hidden lg:block" />
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-8">
-                {[
-                  {
-                    num: "01",
-                    title: "Discover",
-                    tagline: "Validate before you invest.",
-                    desc: "We help you test assumptions, understand your market, and define what success looks like before writing a single line of code.",
-                  },
-                  {
-                    num: "02",
-                    title: "Design",
-                    tagline: "Create experiences users love.",
-                    desc: "User research, wireframes, prototypes, and visual design that turns complex problems into intuitive solutions.",
-                  },
-                  {
-                    num: "03",
-                    title: "Build",
-                    tagline: "Develop scalable products.",
-                    desc: "Clean architecture, modern tech stack, and engineering practices that support growth from day one.",
-                  },
-                  {
-                    num: "04",
-                    title: "Launch",
-                    tagline: "Release with confidence.",
-                    desc: "Testing, deployment, monitoring, and support to ensure your product performs in the real world.",
-                  },
-                  {
-                    num: "05",
-                    title: "Scale",
-                    tagline: "Grow through automation and insights.",
-                    desc: "Optimize performance, add features strategically, and use data to guide your product evolution.",
-                  },
-                ].map((step, index) => (
-                  <motion.div
-                    key={step.num}
-                    className="relative group"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.5 }}
-                  >
-                    {/* Step Number - Primary Visual Anchor */}
-                    <div className="mb-8">
-                      <span className="font-heading text-5xl md:text-6xl font-black text-gray-900">
-                        {step.num}
-                      </span>
+          {/* Process Steps — Interactive Connected Journey */}
+          <motion.div
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+            onMouseLeave={() => setIsApproachAutoplay(true)}
+          >
+            {/* Desktop Navigation Path (Horizontal) */}
+            <div className="hidden lg:block relative mb-16">
+              {/* Connecting Path Line */}
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 rounded-full overflow-hidden">
+                <motion.div 
+                  className="h-full bg-gradient-to-r from-orange-400 via-violet-400 to-amber-400"
+                  initial={{ width: "0%" }}
+                  animate={{ width: `${(activeApproachStep / (approachSteps.length - 1)) * 100}%` }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                />
+              </div>
+
+              <div className="relative flex justify-between items-center px-2">
+                {approachSteps.map((step, index) => {
+                  const isActive = activeApproachStep === index
+                  const isPast = activeApproachStep > index
+                  
+                  return (
+                    <div key={step.num} className="relative flex flex-col items-center">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveApproachStep(index)
+                          setIsApproachAutoplay(false)
+                        }}
+                        onMouseEnter={() => {
+                          setActiveApproachStep(index)
+                          setIsApproachAutoplay(false)
+                        }}
+                        className="group relative z-10"
+                      >
+                        {/* Circle Node */}
+                        <motion.div 
+                          className={`w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-500 bg-white ${
+                            isActive 
+                              ? `border-transparent shadow-xl ${step.ring.replace('ring-1', 'ring-4')}` 
+                              : isPast 
+                                ? "border-gray-300" 
+                                : "border-gray-200"
+                          }`}
+                          animate={{ 
+                            scale: isActive ? 1.15 : 1,
+                          }}
+                        >
+                          <div className={`w-full h-full rounded-full flex items-center justify-center ${isActive ? step.iconBg : 'bg-transparent'}`}>
+                            <step.icon 
+                              className={`w-6 h-6 transition-colors duration-500 ${
+                                isActive ? step.iconColor : isPast ? "text-gray-400" : "text-gray-300"
+                              }`} 
+                              strokeWidth={isActive ? 2 : 1.5}
+                            />
+                          </div>
+                        </motion.div>
+
+                        {/* Label */}
+                        <motion.div 
+                          className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-center"
+                          animate={{ 
+                            y: isActive ? 4 : 0,
+                            opacity: isActive ? 1 : 0.6
+                          }}
+                        >
+                          <span className={`block text-[10px] font-black tracking-widest uppercase mb-0.5 ${isActive ? step.numColor : "text-gray-400"}`}>
+                            {step.num}
+                          </span>
+                          <span className={`text-sm font-bold tracking-tight ${isActive ? "text-gray-900" : "text-gray-500"}`}>
+                            {step.title}
+                          </span>
+                        </motion.div>
+                      </button>
                     </div>
-
-                    {/* Step Title - Secondary Hierarchy */}
-                    <h3 className="font-heading text-xl md:text-2xl font-semibold text-gray-900 mb-3">
-                      {step.title}
-                    </h3>
-
-                    {/* Tagline - Tertiary Hierarchy with Color */}
-                    <p className="text-sm md:text-base font-medium text-orange-600 mb-4">
-                      {step.tagline}
-                    </p>
-
-                    {/* Description - Supporting Content */}
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-xs">
-                      {step.desc}
-                    </p>
-                  </motion.div>
-                ))}
+                  )
+                })}
               </div>
             </div>
-          </div>
+
+            {/* Mobile Navigation Path (Vertical - compact) */}
+            <div className="lg:hidden flex items-center justify-between px-4 mb-8">
+              {approachSteps.map((step, index) => {
+                const isActive = activeApproachStep === index
+                const isPast = activeApproachStep > index
+                return (
+                  <button
+                    key={step.num}
+                    onClick={() => {
+                      setActiveApproachStep(index)
+                      setIsApproachAutoplay(false)
+                    }}
+                    className="relative group flex flex-col items-center"
+                  >
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                      isActive ? `${step.iconBg} shadow-lg ${step.ring}` : "bg-gray-100"
+                    }`}>
+                      <step.icon className={`w-5 h-5 ${isActive ? step.iconColor : "text-gray-400"}`} />
+                    </div>
+                    <div className={`mt-2 h-1 rounded-full transition-all duration-300 ${
+                      isActive ? `w-6 bg-gradient-to-r ${step.bar}` : "w-1.5 bg-gray-200"
+                    }`} />
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Content Panel — Sophisticated Glassmorphism Card */}
+            <div className="relative min-h-[340px] lg:min-h-[300px]">
+              {/* Background Glows that shift color based on active step */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`glow-${activeApproachStep}`}
+                  className={`absolute inset-0 blur-3xl opacity-20 transition-all duration-1000 rounded-3xl ${approachSteps[activeApproachStep].iconBg}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 0.2, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.1 }}
+                />
+              </AnimatePresence>
+
+              <div className="relative h-full bg-white/60 backdrop-blur-md border border-gray-100 rounded-[2.5rem] p-8 md:p-12 lg:p-14 shadow-2xl shadow-gray-200/40 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeApproachStep}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
+                  >
+                    {/* Visual Side */}
+                    <div className="lg:col-span-5 flex justify-center lg:justify-start">
+                      <div className="relative">
+                        <motion.div 
+                          className={`w-28 h-28 md:w-36 md:h-36 rounded-3xl ${approachSteps[activeApproachStep].iconBg} flex items-center justify-center relative z-10 shadow-lg`}
+                          layoutId="approach-icon-container"
+                        >
+                          {(() => {
+                            const ActiveIcon = approachSteps[activeApproachStep].icon
+                            return <ActiveIcon className={`w-12 h-12 md:w-16 md:h-16 ${approachSteps[activeApproachStep].iconColor}`} strokeWidth={1.25} />
+                          })()}
+                        </motion.div>
+                        
+                        {/* Animated rings around icon */}
+                        <motion.div 
+                          className={`absolute inset-0 rounded-3xl border-2 ${approachSteps[activeApproachStep].iconColor} opacity-20`}
+                          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0, 0.2] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Text Side */}
+                    <div className="lg:col-span-7">
+                      <motion.span 
+                        className={`inline-block text-xs font-black uppercase tracking-[0.25em] ${approachSteps[activeApproachStep].numColor} mb-4`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                      >
+                        {approachSteps[activeApproachStep].tagline}
+                      </motion.span>
+                      <motion.h3 
+                        className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {approachSteps[activeApproachStep].title}
+                      </motion.h3>
+                      <motion.p 
+                        className="text-lg lg:text-xl text-gray-600 leading-relaxed"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        {approachSteps[activeApproachStep].desc}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -875,90 +1107,101 @@ export default function HomePage() {
               Proven Track Record
             </motion.h2>
 
-            {/* Two-column layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
-              
-              {/* Company Proof Column (60% visual weight) */}
+            {/* Stat callout blocks — scannable proof anchors */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
               <motion.div
-                className="space-y-6"
+                className="relative bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl border border-orange-100/60 p-7 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900">
-                  Active Product Studio
-                </h3>
-                
-                <p className="text-base lg:text-lg text-gray-600">
-                  Four products in active development. From healthcare platforms to AI tools. Each one proves our model works and teaches us something we bring to yours.
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-amber-400" />
+                <p className="font-heading text-5xl font-black text-gray-900 leading-none mb-2">
+                  StartupTN
                 </p>
-                
-                {/* Product logos grid */}
-                <div className="grid grid-cols-2 gap-3 mt-4">
-                  {/* Clinax */}
-                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
-                    <div className="text-center">
-                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
-                        <Heart className="h-4 w-4 text-orange-600" />
-                      </div>
-                      <span className="text-xs font-medium text-gray-900">Clinax</span>
-                    </div>
-                  </div>
-                  
-                  {/* Halo */}
-                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
-                    <div className="text-center">
-                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
-                        <Video className="h-4 w-4 text-orange-600" />
-                      </div>
-                      <span className="text-xs font-medium text-gray-900">Halo</span>
-                    </div>
-                  </div>
-                  
-                  {/* TrueBill */}
-                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
-                    <div className="text-center">
-                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
-                        <Building2 className="h-4 w-4 text-orange-600" />
-                      </div>
-                      <span className="text-xs font-medium text-gray-900">TrueBill</span>
-                    </div>
-                  </div>
-                  
-                  {/* TafsirAI */}
-                  <div className="flex items-center justify-center py-3 px-4 bg-white rounded-lg border border-gray-100/60 shadow-sm">
-                    <div className="text-center">
-                      <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1 mx-auto">
-                        <Brain className="h-4 w-4 text-orange-600" />
-                      </div>
-                      <span className="text-xs font-medium text-gray-900">TafsirAI</span>
-                    </div>
-                  </div>
-                </div>
+                <p className="text-sm font-semibold text-gray-700 mb-1">Recognized</p>
+                <p className="text-xs text-gray-500">Tamil Nadu Govt. initiative</p>
               </motion.div>
 
-              {/* Founder Proof Column (40% visual weight) */}
               <motion.div
-                className="space-y-6"
+                className="relative bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border border-yellow-100/60 p-7 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-gray-900">
-                  Government-Recognized Innovation
-                </h3>
-                
-                <p className="text-base lg:text-lg text-gray-600">
-                  Our founder won first place in a design hackathon jointly organized by the Directorate for Welfare of the Differently Abled and StartupTN—for the design of a Mobile Outreach and Therapy Unit. When a critical healthcare platform was failing at 5% success, we turned it around to 80%+ within months.
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-orange-400" />
+                <p className="font-heading text-5xl font-black text-gray-900 leading-none mb-2">
+                  #1 <span className="text-orange-500 text-3xl font-extrabold">/ 54</span>
                 </p>
-                
-                <p className="text-base font-medium text-gray-600">
-                  Third-party validation. Measurable outcomes.
-                </p>
+                <p className="text-sm font-semibold text-gray-700 mb-1">Government Hackathon</p>
+                <p className="text-xs text-gray-500">First place among 54 designs — Tamil Nadu Govt. &amp; StartupTN</p>
               </motion.div>
 
+              <motion.div
+                className="relative bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl border border-gray-100/60 p-7 overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gray-300 to-gray-400" />
+                <p className="font-heading text-5xl font-black text-gray-900 leading-none mb-2">
+                  15<span className="text-orange-500">+</span>
+                </p>
+                <p className="text-sm font-semibold text-gray-700 mb-1">Years in Healthcare Tech</p>
+                <p className="text-xs text-gray-500">EHR, telemedicine, HIPAA, HL7/FHIR — built from the inside</p>
+              </motion.div>
+            </div>
+
+            {/* Supporting context */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <h3 className="font-heading text-xl lg:text-2xl font-bold text-gray-900">
+                  Active Product Studio
+                </h3>
+                <p className="text-base text-gray-600">
+                  Four products in active development — from healthcare platforms to AI tools. Each one proves our model works and teaches us something we bring to yours.
+                </p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {[
+                    { label: "Clinax", icon: Heart, color: "text-teal-600", bg: "bg-teal-50", border: "border-teal-100" },
+                    { label: "Halo", icon: Users, color: "text-sky-600", bg: "bg-sky-50", border: "border-sky-100" },
+                    { label: "TrueBill", icon: Zap, color: "text-amber-600", bg: "bg-amber-50", border: "border-amber-100" },
+                    { label: "TafsirAI", icon: Brain, color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
+                  ].map((p) => (
+                    <span key={p.label} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${p.bg} ${p.color} border ${p.border}`}>
+                      <p.icon className="h-3.5 w-3.5" strokeWidth={2} />
+                      {p.label}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <h3 className="font-heading text-xl lg:text-2xl font-bold text-gray-900">
+                  Government-Recognized Innovation
+                </h3>
+                <p className="text-base text-gray-600">
+                  Our founder won first place in a design hackathon organized by the Directorate for Welfare of the Differently Abled and StartupTN — beating 53 other designs including big MNCs — by doing what others skipped: visiting hospitals and interviewing physiotherapists.
+                </p>
+                <p className="text-sm font-semibold text-gray-700">
+                  World Bank funded. Now serving citizens in remote Tamil Nadu locations.
+                </p>
+              </motion.div>
             </div>
           </div>
         </div>
