@@ -47,7 +47,7 @@ export default function ClinexaPage() {
           name: waitlistName,
           email: waitlistEmail,
           organization: waitlistOrg,
-          product: "Clinexa",
+          product: "Clinax",
         }),
       })
 
@@ -74,13 +74,13 @@ export default function ClinexaPage() {
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare Product Suite</Badge>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
-            Clinexa
+            Clinax
             <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               Connected care for modern healthcare delivery.
             </span>
           </h1>
           <p className="text-lg text-gray-600 mb-6 max-w-xl">
-            Clinexa unifies patient journeys, clinicians, and operations into a single, intelligent platform. Designed
+            Clinax unifies patient journeys, clinicians, and operations into a single, intelligent platform. Designed
             for hospitals, clinics, and digital health initiatives that need reliability, speed, and clinical-grade
             workflows.
           </p>
@@ -177,7 +177,7 @@ export default function ClinexaPage() {
       </section>
 
       <section id="clinexa-waitlist" className="mt-14 md:mt-20 lg:mt-28 max-w-2xl">
-        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the Clinexa waitlist</h2>
+        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the Clinax waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as we open up early access and pilots.
         </p>

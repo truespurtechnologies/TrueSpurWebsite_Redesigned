@@ -1,8 +1,8 @@
 # PRODUCTS PAGE DESIGN SPECIFICATION
 
 **Document Type:** Implementation-Ready Design Specification  
-**Version:** 1.2 (Final Refinement)  
-**Date:** June 13, 2026  
+**Version:** 1.3 (Portfolio Card Refinement)  
+**Date:** July 19, 2026  
 **Status:** ✅ READY FOR IMPLEMENTATION AND APPROVAL — Final Refinement Pass Complete  
 **Authority:** Aligned with FINAL-WEBSITE-STRATEGY.md, HOMEPAGE-DESIGN-SPECIFICATION-v1.2-FINAL.md, design-system.md, brand-identity-guidelines.md
 
@@ -18,6 +18,15 @@
 - Status badges replaced with progress descriptors (no colored badges, lightweight metadata)
 - Optional Discovery Signals pattern documented for future use
 - Governance cleanup completed (all references updated to 6 sections, progress descriptors)
+
+**Portfolio Card Refinement (v1.3):**
+- UX audit found the implemented Product Portfolio card had drifted from the v1.2 "no badge styling" rule: oversized 160px watermark icon, 34-42px oversized product name, and a boxed/pulsing-dot progress descriptor re-introduced a "status badge" feel
+- Removed oversized decorative watermark icon (added visual noise, no content value)
+- Category treatment changed from filled color pill to a kicker label (small dot + uppercase tracked text) — less templated, more editorial
+- Product name reduced from 34-42px to a proportionate 24-28px so it no longer overpowers the card
+- Added a subtle index mark (01-04) reinforcing "4 real products" without a maturity-ranking badge
+- Progress descriptor changed from a bg-gray-50 box with an animated pulsing dot to plain italic text-sm text-gray-500 separated by a hairline divider — restores true compliance with "no background, no border, no badge styling"
+- Hover state simplified to a single lift + shadow + left accent line (removed combined scale+translate, which felt busy)
 
 ---
 

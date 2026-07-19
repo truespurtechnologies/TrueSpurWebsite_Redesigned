@@ -1,16 +1,15 @@
 "use client"
 
 import type React from "react"
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect, useRef } from "react"
 import { PageContainer } from "@/components/layout/PageContainer"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
-import { Activity, Video, DollarSign, Sparkles, Target, Zap, Rocket, TrendingUp, Quote, Wallet, Compass, Gauge } from "lucide-react"
+import { Activity, Video, DollarSign, Sparkles, Target, Zap, Rocket, TrendingUp, Quote, Wallet, Compass, Gauge, ArrowRight } from "lucide-react"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -42,37 +41,41 @@ const createAnimationProps = (shouldReduceMotion: boolean) => ({
 // Category visual accents - grounded in each product's existing category
 const categoryStyles = {
   healthcare: {
-    badge: "bg-rose-50 text-rose-600 ring-1 ring-rose-100",
     iconBg: "from-rose-50 to-rose-100/60",
     iconColor: "text-rose-600",
     ring: "ring-rose-100/80 group-hover:ring-rose-200",
     dot: "bg-rose-500",
+    accent: "via-rose-400/70",
+    wash: "from-rose-50/80 via-white to-white",
   },
   engagement: {
-    badge: "bg-sky-50 text-sky-600 ring-1 ring-sky-100",
     iconBg: "from-sky-50 to-sky-100/60",
     iconColor: "text-sky-600",
     ring: "ring-sky-100/80 group-hover:ring-sky-200",
     dot: "bg-sky-500",
+    accent: "via-sky-400/70",
+    wash: "from-sky-50/80 via-white to-white",
   },
   business: {
-    badge: "bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100",
     iconBg: "from-emerald-50 to-emerald-100/60",
     iconColor: "text-emerald-600",
     ring: "ring-emerald-100/80 group-hover:ring-emerald-200",
     dot: "bg-emerald-500",
+    accent: "via-emerald-400/70",
+    wash: "from-emerald-50/80 via-white to-white",
   },
   ai: {
-    badge: "bg-violet-50 text-violet-600 ring-1 ring-violet-100",
     iconBg: "from-violet-50 to-violet-100/60",
     iconColor: "text-violet-600",
     ring: "ring-violet-100/80 group-hover:ring-violet-200",
     dot: "bg-violet-500",
+    accent: "via-violet-400/70",
+    wash: "from-violet-50/80 via-white to-white",
   },
 } as const
 
-// Product Card Component
-interface ProductCardProps {
+// Product Showcase - interactive tab switcher + animated stage panel
+interface ShowcaseProduct {
   icon: React.ElementType
   accent: keyof typeof categoryStyles
   category: string
@@ -81,85 +84,187 @@ interface ProductCardProps {
   progressDescriptor: string
 }
 
-function ProductCard({ icon: Icon, accent, category, name, description, progressDescriptor }: ProductCardProps) {
-  const styles = categoryStyles[accent]
+const AUTO_ADVANCE_MS = 6000
+
+function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseProduct[]; shouldReduceMotion: boolean }) {
+  const [active, setActive] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  useEffect(() => {
+    if (shouldReduceMotion || isPaused) return
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % products.length)
+    }, AUTO_ADVANCE_MS)
+    return () => clearInterval(timer)
+  }, [active, isPaused, shouldReduceMotion, products.length])
+
+  const selectTab = (i: number) => setActive(i)
+
+  const moveTab = (delta: number) => {
+    setActive((prev) => {
+      const next = (prev + delta + products.length) % products.length
+      tabRefs.current[next]?.focus()
+      return next
+    })
+  }
+
+  const activeProduct = products[active]
+  const activeStyles = categoryStyles[activeProduct.accent]
+  const ActiveIcon = activeProduct.icon
 
   return (
-    <Card className="group relative h-full flex flex-col overflow-hidden bg-white rounded-3xl border border-gray-100/70 p-8 lg:p-10 xl:p-12 shadow-sm shadow-gray-900/6 hover:shadow-lg hover:shadow-gray-900/10 hover:border-gray-200/80 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 ease-out">
-      {/* Left gradient accent - enhanced on hover */}
-      <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-orange-400/0 via-orange-400/70 to-orange-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <div
+      className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-6"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Tab list */}
+      <div
+        className="lg:col-span-4 flex flex-col gap-2"
+        role="tablist"
+        aria-label="Our products"
+        aria-orientation="vertical"
+      >
+        {products.map((p, i) => {
+          const isActive = i === active
+          const styles = categoryStyles[p.accent]
+          return (
+            <button
+              key={p.name}
+              ref={(el) => { tabRefs.current[i] = el }}
+              role="tab"
+              type="button"
+              aria-selected={isActive}
+              tabIndex={isActive ? 0 : -1}
+              onClick={() => selectTab(i)}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowDown") { e.preventDefault(); moveTab(1) }
+                if (e.key === "ArrowUp") { e.preventDefault(); moveTab(-1) }
+              }}
+              className={`group relative text-left rounded-2xl px-6 py-5 overflow-hidden transition-all duration-300 ${
+                isActive ? "bg-white shadow-md shadow-gray-900/8 ring-1 ring-gray-900/5" : "bg-transparent hover:bg-white/70"
+              }`}
+            >
+              <div className="relative flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-2.5">
+                  <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${styles.dot}`} aria-hidden="true" />
+                  <span className={`text-[11px] font-semibold uppercase tracking-wider ${isActive ? "text-gray-500" : "text-gray-400"}`}>
+                    {p.category}
+                  </span>
+                </div>
+                <span className={`font-heading text-xs font-semibold tracking-wider ${isActive ? "text-gray-400" : "text-gray-300"}`} aria-hidden="true">
+                  0{i + 1}
+                </span>
+              </div>
+              <h4 className={`relative font-heading text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-200 ${
+                isActive ? "text-gray-900" : "text-gray-400 group-hover:text-gray-600"
+              }`}>
+                {p.name}
+              </h4>
 
-      {/* Oversized watermark icon - visual depth, no new content */}
-      <Icon className="absolute -right-6 -top-6 h-40 w-40 text-gray-900/[0.03] rotate-6 pointer-events-none" strokeWidth={1} aria-hidden="true" />
-      
-      {/* ZONE 1: Product Icon - Emblematic presence */}
-      <div className={`relative h-[72px] w-[72px] lg:h-20 lg:w-20 rounded-2xl bg-gradient-to-br ${styles.iconBg} flex items-center justify-center mb-4 ring-1 ${styles.ring} transition-all duration-200`}>
-        <Icon className={`h-9 w-9 lg:h-10 lg:w-10 ${styles.iconColor} -mt-px`} strokeWidth={1.5} />
+              {/* Auto-advance progress indicator */}
+              {isActive && !shouldReduceMotion && (
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-100/80">
+                  <motion.div
+                    key={active}
+                    className="h-full bg-gradient-to-r from-orange-400 to-amber-500"
+                    initial={{ width: "0%" }}
+                    animate={{ width: isPaused ? "0%" : "100%" }}
+                    transition={{ duration: AUTO_ADVANCE_MS / 1000, ease: "linear" }}
+                  />
+                </div>
+              )}
+            </button>
+          )
+        })}
       </div>
-      
-      {/* Category - visual badge, color-coded per product category */}
-      <div className={`relative inline-flex self-start items-center px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider mb-6 ${styles.badge}`}>
-        {category}
+
+      {/* Stage panel */}
+      <div className="lg:col-span-8">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -16 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            role="tabpanel"
+            className={`relative h-full min-h-[380px] lg:min-h-[420px] overflow-hidden rounded-3xl bg-gradient-to-br ${activeStyles.wash} border border-gray-100/80 p-9 lg:p-14 shadow-sm shadow-gray-900/5`}
+          >
+            {/* Oversized watermark index */}
+            <span className="absolute -right-3 -top-14 font-heading text-[200px] lg:text-[260px] font-black text-gray-900/[0.04] leading-none select-none pointer-events-none" aria-hidden="true">
+              0{active + 1}
+            </span>
+
+            <div className={`relative h-16 w-16 rounded-2xl bg-white flex items-center justify-center mb-8 shadow-sm ring-1 ${activeStyles.ring}`}>
+              <ActiveIcon className={`h-7 w-7 ${activeStyles.iconColor}`} strokeWidth={1.5} />
+            </div>
+
+            <div className="relative flex items-center gap-2 mb-4">
+              <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${activeStyles.dot}`} aria-hidden="true" />
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
+                {activeProduct.category}
+              </span>
+            </div>
+
+            <h3 className="relative font-heading text-4xl lg:text-5xl font-black text-gray-900 tracking-[-0.02em] leading-[1.1] mb-5">
+              {activeProduct.name}
+            </h3>
+
+            <p className="relative text-base lg:text-lg text-gray-600 leading-relaxed max-w-xl mb-8">
+              {activeProduct.description}
+            </p>
+
+            <div className="relative pt-6 border-t border-gray-900/[0.06] max-w-xl">
+              <p className="text-sm text-gray-500 italic leading-relaxed">
+                {activeProduct.progressDescriptor}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
-      
-      {/* ZONE 2: Product Identity - Commanding product name */}
-      <h3 className="relative font-heading text-[34px] lg:text-[38px] xl:text-[42px] font-bold text-gray-900 leading-[1.15] tracking-[-0.01em] mb-4">
-        {name}
-      </h3>
-      
-      {/* ZONE 3: Product Description */}
-      <p className="relative text-[15px] lg:text-base text-gray-600 leading-[1.65] mb-auto">
-        {description}
-      </p>
-      
-      {/* Status Badge - live-signal pulse instead of flat text */}
-      <div className="relative mt-6 flex items-center gap-3 px-5 py-3 bg-gray-50/80 rounded-xl border border-gray-100/50 group-hover:bg-gray-100/60 group-hover:border-gray-200/60 transition-colors duration-200">
-        <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
-          <span className={`absolute inline-flex h-full w-full rounded-full ${styles.dot} opacity-60 animate-ping`} />
-          <span className={`relative inline-flex h-2 w-2 rounded-full ${styles.dot}`} />
-        </span>
-        <p className="text-[13px] font-medium text-gray-600 leading-[1.5]">
-          {progressDescriptor}
-        </p>
-      </div>
-    </Card>
+    </div>
   )
 }
 
-// Learning Card Component
-interface LearningCardProps {
+// Learning Step Component - editorial progression flow (dark stage)
+interface LearningStepProps {
+  index: number
   icon: React.ElementType
   title: string
   subtitle: string
   description: string
 }
 
-function LearningCard({ icon: Icon, title, subtitle, description }: LearningCardProps) {
+function LearningStep({ index, icon: Icon, title, subtitle, description }: LearningStepProps) {
   return (
-    <Card className="group relative h-full flex flex-col bg-white rounded-2xl lg:rounded-3xl border border-gray-100/70 p-10 lg:p-12 shadow-sm shadow-gray-900/6 hover:shadow-lg hover:shadow-gray-900/10 hover:border-gray-200/80 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 ease-out">
-      {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-2xl lg:rounded-l-3xl" />
-      
+    <div className="group relative flex-1">
+      {/* Oversized ghost numeral */}
+      <span className="block font-heading text-6xl lg:text-7xl font-black text-white/[0.06] leading-none mb-5 select-none" aria-hidden="true">
+        0{index}
+      </span>
+
       {/* Icon */}
-      <div className="h-12 w-12 lg:h-14 lg:w-14 rounded-lg bg-gradient-to-br from-orange-50 to-amber-50 flex items-center justify-center mb-6 lg:mb-7 ring-1 ring-orange-100/50">
-        <Icon className="h-6 w-6 lg:h-7 lg:w-7 text-orange-600" strokeWidth={1.5} />
+      <div className="relative h-12 w-12 lg:h-14 lg:w-14 rounded-xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 flex items-center justify-center mb-6 ring-1 ring-orange-400/20 group-hover:ring-orange-400/50 transition-all duration-300">
+        <Icon className="h-6 w-6 lg:h-7 lg:w-7 text-orange-400" strokeWidth={1.5} />
       </div>
-      
+
       {/* Title */}
-      <h3 className="font-heading text-2xl lg:text-[28px] font-semibold text-gray-900 leading-tight mb-2">
+      <h3 className="font-heading text-2xl lg:text-[26px] font-bold text-white leading-tight mb-2">
         {title}
       </h3>
-      
+
       {/* Subtitle */}
-      <p className="text-sm font-semibold text-orange-600 tracking-wide mb-6">
+      <p className="text-sm font-semibold text-orange-400 tracking-wide mb-5">
         {subtitle}
       </p>
-      
+
       {/* Description */}
-      <p className="text-[15px] lg:text-base text-gray-600 leading-[1.65]">
+      <p className="text-[15px] text-gray-400 leading-[1.7]">
         {description}
       </p>
-    </Card>
+    </div>
   )
 }
 
@@ -340,45 +445,42 @@ export default function ProductsPage() {
                 Four products across healthcare, business tools, and AI. Each one solving real problems and teaching us what founders face.
               </p>
               
-              {/* Product Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-9 max-w-6xl mx-auto">
-                
-                <ProductCard 
-                  icon={Activity}
-                  accent="healthcare"
-                  category="Healthcare Platform"
-                  name="Clinax"
-                  description="End-to-end healthcare operations platform managing patient records, provider workflows, and pharmacy coordination."
-                  progressDescriptor="Actively validating clinical workflows with healthcare stakeholders"
-                />
-                
-                <ProductCard 
-                  icon={Video}
-                  accent="engagement"
-                  category="Patient Engagement Platform"
-                  name="Halo"
-                  description="HIPAA-compliant telemedicine platform enabling secure video consultations and asynchronous patient communication."
-                  progressDescriptor="Refining telehealth workflows through provider feedback"
-                />
-                
-                <ProductCard 
-                  icon={DollarSign}
-                  accent="business"
-                  category="Business Tool"
-                  name="TrueBill"
-                  description="MSME digitization platform helping businesses streamline billing, quotations, and everyday operations."
-                  progressDescriptor="Supporting daily business operations through digital workflows"
-                />
-                
-                <ProductCard 
-                  icon={Sparkles}
-                  accent="ai"
-                  category="AI Application"
-                  name="TafsirAI"
-                  description="AI-powered Quran companion helping users explore authentic tafsir, hadith, and practical guidance from Islamic sources."
-                  progressDescriptor="Exploring how AI can improve access to authentic Islamic knowledge"
-                />
-                
+              {/* Product Showcase - interactive tab switcher + stage panel */}
+              <div className="max-w-6xl mx-auto">
+                <ProductShowcase shouldReduceMotion={shouldReduceMotion} products={[
+                  {
+                    icon: Activity,
+                    accent: "healthcare",
+                    category: "Healthcare Platform",
+                    name: "Clinax",
+                    description: "End-to-end healthcare operations platform managing patient records, provider workflows, and pharmacy coordination.",
+                    progressDescriptor: "Actively validating clinical workflows with healthcare stakeholders",
+                  },
+                  {
+                    icon: Video,
+                    accent: "engagement",
+                    category: "Patient Engagement Platform",
+                    name: "Halo",
+                    description: "HIPAA-compliant telemedicine platform enabling secure video consultations and asynchronous patient communication.",
+                    progressDescriptor: "Refining telehealth workflows through provider feedback",
+                  },
+                  {
+                    icon: DollarSign,
+                    accent: "business",
+                    category: "Business Tool",
+                    name: "TrueBill",
+                    description: "MSME digitization platform helping businesses streamline billing, quotations, and everyday operations.",
+                    progressDescriptor: "Supporting daily business operations through digital workflows",
+                  },
+                  {
+                    icon: Sparkles,
+                    accent: "ai",
+                    category: "AI Application",
+                    name: "TafsirAI",
+                    description: "AI-powered Quran companion helping users explore authentic tafsir, hadith, and practical guidance from Islamic sources.",
+                    progressDescriptor: "Exploring how AI can improve access to authentic Islamic knowledge",
+                  },
+                ]} />
               </div>
               
             </div>
@@ -402,54 +504,78 @@ export default function ProductsPage() {
 
         {/* SECTION 4: WHAT BUILDING THESE PRODUCTS TEACHES US */}
         <motion.section 
-          className="py-16 md:py-24 lg:py-32 bg-white"
+          className="relative py-20 md:py-28 lg:py-36 bg-gray-900 overflow-hidden"
           aria-labelledby="learning-heading"
           {...animationProps}
         >
-          <PageContainer>
+          {/* Ambient glow accents */}
+          <div className="pointer-events-none absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-orange-500/10 blur-[120px]" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-32 right-1/4 h-96 w-96 rounded-full bg-amber-500/10 blur-[120px]" aria-hidden="true" />
+
+          <PageContainer className="relative">
             <div className="max-w-6xl mx-auto">
-              
-              <h2 id="learning-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center tracking-[-0.02em] mb-8">
-                What Building These Products Teaches Us
-              </h2>
-              
-              <p className="text-base lg:text-lg text-gray-600 text-center leading-[1.7] max-w-4xl mx-auto mb-12">
-                Every product we build teaches us something we bring to yours. Here&apos;s what we&apos;ve learned from being in the trenches.
-              </p>
-              
-              {/* Learning Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-5xl mx-auto">
-                
-                <LearningCard 
+
+              <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-400 mb-5">
+                  The Builder&apos;s Framework
+                </p>
+                <h2 id="learning-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-black text-white tracking-[-0.02em] leading-[1.1] mb-6">
+                  What Building These Products <span className="text-orange-400">Teaches Us</span>
+                </h2>
+                <p className="text-base lg:text-lg text-gray-400 leading-[1.7]">
+                  Every product we build teaches us something we bring to yours. Here&apos;s what we&apos;ve learned from being in the trenches.
+                </p>
+              </div>
+
+              {/* Progression flow */}
+              <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-0">
+
+                <LearningStep
+                  index={1}
                   icon={Target}
                   title="Validation"
                   subtitle="Learn before building"
                   description="We've learned how to test demand before building features. We know which validation techniques work and which waste time. We bring that discipline to your product."
                 />
-                
-                <LearningCard 
+
+                <div className="hidden lg:flex items-start justify-center pt-16 px-4 lg:px-6" aria-hidden="true">
+                  <ArrowRight className="h-5 w-5 text-orange-400/40" strokeWidth={1.5} />
+                </div>
+
+                <LearningStep
+                  index={2}
                   icon={Zap}
                   title="Prioritization"
                   subtitle="Build what matters"
                   description="Building our own products taught us to prioritize ruthlessly. We know the difference between must-have features and nice-to-haves. We help you focus on what moves the needle."
                 />
-                
-                <LearningCard 
+
+                <div className="hidden lg:flex items-start justify-center pt-16 px-4 lg:px-6" aria-hidden="true">
+                  <ArrowRight className="h-5 w-5 text-orange-400/40" strokeWidth={1.5} />
+                </div>
+
+                <LearningStep
+                  index={3}
                   icon={Rocket}
                   title="Execution"
                   subtitle="Ship with confidence"
-                  description="Building products teaches you that execution is never as straightforward as the roadmap suggests. We understand the trade-offs, unexpected challenges, and decisions required to move from idea to reality. We help you execute with clarity and ship with confidence."
+                  description="Building products teaches you that execution is never as straightforward as the roadmap suggests. We help you execute with clarity and ship with confidence."
                 />
-                
-                <LearningCard 
+
+                <div className="hidden lg:flex items-start justify-center pt-16 px-4 lg:px-6" aria-hidden="true">
+                  <ArrowRight className="h-5 w-5 text-orange-400/40" strokeWidth={1.5} />
+                </div>
+
+                <LearningStep
+                  index={4}
                   icon={TrendingUp}
                   title="Scale"
                   subtitle="Build for growth"
-                  description="Building products teaches you to think beyond the first release. We focus on creating foundations that can support growth, adapt to change, and evolve as products mature. We help you build systems designed to scale from day one."
+                  description="Building products teaches you to think beyond the first release. We help you build systems designed to scale from day one."
                 />
-                
+
               </div>
-              
+
             </div>
           </PageContainer>
         </motion.section>

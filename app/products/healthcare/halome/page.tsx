@@ -47,7 +47,7 @@ export default function HaloMePage() {
           name: waitlistName,
           email: waitlistEmail,
           organization: waitlistOrg,
-          product: "HaloMe",
+          product: "Halo",
         }),
       })
 
@@ -74,13 +74,13 @@ export default function HaloMePage() {
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Healthcare Product Suite</Badge>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
-            HaloMe
+            Halo
             <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               Patient engagement that feels personal, not transactional.
             </span>
           </h1>
           <p className="text-lg text-gray-600 mb-6 max-w-xl">
-            HaloMe helps health systems reach, educate, and support patients beyond the hospital walls—through
+            Halo helps health systems reach, educate, and support patients beyond the hospital walls—through
             thoughtful, timely, and contextual communication.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -175,7 +175,7 @@ export default function HaloMePage() {
         </div>
       </section>
       <section id="halome-waitlist" className="mt-14 md:mt-20 lg:mt-28 max-w-2xl">
-        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the HaloMe waitlist</h2>
+        <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the Halo waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as we open up early access and pilots.
         </p>

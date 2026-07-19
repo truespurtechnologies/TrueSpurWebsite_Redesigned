@@ -13,13 +13,13 @@ export default function TrueSpurBillingPage() {
         <div>
           <Badge className="mb-4 bg-orange-100 text-orange-700 hover:bg-orange-100">Digital Transformation</Badge>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
-            TrueSpur Billing
+            TrueBill
             <span className="block font-heading text-2xl md:text-3xl font-semibold text-gray-700 mt-2">
               Billing and invoicing built for growth-ready businesses.
             </span>
           </h1>
           <p className="text-lg text-gray-600 mb-6 max-w-xl">
-            TrueSpur Billing brings clarity, control, and speed to your receivables. From quote to cash, get a single,
+            TrueBill brings clarity, control, and speed to your receivables. From quote to cash, get a single,
             coherent view of how revenue flows through your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">

@@ -222,12 +222,12 @@ export default function HomePage() {
       category: "Healthcare",
       items: [
         {
-          label: "Clinexa",
+          label: "Clinax",
           href: "/products/healthcare/clinexa",
           description: "Connected care platform for modern healthcare delivery.",
         },
         {
-          label: "HaloMe",
+          label: "Halo",
           href: "/products/healthcare/halome",
           description: "Patient engagement and outreach for hospitals and clinics.",
         },
@@ -237,7 +237,7 @@ export default function HomePage() {
       category: "Digital Transformation",
       items: [
         {
-          label: "TrueSpur Billing",
+          label: "TrueBill",
           href: "/products/digital-transformation/truespur-billing",
           description: "Billing and invoicing built for growth-ready businesses.",
         },
