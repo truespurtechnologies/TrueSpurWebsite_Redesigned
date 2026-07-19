@@ -43,6 +43,8 @@ import {
   Network,
   Activity,
   Settings,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react"
 
 // Reduced motion utility
@@ -401,6 +403,28 @@ export default function HomePage() {
     }, 4500)
     return () => clearInterval(timer)
   }, [isApproachAutoplay, activeApproachStep])
+
+  const expertiseAreas = [
+    { id: 1, name: 'EHR Integration', icon: Database, desc: 'Seamless data flow across clinical systems.' },
+    { id: 2, name: 'Telemedicine', icon: Video, desc: 'Secure, low-latency virtual care platforms.' },
+    { id: 3, name: 'HIPAA Compliance', icon: Shield, desc: 'Ironclad security and privacy standards.' },
+    { id: 4, name: 'HL7/FHIR', icon: Network, desc: 'Modern interoperability for healthcare data.' },
+    { id: 5, name: 'Clinical Workflows', icon: Activity, desc: 'Optimizing for the provider experience.' },
+    { id: 6, name: 'Operations', icon: Settings, desc: 'Scaling the backend of modern health.' },
+  ]
+
+  const [activeExpertise, setActiveExpertise] = useState(0)
+  const [isExpertiseAutoplay, setIsExpertiseAutoplay] = useState(true)
+
+  useEffect(() => {
+    if (!isExpertiseAutoplay) return
+    const timer = setInterval(() => {
+      setActiveExpertise((prev) => (prev + 1) % expertiseAreas.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [isExpertiseAutoplay, activeExpertise])
+
+  const ActiveExpertiseIcon = expertiseAreas[activeExpertise].icon
 
   return (
     <div className="min-h-screen bg-white">
@@ -1066,84 +1090,150 @@ export default function HomePage() {
 
       {/* Section 5: Deep Healthcare Expertise */}
       <motion.section
-        className="pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-32 bg-gray-50"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative py-20 md:py-28 lg:py-36 bg-white overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            
-            {/* Section Headline */}
-            <motion.h2
-              className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              Deep Healthcare Expertise
-            </motion.h2>
-            
-            {/* Body Copy */}
-            <motion.div
-              className="max-w-3xl mx-auto text-center space-y-6 text-base lg:text-lg text-gray-600 mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <p>
-                Most teams hit a wall with healthcare technology. The regulations, the integrations, the compliance requirements—they stop projects cold.
-              </p>
-              <p>
-                We&apos;ve navigated it all for over a decade: EHR integration, HIPAA compliance, HL7/FHIR standards, telemedicine regulations. Won government contracts. Rescued failing platforms. Built products serving thousands of patients.
-              </p>
-              <p className="text-gray-800 font-medium text-lg lg:text-xl mt-10">
-                That expertise makes us better builders—whether your product is in healthcare or not.
-              </p>
-            </motion.div>
-            
-            {/* Expertise Grid */}
-            <motion.div
-              className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              {[
-                { id: 1, name: 'EHR Integration', icon: Database },
-                { id: 2, name: 'Telemedicine', icon: Video },
-                { id: 3, name: 'HIPAA Compliance', icon: Shield },
-                { id: 4, name: 'HL7/FHIR', icon: Network },
-                { id: 5, name: 'Clinical Workflows', icon: Activity },
-                { id: 6, name: 'Healthcare Operations', icon: Settings },
-              ].map((capability, index) => (
+        {/* Subtle Architectural Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-50/30 to-transparent" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gray-50 rounded-full blur-3xl opacity-50" />
+          {/* Subtle Grid Pattern Overlay */}
+          <div className="absolute inset-0 opacity-[0.03] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none bg-[grid-line:theme(colors.gray.900)_1px] bg-[size:40px_40px]" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+              
+              {/* Left Column: Typography Content (50%) */}
+              <div className="lg:w-1/2 space-y-10">
                 <motion.div
-                  key={capability.id}
-                  className="capability-block group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true }}
                 >
-                  <div className="flex flex-col items-center text-center p-2.5 rounded-lg border border-gray-100/60 bg-white/80 hover:border-gray-200 transition-all duration-300">
-                    {/* Icon */}
-                    <div className="h-8 w-8 rounded-lg bg-orange-100/50 flex items-center justify-center mb-1.5">
-                      <capability.icon className="h-4 w-4 text-orange-600" />
+                  <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-8">
+                    Deep Healthcare <br />
+                    <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Expertise.</span>
+                  </h2>
+                  
+                  <div className="space-y-6 text-lg text-gray-600 leading-relaxed max-w-xl">
+                    <p>
+                      Most teams hit a wall with healthcare technology. The regulations, the integrations, the compliance requirements—<span className="text-gray-900 font-medium">they stop projects cold.</span>
+                    </p>
+                    <p>
+                      We&apos;ve navigated it all for over a decade: EHR integration, HIPAA compliance, HL7/FHIR standards, and telemedicine regulations. 
+                    </p>
+                    <div className="pt-4 border-l-2 border-orange-100 pl-6 italic text-gray-500">
+                      "We don't just build software; we build systems that save lives and protect data."
                     </div>
-                    
-                    {/* Label */}
-                    <span className="text-sm font-medium text-gray-900">
-                      {capability.name}
-                    </span>
                   </div>
                 </motion.div>
-              ))}
-            </motion.div>
-            
+
+                <motion.div
+                  className="bg-gray-50/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="text-gray-900 font-semibold text-xl leading-snug">
+                    That expertise makes us better builders—<span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">whether your product is in healthcare or not.</span>
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Right Column: Expertise Carousel (50%) */}
+              <motion.div
+                className="lg:w-1/2 flex flex-col"
+                onMouseEnter={() => setIsExpertiseAutoplay(false)}
+                onMouseLeave={() => setIsExpertiseAutoplay(true)}
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true }}
+              >
+                {/* Carousel Stage */}
+                <div className="relative flex-1 min-h-[360px] md:min-h-[380px] bg-white/80 backdrop-blur-sm rounded-3xl border border-gray-100/80 shadow-xl shadow-gray-900/5 p-8 md:p-10 lg:p-12 overflow-hidden flex flex-col justify-between">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeExpertise}
+                      initial={{ opacity: 0, x: 40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -40 }}
+                      transition={{ duration: 0.45, ease: "easeOut" }}
+                      className="flex flex-col h-full justify-center"
+                    >
+                      {/* Step Counter */}
+                      <div className="text-xs font-black uppercase tracking-[0.2em] text-orange-500/70 mb-6">
+                        {String(activeExpertise + 1).padStart(2, '0')} / {String(expertiseAreas.length).padStart(2, '0')}
+                      </div>
+
+                      {/* Icon */}
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 flex items-center justify-center mb-8 shadow-sm">
+                        <ActiveExpertiseIcon className="h-8 w-8 text-orange-600" />
+                      </div>
+
+                      {/* Title & Description */}
+                      <h3 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        {expertiseAreas[activeExpertise].name}
+                      </h3>
+                      <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-md">
+                        {expertiseAreas[activeExpertise].desc}
+                      </p>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Progress Bar & Controls */}
+                  <div className="flex items-center gap-5 mt-8 pt-6 border-t border-gray-100">
+                    <button
+                      type="button"
+                      onClick={() => setActiveExpertise((prev) => (prev - 1 + expertiseAreas.length) % expertiseAreas.length)}
+                      className="p-2.5 rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-200 hover:bg-orange-50 transition-all duration-200"
+                      aria-label="Previous expertise"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+
+                    <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
+                        initial={{ width: "0%" }}
+                        animate={{ width: `${((activeExpertise + 1) / expertiseAreas.length) * 100}%` }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setActiveExpertise((prev) => (prev + 1) % expertiseAreas.length)}
+                      className="p-2.5 rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-200 hover:bg-orange-50 transition-all duration-200"
+                      aria-label="Next expertise"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Dot Navigation */}
+                <div className="flex justify-center gap-2.5 mt-6">
+                  {expertiseAreas.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveExpertise(idx)}
+                      className={`h-2 rounded-full transition-all duration-300 ${idx === activeExpertise ? 'w-8 bg-gradient-to-r from-yellow-400 to-orange-500' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+                      aria-label={`Go to expertise ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+
+            </div>
           </div>
         </div>
       </motion.section>
