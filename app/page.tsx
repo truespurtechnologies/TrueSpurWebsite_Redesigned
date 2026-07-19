@@ -45,6 +45,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  Award,
 } from "lucide-react"
 
 // Reduced motion utility
@@ -1129,7 +1130,7 @@ export default function HomePage() {
                       We&apos;ve navigated it all for over a decade: EHR integration, HIPAA compliance, HL7/FHIR standards, and telemedicine regulations. 
                     </p>
                     <div className="pt-4 border-l-2 border-orange-100 pl-6 italic text-gray-500">
-                      "We don't just build software; we build systems that save lives and protect data."
+                      &quot;We don&apos;t just build software; we build systems that save lives and protect data.&quot;
                     </div>
                   </div>
                 </motion.div>
@@ -1260,7 +1261,7 @@ export default function HomePage() {
 
       {/* Section 6: Proven Track Record */}
       <motion.section
-        className="py-16 md:py-24 lg:py-32 bg-white"
+        className="py-16 md:py-24 lg:py-32 bg-white overflow-hidden"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -1268,112 +1269,136 @@ export default function HomePage() {
       >
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            
-            {/* Section Headline */}
-            <motion.h2
-              className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-16 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              Proven Track Record
-            </motion.h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-14 items-start">
 
-            {/* Stat callout blocks — scannable proof anchors */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
+              {/* Visual proof — ceremony photo + certificate, styled as a premium stacked composition */}
               <motion.div
-                className="relative bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl border border-orange-100/60 p-7 overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
+                className="lg:col-span-4 relative"
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-amber-400" />
-                <p className="font-heading text-5xl font-black text-gray-900 leading-none mb-2">
-                  StartupTN
-                </p>
-                <p className="text-sm font-semibold text-gray-700 mb-1">Recognized</p>
-                <p className="text-xs text-gray-500">Tamil Nadu Govt. initiative</p>
-              </motion.div>
+                <div className="relative mx-auto max-w-sm lg:max-w-none">
+                  <div className="relative pb-8 pr-5">
 
-              <motion.div
-                className="relative bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border border-yellow-100/60 p-7 overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-orange-400" />
-                <p className="font-heading text-5xl font-black text-gray-900 leading-none mb-2">
-                  #1 <span className="text-orange-500 text-3xl font-extrabold">/ 54</span>
-                </p>
-                <p className="text-sm font-semibold text-gray-700 mb-1">Government Hackathon</p>
-                <p className="text-xs text-gray-500">First place among 54 designs — Tamil Nadu Govt. &amp; StartupTN</p>
-              </motion.div>
+                    {/* Main ceremony photograph */}
+                    <div
+                      className="relative rounded-[1.75rem] overflow-hidden shadow-2xl shadow-gray-900/15 border border-gray-100 bg-gray-50"
+                      style={{ aspectRatio: "442 / 367" }}
+                    >
+                      <Image
+                        src="/images/recognition/Govt Official Giving award.png"
+                        alt="TrueSpur founder receiving the StartupTN government hackathon award from a Tamil Nadu government official"
+                        fill
+                        className="object-cover saturate-[0.85] contrast-[1.03]"
+                        sizes="(max-width: 1024px) 90vw, 400px"
+                      />
+                    </div>
 
-              <motion.div
-                className="relative bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl border border-gray-100/60 p-7 overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gray-300 to-gray-400" />
-                <p className="font-heading text-5xl font-black text-gray-900 leading-none mb-2">
-                  15<span className="text-orange-500">+</span>
-                </p>
-                <p className="text-sm font-semibold text-gray-700 mb-1">Years in Healthcare Tech</p>
-                <p className="text-xs text-gray-500">EHR, telemedicine, HIPAA, HL7/FHIR — built from the inside</p>
-              </motion.div>
-            </div>
+                    {/* Certificate — stacked inset card */}
+                    <motion.div
+                      className="absolute -bottom-2 -right-2 lg:-right-4 w-32 sm:w-36 rotate-[-4deg]"
+                      initial={{ opacity: 0, y: 12, rotate: 4 }}
+                      whileInView={{ opacity: 1, y: 0, rotate: -4 }}
+                      transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <div className="bg-white rounded-lg p-1.5 shadow-2xl shadow-gray-900/20 border border-gray-100">
+                        <div className="relative w-full overflow-hidden rounded-md" style={{ aspectRatio: "4 / 3" }}>
+                          <Image
+                            src="/images/recognition/Certificate.png"
+                            alt="Certificate of Recognition awarded to TrueSpur's founder for winning first place in the StartupTN Design Hackathon"
+                            fill
+                            className="object-cover"
+                            sizes="160px"
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
 
-            {/* Supporting context */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-              <motion.div
-                className="space-y-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <h3 className="font-heading text-xl lg:text-2xl font-bold text-gray-900">
-                  Active Product Studio
-                </h3>
-                <p className="text-base text-gray-600">
-                  Four products in active development — from healthcare platforms to AI tools. Each one proves our model works and teaches us something we bring to yours.
-                </p>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {[
-                    { label: "Clinax", icon: Heart, color: "text-teal-600", bg: "bg-teal-50", border: "border-teal-100" },
-                    { label: "Halo", icon: Users, color: "text-sky-600", bg: "bg-sky-50", border: "border-sky-100" },
-                    { label: "TrueBill", icon: Zap, color: "text-amber-600", bg: "bg-amber-50", border: "border-amber-100" },
-                    { label: "TafsirAI", icon: Brain, color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
-                  ].map((p) => (
-                    <span key={p.label} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${p.bg} ${p.color} border ${p.border}`}>
-                      <p.icon className="h-3.5 w-3.5" strokeWidth={2} />
-                      {p.label}
-                    </span>
-                  ))}
+                  {/* Caption */}
+                  <p className="mt-5 text-sm text-gray-500 leading-relaxed max-w-xs">
+                    <span className="font-semibold text-gray-700">Directorate for Welfare of the Differently Abled &amp; StartupTN</span> — Award Ceremony, 2023
+                  </p>
                 </div>
               </motion.div>
 
+              {/* Copy + refined stats */}
               <motion.div
-                className="space-y-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+                className="lg:col-span-8"
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <h3 className="font-heading text-xl lg:text-2xl font-bold text-gray-900">
-                  Government-Recognized Innovation
-                </h3>
-                <p className="text-base text-gray-600">
-                  Our founder won first place in a design hackathon organized by the Directorate for Welfare of the Differently Abled and StartupTN — beating 53 other designs including big MNCs — by doing what others skipped: visiting hospitals and interviewing physiotherapists.
+                <p className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3 flex items-center gap-2">
+                  <Award className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  Recognition &amp; Results
                 </p>
-                <p className="text-sm font-semibold text-gray-700">
-                  World Bank funded. Now serving citizens in remote Tamil Nadu locations.
-                </p>
+                <h2 className="font-heading text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6">
+                  Proven Track Record
+                </h2>
+
+                {/* Stat row — minimal, editorial */}
+                <div className="grid grid-cols-3 gap-6 mb-10 pb-10 border-b border-gray-100">
+                  <div>
+                    <p className="font-heading text-3xl lg:text-4xl font-black text-gray-900 leading-none">
+                      StartupTN
+                    </p>
+                    <p className="text-xs text-gray-500 mt-2">Tamil Nadu Govt. initiative</p>
+                  </div>
+                  <div>
+                    <p className="font-heading text-3xl lg:text-4xl font-black text-gray-900 leading-none">
+                      #1<span className="text-orange-500">/54</span>
+                    </p>
+                    <p className="text-xs text-gray-500 mt-2">Ranked govt. &amp; StartupTN</p>
+                  </div>
+                  <div>
+                    <p className="font-heading text-3xl lg:text-4xl font-black text-gray-900 leading-none">
+                      15<span className="text-orange-500">+</span>
+                    </p>
+                    <p className="text-xs text-gray-500 mt-2">EHR, HIPAA, HL7/FHIR expertise</p>
+                  </div>
+                </div>
+
+                {/* Narrative */}
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-2">
+                      Active Product Studio
+                    </h3>
+                    <p className="text-base text-gray-600">
+                      Four products in active development — from healthcare platforms to AI tools. Each one proves our model works and teaches us something we bring to yours.
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-3">
+                      {[
+                        { label: "Clinax", icon: Heart, color: "text-teal-600", bg: "bg-teal-50", border: "border-teal-100" },
+                        { label: "Halo", icon: Users, color: "text-sky-600", bg: "bg-sky-50", border: "border-sky-100" },
+                        { label: "TrueBill", icon: Zap, color: "text-amber-600", bg: "bg-amber-50", border: "border-amber-100" },
+                        { label: "TafsirAI", icon: Brain, color: "text-indigo-600", bg: "bg-indigo-50", border: "border-indigo-100" },
+                      ].map((p) => (
+                        <span key={p.label} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${p.bg} ${p.color} border ${p.border}`}>
+                          <p.icon className="h-3.5 w-3.5" strokeWidth={2} />
+                          {p.label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading text-xl lg:text-2xl font-bold text-gray-900 mb-2">
+                      Government-Recognized Innovation
+                    </h3>
+                    <p className="text-base text-gray-600">
+                      Our founder won first place in a design hackathon organized by the Directorate for Welfare of the Differently Abled and StartupTN — beating 53 other designs including big MNCs — by doing what others skipped: visiting hospitals and interviewing physiotherapists.
+                    </p>
+                    <p className="text-sm font-semibold text-gray-700 mt-3">
+                      World Bank funded. Now serving citizens in remote Tamil Nadu locations.
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>

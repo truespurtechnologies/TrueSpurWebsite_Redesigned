@@ -10,7 +10,7 @@ import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
-import { Activity, Video, DollarSign, Sparkles, Target, Zap, Rocket, TrendingUp } from "lucide-react"
+import { Activity, Video, DollarSign, Sparkles, Target, Zap, Rocket, TrendingUp, Quote, Wallet, Compass, Gauge } from "lucide-react"
 
 // Reduced motion utility
 const useReducedMotion = () => {
@@ -39,43 +39,85 @@ const createAnimationProps = (shouldReduceMotion: boolean) => ({
   viewport: { once: true, amount: 0.3 }
 })
 
+// Category visual accents - grounded in each product's existing category
+const categoryStyles = {
+  healthcare: {
+    badge: "bg-rose-50 text-rose-600 ring-1 ring-rose-100",
+    iconBg: "from-rose-50 to-rose-100/60",
+    iconColor: "text-rose-600",
+    ring: "ring-rose-100/80 group-hover:ring-rose-200",
+    dot: "bg-rose-500",
+  },
+  engagement: {
+    badge: "bg-sky-50 text-sky-600 ring-1 ring-sky-100",
+    iconBg: "from-sky-50 to-sky-100/60",
+    iconColor: "text-sky-600",
+    ring: "ring-sky-100/80 group-hover:ring-sky-200",
+    dot: "bg-sky-500",
+  },
+  business: {
+    badge: "bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100",
+    iconBg: "from-emerald-50 to-emerald-100/60",
+    iconColor: "text-emerald-600",
+    ring: "ring-emerald-100/80 group-hover:ring-emerald-200",
+    dot: "bg-emerald-500",
+  },
+  ai: {
+    badge: "bg-violet-50 text-violet-600 ring-1 ring-violet-100",
+    iconBg: "from-violet-50 to-violet-100/60",
+    iconColor: "text-violet-600",
+    ring: "ring-violet-100/80 group-hover:ring-violet-200",
+    dot: "bg-violet-500",
+  },
+} as const
+
 // Product Card Component
 interface ProductCardProps {
   icon: React.ElementType
+  accent: keyof typeof categoryStyles
   category: string
   name: string
   description: string
   progressDescriptor: string
 }
 
-function ProductCard({ icon: Icon, category, name, description, progressDescriptor }: ProductCardProps) {
+function ProductCard({ icon: Icon, accent, category, name, description, progressDescriptor }: ProductCardProps) {
+  const styles = categoryStyles[accent]
+
   return (
-    <Card className="group relative h-full flex flex-col bg-white rounded-3xl border border-gray-100/70 p-8 lg:p-10 xl:p-12 shadow-sm shadow-gray-900/6 hover:shadow-lg hover:shadow-gray-900/10 hover:border-gray-200/80 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 ease-out">
+    <Card className="group relative h-full flex flex-col overflow-hidden bg-white rounded-3xl border border-gray-100/70 p-8 lg:p-10 xl:p-12 shadow-sm shadow-gray-900/6 hover:shadow-lg hover:shadow-gray-900/10 hover:border-gray-200/80 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 ease-out">
       {/* Left gradient accent - enhanced on hover */}
       <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-orange-400/0 via-orange-400/70 to-orange-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      {/* Oversized watermark icon - visual depth, no new content */}
+      <Icon className="absolute -right-6 -top-6 h-40 w-40 text-gray-900/[0.03] rotate-6 pointer-events-none" strokeWidth={1} aria-hidden="true" />
       
       {/* ZONE 1: Product Icon - Emblematic presence */}
-      <div className="h-[72px] w-[72px] lg:h-20 lg:w-20 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 flex items-center justify-center mb-4 ring-1 ring-orange-100/80 group-hover:ring-orange-200 transition-all duration-200">
-        <Icon className="h-9 w-9 lg:h-10 lg:w-10 text-orange-600 -mt-px" strokeWidth={1.5} />
+      <div className={`relative h-[72px] w-[72px] lg:h-20 lg:w-20 rounded-2xl bg-gradient-to-br ${styles.iconBg} flex items-center justify-center mb-4 ring-1 ${styles.ring} transition-all duration-200`}>
+        <Icon className={`h-9 w-9 lg:h-10 lg:w-10 ${styles.iconColor} -mt-px`} strokeWidth={1.5} />
       </div>
       
-      {/* Category - Product metadata */}
-      <div className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-6">
+      {/* Category - visual badge, color-coded per product category */}
+      <div className={`relative inline-flex self-start items-center px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider mb-6 ${styles.badge}`}>
         {category}
       </div>
       
       {/* ZONE 2: Product Identity - Commanding product name */}
-      <h3 className="font-heading text-[34px] lg:text-[38px] xl:text-[42px] font-bold text-gray-900 leading-[1.15] tracking-[-0.01em] mb-4">
+      <h3 className="relative font-heading text-[34px] lg:text-[38px] xl:text-[42px] font-bold text-gray-900 leading-[1.15] tracking-[-0.01em] mb-4">
         {name}
       </h3>
       
       {/* ZONE 3: Product Description */}
-      <p className="text-[15px] lg:text-base text-gray-600 leading-[1.65] mb-auto">
+      <p className="relative text-[15px] lg:text-base text-gray-600 leading-[1.65] mb-auto">
         {description}
       </p>
       
-      {/* Status Badge - Integrated platform signal */}
-      <div className="mt-6 px-5 py-3 bg-gray-50/80 rounded-xl border border-gray-100/50 group-hover:bg-gray-100/60 group-hover:border-gray-200/60 transition-colors duration-200">
+      {/* Status Badge - live-signal pulse instead of flat text */}
+      <div className="relative mt-6 flex items-center gap-3 px-5 py-3 bg-gray-50/80 rounded-xl border border-gray-100/50 group-hover:bg-gray-100/60 group-hover:border-gray-200/60 transition-colors duration-200">
+        <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
+          <span className={`absolute inline-flex h-full w-full rounded-full ${styles.dot} opacity-60 animate-ping`} />
+          <span className={`relative inline-flex h-2 w-2 rounded-full ${styles.dot}`} />
+        </span>
         <p className="text-[13px] font-medium text-gray-600 leading-[1.5]">
           {progressDescriptor}
         </p>
@@ -192,6 +234,26 @@ export default function ProductsPage() {
                   Start Your Project
                 </PrimaryButton>
               </motion.div>
+
+              {/* Visual preview strip - previews the four products detailed below */}
+              <motion.div
+                className="mt-16 lg:mt-20 flex items-center justify-center gap-6 sm:gap-10 lg:gap-14 flex-wrap"
+                {...animationProps}
+              >
+                {[
+                  { icon: Activity, label: "Healthcare" },
+                  { icon: Video, label: "Engagement" },
+                  { icon: DollarSign, label: "Business" },
+                  { icon: Sparkles, label: "AI" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex flex-col items-center gap-3">
+                    <div className="h-12 w-12 lg:h-14 lg:w-14 rounded-2xl bg-white/10 ring-1 ring-white/15 flex items-center justify-center backdrop-blur-sm">
+                      <Icon className="h-5 w-5 lg:h-6 lg:w-6 text-orange-300" strokeWidth={1.5} />
+                    </div>
+                    <span className="text-xs font-medium text-slate-400 tracking-wide">{label}</span>
+                  </div>
+                ))}
+              </motion.div>
               
             </div>
           </div>
@@ -204,24 +266,59 @@ export default function ProductsPage() {
           {...animationProps}
         >
           <PageContainer>
-            <div className="max-w-5xl mx-auto text-center">
-              
-              <h2 id="why-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 tracking-[-0.02em] mb-8 lg:mb-10">
+            <div className="max-w-6xl mx-auto">
+
+              <h2 id="why-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 tracking-[-0.02em] mb-12 lg:mb-16 text-center">
                 Why We Build Products
               </h2>
-              
-              <div className="max-w-3xl mx-auto space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
-                <p>
-                  Building your own products forces you to make the same hard decisions your clients face. Do we build this feature now or later? How do we validate demand before investing months of development? What&apos;s the minimum we can ship to test with real users?
-                </p>
-                <p>
-                  When you&apos;ve wrestled with those questions yourself, you become a better partner. You understand that founders need speed and clarity, not just technical execution. You know when to push back on a bad idea and when to move fast on a good one.
-                </p>
-                <p>
-                  That&apos;s why we build Clinax, Halo, TrueBill, and TafsirAI. Each product teaches us something we bring to yours—from healthcare workflows to AI applications, from validation to long-term product evolution.
-                </p>
+
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+
+                {/* Typography column */}
+                <div className="lg:col-span-3 space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
+                  <p>
+                    Building your own products forces you to make the same hard decisions your clients face. Do we build this feature now or later? How do we validate demand before investing months of development? What&apos;s the minimum we can ship to test with real users?
+                  </p>
+                  <p>
+                    When you&apos;ve wrestled with those questions yourself, you become a better partner. You understand that founders need speed and clarity, not just technical execution. You know when to push back on a bad idea and when to move fast on a good one.
+                  </p>
+                  <p>
+                    That&apos;s why we build Clinax, Halo, TrueBill, and TafsirAI. Each product teaches us something we bring to yours—from healthcare workflows to AI applications, from validation to long-term product evolution.
+                  </p>
+                </div>
+
+                {/* Visual column - grounded in the exact categories shown in the portfolio below */}
+                <div className="lg:col-span-2">
+                  <div className="relative rounded-3xl border border-gray-100/80 bg-gray-50/60 p-8 lg:p-9 shadow-sm shadow-gray-900/5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-6">
+                      What We&apos;re Building
+                    </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex flex-col gap-2 p-4 rounded-2xl bg-white border border-gray-100/70">
+                        <Activity className="h-5 w-5 text-rose-600" strokeWidth={1.5} />
+                        <span className="text-sm font-semibold text-gray-900">Healthcare</span>
+                      </div>
+                      <div className="flex flex-col gap-2 p-4 rounded-2xl bg-white border border-gray-100/70">
+                        <Video className="h-5 w-5 text-sky-600" strokeWidth={1.5} />
+                        <span className="text-sm font-semibold text-gray-900">Engagement</span>
+                      </div>
+                      <div className="flex flex-col gap-2 p-4 rounded-2xl bg-white border border-gray-100/70">
+                        <DollarSign className="h-5 w-5 text-emerald-600" strokeWidth={1.5} />
+                        <span className="text-sm font-semibold text-gray-900">Business Tools</span>
+                      </div>
+                      <div className="flex flex-col gap-2 p-4 rounded-2xl bg-white border border-gray-100/70">
+                        <Sparkles className="h-5 w-5 text-violet-600" strokeWidth={1.5} />
+                        <span className="text-sm font-semibold text-gray-900">AI Applications</span>
+                      </div>
+                    </div>
+                    <p className="mt-6 text-sm text-gray-500 leading-[1.6]">
+                      Four products, four different worlds—each one sharpening how we build yours.
+                    </p>
+                  </div>
+                </div>
+
               </div>
-              
+
             </div>
           </PageContainer>
         </motion.section>
@@ -248,6 +345,7 @@ export default function ProductsPage() {
                 
                 <ProductCard 
                   icon={Activity}
+                  accent="healthcare"
                   category="Healthcare Platform"
                   name="Clinax"
                   description="End-to-end healthcare operations platform managing patient records, provider workflows, and pharmacy coordination."
@@ -256,6 +354,7 @@ export default function ProductsPage() {
                 
                 <ProductCard 
                   icon={Video}
+                  accent="engagement"
                   category="Patient Engagement Platform"
                   name="Halo"
                   description="HIPAA-compliant telemedicine platform enabling secure video consultations and asynchronous patient communication."
@@ -264,6 +363,7 @@ export default function ProductsPage() {
                 
                 <ProductCard 
                   icon={DollarSign}
+                  accent="business"
                   category="Business Tool"
                   name="TrueBill"
                   description="MSME digitization platform helping businesses streamline billing, quotations, and everyday operations."
@@ -272,6 +372,7 @@ export default function ProductsPage() {
                 
                 <ProductCard 
                   icon={Sparkles}
+                  accent="ai"
                   category="AI Application"
                   name="TafsirAI"
                   description="AI-powered Quran companion helping users explore authentic tafsir, hadith, and practical guidance from Islamic sources."
@@ -291,6 +392,7 @@ export default function ProductsPage() {
         >
           <PageContainer>
             <div className="max-w-4xl mx-auto text-center">
+              <Quote className="mx-auto h-10 w-10 text-orange-500/25 mb-6" strokeWidth={1.5} aria-hidden="true" />
               <h3 className="font-heading text-[28px] lg:text-[36px] xl:text-[42px] font-extrabold text-gray-900 leading-[1.2] tracking-tight">
                 Each product we build teaches us something we bring to yours.
               </h3>
@@ -359,30 +461,70 @@ export default function ProductsPage() {
           {...animationProps}
         >
           <PageContainer>
-            <div className="max-w-5xl mx-auto">
-              
-              <h2 id="advantage-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 tracking-[-0.02em] mb-12 lg:mb-14 text-center">
+            <div className="max-w-6xl mx-auto">
+
+              <h2 id="advantage-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 tracking-[-0.02em] mb-14 lg:mb-16 text-center">
                 The Product Studio Advantage
               </h2>
-              
-              {/* Editorial Layout - Asymmetric composition */}
-              <div className="max-w-4xl mx-auto">
-                {/* Pull Quote - Prominent opening */}
-                <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-[1.6] mb-12 lg:mb-16">
-                  Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we&apos;ve faced the same dilemmas founders face: limited budget, uncertain demand, pressure to ship fast without breaking things.
-                </p>
-                
-                {/* Supporting paragraphs - Standard editorial rhythm */}
-                <div className="max-w-3xl space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
-                  <p>
-                    We have. That&apos;s why we don&apos;t just execute your requirements—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.
+
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+
+                {/* Typography column - editorial layout preserved */}
+                <div className="lg:col-span-3">
+                  <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-[1.6] mb-10 lg:mb-12">
+                    Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we&apos;ve faced the same dilemmas founders face: limited budget, uncertain demand, pressure to ship fast without breaking things.
                   </p>
-                  <p>
-                    When you work with builders who are building too, you get partners who understand the journey—not just the destination.
-                  </p>
+
+                  <div className="space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
+                    <p>
+                      We have. That&apos;s why we don&apos;t just execute your requirements—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.
+                    </p>
+                    <p>
+                      When you work with builders who are building too, you get partners who understand the journey—not just the destination.
+                    </p>
+                  </div>
                 </div>
+
+                {/* Visual column - the same dilemmas from the pull quote, visualized */}
+                <div className="lg:col-span-2">
+                  <div className="relative rounded-3xl border border-gray-200/70 bg-white p-8 lg:p-9 shadow-sm shadow-gray-900/5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-6">
+                      The Founder Dilemma
+                    </p>
+                    <div className="space-y-5">
+                      <div className="flex items-start gap-4">
+                        <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 ring-1 ring-orange-100/80">
+                          <Wallet className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-900">Limited budget</p>
+                          <p className="text-sm text-gray-500 leading-[1.5]">Every dollar has to earn its place</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-4">
+                        <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 ring-1 ring-orange-100/80">
+                          <Compass className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-900">Uncertain demand</p>
+                          <p className="text-sm text-gray-500 leading-[1.5]">No guarantee anyone wants it yet</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-4">
+                        <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 ring-1 ring-orange-100/80">
+                          <Gauge className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-900">Pressure to ship fast</p>
+                          <p className="text-sm text-gray-500 leading-[1.5]">Without breaking what already works</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              
+
             </div>
           </PageContainer>
         </motion.section>
