@@ -405,12 +405,12 @@ export default function HomePage() {
   }, [isApproachAutoplay, activeApproachStep])
 
   const expertiseAreas = [
-    { id: 1, name: 'EHR Integration', icon: Database, desc: 'Seamless data flow across clinical systems.' },
-    { id: 2, name: 'Telemedicine', icon: Video, desc: 'Secure, low-latency virtual care platforms.' },
-    { id: 3, name: 'HIPAA Compliance', icon: Shield, desc: 'Ironclad security and privacy standards.' },
-    { id: 4, name: 'HL7/FHIR', icon: Network, desc: 'Modern interoperability for healthcare data.' },
-    { id: 5, name: 'Clinical Workflows', icon: Activity, desc: 'Optimizing for the provider experience.' },
-    { id: 6, name: 'Operations', icon: Settings, desc: 'Scaling the backend of modern health.' },
+    { id: 1, name: 'EHR Integration', icon: Database, desc: 'Seamless data flow across clinical systems.', tint: 'amber' as const },
+    { id: 2, name: 'Telemedicine', icon: Video, desc: 'Secure, low-latency virtual care platforms.', tint: 'slate' as const },
+    { id: 3, name: 'HIPAA Compliance', icon: Shield, desc: 'Ironclad security and privacy standards.', tint: 'amber' as const },
+    { id: 4, name: 'HL7/FHIR', icon: Network, desc: 'Modern interoperability for healthcare data.', tint: 'slate' as const },
+    { id: 5, name: 'Clinical Workflows', icon: Activity, desc: 'Optimizing for the provider experience.', tint: 'amber' as const },
+    { id: 6, name: 'Operations', icon: Settings, desc: 'Scaling the backend of modern health.', tint: 'slate' as const },
   ]
 
   const [activeExpertise, setActiveExpertise] = useState(0)
@@ -1158,7 +1158,21 @@ export default function HomePage() {
                 viewport={{ once: true }}
               >
                 {/* Carousel Stage */}
-                <div className="relative flex-1 min-h-[360px] md:min-h-[380px] bg-white/80 backdrop-blur-sm rounded-3xl border border-gray-100/80 shadow-xl shadow-gray-900/5 p-8 md:p-10 lg:p-12 overflow-hidden flex flex-col justify-between">
+                <div
+                  className={`relative flex-1 min-h-[360px] md:min-h-[380px] backdrop-blur-sm rounded-3xl border shadow-xl shadow-gray-900/5 p-8 md:p-10 lg:p-12 overflow-hidden flex flex-col justify-between transition-colors duration-500 ${
+                    expertiseAreas[activeExpertise].tint === 'amber'
+                      ? 'bg-gradient-to-br from-orange-50/70 via-white to-white border-orange-100/70'
+                      : 'bg-gradient-to-br from-gray-50/80 via-white to-white border-gray-100/80'
+                  }`}
+                >
+                  {/* Ambient tonal glow (brand-safe: orange/amber/gray only) */}
+                  <div
+                    className={`absolute -top-16 -right-16 w-64 h-64 rounded-full blur-3xl pointer-events-none transition-colors duration-500 ${
+                      expertiseAreas[activeExpertise].tint === 'amber' ? 'bg-orange-200/30' : 'bg-gray-300/25'
+                    }`}
+                    aria-hidden="true"
+                  />
+
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeExpertise}
@@ -1166,15 +1180,21 @@ export default function HomePage() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -40 }}
                       transition={{ duration: 0.45, ease: "easeOut" }}
-                      className="flex flex-col h-full justify-center"
+                      className="relative flex flex-col h-full justify-center"
                     >
+                      {/* Ghost icon watermark - visual representation of the topic without disturbing content */}
+                      <ActiveExpertiseIcon
+                        className="absolute -bottom-10 -right-6 h-48 w-48 text-gray-900/[0.04] rotate-[-8deg] pointer-events-none select-none"
+                        aria-hidden="true"
+                      />
+
                       {/* Step Counter */}
                       <div className="text-xs font-black uppercase tracking-[0.2em] text-orange-500/70 mb-6">
                         {String(activeExpertise + 1).padStart(2, '0')} / {String(expertiseAreas.length).padStart(2, '0')}
                       </div>
 
                       {/* Icon */}
-                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 flex items-center justify-center mb-8 shadow-sm">
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-white to-orange-50 border border-orange-100/80 flex items-center justify-center mb-8 shadow-sm">
                         <ActiveExpertiseIcon className="h-8 w-8 text-orange-600" />
                       </div>
 
