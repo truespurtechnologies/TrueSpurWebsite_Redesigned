@@ -492,7 +492,7 @@ When updating product status:
 
 #### 2. Founder-Led with Product Management Background
 
-**Message:** "We think like founders and product managers, not vendors."
+**Message:** "Built Like a Product Studio and product managers, not vendors."
 
 **Proof:**
 - Founder has PM background (PM → Senior PM)

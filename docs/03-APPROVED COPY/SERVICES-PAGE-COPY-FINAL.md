@@ -186,7 +186,7 @@ Why Founders Work With Us
 **BODY COPY:**  
 We're not a typical development agency. We're a product studio—which means we build our own products (Clinax, Halo, TrueBill, TafsirAI) alongside building yours.
 
-**We think like founders.**  
+**Built Like a Product Studio.**  
 We've faced the same challenges you face: limited budget, uncertain demand, pressure to ship fast without breaking things. That shared experience changes how we work. We don't just execute—we challenge assumptions, suggest better approaches, and help you avoid mistakes we've already made.
 
 **We bring product thinking.**  
@@ -338,7 +338,7 @@ We don't just execute requirements. We challenge assumptions, suggest better app
 
 We're not a typical development agency. We're a product studio—which means we build our own products (Clinax, Halo, TrueBill, TafsirAI) alongside building yours.
 
-**We think like founders.**  
+**Built Like a Product Studio.**  
 We've faced the same challenges you face: limited budget, uncertain demand, pressure to ship fast without breaking things. That shared experience changes how we work. We don't just execute—we challenge assumptions, suggest better approaches, and help you avoid mistakes we've already made.
 
 **We bring product thinking.**  
@@ -505,7 +505,7 @@ No sales pitch. Just an honest conversation about what you're building and how w
 - Shared experience with founders
 
 **Founder Perspective:**
-- "We think like founders, not vendors"
+- "Built Like a Product Studio, not vendors"
 - PM background and product thinking
 - Outcomes over output
 

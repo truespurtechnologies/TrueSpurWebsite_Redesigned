@@ -221,7 +221,7 @@ A product studio is a company that:
 
 **PILLAR 3: Founder-Led, Product-First Thinking**
 
-**Message:** "We think like founders and product managers, not vendors."
+**Message:** "Built Like a Product Studio and product managers, not vendors."
 
 **Proof:**
 - Founder has PM background
@@ -243,7 +243,7 @@ A product studio is a company that:
 
 **ABOUT PAGE POSITIONING:**
 
-> "TrueSpur is a product studio led by a founder with 15+ years in healthcare technology and product management. We build our own products while helping startups and growing businesses build theirs. We think like founders because we are founders."
+> "TrueSpur is a product studio led by a founder with 15+ years in healthcare technology and product management. We build our own products while helping startups and growing businesses build theirs. Built Like a Product Studio because we are founders."
 
 **SERVICES PAGE POSITIONING:**
 
@@ -875,7 +875,7 @@ Healthcare is our expertise. But it's not our limitation.
 We validate before we build. We don't just take orders.
 
 **Founders First**  
-We think like founders, not vendors. We partner, not just execute.
+Built Like a Product Studio, not vendors. We partner, not just execute.
 
 **Product Thinking**  
 We own outcomes, not just deliverables. We care about your success.

@@ -825,10 +825,10 @@ Differentiate TrueSpur without attacking competitors. Show what makes TrueSpur d
         
         <div className="space-y-6 mt-10">
           
-          {/* Theme 1: We think like founders */}
+          {/* Theme 1: Built Like a Product Studio */}
           <div>
             <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-              We think like founders.
+              Built Like a Product Studio.
             </h3>
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
               We've faced the same challenges you face: limited budget, uncertain demand, pressure to ship fast without breaking things. That shared experience changes how we work. We don't just execute—we challenge assumptions, suggest better approaches, and help you avoid mistakes we've already made.

@@ -404,7 +404,7 @@ We're not a traditional agency. We're product builders who help other product bu
 
 TrueSpur is a founder-led product studio. We build digital products — our own and yours.
 
-We think like founders because we are founders. We have deep healthcare expertise because we've built healthcare technology for 15+ years. We focus on outcomes because we're product managers, not order-takers.
+Built Like a Product Studio because we are founders. We have deep healthcare expertise because we've built healthcare technology for 15+ years. We focus on outcomes because we're product managers, not order-takers.
 ```
 
 ### **LinkedIn Usage**
@@ -423,7 +423,7 @@ I started TrueSpur because I was tired of seeing founders work with dev shops th
 
 **Company Introduction:**
 ```
-"I started TrueSpur to be the partner I wished I had as a founder. We're not a traditional agency. We're a product studio — we build our own products and help others build theirs. We think like founders because we are founders."
+"I started TrueSpur to be the partner I wished I had as a founder. We're not a traditional agency. We're a product studio — we build our own products and help others build theirs. Built Like a Product Studio because we are founders."
 ```
 
 ---

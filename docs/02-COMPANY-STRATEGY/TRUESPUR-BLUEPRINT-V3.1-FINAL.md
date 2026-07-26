@@ -234,7 +234,7 @@
 
 **OPTION 4: Authentic/Personal**
 
-> "We're product builders who help other product builders. We think like founders because we are founders."
+> "We're product builders who help other product builders. Built Like a Product Studio because we are founders."
 
 **Why:** Authentic, relatable, personal  
 **Tone:** Conversational, honest  

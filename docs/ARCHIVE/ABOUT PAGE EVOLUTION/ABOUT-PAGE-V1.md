@@ -264,7 +264,7 @@ We also partner with founders to turn their ideas into reality. But we approach 
 - Agencies measure success by features shipped. We measure success by outcomes delivered.
 - Agencies hand off and move on. We build systems that scale beyond launch.
 
-We think like founders because we are founders.
+Built Like a Product Studio because we are founders.
 
 ---
 

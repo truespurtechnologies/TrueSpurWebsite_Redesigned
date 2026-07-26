@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState } from "react"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
@@ -176,52 +177,31 @@ export default function ServicesPage() {
         </section>
 
         {/* SECTION 4: WHY FOUNDERS WORK WITH US */}
-        <section className="py-16 md:py-24 lg:py-32 bg-gray-50" aria-labelledby="services-why-heading">
+        <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="services-why-heading">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               
-              <h2 id="services-why-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
-                Why Founders Work With Us
-              </h2>
-              
-              <div className="max-w-4xl mx-auto text-base lg:text-lg text-gray-600">
-                
-                <p className="text-center mb-12">
-                  We&apos;re not a typical development agency. We&apos;re a product studio—which means we build our own products (Clinax, Halo, TrueBill, TafsirAI) alongside building yours.
+              <div className="text-center mb-6">
+                <p className="text-xs lg:text-sm font-bold uppercase tracking-[0.2em] text-orange-600 mb-2">
+                  Why Founders Work With Us
                 </p>
-                
-                {/* Editorial 2-column layout for visual variation */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto">
-                  
-                  <div className="space-y-3">
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900">
-                      We think like founders.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      We&apos;ve faced the same challenges you face: limited budget, uncertain demand, pressure to ship fast without breaking things. That shared experience changes how we work. We don&apos;t just execute—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900">
-                      We bring product thinking.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      Our founder is a product manager with 15+ years building healthcare and enterprise software. We validate before we build. We prioritize ruthlessly. We measure success by outcomes, not features shipped.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-3 lg:col-span-2 max-w-3xl mx-auto">
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900">
-                      We&apos;re actively building.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      When you work with a team that&apos;s building products themselves, you get partners who understand the journey—not just the destination. We know what it&apos;s like to make difficult product decisions, work within constraints, and balance speed with long-term sustainability.
-                    </p>
-                  </div>
-                  
-                </div>
-                
+                <h2 id="services-why-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900">
+                  Built Like a Product Studio<span className="text-orange-500">.</span>
+                </h2>
+              </div>
+              
+              <p className="max-w-2xl mx-auto text-center text-base lg:text-lg text-gray-600 leading-relaxed">
+               We&apos;re a founder-led product studio, building products of our own while helping founders build theirs.
+              </p>
+              
+              <div className="mx-auto mt-14 max-w-4xl">
+                <Image
+                  src="/images/Design asset/Founder Differentiation DiagramV1.png"
+                  alt="TrueSpur's founder-led product studio approach connects founder mindset, product thinking, and active building."
+                  width={1024}
+                  height={768}
+                  className="h-auto w-full"
+                />
               </div>
               
             </div>

@@ -868,7 +868,7 @@ Visitor → Homepage (Pain Point) → Services (Process) → Case Study → Disc
 
 - **Who We Serve:** Startup founders (pre-seed to Series B), CTOs, and product leaders in healthcare, education, and digital transformation
 - **What We Do:** End-to-end product development (strategy, design, engineering, AI)
-- **How We're Different:** We think like founders, not vendors. We validate before we build. We partner, not just execute.
+- **How We're Different:** Built Like a Product Studio, not vendors. We validate before we build. We partner, not just execute.
 - **Why Choose Us:** 15+ years of founder-focused product development, proven track record in regulated industries, transparent process and pricing
 
 ---
@@ -1022,7 +1022,7 @@ Visitor → Homepage (Pain Point) → Services (Process) → Case Study → Disc
 - "100% client satisfaction in regulated industries"
 
 **Level 4: Differentiation Messages (Services, About)**
-- "Unlike traditional agencies, we think like founders"
+- "Unlike traditional agencies, Built Like a Product Studio"
 - "We partner, not just execute"
 - "We own outcomes, not just deliverables"
 

@@ -547,7 +547,7 @@
 [Values and principles]
 
 - **Strategy Before Code:** We validate before we build
-- **Founders First:** We think like founders, not vendors
+- **Founders First:** Built Like a Product Studio, not vendors
 - **Healthcare Expertise:** We navigate regulations so you don't have to
 - **Quality Over Speed:** We build right the first time
 

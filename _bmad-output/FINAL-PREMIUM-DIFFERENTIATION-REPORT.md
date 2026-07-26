@@ -239,7 +239,7 @@ CTAs
 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto">
   
   <div className="space-y-3">
-    <h3>We think like founders.</h3>
+    <h3>Built Like a Product Studio.</h3>
     <p>...</p>
   </div>
   

@@ -344,7 +344,7 @@
 
 4. **Product Studio Differentiation**
    - "We build products ourselves" (credibility)
-   - "We think like founders" (alignment)
+   - "Built Like a Product Studio" (alignment)
    - "We have healthcare expertise" (differentiation)
 
 5. **Phased Execution**
