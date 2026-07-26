@@ -952,129 +952,120 @@ Differentiate TrueSpur without attacking competitors. Show what makes TrueSpur d
 ## SECTION 5: HOW WE WORK WITH FOUNDERS
 
 ### Strategic Purpose
-Explain engagement philosophy. Build trust through honesty. Show long-term thinking. Demonstrate partnership approach over transactional relationship.
+Explain engagement philosophy. Build trust through honesty. Show long-term thinking. Demonstrate partnership approach over transactional relationship. Differentiate from the previous Product Studio visualization by using a calm, editorial card language rather than a radial diagram. The section should feel like the company's operating principles, not a feature list.
 
 ### Layout Structure
 
 **Desktop:**
-- Section padding: py-16 md:py-24 lg:py-32
-- Background: white
-- Container: max-w-5xl mx-auto px-4
-- Content: Centered, single column
-- Opening paragraph + 4 subsections with bold headlines
+- Section padding: `py-16 md:py-24 lg:py-32`
+- Background: white (`bg-white`)
+- Container: `max-w-5xl mx-auto px-4`
+- Header: eyebrow + centered H2 + supporting line, animated in sequence
+- Content: 2 × 2 grid (`grid-cols-1 md:grid-cols-2`) with generous gap (`gap-6 md:gap-8`)
 
-**Tablet/Mobile:**
-- Same structure
-- Maintain subsection breaks for scannability
+**Tablet:**
+- 2-column grid
+
+**Mobile:**
+- Single column stack
+- Generous spacing preserved
 
 ### Visual Hierarchy
 
+**Eyebrow**
+- Text: "HOW WE WORK WITH FOUNDERS"
+- `text-xs lg:text-sm font-bold uppercase tracking-[0.2em] text-orange-600 mb-4`
+- Animates first
+
 **Primary:** Section headline (H2)
-- Poppins Extrabold (800)
-- `text-4xl lg:text-5xl xl:text-6xl`
+- Poppins Black (900)
+- `text-4xl lg:text-5xl xl:text-6xl font-black leading-tight`
 - Color: gray-900
 - Center-aligned
-- mb-8
+- Text: "Every decision we make comes back to four principles."
+- Animates after eyebrow (80ms stagger)
 
-**Secondary:** Opening paragraph
-- Inter Regular (400)
-- `text-base lg:text-lg`
-- Color: gray-600
-- mb-8
+**Secondary:** Supporting line
+- Inter Regular (400), `text-lg text-gray-600`
+- `max-w-2xl mx-auto`
+- Text: "These principles shape every conversation, every decision, and every product we build."
+- Animates after headline (80ms stagger)
 
-**Tertiary:** Subsections (4 principles)
-- Headlines: Poppins Semibold (600), `text-lg lg:text-xl`, gray-900
-- Body: Inter Regular, `text-base lg:text-lg`, gray-600
-- Spacing: space-y-6
+**Tertiary:** Principle Cards (4)
+- Card background: Warm White (`#FFFEFC`)
+- Border: `border border-gray-100/40` (very soft, almost invisible)
+- Rounded: `rounded-xl`
+- Padding: `p-9 lg:p-10` (36–40px)
+- Minimum height: `min-h-[280px] md:min-h-80` for consistent, generous vertical rhythm
+- Small geometric line icon (`w-6 h-6`) with 1.5px stroke, `text-orange-500`
+- Small orange accent line beside the icon (`h-4 w-px bg-orange-500/30`)
+- Card title: small uppercase label, `text-xs font-bold uppercase tracking-[0.12em] text-gray-900 mb-5`
+- Memorable statement: large, dominant, `font-sans text-2xl lg:text-3xl font-medium text-gray-900 leading-[1.2] mb-6`
+- Supporting description: secondary, `font-sans text-base text-gray-500 leading-relaxed`
+
+### Principle Cards Content
+
+**Card 1 — Honest Conversations**
+- Icon: Compass
+- Statement: "We'd rather challenge an idea today than rebuild the wrong product tomorrow."
+- Description: "Not every idea should be built. We tell you when you're solving the wrong problem, because honesty saves time and money."
+
+**Card 2 — Challenge Assumptions**
+- Icon: Blueprint
+- Statement: "Question first. Build second."
+- Description: "We push back on bad ideas, validate before we invest, and build only what creates real value."
+
+**Card 3 — Think Long-Term**
+- Icon: Growth Rings
+- Statement: "Build once. Scale forever."
+- Description: "We optimize for products that solve real problems and scale sustainably—even when that means saying no."
+
+**Card 4 — Build Alongside**
+- Icon: Interlocking Circles
+- Statement: "We build with you. Not for you."
+- Description: "You're not handing off requirements to a vendor. We're in the trenches with you."
 
 ### Component Recommendations
 
-```tsx
-<section className="py-16 md:py-24 lg:py-32 bg-white">
-  <div className="container mx-auto px-4">
-    <div className="max-w-5xl mx-auto">
-      
-      <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
-        How We Work With Founders
-      </h2>
-      
-      <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-gray-600">
-        
-        <p className="text-center">
-          We believe the best products come from honest partnerships, not transactional relationships.
-        </p>
-        
-        <div className="space-y-6 mt-10">
-          
-          {/* Principle 1: Honest conversations */}
-          <div>
-            <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-              We start with honest conversations.
-            </h3>
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              Not every idea should be built. Not every feature matters. We'll tell you when we think you're solving the wrong problem or building the wrong thing. That honesty saves you time and money.
-            </p>
-          </div>
-          
-          {/* Principle 2: Challenge assumptions */}
-          <div>
-            <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-              We challenge assumptions.
-            </h3>
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              Great products come from questioning everything. We push back on bad ideas and move fast on good ones. We validate before we invest. We build only what creates value.
-            </p>
-          </div>
-          
-          {/* Principle 3: Think long-term */}
-          <div>
-            <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-              We think long-term.
-            </h3>
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              We're not optimizing for the fastest path to invoicing hours. We're optimizing for building products that solve real problems and scale sustainably. That means sometimes saying no to features that don't move the business forward.
-            </p>
-          </div>
-          
-          {/* Principle 4: Build alongside */}
-          <div>
-            <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-3">
-              We build alongside you.
-            </h3>
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              You're not handing off requirements to a vendor. You're partnering with builders who understand product challenges from the inside. We're in the trenches with you.
-            </p>
-          </div>
-          
-        </div>
-        
-      </div>
-      
-    </div>
-  </div>
-</section>
-```
+Use a dedicated `PartnershipPrinciples` component that renders the section and card grid. Cards are implemented as `<motion.div>` elements from `framer-motion` with scroll-triggered entrance animations.
+
+Key implementation details:
+- Eyebrow, headline, and supporting line each fade in on scroll with 80ms stagger.
+- Cards animate sequentially in reading order: top-left, top-right, bottom-left, bottom-right.
+- Stagger delay: 80ms between elements.
+- Animation duration: 400ms with `ease: "easeOut"`.
+- Respect `prefers-reduced-motion`: disable motion and render at final state when enabled.
+- Each card has a very soft floating-paper shadow: `shadow-[0_4px_20px_-12px_rgba(0,0,0,0.06)]`.
+- Hover: 2px lift (`hover:-translate-y-0.5`), border warms slightly (`hover:border-orange-200/30`), shadow deepens to `shadow-[0_8px_28px_-12px_rgba(0,0,0,0.10)]`.
+- No top border line, no gradients, no illustrations, no large icons, no bounce, scale, or rotation effects.
 
 ### Visual Content Requirements
-- No images required
-- Focus on text hierarchy and subsections
-- Clean, readable layout
+- No images or illustrations
+- Small geometric line icons only (Compass, Blueprint, Growth Rings, Interlocking Circles), 1.5px stroke
+- Restrained color palette: white background, warm white cards, very soft gray borders, orange icons only
+- Premium editorial feel over generic SaaS dashboard styling
+- Statement should dominate the card; explanation is secondary context
 
 ### Interaction Design
-- Smooth scroll reveal: Fade in (400ms)
-- No hover states on text
+- Scroll reveal for eyebrow, headline, subtitle, and each card
+- Staggered entrance (80ms) with 400ms duration
+- Subtle 2px hover lift + slight border warm + shadow deepen
+- No bouncing, scaling, rotations, or flashy motion
+- Respects `prefers-reduced-motion`
 
 ### Mobile Optimization
-- H2: `text-3xl` on mobile
-- H3: `text-base` on mobile
-- Body: `text-base` on mobile
-- Maintain subsection spacing
+- H2: scales down via responsive type classes (`text-4xl lg:text-5xl xl:text-6xl`)
+- Eyebrow: `text-xs lg:text-sm`
+- Card grid: single column on mobile, 2 columns on tablet+
+- Card padding: `p-9 lg:p-10`
+- Statement remains scannable at `text-2xl lg:text-3xl`
 
 ### Development Notes
-- Four subsections with bold headlines create scannable format
-- Demonstrates honesty and long-term thinking
-- Avoids transactional language
-- Partnership-focused tone throughout
+- Cards condense the previously verbose copy into memorable statements plus one short supporting paragraph each.
+- Typography is the design: the principle statement is the visual hero.
+- The section answers "What is it actually like to work with us?" rather than "Why founders choose us."
+- Maintain partnership-focused, non-transactional tone.
+- Component file: `components/page/PartnershipPrinciples.tsx`
 
 ---
 

@@ -211,60 +211,27 @@ export default function ServicesPage() {
         {/* SECTION 5: HOW WE WORK WITH FOUNDERS */}
         <section className="py-16 md:py-24 lg:py-32 bg-white" aria-labelledby="services-how-heading">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              
-              <h2 id="services-how-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 text-center mb-8">
-                How We Work With Founders
-              </h2>
-              
-              <div className="max-w-4xl mx-auto text-base lg:text-lg text-gray-600">
-                
-                <p className="text-center mb-12">
-                  We believe the best products come from honest partnerships, not transactional relationships.
+            <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+              <div className="flex flex-col items-center gap-3 mb-6">
+                <span className="w-10 h-0.5 bg-orange-400 rounded-full" />
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
+                  How We Work With Founders
                 </p>
-                
-                <div className="max-w-3xl mx-auto space-y-8">
-                  
-                  <div>
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
-                      We start with honest conversations.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      Not every idea should be built. Not every feature matters. We&apos;ll tell you when we think you&apos;re solving the wrong problem or building the wrong thing. That honesty saves you time and money.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
-                      We challenge assumptions.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      Great products come from questioning everything. We push back on bad ideas and move fast on good ones. We validate before we invest. We build only what creates value.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
-                      We think long-term.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      We&apos;re not optimizing for the fastest path to invoicing hours. We&apos;re optimizing for building products that solve real problems and scale sustainably. That means sometimes saying no to features that don&apos;t move the business forward.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
-                      We build alongside you.
-                    </h3>
-                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                      You&apos;re not handing off requirements to a vendor. You&apos;re partnering with builders who understand product challenges from the inside. We&apos;re in the trenches with you.
-                    </p>
-                  </div>
-                  
-                </div>
-                
               </div>
-              
+              <h2 id="services-how-heading" className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+                We believe the best products come from{" "}
+                <span className="bg-linear-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">honest partnerships</span>, not
+                transactional relationships.
+              </h2>
+            </div>
+            <div className="mx-auto max-w-6xl">
+              <Image
+                src="/images/Design asset/Work with Founders.png"
+                alt="How TrueSpur works with founders: honest conversations, challenging assumptions, long-term thinking, and building alongside."
+                width={1342}
+                height={710}
+                className="h-auto w-full"
+              />
             </div>
           </div>
         </section>
