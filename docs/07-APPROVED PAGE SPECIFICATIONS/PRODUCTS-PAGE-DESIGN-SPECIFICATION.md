@@ -986,14 +986,16 @@ Explain why founders benefit from working with a team actively building products
 ### Layout Structure
 
 **Desktop:**
-- Section padding: py-16 md:py-24 lg:py-32
-- Background: bg-gray-50
-- Container: max-w-5xl mx-auto px-4
-- Content: Centered, single column
-- Three paragraphs (concise narrative)
+- Section padding: `pt-20 md:pt-28 lg:pt-36 pb-12 md:pb-16 lg:pb-20`
+- Background: `bg-gray-50`
+- Container: `max-w-6xl mx-auto px-4`
+- Two-column asymmetric grid: `grid-cols-1 lg:grid-cols-12` with `gap-12 lg:gap-16`
+- Left typography column: `lg:col-span-7` — pull quote + two supporting paragraphs
+- Right visual column: `lg:col-span-5` — connected "Founder Dilemma" signal card
 
 **Tablet/Mobile:**
-- Same structure
+- Stack columns vertically
+- Pull quote and card maintain hierarchy
 - Maintain paragraph breaks
 
 ### Visual Hierarchy
@@ -1001,68 +1003,152 @@ Explain why founders benefit from working with a team actively building products
 **Primary:** Section headline (H2)
 - Poppins Extrabold (800)
 - `text-4xl lg:text-5xl xl:text-6xl`
-- Color: gray-900
+- Color: `gray-900`
 - Center-aligned
 
-**Secondary:** Body copy
+**Secondary:** Pull quote paragraph
+- Inter Medium (500)
+- `text-lg lg:text-xl xl:text-2xl`
+- Color: `gray-800`
+- Left-aligned, `max-w-3xl`
+- Three key dilemma phrases emphasized with `font-semibold text-gray-900` inline
+
+**Tertiary:** Supporting body copy
 - Inter Regular (400)
 - `text-base lg:text-lg`
-- Color: gray-600
-- Max-width: 800px, centered
+- Color: `gray-600`
+- `max-w-2xl`, `space-y-6`
+- Standard body rhythm
+
+**Visual:** Founder Dilemma signal card
+- White card on `gray-50` background
+- Top gradient bar: `from-orange-400 to-amber-500`
+- Vertical timeline connector line behind circular icon nodes
+- Three dilemma items with circular icon containers, title, and descriptor
+- Ghost numerals `01`–`03` as subtle watermark typography
+- Card hover: `-translate-y-1` + shadow lift
 
 ### Component Recommendations
 
 ```tsx
-<section className="py-16 md:py-24 lg:py-32 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <div className="max-w-5xl mx-auto text-center">
-      
-      <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
+<motion.section
+  className="pt-20 md:pt-28 lg:pt-36 pb-12 md:pb-16 lg:pb-20 bg-gray-50"
+  aria-labelledby="advantage-heading"
+  {...animationProps}
+>
+  <PageContainer>
+    <div className="max-w-6xl mx-auto">
+      <h2 id="advantage-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 tracking-[-0.02em] mb-14 lg:mb-16 text-center">
         The Product Studio Advantage
       </h2>
-      
-      <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-gray-600">
-        <p>
-          Builders understand builders. When you work with a team that's actively building products, you get partners who understand the journey—not just the destination.
-        </p>
-        <p>
-          We've faced the same product decisions you're facing: validating ideas before investing months of development, prioritizing features with limited resources, launching with uncertainty, scaling under pressure. We've made the mistakes, learned from them, and bring those lessons to your product.
-        </p>
-        <p>
-          That means you get a partner who challenges assumptions, suggests better approaches, and helps you avoid costly mistakes. We know when to move fast and when to slow down. We're not just service providers—we're builders who understand the journey because we're on it too.
-        </p>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Typography column */}
+        <div className="lg:col-span-7">
+          <div className="max-w-3xl">
+            <span className="block font-heading text-6xl lg:text-7xl font-black text-orange-500/10 leading-none mb-4 select-none" aria-hidden="true">
+              &ldquo;
+            </span>
+            <p className="text-lg lg:text-xl xl:text-2xl text-gray-800 leading-[1.55] font-medium">
+              Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we&apos;ve faced the same dilemmas founders face: <span className="font-semibold text-gray-900">limited budget</span>, <span className="font-semibold text-gray-900">uncertain demand</span>, <span className="font-semibold text-gray-900">pressure to ship fast</span> without breaking things.
+            </p>
+          </div>
+
+          <div className="mt-10 lg:mt-12 max-w-2xl space-y-6 text-base lg:text-lg text-gray-600 leading-[1.75]">
+            <p>We have. That&apos;s why we don&apos;t just execute your requirements—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.</p>
+            <p>When you work with builders who are building too, you get partners who understand the journey—not just the destination.</p>
+          </div>
+        </div>
+
+        {/* Visual column */}
+        <div className="lg:col-span-5">
+          <div className="group relative rounded-3xl bg-white border border-gray-200/70 shadow-lg shadow-gray-900/5 p-8 lg:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-amber-500" aria-hidden="true" />
+
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-8">
+              The Founder Dilemma
+            </p>
+
+            <div className="relative">
+              <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-orange-300/40 to-transparent" aria-hidden="true" />
+              <div className="space-y-8">
+                {founderDilemmaItems.map((item, i) => {
+                  const Icon = item.icon
+                  return (
+                    <div key={item.title} className="relative flex items-start gap-5">
+                      <div className="relative z-10 h-12 w-12 rounded-full bg-gradient-to-br from-orange-50 to-orange-100/60 flex items-center justify-center ring-1 ring-orange-100/80 shadow-sm">
+                        <Icon className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
+                      </div>
+                      <div className="pt-1 flex-1">
+                        <p className="text-[15px] font-semibold text-gray-900 leading-tight">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                      <span className="absolute right-0 -top-1 font-heading text-4xl lg:text-5xl font-black text-gray-900/[0.04] select-none leading-none" aria-hidden="true">
+                        0{i + 1}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
     </div>
-  </div>
-</section>
+  </PageContainer>
+</motion.section>
 ```
 
 **Narrative Structure:**
-- **Paragraph 1:** Builders understand builders (opening principle)
-- **Paragraph 2:** We've faced the same product decisions founders face (shared experience)
-- **Paragraph 3:** What that means for founders working with TrueSpur (practical benefit)
+- **Paragraph 1:** Pull quote establishing shared founder perspective
+- **Paragraph 2:** How shared experience changes the partnership
+- **Paragraph 3:** The emotional payoff: partners who understand the journey
+
+**Founder Dilemma Card Data:**
+```ts
+const founderDilemmaItems = [
+  { icon: Wallet, title: "Limited budget", description: "Every dollar has to earn its place" },
+  { icon: Compass, title: "Uncertain demand", description: "No guarantee anyone wants it yet" },
+  { icon: Gauge, title: "Pressure to ship fast", description: "Without breaking what already works" },
+]
+```
 
 ### Visual Content Requirements
-- No images required
-- Focus on text and narrative
-- Light gray background differentiates from white sections
+
+- No external images required
+- Visual built from typography, iconography, and CSS geometry
+- Large typographic opening quotation mark as a visual anchor
+- Inline emphasis on the three dilemma phrases to link typography and visual card
+- Vertical connector line + circular icon nodes create a "signal timeline" metaphor
+- Subtle ghost numerals provide premium editorial texture
 
 ### Interaction Design
-- Smooth scroll reveal: Fade in (400ms)
-- No hover states (static content)
+
+- Smooth scroll reveal: section fades in using `animationProps` (400ms)
+- Founder Dilemma card hover: `-translate-y-1` + `shadow-xl` (300ms)
+- No other hover states on static content
+- `aria-hidden` used for decorative quote mark, gradient bar, connector line, and ghost numerals
 
 ### Mobile Optimization
+
 - H2: `text-3xl` on mobile
-- Body: `text-base` on mobile
-- Maintain paragraph spacing (`space-y-6`)
+- Pull quote: `text-lg` on mobile
+- Supporting body: `text-base` on mobile
+- Dilemma card: full width, stacked items
+- Timeline connector scales with icon container center
 
 ### Development Notes
-- Alternating background pattern (white → gray)
-- Three paragraphs create concise, premium narrative
-- Reduced repetition with "Why We Build Products" and "Learning Section"
-- Avoids defensive agency comparisons
-- More premium, less verbose
+
+- Asymmetric 12-column grid creates visual tension and premium editorial feel
+- Left typography and right visual split is roughly 50/50 on desktop
+- The visual card reuses brand colors, shadows, and spacing tokens from the design system
+- No new images or assets; icons from `lucide-react`
+- Preserves exact approved copy from `PRODUCTS-PAGE-COPY-FINAL.md`
+- Avoids decorative AI-generated graphics in favor of geometric restraint
 
 ---
 

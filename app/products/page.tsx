@@ -74,6 +74,13 @@ const categoryStyles = {
   },
 } as const
 
+// Founder dilemma signals — visualised in the Product Studio Advantage section
+const founderDilemmaItems = [
+  { icon: Wallet, title: "Limited budget", description: "Every dollar has to earn its place" },
+  { icon: Compass, title: "Uncertain demand", description: "No guarantee anyone wants it yet" },
+  { icon: Gauge, title: "Pressure to ship fast", description: "Without breaking what already works" },
+]
+
 // Product Showcase - interactive tab switcher + animated stage panel
 interface ShowcaseProduct {
   icon: React.ElementType
@@ -581,7 +588,7 @@ export default function ProductsPage() {
         </motion.section>
 
         {/* SECTION 5: PRODUCT STUDIO ADVANTAGE */}
-        <motion.section 
+        <motion.section
           className="pt-20 md:pt-28 lg:pt-36 pb-12 md:pb-16 lg:pb-20 bg-gray-50"
           aria-labelledby="advantage-heading"
           {...animationProps}
@@ -593,15 +600,20 @@ export default function ProductsPage() {
                 The Product Studio Advantage
               </h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-                {/* Typography column - editorial layout preserved */}
-                <div className="lg:col-span-3">
-                  <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-[1.6] mb-10 lg:mb-12">
-                    Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we&apos;ve faced the same dilemmas founders face: limited budget, uncertain demand, pressure to ship fast without breaking things.
-                  </p>
+                {/* Typography column — editorial pull quote + supporting rhythm */}
+                <div className="lg:col-span-7">
+                  <div className="max-w-3xl">
+                    <span className="block font-heading text-6xl lg:text-7xl font-black text-orange-500/10 leading-none mb-4 select-none" aria-hidden="true">
+                      &ldquo;
+                    </span>
+                    <p className="text-lg lg:text-xl xl:text-2xl text-gray-800 leading-[1.55] font-medium">
+                      Many development partners focus solely on client delivery. Building products ourselves gives us a different perspective—we&apos;ve faced the same dilemmas founders face: <span className="font-semibold text-gray-900">limited budget</span>, <span className="font-semibold text-gray-900">uncertain demand</span>, <span className="font-semibold text-gray-900">pressure to ship fast</span> without breaking things.
+                    </p>
+                  </div>
 
-                  <div className="space-y-8 lg:space-y-10 text-base lg:text-lg text-gray-600 leading-[1.75]">
+                  <div className="mt-10 lg:mt-12 max-w-2xl space-y-6 text-base lg:text-lg text-gray-600 leading-[1.75]">
                     <p>
                       We have. That&apos;s why we don&apos;t just execute your requirements—we challenge assumptions, suggest better approaches, and help you avoid mistakes we&apos;ve already made.
                     </p>
@@ -611,39 +623,39 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* Visual column - the same dilemmas from the pull quote, visualized */}
-                <div className="lg:col-span-2">
-                  <div className="relative rounded-3xl border border-gray-200/70 bg-white p-8 lg:p-9 shadow-sm shadow-gray-900/5">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-6">
+                {/* Visual column — founder dilemma as a connected signal card */}
+                <div className="lg:col-span-5">
+                  <div className="group relative rounded-3xl bg-white border border-gray-200/70 shadow-lg shadow-gray-900/5 p-8 lg:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-amber-500" aria-hidden="true" />
+
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-8">
                       The Founder Dilemma
                     </p>
-                    <div className="space-y-5">
-                      <div className="flex items-start gap-4">
-                        <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 ring-1 ring-orange-100/80">
-                          <Wallet className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-900">Limited budget</p>
-                          <p className="text-sm text-gray-500 leading-[1.5]">Every dollar has to earn its place</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 ring-1 ring-orange-100/80">
-                          <Compass className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-900">Uncertain demand</p>
-                          <p className="text-sm text-gray-500 leading-[1.5]">No guarantee anyone wants it yet</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 ring-1 ring-orange-100/80">
-                          <Gauge className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-900">Pressure to ship fast</p>
-                          <p className="text-sm text-gray-500 leading-[1.5]">Without breaking what already works</p>
-                        </div>
+
+                    <div className="relative">
+                      <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-orange-300/40 to-transparent" aria-hidden="true" />
+                      <div className="space-y-8">
+                        {founderDilemmaItems.map((item, i) => {
+                          const Icon = item.icon
+                          return (
+                            <div key={item.title} className="relative flex items-start gap-5">
+                              <div className="relative z-10 h-12 w-12 rounded-full bg-gradient-to-br from-orange-50 to-orange-100/60 flex items-center justify-center ring-1 ring-orange-100/80 shadow-sm">
+                                <Icon className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
+                              </div>
+                              <div className="pt-1 flex-1">
+                                <p className="text-[15px] font-semibold text-gray-900 leading-tight">
+                                  {item.title}
+                                </p>
+                                <p className="mt-1 text-sm text-gray-500 leading-relaxed">
+                                  {item.description}
+                                </p>
+                              </div>
+                              <span className="absolute right-0 -top-1 font-heading text-4xl lg:text-5xl font-black text-gray-900/[0.04] select-none leading-none" aria-hidden="true">
+                                0{i + 1}
+                              </span>
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   </div>

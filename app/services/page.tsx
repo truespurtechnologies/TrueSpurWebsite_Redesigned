@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
-import { ServiceCard } from "@/components/cards/ServiceCard"
+import { ServiceTabsView } from "@/components/page/ServiceTabsView"
 import { FounderJourneyVisualization } from "@/components/page/FounderJourneyVisualization"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
 import { JsonLd } from "@/components/seo/JsonLd"
@@ -25,6 +25,7 @@ export default function ServicesPage() {
   const serviceOfferings = [
     {
       title: "Product Discovery & Validation",
+      tabLabel: "Discovery",
       positioning: "Reduce risk before you build.",
       bullets: [
         "Validate market demand through user research and interviews",
@@ -36,6 +37,7 @@ export default function ServicesPage() {
     },
     {
       title: "Product Design & User Experience",
+      tabLabel: "Design & UX",
       positioning: "Design products people want to use.",
       bullets: [
         "Map user journeys and identify friction points",
@@ -47,6 +49,7 @@ export default function ServicesPage() {
     },
     {
       title: "SaaS Product Development",
+      tabLabel: "SaaS",
       positioning: "Build products ready to grow with your business.",
       bullets: [
         "Build MVPs on foundations that can evolve as adoption grows",
@@ -58,6 +61,7 @@ export default function ServicesPage() {
     },
     {
       title: "Healthcare Product Development",
+      tabLabel: "Healthcare",
       positioning: "Build healthcare products grounded in clinical and operational reality.",
       bullets: [
         "Design clinical workflows that fit how providers actually work",
@@ -69,6 +73,7 @@ export default function ServicesPage() {
     },
     {
       title: "AI Product Development",
+      tabLabel: "AI",
       positioning: "Integrate AI to solve real problems.",
       bullets: [
         "Identify where AI creates value vs. where it's just hype",
@@ -164,16 +169,7 @@ export default function ServicesPage() {
                 What We Offer
               </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-                {serviceOfferings.map((service, index) => (
-                  <ServiceCard
-                    key={index}
-                    title={service.title}
-                    positioning={service.positioning}
-                    bullets={service.bullets}
-                  />
-                ))}
-              </div>
+              <ServiceTabsView services={serviceOfferings} />
               
             </div>
           </div>
