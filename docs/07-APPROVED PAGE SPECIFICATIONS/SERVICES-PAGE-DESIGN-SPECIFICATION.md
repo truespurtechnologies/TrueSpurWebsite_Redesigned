@@ -415,25 +415,27 @@ Explain the founder journey. Set context for services. Build empathy through sha
 **Framework:**
 - Validate → Define → Design → Build → Launch & Learn
 
-**Implementation Pattern: Card-Based Journey**
+**Implementation Pattern: Reference Journey Map**
 ```tsx
-<div className="mt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
-  {steps.map((step, index) => (
-    <div key={step.id} className="relative bg-white rounded-xl border border-gray-100/80 p-5 shadow-sm">
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl" />
-      <div className="text-center">
-        <div className="w-10 h-10 rounded-full bg-orange-100/70 flex items-center justify-center text-orange-600 font-heading font-black text-sm mb-3 mx-auto">
-          {index + 1}
-        </div>
-        <h4 className="font-heading text-sm font-semibold text-gray-900 mb-1">
-          {step.title}
-        </h4>
-        <p className="text-xs text-gray-600">
-          {step.tagline}
-        </p>
-      </div>
-    </div>
-  ))}
+<div className="relative pt-20 lg:pt-28">
+  <div className="idea origin marker" aria-hidden="true" />
+  <svg className="journey curve and flag destination" aria-hidden="true" />
+  <div className="real impact destination label" aria-hidden="true" />
+  <ol className="grid grid-cols-1 gap-6 border-l border-orange-200 pl-8 sm:grid-cols-2 sm:border-l-0 sm:pl-0 lg:grid-cols-5 lg:gap-4">
+    {steps.map((step) => (
+      <li className="relative pt-6 lg:pt-8">
+        <span className="journey path number marker">{String(step.id).padStart(2, '0')}</span>
+        <article className="flex min-h-56 flex-col overflow-hidden rounded-2xl border border-orange-100/80 bg-white text-center shadow-lg shadow-orange-950/5">
+          <div className="flex flex-1 flex-col items-center px-5 pb-5 pt-6">
+            <div className="icon container"><Icon /></div>
+            <h3 className="journey title">{step.title}</h3>
+            <p className="journey tagline">{step.tagline}</p>
+          </div>
+          <div className="journey outcome footer"><CheckCircle2 />{step.outcome}</div>
+        </article>
+      </li>
+    ))}
+  </ol>
 </div>
 ```
 
@@ -449,20 +451,21 @@ const journeySteps = [
 ```
 
 **Design Rationale:**
-- **Card-based pattern** maintains consistency with Services Grid (Section 3)
-- **Left gradient accent** reinforces TrueSpur signature design pattern
-- **Premium restraint** — Subtle, not a process diagram or agency methodology graphic
-- **Mobile responsive** — Stacks cleanly to single column on mobile
-- **Aligns with Homepage** — Similar to "How We Build Products That Scale" timeline pattern
+- **Reference journey map** makes the founder journey explicit: Idea → five guided stages → Real Impact
+- **Curved orange path** connects the stage markers and reaches a restrained flag destination
+- **Icon cards** give each stage a consistent visual anchor while the lower outcome bar adds a concise payoff
+- **Mobile responsive** — the path, origin, and destination decorations give way to a clear vertical ordered list
+- **Exact visual hierarchy** — orange eyebrow, oversized title, three centered paragraphs, path, numbered cards, and outcome footer
 
 **Implementation Requirements:**
-- Position after three narrative paragraphs (mt-12)
-- Grid: `grid-cols-1 md:grid-cols-3 lg:grid-cols-5` (responsive)
-- Gap: `gap-4` (consistent with design system)
-- Card styling: Matches service card pattern (white bg, border-gray-100/80, shadow-sm)
-- Left accent: Permanent (not hover-only) to reinforce journey flow
-- Icon container: `bg-orange-100/70` with numbered indicators
-- Typography: Poppins Semibold for titles, Inter Regular for taglines
+- Add the centered `OUR JOURNEY TOGETHER` eyebrow with short orange divider lines above the heading
+- Position the journey after the three narrative paragraphs (`mt-16`)
+- Use a semantic ordered list; origin, curve, marker circles, flag, and destination label are marked `aria-hidden`
+- Desktop: show the Idea origin at left, a curved path above five equal cards, and Real Impact with flag at right
+- Mobile and tablet: hide decorative desktop path and use the left vertical connector with one- or two-column cards
+- Cards: `rounded-2xl`, `border-orange-100/80`, white background, subtle orange-tinted shadow, icon disc, and orange-tinted outcome footer
+- Typography: Poppins Bold for titles, Inter Regular for taglines and outcomes
+- Static visual element: no hover state, autonomous animation, or clickable milestone behavior
 
 ### Visual Content Requirements
 - No images required
@@ -478,7 +481,7 @@ const journeySteps = [
 - H2: `text-3xl` on mobile
 - Body: `text-base` on mobile
 - Maintain paragraph spacing
-- Journey visualization: Single-column grid (`grid-cols-1`), full-width cards
+- Journey visualization: vertical ordered list with a left-side connector and full-width label area
 
 ### Development Notes
 - Three paragraphs create scannable narrative

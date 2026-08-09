@@ -139,6 +139,11 @@ export default function ServicesPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               
+              <div className="mb-4 flex items-center justify-center gap-4" aria-hidden="true">
+                <span className="h-px w-6 bg-orange-300" />
+                <span className="text-[11px] font-bold tracking-[0.28em] text-orange-500">OUR JOURNEY TOGETHER</span>
+                <span className="h-px w-6 bg-orange-300" />
+              </div>
               <h2 id="services-journey-heading" className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8">
                 From Idea to Product
               </h2>
