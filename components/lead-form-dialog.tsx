@@ -11,8 +11,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { SITE_CONFIG } from "@/lib/constants"
 
-type LeadFormSource = "get-started" | "start-project" | "get-proposal" | "success-story" | "about-hero" | "about-final-cta-primary" | "services-hero-primary" | "services-hero-secondary" | "services-final-cta-primary" | "services-final-cta-secondary" | "products-hero" | "products-final-cta-primary"
+type LeadFormSource = "get-started" | "start-project" | "get-proposal" | "success-story" | "about-hero" | "about-final-cta-primary" | "services-hero-primary" | "services-hero-secondary" | "services-final-cta-primary" | "services-final-cta-secondary" | "products-hero" | "products-final-cta-primary" | "independence-day-offer"
 
 type StepKey =
   | "welcome"
@@ -231,6 +232,32 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
     }
   }
 
+  const buildCalendlyUrl = () => {
+    const moduleList = form.modules
+      .map((module) => (module === "Other" && form.modulesOther.trim() ? `Other (${form.modulesOther.trim()})` : module))
+      .join(", ")
+
+    const summaryParts = [
+      form.company.trim() && `Company: ${form.company.trim()}`,
+      form.role.trim() && `Role: ${form.role.trim()}`,
+      moduleList && `Interested in: ${moduleList}`,
+      form.phoneNumber.trim() && `Phone: ${form.phoneCountryCode} ${form.phoneNumber.trim()}`,
+      form.requirements.trim() && `Requirements: ${form.requirements.trim()}`,
+    ].filter(Boolean)
+
+    const params = new URLSearchParams({
+      name: form.fullName.trim(),
+      email: form.email.trim(),
+      a1: summaryParts.join(" | "),
+    })
+
+    return `${SITE_CONFIG.calendlyUrl}?${params.toString()}`
+  }
+
+  const handleScheduleCall = () => {
+    window.open(buildCalendlyUrl(), "_blank", "noopener,noreferrer")
+  }
+
   const fullName = form.fullName.trim() || "there"
 
   return (
@@ -403,12 +430,27 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
                 details and get back to you shortly.
               </DialogDescription>
             </DialogHeader>
-            <div className="pt-2 text-xs text-gray-600">
+            <div className="text-xs text-gray-600">
               If you don&apos;t see an email within a few minutes, please check your spam or promotions folder.
+            </div>
+            <div className="rounded-md border border-orange-200 bg-orange-50 p-4 space-y-2">
+              <p className="text-sm font-semibold text-gray-900">Ready to move faster?</p>
+              <p className="text-xs text-gray-700">
+                Book a discovery call now and we&apos;ll dive into your project details right away.
+              </p>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleScheduleCall}
+                className="w-full text-xs sm:text-sm border-orange-300 text-orange-700 hover:bg-orange-100 hover:text-orange-800"
+              >
+                Schedule a Call
+              </Button>
             </div>
             <DialogFooter>
               <Button
                 type="button"
+                variant="ghost"
                 onClick={() => handleOpenChange(false)}
                 className="w-full sm:w-auto"
               >
