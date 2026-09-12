@@ -25,7 +25,12 @@ const nextConfig = {
   async headers() {
     // Only apply strict CSP in production, not in development
     const isDevelopment = process.env.NODE_ENV === 'development';
-    
+
+    // The Calendly inline widget loads a script and stylesheet from its CDN and
+    // renders the scheduler inside an iframe served from calendly.com.
+    const calendlyAssets = 'https://assets.calendly.com';
+    const calendlyFrame = 'https://calendly.com';
+
     return [
       {
         source: '/:path*',
@@ -35,22 +40,24 @@ const nextConfig = {
             value: isDevelopment ? [
               // Development: More permissive CSP to allow inline scripts for Vercel Analytics
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline'",
+              `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com ${calendlyAssets}`,
+              `style-src 'self' 'unsafe-inline' ${calendlyAssets}`,
               "font-src 'self' data:",
               "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+              `connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com ${calendlyFrame}`,
+              `frame-src ${calendlyFrame}`,
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
             ].join('; ') : [
               // Production: CSP with unsafe-inline to allow dynamic scripts
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline'",
+              `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com ${calendlyAssets}`,
+              `style-src 'self' 'unsafe-inline' ${calendlyAssets}`,
               "font-src 'self' data:",
               "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+              `connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com ${calendlyFrame}`,
+              `frame-src ${calendlyFrame}`,
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

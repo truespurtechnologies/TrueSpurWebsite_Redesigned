@@ -17,7 +17,7 @@ export default function NotFound() {
             <h1 className="text-8xl md:text-9xl font-black text-orange-500 mb-4">
               404
             </h1>
-            <div className="h-1 w-24 mx-auto bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500 rounded-full"></div>
+            <div className="h-1 w-24 mx-auto bg-linear-to-r from-yellow-400 via-orange-500 to-amber-500 rounded-full"></div>
           </div>
           
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">

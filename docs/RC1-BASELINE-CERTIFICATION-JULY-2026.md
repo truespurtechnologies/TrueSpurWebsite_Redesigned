@@ -114,7 +114,7 @@ All lint errors blocking production build resolved:
 | `react/no-unescaped-entities` (`'` → `&apos;`) | `app/about/page.tsx`, `app/page.tsx`, `app/products/page.tsx`, `app/services/page.tsx`, `app/contact/page.tsx` | ~56 instances |
 | `react/no-unescaped-entities` (`"` → `&quot;`) | `components/layout/Footer.tsx` | 4 instances |
 | `@typescript-eslint/no-explicit-any` | `app/about/layout.tsx` | 1 instance |
-| `@next/next/no-html-link-for-pages` | `tafsir-ai/page.tsx`, `truespur-billing/page.tsx`, `clinexa/page.tsx`, `halome/page.tsx` | 4 instances |
+| `@next/next/no-html-link-for-pages` | `tafsir-ai/page.tsx`, `truespur-billing/page.tsx`, `Clinax/page.tsx`, `halome/page.tsx` | 4 instances |
 
 ---
 
@@ -176,7 +176,7 @@ The following warnings are present in the build output but are **non-blocking** 
 | `/services` | Static | 4.65 kB | ✅ |
 | `/products/artificial-intelligence/tafsir-ai` | Static | 3.83 kB | ✅ |
 | `/products/digital-transformation/truespur-billing` | Static | 2.91 kB | ✅ |
-| `/products/healthcare/clinexa` | Static | 3.88 kB | ✅ |
+| `/products/healthcare/Clinax` | Static | 3.88 kB | ✅ |
 | `/products/healthcare/halome` | Static | 3.74 kB | ✅ |
 | `/robots.txt` | Dynamic | 142 B | ✅ |
 | `/sitemap.xml` | Dynamic | 142 B | ✅ |

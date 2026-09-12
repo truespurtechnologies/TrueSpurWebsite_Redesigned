@@ -23,7 +23,7 @@ export default function TrueSpurBillingPage() {
             coherent view of how revenue flows through your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <Button className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white">
+            <Button className="bg-linear-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white">
               Request a demo
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -54,7 +54,7 @@ export default function TrueSpurBillingPage() {
         <div className="relative">
           <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur">
             <CardHeader className="flex flex-row items-center gap-3 pb-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-linear-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
                 <ReceiptIndianRupee className="h-5 w-5 text-white" />
               </div>
               <div>

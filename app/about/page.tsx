@@ -11,8 +11,8 @@ import { Footer } from "@/components/layout/Footer"
 import { PrimaryButton } from "@/components/cta/PrimaryButton"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
+import { CalendlyDialog } from "@/components/calendly/CalendlyDialog"
 import { JsonLd } from "@/components/seo/JsonLd"
-import { SITE_CONFIG } from "@/lib/constants"
 
 // Recognition Certificate Modal
 function RecognitionModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -119,7 +119,7 @@ function CapabilityCard({ title, description }: { title: string; description: st
   return (
     <Card className="relative bg-white rounded-xl border border-gray-100/80 p-7 lg:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out group">
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
       
       {/* Capability headline */}
       <h3 className="font-heading text-lg lg:text-xl font-semibold text-gray-900 mb-4">
@@ -139,7 +139,7 @@ function BeliefCard({ belief, explanation }: { belief: string; explanation: stri
   return (
     <Card className="relative bg-white rounded-xl border border-gray-100/80 p-7 lg:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out group">
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-orange-400 to-amber-400 rounded-l-xl group-hover:from-orange-500 group-hover:to-amber-500 transition-colors duration-300" />
       
       {/* Belief headline */}
       <h3 className="font-heading text-base lg:text-lg font-semibold text-gray-900 mb-4">
@@ -163,6 +163,7 @@ export default function AboutPage() {
     "get-started" | "start-project" | "get-proposal" | "success-story" | null
   >(null)
   const [isCertModalOpen, setIsCertModalOpen] = useState(false)
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const openLeadForm = (source: string) => {
     setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
@@ -185,6 +186,7 @@ export default function AboutPage() {
         onOpenChange={setIsLeadFormOpen}
         source={leadFormSource}
       />
+      <CalendlyDialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen} />
       <RecognitionModal open={isCertModalOpen} onClose={() => setIsCertModalOpen(false)} />
       <Header 
         currentPage="/about"
@@ -577,7 +579,7 @@ export default function AboutPage() {
               <PrimaryButton size="lg" onClick={() => openLeadForm('about-final-cta-primary')}>
                 Start Your Project
               </PrimaryButton>
-              <SecondaryButton size="lg" onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}>
+              <SecondaryButton size="lg" onClick={() => setIsCalendlyOpen(true)}>
                 Schedule a Call
               </SecondaryButton>
             </div>

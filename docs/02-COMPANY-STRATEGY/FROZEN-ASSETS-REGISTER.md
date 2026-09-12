@@ -675,7 +675,7 @@ _Sprint 1.5 — Build Stabilization:_
 - `components/layout/Footer.tsx` — Unescaped double-quotes resolved
 - `app/products/artificial-intelligence/tafsir-ai/page.tsx` — `<a href="/">` → `<Link href="/">`
 - `app/products/digital-transformation/truespur-billing/page.tsx` — `<a href="/">` → `<Link href="/">`
-- `app/products/healthcare/clinexa/page.tsx` — `<a href="/">` → `<Link href="/">`
+- `app/products/healthcare/Clinax/page.tsx` — `<a href="/">` → `<Link href="/">`
 - `app/products/healthcare/halome/page.tsx` — `<a href="/">` → `<Link href="/">`
 
 **Confirmed Frozen Assets Unchanged:**

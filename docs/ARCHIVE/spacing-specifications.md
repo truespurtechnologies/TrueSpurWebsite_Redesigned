@@ -226,7 +226,7 @@ className="mt-14 md:mt-20 lg:mt-28"
 - Desktop: 112px top margin
 
 **Applied To:**
-- Clinexa product page
+- Clinax product page
 - HaloMe product page
 - TrueSpur Billing product page
 - TafsirAI product page

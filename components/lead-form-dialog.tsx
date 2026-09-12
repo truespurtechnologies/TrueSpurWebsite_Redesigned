@@ -11,6 +11,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { CalendlyEmbed, type CalendlyPrefill } from "@/components/calendly/CalendlyEmbed"
+import { MeetingScheduledPanel } from "@/components/calendly/MeetingScheduledPanel"
 import { SITE_CONFIG } from "@/lib/constants"
 
 type LeadFormSource = "get-started" | "start-project" | "get-proposal" | "success-story" | "about-hero" | "about-final-cta-primary" | "services-hero-primary" | "services-hero-secondary" | "services-final-cta-primary" | "services-final-cta-secondary" | "products-hero" | "products-final-cta-primary" | "independence-day-offer"
@@ -25,6 +27,8 @@ type StepKey =
   | "modules"
   | "requirements"
   | "success"
+  | "schedule"
+  | "scheduled"
 
 interface LeadFormDialogProps {
   open: boolean
@@ -232,7 +236,7 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
     }
   }
 
-  const buildCalendlyUrl = () => {
+  const buildCalendlyPrefill = (): CalendlyPrefill => {
     const moduleList = form.modules
       .map((module) => (module === "Other" && form.modulesOther.trim() ? `Other (${form.modulesOther.trim()})` : module))
       .join(", ")
@@ -245,25 +249,26 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
       form.requirements.trim() && `Requirements: ${form.requirements.trim()}`,
     ].filter(Boolean)
 
-    const params = new URLSearchParams({
+    return {
       name: form.fullName.trim(),
       email: form.email.trim(),
-      a1: summaryParts.join(" | "),
-    })
-
-    return `${SITE_CONFIG.calendlyUrl}?${params.toString()}`
+      customAnswers: { a1: summaryParts.join(" | ") },
+    }
   }
 
   const handleScheduleCall = () => {
-    window.open(buildCalendlyUrl(), "_blank", "noopener,noreferrer")
+    setStep("schedule")
   }
 
   const fullName = form.fullName.trim() || "there"
 
+  // Steps that own their whole layout: no shared header, no Back/Next footer.
+  const isStandaloneStep = step === "success" || step === "schedule" || step === "scheduled"
+
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-lg p-6 md:p-8">
-        {step !== "success" && (
+      <DialogContent className={step === "schedule" ? "max-w-3xl p-6" : "max-w-lg p-6 md:p-8"}>
+        {!isStandaloneStep && (
           <DialogHeader>
             <DialogTitle className="font-heading text-2xl lg:text-3xl">Let&apos;s understand your project</DialogTitle>
             <DialogDescription>
@@ -460,7 +465,38 @@ export function LeadFormDialog({ open, onOpenChange, source }: LeadFormDialogPro
           </div>
         )}
 
-        {step !== "success" && (
+        {step === "schedule" && (
+          <>
+            <DialogHeader>
+              <DialogTitle className="font-heading text-2xl">Book your discovery call</DialogTitle>
+              <DialogDescription>
+                Pick a time that suits you, {fullName}. Your details are already filled in.
+              </DialogDescription>
+            </DialogHeader>
+            <CalendlyEmbed
+              url={SITE_CONFIG.calendlyUrl}
+              prefill={buildCalendlyPrefill()}
+              onEventScheduled={() => setStep("scheduled")}
+            />
+          </>
+        )}
+
+        {step === "scheduled" && (
+          <>
+            <MeetingScheduledPanel name={form.fullName} />
+            <DialogFooter>
+              <Button
+                type="button"
+                onClick={() => handleOpenChange(false)}
+                className="w-full sm:w-auto"
+              >
+                Back to TrueSpur
+              </Button>
+            </DialogFooter>
+          </>
+        )}
+
+        {!isStandaloneStep && (
           <>
             {error && <p className="mt-3 text-xs text-red-600">{error}</p>}
             <DialogFooter className="mt-4">

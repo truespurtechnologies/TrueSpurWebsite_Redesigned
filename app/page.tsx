@@ -11,11 +11,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect, useRef } from "react"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
+import { CalendlyDialog } from "@/components/calendly/CalendlyDialog"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { JsonLd } from "@/components/seo/JsonLd"
-import { SITE_CONFIG } from "@/lib/constants"
 import {
   ArrowRight,
   Code,
@@ -130,7 +130,7 @@ function AnimatedStatCard({
       transition={{ duration: 0.5, delay: 0.1 * index, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.6 }}
     >
-      <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-yellow-400/70 via-orange-500/70 to-amber-500/70 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+      <div className="absolute -inset-px rounded-2xl bg-linear-to-br from-yellow-400/70 via-orange-500/70 to-amber-500/70 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
       <Card className="relative border-0 bg-white/95 shadow-lg rounded-2xl overflow-hidden backdrop-blur-sm group-hover:-translate-y-1 group-hover:shadow-2xl transition-all duration-300">
         <CardContent className="p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center">
           <div className="mb-3 inline-flex items-baseline gap-1">
@@ -166,6 +166,8 @@ export default function HomePage() {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
   const [spotlightIndex, setSpotlightIndex] = useState(0)
+
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const openLeadForm = (source: string) => {
     setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
@@ -223,7 +225,7 @@ export default function HomePage() {
       items: [
         {
           label: "Clinax",
-          href: "/products/healthcare/clinexa",
+          href: "/products/healthcare/Clinax",
           description: "Connected care platform for modern healthcare delivery.",
         },
         {
@@ -448,6 +450,8 @@ export default function HomePage() {
           description: "Transforming businesses with cutting-edge technology solutions. We specialize in website development, mobile apps, custom software, AI solutions, and product consulting.",
         }}
       />
+      <CalendlyDialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen} />
+
       <LeadFormDialog
         open={isLeadFormOpen}
         onOpenChange={setIsLeadFormOpen}
@@ -462,11 +466,11 @@ export default function HomePage() {
       <motion.section
         id="home"
         aria-labelledby="hero-heading"
-        className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
+        className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-linear-to-br from-slate-900 via-slate-950 to-slate-900"
         {...createAnimationProps(shouldReduceMotion)}
       >
         {/* Background System */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900" />
 
         {/* Subtle texture overlay */}
         <div
@@ -493,7 +497,7 @@ export default function HomePage() {
               >
                 <h1 id="hero-heading" className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] text-white">
                   Turn Ideas Into{" "}
-                  <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                     Scalable Digital
                   </span>{" "}
                   Products
@@ -525,15 +529,15 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
               >
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/10 backdrop-blur-sm">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/10 backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0" />
                   <span className="text-sm font-semibold text-slate-200">15+ Years Experience</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/10 backdrop-blur-sm">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/10 backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
                   <span className="text-sm font-semibold text-slate-200">4 Products Building</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/10 backdrop-blur-sm">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/10 backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 shrink-0" />
                   <span className="text-sm font-semibold text-slate-200">Govt. Recognized</span>
                 </div>
@@ -547,7 +551,7 @@ export default function HomePage() {
               >
                 <Button
                   onClick={() => openLeadForm("start-project")}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-base lg:text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/25 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900"
+                  className="bg-linear-to-r from-yellow-500 to-orange-500 text-white text-base lg:text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/25 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
                   Start Your Project
                 </Button>
@@ -562,7 +566,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             >
               {/* Decorative glow behind image */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 blur-2xl pointer-events-none" />
+              <div className="absolute -inset-4 rounded-3xl bg-linear-to-br from-orange-500/15 to-amber-500/10 blur-2xl pointer-events-none" />
 
               {/* Photo frame */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/60 ring-1 ring-white/10">
@@ -575,7 +579,7 @@ export default function HomePage() {
                   priority
                 />
                 {/* Subtle vignette bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-950/30 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-slate-950/30 to-transparent pointer-events-none" />
               </div>
 
               {/* Floating proof card — bottom-left */}
@@ -592,7 +596,7 @@ export default function HomePage() {
 
               {/* Floating award badge — top-right */}
               <motion.div
-                className="absolute -top-5 -right-5 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl px-6 py-5 shadow-2xl shadow-orange-500/40 ring-2 ring-white/30"
+                className="absolute -top-5 -right-5 bg-linear-to-br from-yellow-400 to-orange-500 rounded-2xl px-6 py-5 shadow-2xl shadow-orange-500/40 ring-2 ring-white/30"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.9 }}
@@ -618,7 +622,7 @@ export default function HomePage() {
           >
             <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-900/10 border border-gray-100/50 p-8 md:p-10 lg:p-12">
               {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
+              <div className="absolute inset-0 rounded-3xl bg-linear-to-br from-orange-50/40 via-transparent to-amber-50/30 pointer-events-none" />
               
               <div className="relative text-center">
                 <h2 className="font-heading text-3xl lg:text-4xl xl:text-5xl font-extrabold text-gray-900">
@@ -683,10 +687,10 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-cyan-500" />
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-400 to-cyan-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-teal-400 to-cyan-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-teal-400 to-cyan-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 {/* Domain icon block */}
-                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100/60 flex items-center justify-center mb-5">
+                <div className="h-14 w-14 rounded-2xl bg-linear-to-br from-teal-50 to-cyan-50 border border-teal-100/60 flex items-center justify-center mb-5">
                   <Heart className="h-7 w-7 text-teal-600" strokeWidth={1.5} />
                 </div>
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-teal-50 text-teal-700 mb-4">
@@ -712,9 +716,9 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-blue-500" />
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-400 to-blue-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-100/60 flex items-center justify-center mb-5">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-sky-400 to-blue-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-sky-400 to-blue-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-14 w-14 rounded-2xl bg-linear-to-br from-sky-50 to-blue-50 border border-sky-100/60 flex items-center justify-center mb-5">
                   <Users className="h-7 w-7 text-sky-600" strokeWidth={1.5} />
                 </div>
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-sky-50 text-sky-700 mb-4">
@@ -740,9 +744,9 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-500" />
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-400 to-orange-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100/60 flex items-center justify-center mb-5">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-amber-400 to-orange-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-amber-400 to-orange-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-14 w-14 rounded-2xl bg-linear-to-br from-amber-50 to-orange-50 border border-amber-100/60 flex items-center justify-center mb-5">
                   <Zap className="h-7 w-7 text-amber-600" strokeWidth={1.5} />
                 </div>
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700 mb-4">
@@ -768,9 +772,9 @@ export default function HomePage() {
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-400 to-violet-500" />
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-400 to-violet-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100/60 flex items-center justify-center mb-5">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-indigo-400 to-violet-500" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-indigo-400 to-violet-500 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="h-14 w-14 rounded-2xl bg-linear-to-br from-indigo-50 to-violet-50 border border-indigo-100/60 flex items-center justify-center mb-5">
                   <Brain className="h-7 w-7 text-indigo-600" strokeWidth={1.5} />
                 </div>
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 mb-4">
@@ -843,7 +847,7 @@ export default function HomePage() {
             <h2 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 mb-8 leading-[1.15] tracking-tight">
               How We Build <br className="md:hidden" />
               <span className="relative inline-block mt-2 md:mt-0">
-                <span className="relative z-10 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="relative z-10 bg-linear-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   Products That Scale
                 </span>
                 {/* Dynamic Glowing Aura - Multi-layered */}
@@ -873,7 +877,7 @@ export default function HomePage() {
                   }}
                 />
                 <motion.span 
-                  className="absolute -inset-x-4 -inset-y-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-xl rounded-full -z-10"
+                  className="absolute -inset-x-4 -inset-y-2 bg-linear-to-r from-yellow-400/20 to-orange-500/20 blur-xl rounded-full -z-10"
                   animate={{ 
                     opacity: [0.3, 0.7, 0.3], 
                     scale: [1, 1.05, 1] 
@@ -906,7 +910,7 @@ export default function HomePage() {
               {/* Connecting Path Line */}
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 rounded-full overflow-hidden">
                 <motion.div 
-                  className="h-full bg-gradient-to-r from-yellow-400 via-violet-400 to-orange-500"
+                  className="h-full bg-linear-to-r from-yellow-400 via-violet-400 to-orange-500"
                   initial={{ width: "0%" }}
                   animate={{ width: `${(activeApproachStep / (approachSteps.length - 1)) * 100}%` }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -1099,10 +1103,10 @@ export default function HomePage() {
       >
         {/* Subtle Architectural Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-50/30 to-transparent" />
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-orange-50/30 to-transparent" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gray-50 rounded-full blur-3xl opacity-50" />
           {/* Subtle Grid Pattern Overlay */}
-          <div className="absolute inset-0 opacity-[0.03] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none bg-[grid-line:theme(colors.gray.900)_1px] bg-[size:40px_40px]" />
+          <div className="absolute inset-0 opacity-[0.03] mask-[radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none bg-[grid-line:theme(colors.gray.900)_1px] bg-size-[40px_40px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -1119,7 +1123,7 @@ export default function HomePage() {
                 >
                   <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight mb-8">
                     Deep Healthcare <br />
-                    <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Expertise.</span>
+                    <span className="bg-linear-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Expertise.</span>
                   </h2>
                   
                   <div className="space-y-6 text-lg text-gray-600 leading-relaxed max-w-xl">
@@ -1143,7 +1147,7 @@ export default function HomePage() {
                   viewport={{ once: true }}
                 >
                   <p className="text-gray-900 font-semibold text-xl leading-snug">
-                    That expertise makes us better builders—<span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">whether your product is in healthcare or not.</span>
+                    That expertise makes us better builders—<span className="bg-linear-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">whether your product is in healthcare or not.</span>
                   </p>
                 </motion.div>
               </div>
@@ -1162,8 +1166,8 @@ export default function HomePage() {
                 <div
                   className={`relative flex-1 min-h-[360px] md:min-h-[380px] backdrop-blur-sm rounded-3xl border shadow-xl shadow-gray-900/5 p-8 md:p-10 lg:p-12 overflow-hidden flex flex-col justify-between transition-colors duration-500 ${
                     expertiseAreas[activeExpertise].tint === 'amber'
-                      ? 'bg-gradient-to-br from-orange-50/70 via-white to-white border-orange-100/70'
-                      : 'bg-gradient-to-br from-gray-50/80 via-white to-white border-gray-100/80'
+                      ? 'bg-linear-to-br from-orange-50/70 via-white to-white border-orange-100/70'
+                      : 'bg-linear-to-br from-gray-50/80 via-white to-white border-gray-100/80'
                   }`}
                 >
                   {/* Ambient tonal glow (brand-safe: orange/amber/gray only) */}
@@ -1185,7 +1189,7 @@ export default function HomePage() {
                     >
                       {/* Ghost icon watermark - visual representation of the topic without disturbing content */}
                       <ActiveExpertiseIcon
-                        className="absolute -bottom-10 -right-6 h-48 w-48 text-gray-900/[0.04] rotate-[-8deg] pointer-events-none select-none"
+                        className="absolute -bottom-10 -right-6 h-48 w-48 text-gray-900/4 rotate-[-8deg] pointer-events-none select-none"
                         aria-hidden="true"
                       />
 
@@ -1195,7 +1199,7 @@ export default function HomePage() {
                       </div>
 
                       {/* Icon */}
-                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-white to-orange-50 border border-orange-100/80 flex items-center justify-center mb-8 shadow-sm">
+                      <div className="h-16 w-16 rounded-2xl bg-linear-to-br from-white to-orange-50 border border-orange-100/80 flex items-center justify-center mb-8 shadow-sm">
                         <ActiveExpertiseIcon className="h-8 w-8 text-orange-600" />
                       </div>
 
@@ -1222,7 +1226,7 @@ export default function HomePage() {
 
                     <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
+                        className="h-full bg-linear-to-r from-yellow-400 to-orange-500 rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: `${((activeExpertise + 1) / expertiseAreas.length) * 100}%` }}
                         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -1247,7 +1251,7 @@ export default function HomePage() {
                       key={idx}
                       type="button"
                       onClick={() => setActiveExpertise(idx)}
-                      className={`h-2 rounded-full transition-all duration-300 ${idx === activeExpertise ? 'w-8 bg-gradient-to-r from-yellow-400 to-orange-500' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${idx === activeExpertise ? 'w-8 bg-linear-to-r from-yellow-400 to-orange-500' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
                       aria-label={`Go to expertise ${idx + 1}`}
                     />
                   ))}
@@ -1407,7 +1411,7 @@ export default function HomePage() {
 
       {/* Section 7: Final CTA */}
       <motion.section
-        className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"
+        className="py-16 md:py-24 lg:py-32 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900"
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 }}
         whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
         transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
@@ -1448,7 +1452,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <Button 
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/20 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-white"
+                className="bg-linear-to-r from-yellow-500 to-orange-500 text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-orange-500/20 hover:from-yellow-600 hover:to-orange-600 hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-white"
                 onClick={() => openLeadForm("get-started")}
               >
                 Start Your Project
@@ -1456,7 +1460,7 @@ export default function HomePage() {
               <SecondaryButton 
                 size="lg"
                 variant="dark"
-                onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsCalendlyOpen(true)}
               >
                 Schedule a Call
               </SecondaryButton>

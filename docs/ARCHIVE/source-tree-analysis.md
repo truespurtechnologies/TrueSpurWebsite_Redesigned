@@ -51,8 +51,8 @@ app/
 │   │   └── truespur-billing/
 │   │       └── page.tsx         # TrueSpur Billing product page
 │   └── healthcare/
-│       ├── clinexa/
-│       │   └── page.tsx         # Clinexa product page
+│       ├── Clinax/
+│       │   └── page.tsx         # Clinax product page
 │       └── halome/
 │           └── page.tsx         # HaloMe product page
 ├── globals.css                   # Global CSS styles
@@ -486,7 +486,7 @@ export async function POST(request: NextRequest) {
 ### User-Facing Routes
 
 - `/` - Homepage (landing page)
-- `/products/healthcare/clinexa` - Clinexa product page
+- `/products/healthcare/Clinax` - Clinax product page
 - `/products/healthcare/halome` - HaloMe product page
 - `/products/digital-transformation/truespur-billing` - TrueSpur Billing page
 - `/products/artificial-intelligence/tafsir-ai` - TafsirAI product page

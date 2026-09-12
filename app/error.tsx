@@ -30,7 +30,7 @@ export default function Error({
             <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
               Something Went Wrong
             </h1>
-            <div className="h-1 w-24 mx-auto bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500 rounded-full"></div>
+            <div className="h-1 w-24 mx-auto bg-linear-to-r from-yellow-400 via-orange-500 to-amber-500 rounded-full"></div>
           </div>
           
           <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
@@ -40,7 +40,7 @@ export default function Error({
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={reset}
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-sm bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-md text-white transition-all duration-200"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-sm bg-linear-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-md text-white transition-all duration-200"
             >
               <RefreshCw className="mr-2 h-5 w-5" />
               Try Again

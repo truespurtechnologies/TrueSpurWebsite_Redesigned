@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function ProductsLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 text-gray-900">
+    <div className="min-h-screen bg-linear-to-b from-gray-50 via-white to-gray-50 text-gray-900">
       <JsonLd
         data={{
           "@context": "https://schema.org",

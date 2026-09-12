@@ -53,8 +53,8 @@ export function Header({ currentPage = "home" }: HeaderProps) {
 
 
   return (
-    <header className="relative border-b border-slate-200/50 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent"></div>
+    <header className="border-b border-slate-200/50 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-orange-200/40 to-transparent"></div>
       <div className="container mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
         <div className="flex items-center">
           <button
@@ -77,7 +77,7 @@ export function Header({ currentPage = "home" }: HeaderProps) {
               onClick={() => handleNavigation(item.path)}
               className={`text-base font-medium transition-colors duration-200 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-3 py-2 relative ${
                 currentPage === item.path || (currentPage === "home" && item.path === "/")
-                  ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
+                  ? "text-orange-600 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-0.5 after:bg-linear-to-r after:from-yellow-400 after:via-orange-500 after:to-amber-500 after:rounded-full"
                   : "text-gray-600"
               }`}
             >
@@ -100,7 +100,7 @@ export function Header({ currentPage = "home" }: HeaderProps) {
         {/* Desktop CTA Button */}
         <Button
           onClick={handleCTAClick}
-          className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-sm bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-md text-white transition-all duration-200"
+          className="hidden md:inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold shadow-sm bg-linear-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 hover:shadow-md text-white transition-all duration-200"
         >
           Start a Conversation
         </Button>
@@ -126,7 +126,7 @@ export function Header({ currentPage = "home" }: HeaderProps) {
             <div className="pt-4">
               <Button
                 onClick={handleCTAClick}
-                className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
+                className="w-full bg-linear-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
               >
                 Start a Conversation
               </Button>

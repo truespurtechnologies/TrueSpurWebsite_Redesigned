@@ -21,7 +21,7 @@
 
 **Business Reality:**
 - Founder has PM background + 15+ years healthcare experience
-- Building own products (Clinexa, Halo, TrueBill, TafsirAI)
+- Building own products (Clinax, Halo, TrueBill, TafsirAI)
 - Some paying customers (billing software, websites, MSMEs)
 - Does NOT have large portfolio of startup success stories yet
 
@@ -68,7 +68,7 @@ A product studio is a company that:
 │  INTERNAL PRODUCTS        SERVICES      │
 │  (Product Ventures)       (Client Work) │
 │                                         │
-│  • Clinexa               • Product Dev  │
+│  • Clinax               • Product Dev  │
 │  • Halo                  • Healthcare   │
 │  • TrueBill              • Strategy     │
 │  • TafsirAI              • Design       │
@@ -196,7 +196,7 @@ A product studio is a company that:
 **Message:** "We're not just consultants. We're product builders."
 
 **Proof:**
-- Clinexa (healthcare telemedicine)
+- Clinax (healthcare telemedicine)
 - Halo (healthcare compliance)
 - TrueBill (billing automation)
 - TafsirAI (AI-powered insights)
@@ -355,7 +355,7 @@ A product studio is a company that:
 1. **Page Title:** "Products We're Building"
 2. **Subheadline:** "Innovation through internal product ventures"
 3. **Product Showcase:**
-   - Clinexa (Healthcare Telemedicine)
+   - Clinax (Healthcare Telemedicine)
    - Halo (Healthcare Compliance)
    - TrueBill (Billing Automation)
    - TafsirAI (AI-Powered Insights)
@@ -434,7 +434,7 @@ A product studio is a company that:
 
 1. **Healthcare Experience:** 15+ years, government recognition
 2. **Regulatory Expertise:** HIPAA, FDA, medical device
-3. **Healthcare Products:** Clinexa, Halo, government project
+3. **Healthcare Products:** Clinax, Halo, government project
 4. **Why It Matters:** Navigate complexity faster
 
 **Emotional Arc:** Experience → Expertise → Proof → Value
@@ -502,7 +502,7 @@ We don't just help others build products. We build our own. These ventures allow
 
 ## Healthcare Innovation
 
-### Clinexa
+### Clinax
 **Telemedicine Platform for Underserved Communities**
 
 [Product details]
@@ -551,7 +551,7 @@ Building our own products keeps us sharp. It forces us to solve real problems, n
 ### The Problem
 [What problem are we solving?]
 
-**Example (Clinexa):**
+**Example (Clinax):**
 "Millions of people in rural India lack access to quality healthcare. Telemedicine can help, but existing platforms are too expensive and complex."
 
 ---
@@ -559,15 +559,15 @@ Building our own products keeps us sharp. It forces us to solve real problems, n
 ### The Solution
 [What did we build?]
 
-**Example (Clinexa):**
-"Clinexa is a HIPAA-compliant telemedicine platform that connects patients with doctors via video, chat, and phone. Built for affordability and simplicity."
+**Example (Clinax):**
+"Clinax is a HIPAA-compliant telemedicine platform that connects patients with doctors via video, chat, and phone. Built for affordability and simplicity."
 
 ---
 
 ### The Impact
 [Who benefits? Current status?]
 
-**Example (Clinexa):**
+**Example (Clinax):**
 - **Status:** Beta testing with 500+ patients
 - **Target:** Rural healthcare access in India
 - **Technology:** React, Node.js, AWS HIPAA-eligible services
@@ -578,7 +578,7 @@ Building our own products keeps us sharp. It forces us to solve real problems, n
 ### The Technology
 [Tech stack, innovation, architecture]
 
-**Example (Clinexa):**
+**Example (Clinax):**
 - **Frontend:** React, TailwindCSS
 - **Backend:** Node.js, Express
 - **Database:** PostgreSQL
@@ -591,8 +591,8 @@ Building our own products keeps us sharp. It forces us to solve real problems, n
 ### Why We Built This
 [Founder motivation, mission alignment]
 
-**Example (Clinexa):**
-"I've spent 15+ years in healthcare technology. I've seen how hard it is for underserved communities to access care. Clinexa is our commitment to making healthcare accessible to everyone."
+**Example (Clinax):**
+"I've spent 15+ years in healthcare technology. I've seen how hard it is for underserved communities to access care. Clinax is our commitment to making healthcare accessible to everyone."
 
 ---
 
@@ -604,7 +604,7 @@ Building our own products keeps us sharp. It forces us to solve real problems, n
 ### Product Categorization
 
 **CATEGORY 1: Healthcare Innovation**
-- Clinexa (Telemedicine)
+- Clinax (Telemedicine)
 - Halo (Compliance)
 
 **CATEGORY 2: Business Tools**
@@ -652,7 +652,7 @@ Building our own products keeps us sharp. It forces us to solve real problems, n
 - Demonstrate product thinking and execution
 
 **Example:**
-> "We're building Clinexa, a telemedicine platform serving 500+ patients in beta. We're building Halo, a healthcare compliance tool. We're building TrueBill, a billing automation platform with paying customers."
+> "We're building Clinax, a telemedicine platform serving 500+ patients in beta. We're building Halo, a healthcare compliance tool. We're building TrueBill, a billing automation platform with paying customers."
 
 ---
 
@@ -842,7 +842,7 @@ We validate before we build. We own outcomes, not just deliverables.
 
 We don't just consult. We build.
 
-**Clinexa** — a telemedicine platform for underserved communities  
+**Clinax** — a telemedicine platform for underserved communities  
 **Halo** — healthcare compliance and monitoring  
 **TrueBill** — billing automation for small businesses  
 **TafsirAI** — AI-powered insights
@@ -1030,7 +1030,7 @@ Don't fake **what doesn't exist** (client case studies, enterprise proof).
 | # | Action | Reason | Effort | Deliverable |
 |---|--------|--------|--------|-------------|
 | 3.1 | Rewrite Products page as "Products We're Building" | Positions as product ventures | Medium | New Products page |
-| 3.2 | Write Clinexa product story | Healthcare telemedicine proof | Medium | Product detail page |
+| 3.2 | Write Clinax product story | Healthcare telemedicine proof | Medium | Product detail page |
 | 3.3 | Write Halo product story | Healthcare compliance proof | Medium | Product detail page |
 | 3.4 | Write TrueBill product story | Business tools proof | Medium | Product detail page |
 | 3.5 | Write TafsirAI product story | AI innovation proof | Medium | Product detail page |
@@ -1140,7 +1140,7 @@ Don't fake **what doesn't exist** (client case studies, enterprise proof).
 - **Deep healthcare expertise** (15+ years, government recognition)
 
 **PROOF STRATEGY:**
-- **Tier 1:** Internal products (Clinexa, Halo, TrueBill, TafsirAI)
+- **Tier 1:** Internal products (Clinax, Halo, TrueBill, TafsirAI)
 - **Tier 2:** Government recognition (2M+ citizens served)
 - **Tier 3:** Real customer testimonials (honest scale)
 - **Tier 4:** Founder expertise (15+ years, PM background)
@@ -1160,7 +1160,7 @@ Don't fake **what doesn't exist** (client case studies, enterprise proof).
 
 **PRODUCTS:**
 1. "Products We're Building"
-2. Healthcare Innovation (Clinexa, Halo)
+2. Healthcare Innovation (Clinax, Halo)
 3. Business Tools (TrueBill)
 4. AI & Insights (TafsirAI)
 5. Why We Build Products

@@ -57,7 +57,7 @@ Unlike generic product listing pages, TrueSpur Product Suite delivers:
 ### Product Portfolio
 
 **Healthcare:**
-- **Clinexa** – EHR and clinical management platform (pre-launch, waitlist active)
+- **Clinax** – EHR and clinical management platform (pre-launch, waitlist active)
 - **HaloMe** – Healthcare engagement solution (pre-launch, waitlist active)
 
 **Digital Transformation:**
@@ -123,12 +123,12 @@ Unlike generic product listing pages, TrueSpur Product Suite delivers:
 - Smooth integration with existing scroll-based navigation
 
 **Product Pages:**
-- 4 complete product pages (Clinexa, HaloMe, TrueSpur Billing, TafsirAI)
+- 4 complete product pages (Clinax, HaloMe, TrueSpur Billing, TafsirAI)
 - Consistent page structure: Hero, Problem/Solution, Features, Use Cases, CTA
 - Industry-specific categorization and routing
 
 **Waitlist System:**
-- Functional waitlist forms on 3 products (Clinexa, HaloMe, TafsirAI)
+- Functional waitlist forms on 3 products (Clinax, HaloMe, TafsirAI)
 - Email confirmation to registrants
 - Email notification to company
 - TrueSpur Billing uses contact/demo CTA instead
@@ -192,9 +192,9 @@ Unlike generic product listing pages, TrueSpur Product Suite delivers:
 **Steps:**
 1. Views homepage, notices Product Suite in navigation
 2. Hovers over Product Suite (desktop) or taps to expand (mobile)
-3. Sees Healthcare category with Clinexa and HaloMe
-4. Clicks on Clinexa to explore
-5. Lands on Clinexa product page, reads hero section
+3. Sees Healthcare category with Clinax and HaloMe
+4. Clicks on Clinax to explore
+5. Lands on Clinax product page, reads hero section
 6. Scrolls through problem/solution framing, recognizes pain points
 7. Reviews key features and use cases
 8. Decides to join waitlist for early access
@@ -202,7 +202,7 @@ Unlike generic product listing pages, TrueSpur Product Suite delivers:
 10. Submits form, sees success message
 11. Receives confirmation email within 30 seconds
 
-**Success Outcome:** Qualified lead captured, user added to Clinexa waitlist
+**Success Outcome:** Qualified lead captured, user added to Clinax waitlist
 
 **Functional Requirements Traced:** FR-NAV-01, FR-NAV-02, FR-PROD-01, FR-PROD-02, FR-PROD-03, FR-WAIT-01, FR-WAIT-02, FR-WAIT-03
 
@@ -359,7 +359,7 @@ Product pages include use case scenarios segmented by target audience.
 ### Waitlist Requirements
 
 **FR-WAIT-01: Waitlist Form Display**  
-Clinexa, HaloMe, and TafsirAI product pages include waitlist registration forms.
+Clinax, HaloMe, and TafsirAI product pages include waitlist registration forms.
 
 **Acceptance Criteria:**
 - Form appears on product page (above or below fold)
@@ -404,7 +404,7 @@ TrueSpur Billing product page uses contact/demo CTA instead of waitlist form.
 Each product is accessible via industry-categorized URL structure.
 
 **Acceptance Criteria:**
-- Clinexa: `/products/healthcare/clinexa`
+- Clinax: `/products/healthcare/Clinax`
 - HaloMe: `/products/healthcare/halome`
 - TrueSpur Billing: `/products/digital-transformation/truespur-billing`
 - TafsirAI: `/products/artificial-intelligence/tafsir-ai`

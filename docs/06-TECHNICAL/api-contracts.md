@@ -232,7 +232,7 @@ interface WaitlistFormData {
   "name": "Alex Johnson",
   "email": "alex@example.com",
   "organization": "Tech Startup Inc",
-  "product": "Clinexa"
+  "product": "Clinax"
 }
 ```
 
@@ -408,7 +408,7 @@ curl -X POST https://your-domain.com/api/waitlist \
     "name": "Test User",
     "email": "test@example.com",
     "organization": "Test Org",
-    "product": "Clinexa"
+    "product": "Clinax"
   }'
 ```
 

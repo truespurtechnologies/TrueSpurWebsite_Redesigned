@@ -9,14 +9,16 @@ import { SecondaryButton } from "@/components/cta/SecondaryButton"
 import { ServiceTabsView } from "@/components/page/ServiceTabsView"
 import { FounderJourneyVisualization } from "@/components/page/FounderJourneyVisualization"
 import { LeadFormDialog } from "@/components/lead-form-dialog"
+import { CalendlyDialog } from "@/components/calendly/CalendlyDialog"
 import { JsonLd } from "@/components/seo/JsonLd"
-import { SITE_CONFIG } from "@/lib/constants"
 
 export default function ServicesPage() {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false)
   const [leadFormSource, setLeadFormSource] = useState<
     "get-started" | "start-project" | "get-proposal" | "success-story" | null
   >(null)
+
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const openLeadForm = (source: string) => {
     setLeadFormSource(source as "get-started" | "start-project" | "get-proposal" | "success-story")
@@ -125,7 +127,7 @@ export default function ServicesPage() {
                   Start Your Project
                 </PrimaryButton>
                 
-                <SecondaryButton size="lg" variant="light" onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}>
+                <SecondaryButton size="lg" variant="light" onClick={() => setIsCalendlyOpen(true)}>
                   Schedule a Call
                 </SecondaryButton>
               </div>
@@ -264,7 +266,7 @@ export default function ServicesPage() {
                   Start Your Project
                 </PrimaryButton>
                 
-                <SecondaryButton size="lg" variant="light" onClick={() => window.open(SITE_CONFIG.calendlyUrl, '_blank', 'noopener,noreferrer')}>
+                <SecondaryButton size="lg" variant="light" onClick={() => setIsCalendlyOpen(true)}>
                   Schedule a Call
                 </SecondaryButton>
               </div>
@@ -276,6 +278,8 @@ export default function ServicesPage() {
       
       <Footer />
       
+      <CalendlyDialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen} />
+
       <LeadFormDialog
         open={isLeadFormOpen}
         onOpenChange={setIsLeadFormOpen}

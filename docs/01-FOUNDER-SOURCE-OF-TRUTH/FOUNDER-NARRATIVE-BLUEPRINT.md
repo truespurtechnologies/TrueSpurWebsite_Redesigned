@@ -236,7 +236,7 @@ I've worked with dozens of development shops. Here's what most get wrong: they t
 ### **Key Proof Points**
 
 1. **Internal products**
-   - Clinexa (telemedicine)
+   - Clinax (telemedicine)
    - Halo (healthcare compliance)
    - TrueBill (billing automation)
    - TafsirAI (AI-powered insights)
@@ -259,7 +259,7 @@ I've worked with dozens of development shops. Here's what most get wrong: they t
 ```markdown
 I'm not just a consultant. I'm a founder building products.
 
-**Clinexa** — a telemedicine platform for underserved communities  
+**Clinax** — a telemedicine platform for underserved communities  
 **Halo** — healthcare compliance and monitoring  
 **TrueBill** — billing automation for small businesses  
 **TafsirAI** — AI-powered insights
@@ -515,7 +515,7 @@ Founders need more than that. They need strategic thinking. They need domain exp
 
 So I became a founder myself.
 
-I started building my own products. Clinexa, a telemedicine platform for underserved communities. Halo, a healthcare compliance tool. TrueBill, a billing automation platform. TafsirAI, an AI-powered insights application.
+I started building my own products. Clinax, a telemedicine platform for underserved communities. Halo, a healthcare compliance tool. TrueBill, a billing automation platform. TafsirAI, an AI-powered insights application.
 
 These aren't side projects. They're my commitment to building products that matter.
 

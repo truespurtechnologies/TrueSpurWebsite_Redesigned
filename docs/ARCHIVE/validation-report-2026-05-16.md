@@ -371,7 +371,7 @@ overallRating: 5/5 - Excellent
    While not required, adding visual diagrams (user journey flowcharts, system context diagram) could enhance human comprehension. This is purely optional as the textual descriptions are already comprehensive.
 
 3. **Optional Enhancement: Add Glossary**
-   For stakeholders unfamiliar with product terminology (Clinexa, HaloMe, TafsirAI), a glossary section could improve accessibility. Again, this is optional as terms are well-contextualized.
+   For stakeholders unfamiliar with product terminology (Clinax, HaloMe, TafsirAI), a glossary section could improve accessibility. Again, this is optional as terms are well-contextualized.
 
 #### Summary
 

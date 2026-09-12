@@ -155,7 +155,7 @@ function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseP
             >
               <div className="relative flex items-center justify-between mb-1.5">
                 <div className="flex items-center gap-2.5">
-                  <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${styles.dot}`} aria-hidden="true" />
+                  <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${styles.dot}`} aria-hidden="true" />
                   <span className={`text-[11px] font-semibold uppercase tracking-wider ${isActive ? "text-gray-500" : "text-gray-400"}`}>
                     {p.category}
                   </span>
@@ -172,10 +172,10 @@ function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseP
 
               {/* Auto-advance progress indicator */}
               {isActive && !shouldReduceMotion && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-100/80">
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-100/80">
                   <motion.div
                     key={active}
-                    className="h-full bg-gradient-to-r from-orange-400 to-amber-500"
+                    className="h-full bg-linear-to-r from-orange-400 to-amber-500"
                     initial={{ width: "0%" }}
                     animate={{ width: isPaused ? "0%" : "100%" }}
                     transition={{ duration: AUTO_ADVANCE_MS / 1000, ease: "linear" }}
@@ -197,10 +197,10 @@ function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseP
             exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -16 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             role="tabpanel"
-            className={`relative h-full min-h-[380px] lg:min-h-[420px] overflow-hidden rounded-3xl bg-gradient-to-br ${activeStyles.wash} border border-gray-100/80 p-9 lg:p-14 shadow-sm shadow-gray-900/5`}
+            className={`relative h-full min-h-[380px] lg:min-h-[420px] overflow-hidden rounded-3xl bg-linear-to-br ${activeStyles.wash} border border-gray-100/80 p-9 lg:p-14 shadow-sm shadow-gray-900/5`}
           >
             {/* Oversized watermark index */}
-            <span className="absolute -right-3 -top-14 font-heading text-[200px] lg:text-[260px] font-black text-gray-900/[0.04] leading-none select-none pointer-events-none" aria-hidden="true">
+            <span className="absolute -right-3 -top-14 font-heading text-[200px] lg:text-[260px] font-black text-gray-900/4 leading-none select-none pointer-events-none" aria-hidden="true">
               0{active + 1}
             </span>
 
@@ -209,7 +209,7 @@ function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseP
             </div>
 
             <div className="relative flex items-center gap-2 mb-4">
-              <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${activeStyles.dot}`} aria-hidden="true" />
+              <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${activeStyles.dot}`} aria-hidden="true" />
               <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
                 {activeProduct.category}
               </span>
@@ -223,7 +223,7 @@ function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseP
               {activeProduct.description}
             </p>
 
-            <div className="relative pt-6 border-t border-gray-900/[0.06] max-w-xl">
+            <div className="relative pt-6 border-t border-gray-900/6 max-w-xl">
               <p className="text-sm text-gray-500 italic leading-relaxed">
                 {activeProduct.progressDescriptor}
               </p>
@@ -248,12 +248,12 @@ function LearningStep({ index, icon: Icon, title, subtitle, description }: Learn
   return (
     <div className="group relative flex-1">
       {/* Oversized ghost numeral */}
-      <span className="block font-heading text-6xl lg:text-7xl font-black text-white/[0.06] leading-none mb-5 select-none" aria-hidden="true">
+      <span className="block font-heading text-6xl lg:text-7xl font-black text-white/6 leading-none mb-5 select-none" aria-hidden="true">
         0{index}
       </span>
 
       {/* Icon */}
-      <div className="relative h-12 w-12 lg:h-14 lg:w-14 rounded-xl bg-gradient-to-br from-orange-500/15 to-amber-500/10 flex items-center justify-center mb-6 ring-1 ring-orange-400/20 group-hover:ring-orange-400/50 transition-all duration-300">
+      <div className="relative h-12 w-12 lg:h-14 lg:w-14 rounded-xl bg-linear-to-br from-orange-500/15 to-amber-500/10 flex items-center justify-center mb-6 ring-1 ring-orange-400/20 group-hover:ring-orange-400/50 transition-all duration-300">
         <Icon className="h-6 w-6 lg:h-7 lg:w-7 text-orange-400" strokeWidth={1.5} />
       </div>
 
@@ -304,7 +304,7 @@ export default function ProductsPage() {
         {/* SECTION 1: HERO */}
         <section className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden" aria-labelledby="hero-heading">
           {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+          <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900" />
           
           {/* Subtle texture overlay */}
           <div className="absolute inset-0 opacity-[0.015]" style={{
@@ -626,20 +626,20 @@ export default function ProductsPage() {
                 {/* Visual column — founder dilemma as a connected signal card */}
                 <div className="lg:col-span-5">
                   <div className="group relative rounded-3xl bg-white border border-gray-200/70 shadow-lg shadow-gray-900/5 p-8 lg:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-amber-500" aria-hidden="true" />
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-orange-400 to-amber-500" aria-hidden="true" />
 
                     <p className="text-[11px] font-semibold uppercase tracking-wider text-orange-600/80 mb-8">
                       The Founder Dilemma
                     </p>
 
                     <div className="relative">
-                      <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-orange-300/40 to-transparent" aria-hidden="true" />
+                      <div className="absolute left-6 top-4 bottom-4 w-px bg-linear-to-b from-transparent via-orange-300/40 to-transparent" aria-hidden="true" />
                       <div className="space-y-8">
                         {founderDilemmaItems.map((item, i) => {
                           const Icon = item.icon
                           return (
                             <div key={item.title} className="relative flex items-start gap-5">
-                              <div className="relative z-10 h-12 w-12 rounded-full bg-gradient-to-br from-orange-50 to-orange-100/60 flex items-center justify-center ring-1 ring-orange-100/80 shadow-sm">
+                              <div className="relative z-10 h-12 w-12 rounded-full bg-linear-to-br from-orange-50 to-orange-100/60 flex items-center justify-center ring-1 ring-orange-100/80 shadow-sm">
                                 <Icon className="h-5 w-5 text-orange-600" strokeWidth={1.5} />
                               </div>
                               <div className="pt-1 flex-1">
@@ -650,7 +650,7 @@ export default function ProductsPage() {
                                   {item.description}
                                 </p>
                               </div>
-                              <span className="absolute right-0 -top-1 font-heading text-4xl lg:text-5xl font-black text-gray-900/[0.04] select-none leading-none" aria-hidden="true">
+                              <span className="absolute right-0 -top-1 font-heading text-4xl lg:text-5xl font-black text-gray-900/4 select-none leading-none" aria-hidden="true">
                                 0{i + 1}
                               </span>
                             </div>
@@ -670,7 +670,7 @@ export default function ProductsPage() {
         {/* SECTION 6: FINAL CTA */}
         <section className="relative py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden" aria-labelledby="cta-heading">
           {/* Background (matches hero) */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+          <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900" />
           
           {/* Subtle texture overlay */}
           <div className="absolute inset-0 opacity-[0.015]" style={{

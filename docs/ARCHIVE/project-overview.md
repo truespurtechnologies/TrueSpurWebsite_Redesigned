@@ -21,7 +21,7 @@ TrueSpur Technology Solutions website is a modern, professional web application 
 
 1. **Showcase Services** - Present TrueSpur's consulting and development services
 2. **Generate Leads** - Capture potential client inquiries through forms
-3. **Product Marketing** - Promote TrueSpur's product suite (Clinexa, HaloMe, TrueSpur Billing, TafsirAI)
+3. **Product Marketing** - Promote TrueSpur's product suite (Clinax, HaloMe, TrueSpur Billing, TafsirAI)
 4. **Build Trust** - Demonstrate expertise and credibility through professional design
 5. **Enable Contact** - Provide multiple channels for client engagement
 
@@ -85,7 +85,7 @@ TrueSpur Technology Solutions website is a modern, professional web application 
 ### 2. Product Suite Pages
 
 **Products:**
-1. **Clinexa** (`/products/healthcare/clinexa`)
+1. **Clinax** (`/products/healthcare/Clinax`)
    - Healthcare EHR solution
    - Waitlist registration
 

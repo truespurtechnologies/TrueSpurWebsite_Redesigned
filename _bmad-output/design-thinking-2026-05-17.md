@@ -642,7 +642,7 @@ Creating three interconnected prototypes that bring the selected concepts to lif
 **Immediate:**
 - [ ] Team photo (professional or placeholder)
 - [ ] Client logos (existing customers)
-- [ ] Project screenshots (Clinexa, HaloMe, TrueSpur Billing, TafsirAI)
+- [ ] Project screenshots (Clinax, HaloMe, TrueSpur Billing, TafsirAI)
 
 **Nice to Have:**
 - [ ] Client testimonial quotes

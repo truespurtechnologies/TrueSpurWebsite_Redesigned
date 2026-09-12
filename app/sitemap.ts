@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/products/healthcare/clinexa`,
+      url: `${BASE_URL}/products/healthcare/Clinax`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,

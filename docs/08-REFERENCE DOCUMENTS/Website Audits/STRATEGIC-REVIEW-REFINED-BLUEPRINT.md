@@ -127,7 +127,7 @@
    - **Fix:** Tell the story. "Recognized by Government of Tamil Nadu for healthcare innovation project serving 2M+ citizens."
 
 5. **Real Product Building:**
-   - **Current:** Products shown (Clinexa, HaloMe, TrueSpur Billing, TafsirAI)
+   - **Current:** Products shown (Clinax, HaloMe, TrueSpur Billing, TafsirAI)
    - **Problem:** Presented as portfolio, not as founder journey.
    - **Fix:** "I've built products as a founder. I know the journey because I've lived it."
 
@@ -653,10 +653,10 @@
 
 ---
 
-### Example: Clinexa Case Study
+### Example: Clinax Case Study
 
 ```markdown
-## Dr. [Name], Founder of Clinexa
+## Dr. [Name], Founder of Clinax
 
 ### The Challenge
 Dr. [Name] had a vision: make healthcare accessible to underserved communities through telemedicine. But he faced three major obstacles:
@@ -686,7 +686,7 @@ We partnered with Dr. [Name] to:
 "TrueSpur didn't just build software. They helped me navigate HIPAA, validate my model, and launch in 12 weeks. They think like product managers, not developers. That's the difference."
 
 ### The Product
-**Clinexa** is a HIPAA-compliant telemedicine platform connecting patients with doctors across rural India. Built with React, Node.js, and AWS HIPAA-eligible services.
+**Clinax** is a HIPAA-compliant telemedicine platform connecting patients with doctors across rural India. Built with React, Node.js, and AWS HIPAA-eligible services.
 
 [Link to product]
 
@@ -698,7 +698,7 @@ We partnered with Dr. [Name] to:
 ### Products Page Priority
 
 **Phase 2 (Days 15-30):** Write 3 case studies
-1. **Clinexa** (Telemedicine + HIPAA)
+1. **Clinax** (Telemedicine + HIPAA)
 2. **HaloMe** (Healthcare compliance)
 3. **Government Project** (Scale + recognition)
 
@@ -764,7 +764,7 @@ We partnered with Dr. [Name] to:
 **Why:** Proof > everything.
 
 **Implementation:**
-- Write 3 healthcare case studies (Clinexa, HaloMe, Government Project)
+- Write 3 healthcare case studies (Clinax, HaloMe, Government Project)
 - Add founder testimonials with photos
 - Add specific metrics (users, revenue, funding, time to market)
 - Tell "challenge → partnership → outcome" stories
@@ -861,7 +861,7 @@ We partnered with Dr. [Name] to:
 
 | Day | Action | Owner | Deliverable |
 |-----|--------|-------|-------------|
-| 15-18 | Write Case Study 1 (Clinexa) | Marketing | Full case study |
+| 15-18 | Write Case Study 1 (Clinax) | Marketing | Full case study |
 | 19-22 | Write Case Study 2 (HaloMe) | Marketing | Full case study |
 | 23-26 | Write Case Study 3 (Government) | Marketing | Full case study |
 | 27-28 | Redesign Products page (case studies) | Marketing | New Products page |

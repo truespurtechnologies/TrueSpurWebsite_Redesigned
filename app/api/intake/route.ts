@@ -20,6 +20,17 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 3,
 })
 
+function describeSmtpError(error: unknown) {
+  const smtpError = error as { message?: string; code?: string; responseCode?: number; response?: string }
+
+  return {
+    message: smtpError?.message ?? String(error),
+    code: smtpError?.code,
+    responseCode: smtpError?.responseCode,
+    response: smtpError?.response,
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const identifier = request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip") ?? "anonymous"
@@ -180,7 +191,22 @@ TrueSpur Technology Solutions Team
         text: recipientEmailContent,
         html: recipientEmailContent.replace(/\n/g, "<br>"),
       })
+    } catch (notificationError) {
+      console.error("Intake notification email to TrueSpur failed:", describeSmtpError(notificationError))
 
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "We could not submit your enquiry right now. Please try again, or email us directly at info@truespur.ai.",
+        },
+        { status: 500 },
+      )
+    }
+
+    let confirmationSent = true
+
+    try {
       await transporter.sendMail({
         from: `"TrueSpur Technology Solutions" <${fromEmail}>`,
         to: safeBody.email,
@@ -188,36 +214,33 @@ TrueSpur Technology Solutions Team
         text: senderEmailContent,
         html: senderEmailContent.replace(/\n/g, "<br>"),
       })
-
-      console.log("Intake form submission processed successfully", {
-        fullName: safeBody.fullName,
-        email: safeBody.email,
-        company: safeBody.company,
-        role: safeBody.role,
-        source: safeBody.source,
-        timestamp: new Date().toISOString(),
-      })
-
-      return NextResponse.json(
-        {
-          success: true,
-          message:
-            "Thank you for your enquiry! We have sent a confirmation email and will get back to you as soon as possible.",
-        },
-        { status: 200 },
-      )
-    } catch (emailError) {
-      console.error("Intake email sending failed:", emailError)
-
-      return NextResponse.json(
-        {
-          success: false,
-          error:
-            "Your enquiry was received but there was an issue sending email notifications. Please try again or contact us directly.",
-        },
-        { status: 500 },
+    } catch (confirmationError) {
+      confirmationSent = false
+      console.error(
+        "Intake confirmation email to submitter failed:",
+        describeSmtpError(confirmationError),
       )
     }
+
+    console.log("Intake form submission processed successfully", {
+      fullName: safeBody.fullName,
+      email: safeBody.email,
+      company: safeBody.company,
+      role: safeBody.role,
+      source: safeBody.source,
+      confirmationSent,
+      timestamp: new Date().toISOString(),
+    })
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: confirmationSent
+          ? "Thank you for your enquiry! We have sent a confirmation email and will get back to you as soon as possible."
+          : "Thank you for your enquiry! Our team has received it and will get back to you as soon as possible.",
+      },
+      { status: 200 },
+    )
   } catch (error) {
     console.error("Intake form error:", error)
     return NextResponse.json({ error: "Failed to process your request" }, { status: 500 })

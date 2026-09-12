@@ -64,7 +64,7 @@ export function ServiceTabsView({ services }: ServiceTabsViewProps) {
                 lg:px-5 lg:py-3 lg:text-base
                 ${
                   activeIndex === index
-                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/25"
+                    ? "bg-linear-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/25"
                     : "text-gray-600 hover:text-gray-900"
                 }
               `}
@@ -85,9 +85,9 @@ export function ServiceTabsView({ services }: ServiceTabsViewProps) {
         tabIndex={0}
         className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-2 duration-300 motion-reduce:animate-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-4 rounded-3xl"
       >
-        <div className="relative bg-gradient-to-br from-white via-amber-50/35 to-orange-50/45 rounded-3xl border border-orange-100/70 shadow-xl shadow-orange-950/5 overflow-hidden">
+        <div className="relative bg-linear-to-br from-white via-amber-50/35 to-orange-50/45 rounded-3xl border border-orange-100/70 shadow-xl shadow-orange-950/5 overflow-hidden">
           {/* Left gradient accent */}
-          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-orange-400 to-amber-400" />
+          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-linear-to-b from-orange-400 to-amber-400" />
 
           <div className="p-8 md:p-12 lg:p-16 pl-10 md:pl-14 lg:pl-20">
             {/* Title + positioning */}
@@ -108,8 +108,8 @@ export function ServiceTabsView({ services }: ServiceTabsViewProps) {
                   className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-1 duration-300 fill-mode-both motion-reduce:animate-none"
                   style={{ animationDelay: `${index * 75}ms` }}
                 >
-                  <div className="flex-shrink-0">
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center shadow-sm">
+                  <div className="shrink-0">
+                    <div className="h-7 w-7 rounded-full bg-linear-to-br from-orange-500 to-amber-500 flex items-center justify-center shadow-sm">
                       <Check className="h-4 w-4 text-white" strokeWidth={3} />
                     </div>
                   </div>

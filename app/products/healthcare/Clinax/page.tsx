@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, CheckCircle, HeartPulse } from "lucide-react"
 
-export default function ClinexaPage() {
+export default function ClinaxPage() {
   const [waitlistName, setWaitlistName] = useState("")
   const [waitlistEmail, setWaitlistEmail] = useState("")
   const [waitlistOrg, setWaitlistOrg] = useState("")
@@ -15,7 +15,7 @@ export default function ClinexaPage() {
   const [waitlistMessage, setWaitlistMessage] = useState("")
 
   const scrollToWaitlist = () => {
-    const el = document.getElementById("clinexa-waitlist")
+    const el = document.getElementById("Clinax-waitlist")
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" })
     }
@@ -86,7 +86,7 @@ export default function ClinexaPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Button
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
+              className="bg-linear-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
               onClick={scrollToWaitlist}
             >
               Join waitlist
@@ -119,7 +119,7 @@ export default function ClinexaPage() {
         <div className="relative">
           <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur">
             <CardHeader className="flex flex-row items-center gap-3 pb-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-linear-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
                 <HeartPulse className="h-5 w-5 text-white" />
               </div>
               <div>
@@ -176,7 +176,7 @@ export default function ClinexaPage() {
         </div>
       </section>
 
-      <section id="clinexa-waitlist" className="mt-14 md:mt-20 lg:mt-28 max-w-2xl">
+      <section id="Clinax-waitlist" className="mt-14 md:mt-20 lg:mt-28 max-w-2xl">
         <h2 className="font-heading text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Join the Clinax waitlist</h2>
         <p className="text-gray-600 mb-6 text-sm md:text-base">
           Share a few details and we&apos;ll reach out as we open up early access and pilots.
@@ -184,11 +184,11 @@ export default function ClinexaPage() {
         <form onSubmit={handleWaitlistSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="clinexa-name">
+              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="Clinax-name">
                 Name
               </label>
               <input
-                id="clinexa-name"
+                id="Clinax-name"
                 type="text"
                 value={waitlistName}
                 onChange={(e) => setWaitlistName(e.target.value)}
@@ -197,11 +197,11 @@ export default function ClinexaPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="clinexa-email">
+              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="Clinax-email">
                 Email
               </label>
               <input
-                id="clinexa-email"
+                id="Clinax-email"
                 type="email"
                 value={waitlistEmail}
                 onChange={(e) => setWaitlistEmail(e.target.value)}
@@ -211,11 +211,11 @@ export default function ClinexaPage() {
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="clinexa-org">
+            <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="Clinax-org">
               Organization (optional)
             </label>
             <input
-              id="clinexa-org"
+              id="Clinax-org"
               type="text"
               value={waitlistOrg}
               onChange={(e) => setWaitlistOrg(e.target.value)}
@@ -235,7 +235,7 @@ export default function ClinexaPage() {
           <Button
             type="submit"
             disabled={waitlistStatus === "loading"}
-            className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
+            className="bg-linear-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white"
           >
             {waitlistStatus === "loading" ? "Submitting..." : "Request early access"}
           </Button>

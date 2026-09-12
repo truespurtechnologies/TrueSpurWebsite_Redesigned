@@ -90,7 +90,7 @@ The following decisions are final and approved per PRODUCTS-PAGE-DESIGN-SPECIFIC
 ### Product Naming
 
 **Approved product name:** Clinax  
-**Incorrect reference:** Clinexa
+**Incorrect reference:** Clinax
 
 ### Product Page Expansion Strategy
 
@@ -147,15 +147,15 @@ The following decisions are final and approved per PRODUCTS-PAGE-DESIGN-SPECIFIC
 #### Issue 2.1: Product Naming Inconsistency
 - **Severity:** CRITICAL
 - **Lines:** 177, 209, 226
-- **Problem:** "Clinexa" used instead of approved "Clinax"
+- **Problem:** "Clinax" used instead of approved "Clinax"
 - **Impact:** Naming inconsistency across governance documents
 - **Status:** ✅ RESOLVED
 
 **Before:**
 ```
-| 3.2 | Clinexa product story | Complete product detail | Founder | 3h |
-- Day 2: Founder writes Clinexa story (3h)
-- [ ] Clinexa (Healthcare - Beta)
+| 3.2 | Clinax product story | Complete product detail | Founder | 3h |
+- Day 2: Founder writes Clinax story (3h)
+- [ ] Clinax (Healthcare - Beta)
 ```
 
 **After:**
@@ -285,7 +285,7 @@ The following decisions are final and approved per PRODUCTS-PAGE-DESIGN-SPECIFIC
 #### Issue 4.1: Product Naming Inconsistency
 - **Severity:** CRITICAL
 - **Lines:** 61, 73-76, 132, 413
-- **Problem:** "Clinexa" used instead of approved "Clinax"
+- **Problem:** "Clinax" used instead of approved "Clinax"
 - **Impact:** Naming inconsistency in reference documentation
 - **Status:** ✅ RESOLVED
 
@@ -389,7 +389,7 @@ The following decisions are final and approved per PRODUCTS-PAGE-DESIGN-SPECIFIC
 
 **Rationale:** Archive documents are historical references only. Per FILE-ORGANIZATION-GUIDE.md, these documents should NOT be used for current strategy or implementation. No updates required.
 
-**Documents Containing "Clinexa":**
+**Documents Containing "Clinax":**
 - TRUESPUR-NARRATIVE-BLUEPRINT-V3.md (19 matches)
 - product-suite-prd.md (9 matches)
 - PROJECT-STATUS.md (7 matches)
@@ -405,7 +405,7 @@ The following decisions are final and approved per PRODUCTS-PAGE-DESIGN-SPECIFIC
 ### Documents Updated
 
 1. **90-DAY-EXECUTION-ROADMAP.md** (v1.1)
-   - Product naming: Clinexa → Clinax
+   - Product naming: Clinax → Clinax
    - Terminology: Stage labels → Progress descriptors
    - Visual strategy: Screenshots → Icons/illustrations
 
@@ -414,7 +414,7 @@ The following decisions are final and approved per PRODUCTS-PAGE-DESIGN-SPECIFIC
    - Products Page Design Specification added to Quick Start
 
 3. **TRUESPUR-BLUEPRINT-V3.1-FINAL.md** (v3.1)
-   - Product naming: Clinexa → Clinax throughout
+   - Product naming: Clinax → Clinax throughout
    - Product description updated to match approved specification
 
 ### Documents Requiring No Updates
@@ -490,7 +490,7 @@ All critical governance documents are now synchronized with approved Products Pa
 **No conflicts identified** between source-of-truth documents.
 
 All governance documents consistently reflect:
-- Product naming: Clinax (not Clinexa)
+- Product naming: Clinax (not Clinax)
 - Progress descriptors (not visible stage badges)
 - Icons/illustrations preferred (screenshots optional)
 - Product-specific CTAs for future dedicated pages (not main Products page)
@@ -529,7 +529,7 @@ All governance documents consistently reflect:
 
 ### Search Patterns Used
 
-1. **Product Naming:** "Clinexa" (68 matches across 14 files)
+1. **Product Naming:** "Clinax" (68 matches across 14 files)
 2. **Status Badges:** "stage badge|status badge|Beta badge|MVP badge|Production badge|Concept badge" (19 matches across 7 files)
 3. **Visual Strategy:** "product screenshot|dashboard screenshot|UI mockup" (17 matches across 9 files)
 4. **Product Pages:** "product-specific CTA|dedicated product page|/products/clinax|/products/halo|/products/truebill|/products/tafsirai" (16 matches across 3 files)

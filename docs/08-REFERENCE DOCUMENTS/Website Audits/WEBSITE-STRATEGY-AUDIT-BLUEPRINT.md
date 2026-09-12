@@ -84,7 +84,7 @@
 **What is immediately clear:**
 - ✅ Healthcare is a stated expertise area
 - ✅ HIPAA compliance mentioned
-- ✅ Clinexa and HaloMe products show healthcare experience
+- ✅ Clinax and HaloMe products show healthcare experience
 
 **What is confusing:**
 - ❌ What specific healthcare regulations do they handle?
@@ -736,7 +736,7 @@ Visitor → Homepage (Pain Point) → Services (Process) → Case Study → Disc
 **Current Score:** 5.5/10
 
 **Strengths:**
-- ✅ Products are shown (Clinexa, HaloMe, TrueSpur Billing, TafsirAI)
+- ✅ Products are shown (Clinax, HaloMe, TrueSpur Billing, TafsirAI)
 - ✅ Brief descriptions provided
 
 **Weaknesses:**

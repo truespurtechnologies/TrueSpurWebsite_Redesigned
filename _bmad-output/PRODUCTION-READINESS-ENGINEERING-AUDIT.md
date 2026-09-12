@@ -42,7 +42,7 @@ The project is **conditionally ready for launch hardening**, but 3 critical issu
 - Clean separation: `app/` (routes), `components/` (UI), `lib/` (utils), `hooks/` (custom hooks)
 - Component subdirectories by category: `cards/`, `contact/`, `cta/`, `layout/`, `page/`, `ui/`, `utility/`
 - API routes properly organized under `app/api/`
-- Product sub-pages use nested routing: `products/healthcare/clinexa/`, `products/artificial-intelligence/tafsir-ai/`
+- Product sub-pages use nested routing: `products/healthcare/Clinax/`, `products/artificial-intelligence/tafsir-ai/`
 
 **Issues:**
 - `types/` directory is empty — defined types live inline in components
