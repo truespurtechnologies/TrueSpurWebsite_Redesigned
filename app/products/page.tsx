@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { PageContainer } from "@/components/layout/PageContainer"
@@ -89,6 +90,7 @@ interface ShowcaseProduct {
   name: string
   description: string
   progressDescriptor: string
+  href?: string
 }
 
 const AUTO_ADVANCE_MS = 6000
@@ -228,6 +230,16 @@ function ProductShowcase({ products, shouldReduceMotion }: { products: ShowcaseP
                 {activeProduct.progressDescriptor}
               </p>
             </div>
+
+            {activeProduct.href && (
+              <Link
+                href={activeProduct.href}
+                className="relative inline-flex items-center gap-2 mt-6 text-sm font-semibold text-gray-900 hover:text-orange-600 transition-colors duration-200 group/link"
+              >
+                Explore {activeProduct.name}
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-0.5" />
+              </Link>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -462,6 +474,7 @@ export default function ProductsPage() {
                     name: "Clinax",
                     description: "End-to-end healthcare operations platform managing patient records, provider workflows, and pharmacy coordination.",
                     progressDescriptor: "Actively validating clinical workflows with healthcare stakeholders",
+                    href: "/clinax",
                   },
                   {
                     icon: Video,
