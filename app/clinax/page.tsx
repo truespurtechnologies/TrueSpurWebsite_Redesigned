@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react"
 import ClinaxNav from "@/components/clinax/ClinaxNav"
 import ConnectedClinicVisual from "@/components/clinax/ConnectedClinicVisual"
+import ClinaxProductExperience from "@/components/clinax/ClinaxProductExperience"
 
 // ─── Section 1: Hero ────────────────────────────────────────────────────────
 
@@ -272,7 +273,7 @@ function FragmentationDiagram() {
 
 function Problem() {
   return (
-    <section id="why-clinax" className="py-28 bg-white border-t border-[#D6E0EA]">
+    <section id="the-problem" className="py-28 bg-white border-t border-[#D6E0EA]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
           {/* Left: narrative */}
@@ -957,6 +958,367 @@ function ClinaxModel() {
   )
 }
 
+// ─── Section 5: Why Clinax (outcomes) ────────────────────────────────────────
+
+// Outcome 1 — a patient journey drawn as one continuous arc, with context
+// accumulating in a band beneath it so nothing is lost between steps.
+const CARE_STAGES = ["Patient", "Assessment", "Treatment", "Progress", "Follow-up"]
+
+function CareVisual({ active }: { active: boolean }) {
+  const P0 = { x: 40, y: 92 }
+  const P1 = { x: 210, y: 36 }
+  const P2 = { x: 380, y: 92 }
+  const arc = `M${P0.x} ${P0.y} Q${P1.x} ${P1.y} ${P2.x} ${P2.y}`
+  const onArc = (t: number) => ({
+    x: (1 - t) ** 2 * P0.x + 2 * (1 - t) * t * P1.x + t ** 2 * P2.x,
+    y: (1 - t) ** 2 * P0.y + 2 * (1 - t) * t * P1.y + t ** 2 * P2.y,
+  })
+  const RIBBON_Y = 150
+  const RIBBON_H = 36
+
+  return (
+    <svg viewBox="0 0 420 222" className="w-full h-auto max-w-[520px]" fill="none" aria-hidden="true">
+      <path d={arc} stroke="#D6E0EA" strokeWidth="1.2" />
+      <path d={arc} pathLength={1} stroke="#0D9DAA" strokeWidth="1.6" strokeLinecap="round" opacity="0.75" style={drawStyle(active, 0.2, 1.4)} />
+
+      {/* Context band */}
+      <g style={riseStyle(active, 0.9, 6)}>
+        <rect x="28" y={RIBBON_Y} width="364" height={RIBBON_H} rx={RIBBON_H / 2} fill="#0D9DAA" fillOpacity="0.07" stroke="#0D9DAA" strokeOpacity="0.3" />
+        <text x="210" y="209" textAnchor="middle" fontSize="9.5" fontWeight="600" fill="#0D9DAA" letterSpacing="0.14em" style={SANS}>
+          CONTEXT CARRIED FORWARD AT EVERY STEP
+        </text>
+      </g>
+
+      {CARE_STAGES.map((label, i) => {
+        const t = i / (CARE_STAGES.length - 1)
+        const p = onArc(t)
+        const delay = 0.25 + t * 1.2
+        const bars = i + 1
+        return (
+          <g key={label}>
+            <line x1={p.x} y1={p.y + 10} x2={p.x} y2={RIBBON_Y} stroke="#B4C7D8" strokeWidth="1" strokeDasharray="2 3" style={riseStyle(active, delay + 0.3, 0)} />
+            <g style={riseStyle(active, delay, 5)}>
+              <circle cx={p.x} cy={p.y} r="9" fill={i === 0 ? "#0D9DAA" : "white"} stroke="#0D9DAA" strokeWidth="1.5" />
+              {i > 0 && <circle cx={p.x} cy={p.y} r="2.5" fill="#0D9DAA" />}
+              <text x={p.x} y={p.y - 20} textAnchor="middle" fontSize="10.5" fontWeight="600" fill="#0B1F3A" style={SANS}>
+                {label}
+              </text>
+            </g>
+            {Array.from({ length: bars }).map((_, k) => {
+              const yc = RIBBON_Y + RIBBON_H / 2 + (bars - 1) * 2.5 - k * 5
+              return (
+                <rect
+                  key={k}
+                  x={p.x - 8}
+                  y={yc - 1.25}
+                  width="16"
+                  height="2.5"
+                  rx="1.25"
+                  fill="#0D9DAA"
+                  opacity={k === bars - 1 ? 0.9 : 0.45}
+                  style={riseStyle(active, delay + 0.5 + k * 0.06, 3)}
+                />
+              )
+            })}
+          </g>
+        )
+      })}
+
+      {/* Patient moving along the journey */}
+      <circle
+        r="5"
+        fill="#0D9DAA"
+        stroke="white"
+        strokeWidth="2"
+        style={{ opacity: 0, offsetPath: `path("${arc}")`, offsetRotate: "0deg", animation: active ? "clinaxJourney 6s ease-in-out 1.8s infinite" : "none" }}
+      />
+    </svg>
+  )
+}
+
+// Outcome 2 — three parts of the clinic each contributing to, and receiving
+// from, one shared operational view. Composed as an orchestration around a
+// plane rather than a node network.
+const OPS_PARTICIPANTS = [
+  { label: "Reception", cx: 86, cy: 44, from: { x: 112, y: 59 }, to: { x: 140, y: 108 } },
+  { label: "Clinical team", cx: 334, cy: 44, from: { x: 308, y: 59 }, to: { x: 280, y: 108 } },
+  { label: "Operations", cx: 210, cy: 236, from: { x: 210, y: 221 }, to: { x: 210, y: 166 } },
+]
+const OPS_SIGNALS = [
+  { label: "Schedule", x: 122, w: 42 },
+  { label: "Patient status", x: 210, w: 66 },
+  { label: "Capacity", x: 298, w: 44 },
+]
+
+function chevron(tip: { x: number; y: number }, dir: { x: number; y: number }) {
+  const px = -dir.y
+  const py = dir.x
+  const bx = tip.x - dir.x * 5
+  const by = tip.y - dir.y * 5
+  return `M${bx + px * 3.5} ${by + py * 3.5} L${tip.x} ${tip.y} L${bx - px * 3.5} ${by - py * 3.5}`
+}
+
+function OperationsVisual({ active }: { active: boolean }) {
+  return (
+    <svg viewBox="0 0 420 270" className="w-full h-auto max-w-[520px]" fill="none" aria-hidden="true">
+      {/* Shared plane */}
+      <g style={riseStyle(active, 0.1, 6)}>
+        <rect x="78" y="100" width="264" height="74" rx="18" stroke="#0D9DAA" strokeOpacity="0.18" strokeDasharray="3 5" />
+        <rect x="86" y="108" width="248" height="58" rx="14" fill="#0D9DAA" fillOpacity="0.08" stroke="#0D9DAA" strokeOpacity="0.4" />
+        <text x="210" y="129" textAnchor="middle" fontSize="9.5" fontWeight="600" fill="#0D9DAA" letterSpacing="0.14em" style={SANS}>
+          SHARED CLINIC CONTEXT
+        </text>
+        {OPS_SIGNALS.map((s, i) => (
+          <g key={s.label} style={riseStyle(active, 1.6 + i * 0.15, 3)}>
+            <circle cx={s.x - s.w / 2 - 6} cy="149" r="2.5" fill="#0D9DAA" />
+            <text x={s.x + 2} y="152" textAnchor="middle" fontSize="9.5" fontWeight="500" fill="#0B1F3A" style={SANS}>
+              {s.label}
+            </text>
+          </g>
+        ))}
+      </g>
+
+      {OPS_PARTICIPANTS.map((p, i) => {
+        const dx = p.to.x - p.from.x
+        const dy = p.to.y - p.from.y
+        const len = Math.hypot(dx, dy)
+        const dir = { x: dx / len, y: dy / len }
+        const perp = { x: -dir.y * 5, y: dir.x * 5 }
+        const a1 = { x: p.from.x + perp.x, y: p.from.y + perp.y }
+        const b1 = { x: p.to.x + perp.x, y: p.to.y + perp.y }
+        const a2 = { x: p.from.x - perp.x, y: p.from.y - perp.y }
+        const b2 = { x: p.to.x - perp.x, y: p.to.y - perp.y }
+        const delay = 0.5 + i * 0.2
+        return (
+          <g key={p.label}>
+            {/* Participant */}
+            <g style={riseStyle(active, delay - 0.2, 6)}>
+              <rect x={p.cx - 55} y={p.cy - 15} width="110" height="30" rx="15" fill="white" stroke="#D6E0EA" />
+              <circle cx={p.cx - 40} cy={p.cy} r="3" fill="#0D9DAA" opacity="0.8" />
+              <text x={p.cx + 6} y={p.cy + 1} textAnchor="middle" dominantBaseline="middle" fontSize="10.5" fontWeight="600" fill="#0B1F3A" style={SANS}>
+                {p.label}
+              </text>
+            </g>
+
+            {/* Contribute: participant → plane */}
+            <line x1={a1.x} y1={a1.y} x2={b1.x} y2={b1.y} pathLength={1} stroke="#0D9DAA" strokeWidth="1.4" strokeLinecap="round" opacity="0.65" style={drawStyle(active, delay, 0.6)} />
+            <path d={chevron(b1, dir)} stroke="#0D9DAA" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" style={riseStyle(active, delay + 0.5, 0)} />
+            <line x1={a1.x} y1={a1.y} x2={b1.x} y2={b1.y} pathLength={1} stroke="#0D9DAA" strokeWidth="3" strokeLinecap="round" strokeDasharray="0.14 1" style={{ opacity: 0, animation: active ? `clinaxPulseIn 3s ease-in-out ${2 + i * 0.7}s infinite` : "none" }} />
+            {/* Receive: plane → participant */}
+            <line x1={b2.x} y1={b2.y} x2={a2.x} y2={a2.y} pathLength={1} stroke="#0D9DAA" strokeWidth="1.4" strokeLinecap="round" opacity="0.65" style={drawStyle(active, delay + 0.2, 0.6)} />
+            <path d={chevron(a2, { x: -dir.x, y: -dir.y })} stroke="#0D9DAA" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" style={riseStyle(active, delay + 0.7, 0)} />
+            <line x1={b2.x} y1={b2.y} x2={a2.x} y2={a2.y} pathLength={1} stroke="#0D9DAA" strokeWidth="3" strokeLinecap="round" strokeDasharray="0.14 1" style={{ opacity: 0, animation: active ? `clinaxPulseIn 3s ease-in-out ${3.2 + i * 0.7}s infinite` : "none" }} />
+          </g>
+        )
+      })}
+    </svg>
+  )
+}
+
+// Outcome 3 — a dark Clinax foundation slab with organised rows building on
+// top of it. Filled blocks are today; dashed blocks are room to grow, and one
+// per row fills in after the reveal so expansion reads as structured.
+const GROWTH_ROWS = [
+  { label: "Locations", filled: 2 },
+  { label: "Services", filled: 3 },
+  { label: "Teams", filled: 5 },
+  { label: "Patients", filled: 7 },
+]
+
+function GrowthVisual({ active }: { active: boolean }) {
+  const X0 = 118
+  const STEP = 30
+  const W = 24
+  const H = 20
+  const rowY = (i: number) => 44 + i * 38
+  const GHOSTS = 2
+
+  return (
+    <svg viewBox="0 0 420 250" className="w-full h-auto max-w-[520px]" fill="none" aria-hidden="true">
+      <g style={riseStyle(active, 0.1, 0)}>
+        <text x={X0} y="24" fontSize="9.5" fontWeight="600" fill="#0D9DAA" letterSpacing="0.14em" style={SANS}>
+          ORGANISED GROWTH
+        </text>
+        <text x={X0 + 8 * STEP + W} y="24" textAnchor="end" fontSize="9.5" fontWeight="600" fill="#B4C7D8" letterSpacing="0.14em" style={SANS}>
+          ROOM TO GROW →
+        </text>
+      </g>
+
+      {GROWTH_ROWS.map((row, i) => {
+        const y = rowY(i)
+        const rowDelay = 0.9 - i * 0.15
+        return (
+          <g key={row.label}>
+            <text x={X0 - 14} y={y + H / 2 + 1} textAnchor="end" dominantBaseline="middle" fontSize="10.5" fontWeight="500" fill="#0B1F3A" style={{ ...SANS, ...riseStyle(active, rowDelay, 4) }}>
+              {row.label}
+            </text>
+            {Array.from({ length: row.filled }).map((_, k) => (
+              <rect key={k} x={X0 + k * STEP} y={y} width={W} height={H} rx="4" fill="#0D9DAA" fillOpacity="0.16" stroke="#0D9DAA" strokeOpacity="0.7" style={riseStyle(active, rowDelay + 0.1 + k * 0.07, 6)} />
+            ))}
+            {Array.from({ length: GHOSTS }).map((_, k) => {
+              const x = X0 + (row.filled + k) * STEP
+              const grows = k === 0
+              return (
+                <g key={k}>
+                  <rect
+                    x={x}
+                    y={y}
+                    width={W}
+                    height={H}
+                    rx="4"
+                    stroke="#B4C7D8"
+                    strokeDasharray="3 3"
+                    style={{
+                      opacity: active ? (grows ? 0 : 1) : 0,
+                      transition: `opacity 0.5s ease-out ${grows ? 2.6 + i * 0.3 : rowDelay + 0.6 + k * 0.1}s`,
+                    }}
+                  />
+                  {grows && (
+                    <rect
+                      x={x}
+                      y={y}
+                      width={W}
+                      height={H}
+                      rx="4"
+                      fill="#0D9DAA"
+                      fillOpacity="0.16"
+                      stroke="#0D9DAA"
+                      strokeOpacity="0.7"
+                      style={{ opacity: active ? 1 : 0, transition: `opacity 0.6s ease-out ${2.6 + i * 0.3}s` }}
+                    />
+                  )}
+                </g>
+              )
+            })}
+          </g>
+        )
+      })}
+
+      {/* Foundation */}
+      <g style={riseStyle(active, 0, 10)}>
+        <rect x="40" y="200" width="350" height="36" rx="8" fill="#0B1F3A" />
+        <circle cx="62" cy="218" r="3" fill="#0D9DAA" />
+        <text x="74" y="219" dominantBaseline="middle" fontSize="9.5" fontWeight="600" fill="white" letterSpacing="0.14em" style={SANS}>
+          CLINAX · CONNECTED FOUNDATION
+        </text>
+      </g>
+      {/* Ties from the foundation up into the structure */}
+      {[X0 + STEP * 0.5, X0 + STEP * 3.5, X0 + STEP * 6.5].map((x, i) => (
+        <line key={i} x1={x} y1="200" x2={x} y2={rowY(3) + H} pathLength={1} stroke="#0D9DAA" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" style={drawStyle(active, 0.4 + i * 0.1, 0.4)} />
+      ))}
+    </svg>
+  )
+}
+
+const OUTCOMES = [
+  {
+    index: "01",
+    label: "Better Care",
+    headline: "Keep the patient journey connected.",
+    description:
+      "When the right information and context move with the patient, teams can deliver more consistent and coordinated care.",
+    concepts: ["Connected context"],
+    Visual: CareVisual,
+  },
+  {
+    index: "02",
+    label: "Better Operations",
+    headline: "See more. Coordinate better. Stay in control.",
+    description:
+      "Give teams the shared visibility and connected workflows they need to keep everyday clinic operations moving.",
+    concepts: ["Visibility", "Control"],
+    Visual: OperationsVisual,
+  },
+  {
+    index: "03",
+    label: "Confident Growth",
+    headline: "Grow without creating more operational chaos.",
+    description:
+      "Build a connected foundation that can support more patients, people, services and locations as your clinic evolves.",
+    concepts: ["Connected foundation", "Growth"],
+    Visual: GrowthVisual,
+  },
+]
+
+function OutcomeChapter({ outcome, flip }: { outcome: (typeof OUTCOMES)[number]; flip: boolean }) {
+  const { ref, inView } = useInView(0.3)
+  const { Visual } = outcome
+
+  return (
+    <div
+      ref={ref}
+      className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center py-16 lg:py-20 border-t border-[#D6E0EA]"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(16px)",
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+      }}
+    >
+      <div className={`lg:col-span-5 ${flip ? "lg:order-2 lg:col-start-8" : ""}`} style={{ fontFamily: "var(--font-clinax-sans)" }}>
+        <p className="text-[#0D9DAA] text-[11px] font-semibold tracking-[0.16em] uppercase mb-6">
+          {outcome.index} — {outcome.label}
+        </p>
+        <h3 style={{ fontFamily: "var(--font-clinax-serif)" }} className="text-[1.9rem] sm:text-[2.25rem] leading-[1.15] text-[#0B1F3A] mb-5">
+          {outcome.headline}
+        </h3>
+        <p className="text-[#5A7189] text-[0.9375rem] leading-[1.7] font-light max-w-md mb-8">{outcome.description}</p>
+        <div className="flex flex-wrap items-center gap-2.5">
+          {outcome.concepts.map((c, i) => (
+            <span key={c} className="flex items-center gap-2.5">
+              {i > 0 && <span className="text-[#B4C7D8] text-xs">+</span>}
+              <span className="inline-flex items-center gap-2.5 bg-white border border-[#D6E0EA] rounded-full pl-3 pr-4 py-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0D9DAA]" />
+                <span className="text-[#0B1F3A] text-[10.5px] font-semibold tracking-[0.14em] uppercase">{c}</span>
+              </span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className={`lg:col-span-7 flex justify-center -mx-3 sm:mx-0 ${flip ? "lg:order-1 lg:col-start-1 lg:justify-start" : "lg:justify-end"}`}>
+        <Visual active={inView} />
+      </div>
+    </div>
+  )
+}
+
+function WhyClinax() {
+  return (
+    <section id="why-clinax" className="py-28 bg-[#F8F9FB] border-t border-[#D6E0EA]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-2xl mb-8 lg:mb-12" style={{ fontFamily: "var(--font-clinax-sans)" }}>
+          <p className="text-[#0D9DAA] text-[11px] font-semibold tracking-[0.16em] uppercase mb-5">Why Clinax</p>
+          <h2 style={{ fontFamily: "var(--font-clinax-serif)" }} className="text-4xl sm:text-[2.6rem] leading-[1.1] text-[#0B1F3A] mb-6">
+            What becomes possible when your clinic is connected.
+          </h2>
+          <p className="text-[#5A7189] text-[0.9375rem] leading-[1.7] font-light max-w-lg">
+            When patient care, teams and clinic operations work from a connected foundation, your clinic can deliver
+            better care, operate with greater visibility and control, and grow with more confidence.
+          </p>
+        </div>
+
+        <div className="flex flex-col">
+          {OUTCOMES.map((o, i) => (
+            <OutcomeChapter key={o.index} outcome={o} flip={i % 2 === 1} />
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes clinaxJourney {
+          0% { offset-distance: 0%; opacity: 0; }
+          8% { opacity: 1; }
+          92% { opacity: 1; }
+          100% { offset-distance: 100%; opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          #why-clinax * { animation: none !important; transition-duration: 0.01ms !important; }
+        }
+      `}</style>
+    </section>
+  )
+}
+
 // ─── Contact anchor ──────────────────────────────────────────────────────────
 
 function ContactAnchor() {
@@ -1023,6 +1385,8 @@ export default function ClinaxPage() {
         <Problem />
         <Shift />
         <ClinaxModel />
+        <ClinaxProductExperience />
+        <WhyClinax />
         <ContactAnchor />
       </main>
       <Footer />
