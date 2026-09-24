@@ -22,7 +22,7 @@ export default function RoleCards() {
         <SectionHeading
           eyebrow="Built around your team"
           title="Every role sees exactly what matters to them."
-          sub="Beyond modules, Clinax is designed around how each person in the clinic actually works, day to day."
+          sub="Clinax isn't organised around software modules. It's organised around how your clinic actually works."
         />
         <div ref={ref} className="grid md:grid-cols-3 gap-5">
           {ROLES.map((r, i) => (

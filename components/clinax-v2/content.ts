@@ -3,15 +3,15 @@
 
 export const NAV_LINKS = [
   { label: "Platform", href: "#platform" },
+  { label: "Product", href: "#product" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Compare", href: "#compare" },
   { label: "FAQ", href: "#faq" },
 ]
 
 export const HERO = {
   eyebrow: "The Clinical Operating System",
   headline: "Run your clinic without WhatsApp chaos, spreadsheets and paper files.",
-  sub: "Clinax connects reception, therapists and leadership on one platform — so patient records, appointments, clinical notes and branch performance finally live in one place.",
+  sub: "Clinax connects reception, therapists and leadership on one platform — so patient records, appointments, clinical notes and branch performance stay connected.",
   primaryCta: "Request a Demo",
   secondaryCta: "See the platform",
   trust: ["Built for physiotherapy & rehab clinics", "Single branch to multi-branch", "Role-based for reception, therapists & leadership", "Now onboarding early clinics"],
@@ -32,13 +32,14 @@ export const CAPABILITIES = [
   "Multi-Specialty Ready",
 ]
 
-// Illustrative scenario for a growing two-branch clinic. Not research claims;
-// replace with real discovery numbers when available.
+// Qualitative, illustrative symptoms of a fragmented clinic. Deliberately not
+// quantified — see docs/Clinax Product build brief: "Product Accuracy
+// Principle" and the plan's credibility guardrails.
 export const PAIN_POINTS = [
-  { value: "12+", unit: "WhatsApp groups", text: "One per branch, per team, per therapist — and the patient update is always in the other one." },
-  { value: "9", unit: "spreadsheets", text: "Appointments, follow-ups, therapist rosters and collections tracked by hand, out of sync by lunchtime." },
-  { value: "6–8", unit: "hours / week", text: "Spent by the front desk chasing files, confirming slots and re-typing the same patient details." },
-  { value: "4", unit: "places a history lives", text: "Paper file, a therapist's phone, an Excel row and someone's memory. None of them complete." },
+  { title: "WhatsApp groups", text: "One per branch, per team, per therapist — and the patient update is always in the other one." },
+  { title: "Spreadsheets", text: "Appointments, follow-ups, therapist rosters and collections tracked by hand, out of sync by lunchtime." },
+  { title: "Paper records", text: "A patient's history split across a paper file, a therapist's memory and someone's notebook." },
+  { title: "Manual coordination", text: "Reception, therapists and management stay aligned only because someone spends the day chasing everyone else." },
 ]
 
 export const BEFORE_ITEMS = [
@@ -57,15 +58,41 @@ export const AFTER_ITEMS = [
   "Branch dashboards show what is happening — today.",
 ]
 
+// The four capability areas shown in the Platform section. Each is backed by
+// what the product screenshots actually demonstrate (front desk, schedule,
+// therapist/visit workflow, management dashboard).
+export const PLATFORM_AREAS = [
+  {
+    label: "Patient Operations",
+    value: "Registration, scheduling and check-in in one flow.",
+    bullets: ["Patient registration & search", "Appointment booking across branches", "Front-desk check-in and waiting queue"],
+  },
+  {
+    label: "Clinical Care",
+    value: "A structured workflow for every session.",
+    bullets: ["Assessment and treatment documentation", "Goals, progress and home exercise plans", "Patient history at the point of care"],
+  },
+  {
+    label: "Clinic Operations",
+    value: "Teams and branches working from shared context.",
+    bullets: ["Role-based access for reception, therapists & leadership", "Therapist rosters and utilisation", "Branch-aware views as you grow"],
+  },
+  {
+    label: "Management & Insights",
+    value: "Visibility without exporting to Excel.",
+    bullets: ["Appointments, collections and utilisation dashboards", "Follow-up and drop-off tracking", "Clinical reviews awaiting a decision"],
+  },
+]
+
+// Kept for the HubDiagram — same four areas, compact labels for the SVG.
 export const HUB_SPOKES = [
   { label: "Patient Operations", detail: "Registration & scheduling" },
   { label: "Clinical Care", detail: "Assessment to progress" },
   { label: "Clinic Operations", detail: "Teams & branches" },
-  { label: "Visibility & Insights", detail: "Dashboards & follow-ups" },
+  { label: "Management & Insights", detail: "Dashboards & follow-ups" },
 ]
 
-// Trust/security strip shown after the platform section. Keep claims generic —
-// no certifications until they exist.
+// Trust/security strip. Confirmed current product capabilities only.
 export const TRUST_ITEMS = [
   { title: "Encrypted records", text: "Patient data is encrypted in transit and at rest." },
   { title: "Role-based access", text: "Staff see only what their work requires — nothing more." },
@@ -80,7 +107,7 @@ export interface FeatureTab {
   description: string
   bullets: string[]
   screen: { src: string; width: number; height: number; alt: string }
-  subSteps?: { key: string; label: string; src: string; width: number; height: number; alt: string }[]
+  subSteps?: { key: string; label: string; src?: string; width?: number; height?: number; alt?: string }[]
 }
 
 export const FEATURE_TABS: FeatureTab[] = [
@@ -89,13 +116,13 @@ export const FEATURE_TABS: FeatureTab[] = [
     label: "Front Desk",
     headline: "Start every day with the whole clinic in view.",
     description: "Reception sees arrivals, waiting patients, online sessions and follow-ups from one workspace — no register, no group chat.",
-    bullets: ["Today's queue and arrivals at a glance", "Check-in and registration in one flow", "Follow-ups that never fall off the list", "Branch switch without losing context"],
+    bullets: ["Today's queue and arrivals at a glance", "Check-in and registration in one flow", "Follow-ups that never fall off the list", "Branch-aware view for multi-location clinics"],
     screen: { src: "/images/clinax/front-desk.png", width: 1506, height: 680, alt: "Clinax front desk workspace showing today's appointments and waiting queue" },
   },
   {
     key: "scheduling",
     label: "Scheduling",
-    headline: "Know where the capacity is — before you book.",
+    headline: "Know where capacity is — before you book.",
     description: "Therapist availability, appointment density and branch capacity in one connected schedule.",
     bullets: ["Provider-level availability", "Appointment density by hour and day", "Cross-branch view for multi-location clinics", "Reschedule without a phone tree"],
     screen: { src: "/images/clinax/schedule.png", width: 1487, height: 665, alt: "Clinax therapist schedule showing provider availability and appointment capacity" },
@@ -110,14 +137,16 @@ export const FEATURE_TABS: FeatureTab[] = [
   },
   {
     key: "clinical",
-    label: "Clinical Workflow",
-    headline: "Assess. Treat. Plan. Complete — in one guided session.",
-    description: "A structured clinical workflow that keeps documentation consistent across every therapist and every session.",
+    label: "Clinical Care",
+    headline: "Move through the session without losing the thread.",
+    description: "A structured six-step clinical workflow — review, assess, treat, document, plan and complete — that keeps documentation consistent across every therapist and every session.",
     bullets: ["Subjective and objective assessment notes", "Today's treatment log", "Goals, progress and home exercise plan", "Visit summary and next appointment"],
     screen: { src: "/images/clinax/visit-assess.png", width: 1235, height: 650, alt: "Clinax therapy session workflow showing the assessment step" },
     subSteps: [
+      { key: "review", label: "Review" },
       { key: "assess", label: "Assess", src: "/images/clinax/visit-assess.png", width: 1235, height: 650, alt: "Clinax therapy session — assessment step with subjective and objective notes" },
       { key: "treat", label: "Treat", src: "/images/clinax/visit-treat.png", width: 1227, height: 672, alt: "Clinax therapy session — treatment step with today's treatment log" },
+      { key: "document", label: "Document" },
       { key: "plan", label: "Plan", src: "/images/clinax/visit-plan.png", width: 1227, height: 672, alt: "Clinax therapy session — care-plan step with goals and home exercise plan" },
       { key: "complete", label: "Complete", src: "/images/clinax/visit-complete.png", width: 1232, height: 652, alt: "Clinax therapy session — completion step with summary and next appointment" },
     ],
@@ -126,27 +155,43 @@ export const FEATURE_TABS: FeatureTab[] = [
     key: "management",
     label: "Management",
     headline: "See what is happening across your clinic.",
-    description: "Appointments, activity, revenue, therapist utilisation and follow-ups for owners and managers — per branch and overall.",
-    bullets: ["Branch-level operational dashboards", "Therapist utilisation and capacity", "Follow-up and drop-off visibility", "Reporting without exporting to Excel"],
+    description: "Appointments, collections, therapist utilisation, follow-ups, clinical activity and branch visibility for owners and managers — per branch and overall.",
+    bullets: ["Appointments, completions and collections at a glance", "Therapist utilisation and capacity", "Follow-up and clinical-review visibility", "Branch-level reporting without exporting to Excel"],
     screen: { src: "/images/clinax/management-dashboard.png", width: 1492, height: 682, alt: "Clinax management dashboard showing clinic operations and performance" },
   },
 ]
+
+// Connected patient journey — kept intentionally compact and text-led. See
+// SECTION 6 of the brief: this proves the "connected clinic" idea, it is not
+// a second product showcase.
+export const JOURNEY_STEPS = [
+  { label: "Appointment", carries: "Booking details" },
+  { label: "Check-in", carries: "Patient identity & visit reason" },
+  { label: "Clinical Context", carries: "History & last visit" },
+  { label: "Therapy", carries: "Assessment & treatment" },
+  { label: "Documentation", carries: "Session notes" },
+  { label: "Care Plan", carries: "Goals & home exercises" },
+  { label: "Follow-up", carries: "Next steps" },
+  { label: "Management", carries: "Visibility across it all" },
+]
+
+export const JOURNEY_QUOTE = "Capture information once. Carry it through the patient's journey."
 
 export const ROLES = [
   {
     title: "Reception & Front Desk",
     summary: "The day, organised.",
-    tasks: ["Register and check in patients", "Manage appointments and scheduling", "Handle day-to-day reception tasks", "Track follow-ups and confirmations"],
+    tasks: ["See today's arrivals, queue and follow-ups in one view", "Register, check in and reschedule without a phone tree", "Confirm and track follow-ups that used to fall through"],
   },
   {
     title: "Therapists & Clinical Staff",
     summary: "Context at the point of care.",
-    tasks: ["Document assessments and treatment plans", "Record sessions and track progress", "Access patient history instantly", "See today's priorities, not a paper pile"],
+    tasks: ["Open a session with the patient's full history attached", "Document assessments, treatment and plans as you go", "See today's priorities instead of a paper pile"],
   },
   {
     title: "Clinic Leadership",
     summary: "Visibility across branches.",
-    tasks: ["Oversee operations across branches", "Manage teams and role-based access", "Monitor performance through dashboards", "Make decisions on connected information"],
+    tasks: ["See appointments, collections and utilisation by branch", "Control who can access which branches and records", "Decide on connected information, not fragments"],
   },
 ]
 
@@ -157,19 +202,27 @@ export const STEPS = [
   { n: "04", title: "Grow", text: "Add specialties, therapists and branches on the same foundation — without starting over." },
 ]
 
-export type Mark = "yes" | "partial" | "no"
+export const STEPS_REASSURANCE = "You don't have to transform everything on day one. Clinax starts with your priority workflows and grows with you."
 
-export const COMPARE_COLUMNS = ["Clinax", "WhatsApp + Spreadsheets", "Paper Records", "Generic Clinic Software"]
-
-export const COMPARE_ROWS: { feature: string; marks: Mark[] }[] = [
-  { feature: "One patient record across branches", marks: ["yes", "no", "no", "partial"] },
-  { feature: "Structured physio / rehab documentation", marks: ["yes", "no", "partial", "partial"] },
-  { feature: "Therapist schedule & capacity view", marks: ["yes", "partial", "no", "partial"] },
-  { feature: "Role-based views for reception, therapist, leadership", marks: ["yes", "no", "no", "partial"] },
-  { feature: "Follow-up and drop-off tracking", marks: ["yes", "partial", "no", "partial"] },
-  { feature: "Branch-level dashboards without exports", marks: ["yes", "no", "no", "partial"] },
-  { feature: "Progress tracking across sessions", marks: ["yes", "no", "partial", "partial"] },
-  { feature: "Built to add specialties and branches", marks: ["yes", "no", "no", "partial"] },
+// Product philosophy / differentiation — replaces the old competitor
+// comparison matrix. No claims about named or unnamed competitors.
+export const WHY_CLINAX = [
+  {
+    title: "Built around rehabilitation workflows",
+    text: "Assessment, treatment, goals and progress are modelled the way a physiotherapy or rehab session actually runs — not a notes field bolted onto generic clinic software.",
+  },
+  {
+    title: "One connected patient journey",
+    text: "Appointment, check-in, clinical context, therapy, documentation, care plan and follow-up share the same record — not separate tools someone has to reconcile.",
+  },
+  {
+    title: "Designed for every role",
+    text: "Reception, therapists and leadership each get the view suited to their work, built from how a clinic actually operates day to day — not a set of generic modules.",
+  },
+  {
+    title: "Built to grow with branches and specialties",
+    text: "The same foundation that runs one branch is designed to support multiple branches and specialties as your clinic grows — without starting over.",
+  },
 ]
 
 export const FAQS = [
@@ -194,6 +247,10 @@ export const FAQS = [
     a: "It depends on branches and scope, but the approach is the same: discover and align, configure, onboard by role, go live with support. Most clinics start on the front desk and scheduling within weeks, not months.",
   },
   {
+    q: "Can Clinax adapt to our clinic's workflows?",
+    a: "Clinax is configured around your priority workflows, branches and roles during onboarding, rather than forcing your clinic into a fixed structure.",
+  },
+  {
     q: "Is Clinax only for physiotherapy?",
     a: "Clinax is built for physiotherapy and rehabilitation clinics first, with structured clinical workflows for that setting — and designed so clinics can extend into additional specialties over time.",
   },
@@ -203,7 +260,7 @@ export const FAQS = [
   },
   {
     q: "What about WhatsApp reminders and payments?",
-    a: "Patient communication and payment integrations are handled through third-party providers and are scoped with you during discovery, alongside the core clinic workflows.",
+    a: "Patient communication and payment integrations are scoped with you during discovery, alongside the core clinic workflows — we don't assume a specific provider in advance.",
   },
   {
     q: "Is our patient data secure?",
@@ -211,7 +268,7 @@ export const FAQS = [
   },
   {
     q: "How is Clinax priced?",
-    a: "Pricing is scoped to your clinic — branches, roles and the workflows you switch on first — rather than a one-size-fits-all plan. We walk through it transparently during the demo so you can weigh it against the tools and hours it replaces.",
+    a: "Pricing is scoped to your clinic — branches, roles and the workflows you switch on first — rather than a one-size-fits-all plan. We walk through it during the demo so you can weigh it against the tools and hours it replaces.",
   },
   {
     q: "How do we get started?",
@@ -222,7 +279,7 @@ export const FAQS = [
 export const FINAL_CTA = {
   headline: "Stop running your clinic from group chats.",
   sub: "See how Clinax brings patients, therapists and branches together — in a demo built around your clinic.",
-  bullets: ["Personalised walkthrough with your workflows", "No commitment, no credit card", "Reply within one business day"],
+  bullets: ["Personalised walkthrough with your workflows", "No commitment, no credit card", "We'll get back to you promptly"],
 }
 
 export const FOOTER_LINKS = [

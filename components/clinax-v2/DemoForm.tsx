@@ -93,7 +93,7 @@ export default function DemoForm() {
           Request received.
         </h3>
         <p className="mt-3 text-[15px] leading-[1.65]" style={{ color: C.muted }}>
-          We&apos;ll be in touch within one business day to schedule your walkthrough. A confirmation has been sent to your email.
+          We&apos;ll be in touch promptly to schedule your walkthrough. A confirmation has been sent to your email.
         </p>
         <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-[14px] font-semibold cursor-pointer hover:underline underline-offset-4" style={{ color: C.violet }}>
           Send another request

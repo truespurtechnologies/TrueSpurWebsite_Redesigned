@@ -14,7 +14,7 @@ export default function FAQ() {
   const shown = expanded ? FAQS : FAQS.slice(0, INITIAL)
 
   return (
-    <section id="faq" className="py-24 sm:py-28 scroll-mt-20" style={{ background: C.surface }}>
+    <section id="faq" className="py-24 sm:py-28 scroll-mt-20 bg-white">
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
         <SectionHeading eyebrow="FAQ" title="Questions clinic owners ask." sub="Straight answers — no sales pitch." />
 
@@ -64,7 +64,7 @@ export default function FAQ() {
           </div>
         )}
 
-        <div className="mt-14 rounded-3xl p-8 text-center bg-white" style={{ border: `1px solid ${C.lavender}` }}>
+        <div className="mt-14 rounded-3xl p-8 text-center" style={{ background: C.surface, border: `1px solid ${C.lavender}` }}>
           <h3 className="text-[1.4rem] font-bold" style={{ ...HEADING, color: C.ink }}>
             Still have questions?
           </h3>

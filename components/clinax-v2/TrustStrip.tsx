@@ -20,9 +20,9 @@ export default function TrustStrip() {
   return (
     <section className="py-14 sm:py-16" style={{ background: C.surface, borderTop: `1px solid ${C.lavender}`, borderBottom: `1px solid ${C.lavender}` }}>
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <p className="text-center text-[11px] font-bold tracking-[0.16em] uppercase" style={{ color: C.violet }}>
+        <h2 className="text-center text-[11px] font-bold tracking-[0.16em] uppercase" style={{ color: C.violet }}>
           Security &amp; data ownership
-        </p>
+        </h2>
         <div ref={ref} className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {TRUST_ITEMS.map((t, i) => (
             <div key={t.title} className="flex flex-col items-center text-center" style={riseStyle(inView, i * 0.08)}>

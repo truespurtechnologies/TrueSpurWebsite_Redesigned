@@ -2,11 +2,13 @@ import Nav from "@/components/clinax-v2/Nav"
 import Hero from "@/components/clinax-v2/Hero"
 import PainPoints from "@/components/clinax-v2/PainPoints"
 import BeforeAfter from "@/components/clinax-v2/BeforeAfter"
-import PlatformHub from "@/components/clinax-v2/PlatformHub"
-import TrustStrip from "@/components/clinax-v2/TrustStrip"
+import Platform from "@/components/clinax-v2/Platform"
+import ProductExperience from "@/components/clinax-v2/ProductExperience"
+import PatientJourney from "@/components/clinax-v2/PatientJourney"
 import RoleCards from "@/components/clinax-v2/RoleCards"
 import Steps from "@/components/clinax-v2/Steps"
-import Comparison from "@/components/clinax-v2/Comparison"
+import WhyClinax from "@/components/clinax-v2/WhyClinax"
+import TrustStrip from "@/components/clinax-v2/TrustStrip"
 import FAQ from "@/components/clinax-v2/FAQ"
 import FinalCTA from "@/components/clinax-v2/FinalCTA"
 import Footer from "@/components/clinax-v2/Footer"
@@ -20,11 +22,13 @@ export default function ClinaxV2Page() {
         <Hero />
         <PainPoints />
         <BeforeAfter />
-        <PlatformHub />
-        <TrustStrip />
+        <Platform />
+        <ProductExperience />
+        <PatientJourney />
         <RoleCards />
         <Steps />
-        <Comparison />
+        <WhyClinax />
+        <TrustStrip />
         <FAQ />
         <FinalCTA />
       </main>

@@ -1,9 +1,9 @@
 "use client"
 
 import { C, GRADIENT, HEADING } from "./theme"
-import { STEPS } from "./content"
+import { STEPS, STEPS_REASSURANCE } from "./content"
 import { useInView, riseStyle } from "./motion"
-import { SectionHeading, PrimaryButton } from "./ui"
+import { SectionHeading } from "./ui"
 
 export default function Steps() {
   const { ref, inView } = useInView(0.2)
@@ -40,11 +40,9 @@ export default function Steps() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
-          <PrimaryButton href="#demo" size="lg">
-            Start with a demo
-          </PrimaryButton>
-        </div>
+        <p className="mt-14 text-center text-[15px] font-medium max-w-xl mx-auto" style={{ color: C.muted }}>
+          {STEPS_REASSURANCE}
+        </p>
       </div>
     </section>
   )
