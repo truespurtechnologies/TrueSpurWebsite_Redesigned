@@ -225,7 +225,7 @@ export default function HomePage() {
       items: [
         {
           label: "Clinax",
-          href: "/clinax",
+          href: "https://www.clinax.in",
           description: "Connected care platform for modern healthcare delivery.",
         },
         {

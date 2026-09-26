@@ -21,6 +21,16 @@ const nextConfig = {
     // Enable if you need it
     // appDir: true,
   },
+  // Clinax now lives on its own domain (separate repo). Keep the old TrueSpur
+  // routes alive as permanent redirects so indexed URLs and backlinks still work.
+  async redirects() {
+    const CLINAX_URL = 'https://www.clinax.in'
+    return [
+      { source: '/clinax', destination: CLINAX_URL, permanent: true },
+      { source: '/clinax-v2', destination: CLINAX_URL, permanent: true },
+      { source: '/products/healthcare/Clinax', destination: CLINAX_URL, permanent: true },
+    ]
+  },
   // Security headers including Content Security Policy
   async headers() {
     // Only apply strict CSP in production, not in development

@@ -474,7 +474,7 @@ export default function ProductsPage() {
                     name: "Clinax",
                     description: "End-to-end healthcare operations platform managing patient records, provider workflows, and pharmacy coordination.",
                     progressDescriptor: "Actively validating clinical workflows with healthcare stakeholders",
-                    href: "/clinax",
+                    href: "https://www.clinax.in",
                   },
                   {
                     icon: Video,
