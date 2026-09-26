@@ -219,44 +219,6 @@ export default function HomePage() {
     return () => clearInterval(interval)
   }, [])
 
-  const productSuite = [
-    {
-      category: "Healthcare",
-      items: [
-        {
-          label: "Clinax",
-          href: "https://www.clinax.in",
-          description: "Connected care platform for modern healthcare delivery.",
-        },
-        {
-          label: "Halo",
-          href: "/products/healthcare/halome",
-          description: "Patient engagement and outreach for hospitals and clinics.",
-        },
-      ],
-    },
-    {
-      category: "Digital Transformation",
-      items: [
-        {
-          label: "TrueBill",
-          href: "/products/digital-transformation/truespur-billing",
-          description: "Billing and invoicing built for growth-ready businesses.",
-        },
-      ],
-    },
-    {
-      category: "Artificial Intelligence",
-      items: [
-        {
-          label: "TafsirAI",
-          href: "/products/artificial-intelligence/tafsir-ai",
-          description: "AI-powered insights and understanding of Islamic Quran through advanced natural language processing.",
-        },
-      ],
-    },
-  ]
-
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormStatus("loading")
@@ -706,6 +668,15 @@ export default function HomePage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
                   Beta — Active Development
                 </span>
+                <a
+                  href="https://www.clinax.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:text-teal-800 transition-colors duration-200 group/link"
+                >
+                  Visit clinax.in
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-0.5" />
+                </a>
               </motion.div>
 
               {/* Halo — Patient Engagement: sky/blue identity */}
